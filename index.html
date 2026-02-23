@@ -82,7 +82,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .disclaimer-inner .dcopy{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);margin-top:4px}
 
 /* HEADER */
-.site-header{background:var(--navy);padding:32px 16px 16px;text-align:center;position:relative;overflow:hidden}
+.site-header{background:var(--navy);padding:0;text-align:center;position:relative}
 .site-header .accent-line{position:absolute;background:rgba(0,255,0,.08);transition:transform 1s;transform:scaleX(0)}
 .site-header .accent-line.show{transform:scaleX(1)}
 .accent-h{left:0;right:0;height:1px}
@@ -322,12 +322,16 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 
 
 
-<header class="site-header" id="siteHeader">
-  <div style="display:inline-block;transform:rotate(-2deg);margin-bottom:24px;position:relative">
-    <h1 style="font-family:'Arial Black',Impact,sans-serif;font-size:clamp(28px,7vw,72px);color:#ffd700;letter-spacing:2px;text-shadow:3px 3px 0 #b8960a,0 0 40px rgba(0,85,234,.7),0 0 80px rgba(0,85,234,.4);line-height:1;margin:0">APPBUSTER</h1>
-    <div style="color:#ffffff;opacity:.7;font-family:'Share Tech Mono',monospace;font-size:15px;margin-top:10px;text-align:center">Be kind. Rewind Your Subscription! -Built w/ AI</div>
+<div id="floatingLogo" style="position:fixed;top:40px;left:0;right:0;z-index:100;text-align:center;pointer-events:none;transition:all .4s">
+  <div style="display:inline-block;transform:rotate(-2deg);pointer-events:auto">
+    <h1 id="logoText" style="font-family:'Arial Black',Impact,sans-serif;font-size:clamp(34px,8vw,84px);color:#ffd700;letter-spacing:2px;text-shadow:3px 3px 0 #b8960a,0 0 40px rgba(0,85,234,.7),0 0 80px rgba(0,85,234,.4);line-height:1;margin:0;transition:text-shadow .4s">APPBUSTER</h1>
+    <div id="logoTagline" style="color:#ffffff;opacity:.7;font-family:'Share Tech Mono',monospace;font-size:18px;margin-top:10px;text-align:center;transition:text-shadow .4s">Be kind. Rewind Your Subscription! -Built w/ AI</div>
   </div>
-  <nav class="header-nav" id="headerNav" style="margin-top:20px">
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div style="height:165px"></div>
+  <nav class="header-nav" id="headerNav" style="padding:12px 0">
     <a href="roadmap.html" style="color:#fff;text-decoration:underline" onmouseover="this.style.color='#ccc'" onmouseout="this.style.color='#fff'">Roadmap</a><span class="sep">|</span>
     <a href="#downloads" style="color:#fff">Downloads</a><span class="sep">|</span>
     <a href="#faq" style="color:#fff">F.A.Q.</a><span class="sep">|</span>
@@ -971,6 +975,44 @@ updateCalc();
 function updateClock(){document.getElementById('statusTime').textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}
 updateClock();setInterval(updateClock,1000);
 if(window.innerWidth>768)document.getElementById('statusProt').style.display='inline';
+
+// ===== LOGO GLOW ON SCROLL =====
+(function(){
+  var logo=document.getElementById('logoText');
+  var tagline=document.getElementById('logoTagline');
+  var nav=document.getElementById('headerNav');
+  var floater=document.getElementById('floatingLogo');
+  var boosted=false;
+  window.addEventListener('scroll',function(){
+    if(!nav)return;
+    var navBottom=nav.getBoundingClientRect().bottom;
+    // Glow boost when nav scrolls off
+    if(navBottom<0&&!boosted){
+      boosted=true;
+      logo.style.textShadow='3px 3px 0 #b8960a,0 0 60px rgba(0,85,234,.9),0 0 120px rgba(0,85,234,.6),0 0 180px rgba(0,85,234,.3)';
+      tagline.style.textShadow='0 0 20px rgba(0,85,234,.5)';
+    }else if(navBottom>=0&&boosted){
+      boosted=false;
+      logo.style.textShadow='3px 3px 0 #b8960a,0 0 40px rgba(0,85,234,.7),0 0 80px rgba(0,85,234,.4)';
+      tagline.style.textShadow='none';
+    }
+    // Slide up and out after first row of products
+    var cards=document.querySelectorAll('.app-card');
+    if(cards.length>=3){
+      var thirdCard=cards[2];
+      var cardTop=thirdCard.getBoundingClientRect().top;
+      var slideStart=250;
+      var slideEnd=-50;
+      if(cardTop<slideStart){
+        var progress=Math.max(0,Math.min(1,(slideStart-cardTop)/(slideStart-slideEnd)));
+        var offset=progress*-150;
+        floater.style.transform='translateY('+offset+'px)';
+      }else{
+        floater.style.transform='translateY(0)';
+      }
+    }
+  });
+})();
 
 // ===== SCROLL REVEALS =====
 function initSR(){
