@@ -6,9 +6,10 @@
 <title>App Buster - FREE SaaS Alternatives</title>
 <meta name="description" content="App Buster - Be kind. Rewind Your Subscription! Free SaaS alternatives, built with AI.">
 <meta name="theme-color" content="#0a0e2a">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffe44d'/%3E%3Cstop offset='50%25' stop-color='%23ffd700'/%3E%3Cstop offset='100%25' stop-color='%23ccab00'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a3a8a'/%3E%3Cstop offset='100%25' stop-color='%230f2460'/%3E%3C/linearGradient%3E%3ClinearGradient id='s' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23c0c0c0'/%3E%3Cstop offset='50%25' stop-color='%23e8e8e8'/%3E%3Cstop offset='100%25' stop-color='%23a0a0a0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='4' fill='url(%23b)' stroke='%23b8960a' stroke-width='1.5'/%3E%3Crect x='28' y='5' width='44' height='28' rx='2' fill='url(%23s)' stroke='%23888' stroke-width='.8'/%3E%3Crect x='36' y='8' width='20' height='22' rx='1' fill='%23333'/%3E%3Crect x='12' y='36' width='76' height='46' rx='2' fill='url(%23l)' stroke='%230a1a4a' stroke-width='.8'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' fill='%23ffd700'%3EAB%3C/text%3E%3Crect x='9' y='86' width='8' height='6' rx='1.5' fill='%23b8960a' stroke='%23a07800' stroke-width='.5'/%3E%3Ccircle cx='50' cy='90' r='3' fill='none' stroke='%23b8960a' stroke-width='.8'/%3E%3Ccircle cx='50' cy='90' r='1' fill='%23b8960a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@300;400;700&family=Courier+Prime:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&family=Comic+Neue:wght@300;400;700&family=Courier+Prime:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0a0e2a;--navy-light:#1a1e4a;--silver:#c0c0c0;--silver-light:#d4d0c8;--green-dl:#00cc00;--green-glow:#00ff00;--red-price:#cc0000;--yellow-alert:#ffd700;--xp-blue:#0055ea;--border:#808080;--fg:#000;--muted:#555}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
@@ -255,27 +256,32 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:16px}
 .app-card{background:var(--silver-light);display:flex;flex-direction:column;opacity:0;transform:translateY(32px) scale(.95);transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .app-card.show{opacity:1;transform:translateY(0) scale(1)}
-.app-card:hover{box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 40px rgba(255,215,0,.06);transform:translateY(-8px) scale(1);border-radius:16px;background:#fff;border:2px solid rgba(255,215,0,.15) !important}
+.app-card:hover{box-shadow:0 25px 50px rgba(0,0,0,.25);transform:translateY(-8px) scale(1);border-radius:24px;background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(20px)}
 .app-card *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.app-card:hover .app-art{border-radius:16px 16px 0 0}
+.app-card:hover .app-art{border-radius:24px 24px 0 0;background:linear-gradient(135deg,rgba(120,53,15,.85),rgba(68,64,60,.85)) !important;padding:12px}
 .app-card:hover .icon{transform:none}
 .app-card:hover .icon-emoji{filter:drop-shadow(0 0 20px rgba(255,215,0,.5)) drop-shadow(0 0 40px rgba(255,215,0,.3));text-shadow:none}
-.app-card:hover .cat{font-family:'Share Tech Mono',monospace;font-size:14px;color:#ffd700;letter-spacing:4px;font-weight:bold;text-shadow:0 0 12px rgba(255,215,0,.5)}
+.app-card:hover .cat{font-family:'Inter',-apple-system,sans-serif;font-size:13px;color:#fff;letter-spacing:3px;font-weight:600;text-shadow:none}
 .app-card:hover .badge-stack{top:12px;left:12px}
 .app-card:hover .star-row{top:12px;right:12px}
-.app-card:hover .badge-new,.app-card:hover .badge-hot{font-family:'Inter',sans-serif;border-radius:4px;font-size:10px;padding:4px 12px;animation:none !important;opacity:1;font-weight:700}
-.app-card:hover .badge-new{background:#ffd700;color:#0a0e2a;box-shadow:none}
-.app-card:hover .badge-hot{background:#ff6600;color:#fff;box-shadow:none}
-.app-card:hover .app-name{font-family:'Arial Black',Impact,sans-serif;font-size:18px;font-weight:900;color:var(--navy);text-shadow:none}
-.app-card:hover .app-desc{font-family:'Inter',sans-serif;font-size:12px;line-height:1.4;color:#334155}
-.app-card:hover .price-box{background:#2d3748;border-radius:8px;border:1px solid rgba(255,215,0,.2) !important;box-shadow:none}
-.app-card:hover .their-price{color:#ff6b6b}
-.app-card:hover .free-price{font-family:'Arial Black',Impact,sans-serif;font-size:16px;color:#ffd700;font-weight:900;text-shadow:0 0 20px rgba(255,215,0,.3)}
-.app-card:hover .free-sub{font-family:'Share Tech Mono',monospace;font-size:10px;color:#fff}
-.app-card:hover .savings{font-family:'Inter',sans-serif;color:#ffd700;font-weight:800;font-size:10px}
-.app-card:hover .price-label{color:#fff}
-.app-card:hover .dl-btn{background:#ffd700;color:#0a0e2a;font-family:'Arial Black',Impact,sans-serif;font-weight:800;font-size:14px;border-radius:4px;box-shadow:0 0 30px rgba(255,215,0,.3),0 4px 14px rgba(255,215,0,.2);border-color:transparent !important;letter-spacing:1px;text-transform:uppercase}
-.app-card:hover .dl-btn:hover{box-shadow:0 0 40px rgba(255,215,0,.5),0 6px 20px rgba(255,215,0,.3)}
+.app-card:hover .badge-new,.app-card:hover .badge-hot{font-family:'Inter',sans-serif;border-radius:20px;font-size:10px;padding:4px 12px;animation:none !important;opacity:1;font-weight:700}
+.app-card:hover .badge-new{background:linear-gradient(135deg,#ffd700,#f59e0b);color:#0a0e2a;box-shadow:0 2px 8px rgba(255,215,0,.3)}
+.app-card:hover .badge-hot{background:linear-gradient(135deg,#f97316,#ef4444);color:#fff;box-shadow:0 2px 8px rgba(249,115,22,.3)}
+.app-card:hover .star.on{color:#facc15;filter:drop-shadow(0 0 4px rgba(250,204,21,.5))}
+.app-card:hover .app-body{padding:16px}
+.app-card:hover .compare-to{font-family:'Inter',-apple-system,sans-serif;font-size:12px;color:#6b7280;font-weight:400}
+.app-card:hover .compare-to .brand{color:#dc2626;font-weight:600}
+.app-card:hover .app-name{font-family:'Inter',-apple-system,sans-serif;font-size:20px;font-weight:800;color:#111827;text-shadow:none;letter-spacing:-.3px}
+.app-card:hover .app-desc{font-family:'Inter',sans-serif;font-size:12px;line-height:1.5;color:#4b5563}
+.app-card:hover .app-meta{font-family:'Inter',sans-serif;font-size:11px;color:#9ca3af;letter-spacing:.3px}
+.app-card:hover .price-box{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border-radius:16px;border:2px solid #bbf7d0 !important;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:16px}
+.app-card:hover .their-price{color:#dc2626;font-family:'Inter',sans-serif;font-size:20px;font-weight:700}
+.app-card:hover .free-price{font-family:'Inter',-apple-system,sans-serif;font-size:32px;color:#16a34a;font-weight:900;text-shadow:none}
+.app-card:hover .free-sub{font-family:'Inter',sans-serif;font-size:10px;color:#6b7280}
+.app-card:hover .savings{font-family:'Inter',sans-serif;color:#15803d;font-weight:700;font-size:12px;background:linear-gradient(90deg,#dcfce7,#d1fae5);border-radius:8px;padding:6px 12px;margin-top:8px}
+.app-card:hover .price-label{color:#6b7280;font-family:'Inter',sans-serif;font-size:11px}
+.app-card:hover .dl-btn{background:linear-gradient(135deg,#ffe44d,#ffd700);color:#0a0e2a;font-family:'Inter',-apple-system,sans-serif;font-weight:700;font-size:14px;border-radius:12px;box-shadow:0 0 30px rgba(255,215,0,.3),0 4px 14px rgba(255,215,0,.2);border-color:transparent !important;letter-spacing:.5px;text-transform:uppercase;padding:12px;transition:all .3s ease}
+.app-card:hover .dl-btn:hover{box-shadow:0 0 40px rgba(255,215,0,.5),0 6px 20px rgba(255,215,0,.3);background:linear-gradient(135deg,#ffcc00,#b8960a);transform:translateY(-2px)}
 .app-art{height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .app-art .icon{font-size:40px;text-shadow:2px 2px 0 rgba(0,0,0,.5);transition:transform .5s;position:relative;z-index:3}
 .app-art .icon-emoji{display:block}
@@ -416,16 +422,22 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 <!-- ===== MAIN ===== -->
 <div id="main-site">
 
-<div class="xp-titlebar" id="xpTitlebar">
-  <span>&#x1F4BE; App Buster - We just think $249/mo for an SEO tool is insane.</span>
-  <div class="xp-btns"><button class="bevel-outset">_</button><button class="bevel-outset">&#9633;</button><button class="bevel-outset" onclick="document.getElementById('xpTitlebar').style.display='none'">X</button></div>
-</div>
 
 
 
 
-
-<header class="site-header" id="siteHeader">
+<header class="site-header" id="siteHeader" style="position:relative">
+  <div style="position:absolute;top:12px;right:16px;display:flex;gap:12px;z-index:10">
+    <a href="#" title="Social" style="color:#fff;opacity:.6;transition:opacity .3s;display:flex;align-items:center;justify-content:center;width:32px;height:32px" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </a>
+    <a href="#" title="Share" style="color:#fff;opacity:.6;transition:opacity .3s;display:flex;align-items:center;justify-content:center;width:32px;height:32px" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+    </a>
+    <a href="#" title="Account" style="color:#fff;opacity:.6;transition:opacity .3s;display:flex;align-items:center;justify-content:center;width:32px;height:32px" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+  </div>
   <div style="display:inline-block;transform:rotate(-2deg);margin:24px 0">
     <h1 style="font-family:'Arial Black',Impact,sans-serif;font-size:clamp(34px,8vw,84px);color:#ffd700;letter-spacing:2px;text-shadow:3px 3px 0 #b8960a,0 0 40px rgba(0,85,234,.7),0 0 80px rgba(0,85,234,.4);line-height:1;margin:0">APPBUSTER</h1>
     <div style="color:#ffffff;opacity:.7;font-family:'Share Tech Mono',monospace;font-size:18px;margin-top:10px;text-align:center">Be kind. Rewind Your Subscription! -Built w/ AI</div>
@@ -547,7 +559,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
   <div style="padding:16px">
 
     <div class="bevel-inset" style="background:var(--navy);padding:24px;text-align:center;margin-bottom:16px">
-      <p style="font-family:'Press Start 2P',monospace;font-size:clamp(10px,2vw,16px);color:var(--green-glow);line-height:2">APP BUSTER</p>
+      <p style="font-family:'Arial Black',Impact,sans-serif;font-size:clamp(16px,3vw,28px);color:#ffd700;letter-spacing:2px;text-shadow:2px 2px 0 #b8960a,0 0 20px rgba(0,85,234,.5);line-height:2">APPBUSTER</p>
       <p style="color:var(--silver);font-size:14px;margin-top:8px">"Same tools. Same features. $0/mo."</p>
       <p style="color:var(--yellow-alert);font-family:'Courier Prime',monospace;font-size:11px;margin-top:12px">Est. 2026 | Built with AI | Free forever</p>
     </div>
@@ -642,7 +654,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
   </div>
   <div class="footer-copy">
     <p class="made">We just think $249/mo for an SEO tool is insane. <span class="heart">&lt;3</span></p>
-    <p class="hosted">App Buster - Est. 2026 - Built with AI, priced with common sense.</p>
+    <p class="hosted"><span style="font-family:'Arial Black',Impact,sans-serif;color:#ffd700;letter-spacing:1px;text-shadow:1px 1px 0 #b8960a">APPBUSTER</span> - Est. 2026 - Built with AI, priced with common sense.</p>
     <div class="footer-badges">
       <span class="footer-badge bevel-outset">&#9989; 100% LEGAL</span>
       <span class="footer-badge bevel-outset">&#9989; AI-BUILT</span>
