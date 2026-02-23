@@ -173,9 +173,28 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .section-bar .accent.show{width:100%}
 .section-sub{background:rgba(255,215,0,.2);padding:8px;text-align:center;font-size:12px;font-weight:bold}
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:16px}
-.app-card{background:var(--silver-light);display:flex;flex-direction:column;opacity:0;transform:translateY(32px) scale(.95);transition:opacity .6s,transform .6s,box-shadow .3s}
+.app-card{background:var(--silver-light);display:flex;flex-direction:column;opacity:0;transform:translateY(32px) scale(.95);transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .app-card.show{opacity:1;transform:translateY(0) scale(1)}
-.app-card:hover{box-shadow:4px 4px 0 rgba(0,0,0,.3);transform:translateY(-4px) scale(1)}
+.app-card:hover{box-shadow:0 20px 60px rgba(0,0,0,.15),0 8px 20px rgba(0,0,0,.1);transform:translateY(-8px) scale(1);border-radius:16px;background:#fff;border-color:transparent !important}
+.app-card *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
+.app-card:hover .app-art{border-radius:16px 16px 0 0;filter:saturate(1.2) brightness(1.1)}
+.app-card:hover .icon{transform:scale(1.2);filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));text-shadow:none}
+.app-card:hover .cat{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:2px;text-shadow:none;opacity:.9}
+.app-card:hover .badge-new,.app-card:hover .badge-hot{font-family:'Share Tech Mono',monospace;border-radius:20px;font-size:9px;padding:3px 10px;animation:none !important;opacity:1}
+.app-card:hover .badge-new{background:#10b981;box-shadow:0 2px 8px rgba(16,185,129,.4)}
+.app-card:hover .badge-hot{background:#f59e0b;box-shadow:0 2px 8px rgba(245,158,11,.4)}
+.app-card:hover .app-name{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.3px;color:#111}
+.app-card:hover .compare-to{font-family:-apple-system,sans-serif;font-size:12px;color:#888;letter-spacing:.5px}
+.app-card:hover .compare-to .brand{color:#ef4444;font-weight:600}
+.app-card:hover .app-desc{font-family:-apple-system,sans-serif;font-size:13px;line-height:1.6;color:#555}
+.app-card:hover .app-meta{font-family:-apple-system,sans-serif;font-size:11px;color:#aaa}
+.app-card:hover .price-box{background:linear-gradient(135deg,#f8fafc,#f1f5f9);border-radius:12px;border-color:#e2e8f0 !important;box-shadow:none}
+.app-card:hover .their-price{color:#ef4444}
+.app-card:hover .free-price{color:#10b981;font-family:-apple-system,sans-serif;font-weight:800;letter-spacing:-.5px}
+.app-card:hover .free-sub{font-family:-apple-system,sans-serif}
+.app-card:hover .savings{font-family:-apple-system,sans-serif;color:#10b981;font-weight:600}
+.app-card:hover .dl-btn{background:linear-gradient(135deg,#10b981,#059669);border-radius:12px;font-family:-apple-system,sans-serif;font-weight:600;font-size:15px;box-shadow:0 4px 14px rgba(16,185,129,.4);border-color:transparent !important;letter-spacing:.5px}
+.app-card:hover .dl-btn:hover{box-shadow:0 6px 20px rgba(16,185,129,.6)}
 .app-art{height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .app-art .icon{font-size:40px;text-shadow:2px 2px 0 rgba(0,0,0,.5);transition:transform .5s}
 .app-card:hover .icon{transform:scale(1.1)}
