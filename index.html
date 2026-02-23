@@ -310,24 +310,14 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 <!-- ===== MAIN ===== -->
 <div id="main-site">
 
-<div class="xp-titlebar">
-  <span>&#x1F4BE; App Buster - FREE Downloads - Microsoft Internet Explorer</span>
-  <div class="xp-btns"><button class="bevel-outset">_</button><button class="bevel-outset">&#9633;</button><button class="bevel-outset">X</button></div>
+<div class="xp-titlebar" id="xpTitlebar">
+  <span>&#x1F4BE; App Buster - We just think $249/mo for an SEO tool is insane.</span>
+  <div class="xp-btns"><button class="bevel-outset">_</button><button class="bevel-outset">&#9633;</button><button class="bevel-outset" onclick="document.getElementById('xpTitlebar').style.display='none'">X</button></div>
 </div>
 
-<div class="marquee-wrap">
-  <div class="marquee-text">*** APP BUSTER *** Every app is 100% FREE *** Built from scratch with AI *** NexRank: compare to Semrush ($249/mo) *** BulkPipe: compare to HubSpot ($800/mo) *** BulkMail: compare to Mailchimp ($350/mo) *** We just think $249/mo for an SEO tool is insane *** New apps added weekly ***</div>
-</div>
 
-<div class="sr" data-sr>
-  <div class="construction-stripe">
-    <div class="disclaimer-inner bevel-outset">
-      <p class="dtitle">*** IMPORTANT LEGAL NOTICE ***</p>
-      <p class="dbody">Every application is built from scratch using AI. 100% legal. 100% free. We are not affiliated with any trademarks referenced.* "Compare to" labels are for consumer price comparison only.</p>
-      <p class="dcopy">Copyright 2026 AppBuster.ai - All Rights Reserved</p>
-    </div>
-  </div>
-</div>
+
+
 
 <header class="site-header" id="siteHeader">
   <div class="accent-line accent-h" style="top:25%" id="hl1"></div>
@@ -383,20 +373,12 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
   </div>
   <nav class="header-nav" id="headerNav">
     <a href="roadmap.html" style="color:#cc0000;text-decoration:underline" onmouseover="this.style.color='#ff0000'" onmouseout="this.style.color='#cc0000'">Roadmap</a><span class="sep">|</span>
-    <a href="#downloads">New Releases<span class="new-badge">NEW!</span></a><span class="sep">|</span>
+    <a href="#downloads">Downloads</a><span class="sep">|</span>
     <a href="#faq">F.A.Q.</a><span class="sep">|</span>
-    <a href="#compare" style="color:var(--green-glow)"><span class="new-badge" style="color:var(--green-glow)">$</span> Compare &amp; Save <span class="new-badge" style="color:var(--green-glow)">$</span></a><span class="sep">|</span>
+    <a href="#compare" style="color:var(--green-glow)"><span style="color:var(--green-glow)">$</span> Compare &amp; Save <span style="color:var(--green-glow)">$</span></a><span class="sep">|</span>
     <a href="#pitch">Pitch Deck</a>
   </nav>
-  <div class="hit-counter">
-    <span class="label" style="color:var(--green-glow)">&#x1F4B0; TOTAL MONEY SAVED [estimate] &#x1F4B0;</span>
-    <div style="display:flex;align-items:center;gap:8px">
-      <div class="digits bevel-inset" id="counterDigits" style="font-size:0"></div>
-      <span style="font-size:24px">&#x1F525;</span>
-    </div>
-    <span class="since">...and counting</span>
-  </div>
-  <div class="header-meta" id="headerMeta">Last Updated: Feb 21, 2026 | "We just think $249/mo for an SEO tool is insane."</div>
+
 </header>
 
 <div class="content-area">
@@ -410,7 +392,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
       <label style="font-size:11px;display:block;margin-bottom:4px">I currently pay for:</label>
       <select id="calcSw" class="bevel-inset" onchange="updateCalc()" style="width:100%;padding:4px 8px;font-family:'Courier Prime',monospace;font-size:12px;margin-bottom:10px">
         <option value="0">-- select --</option>
-        <option value="249">Semrush* ($249/mo)</option>
+        <option value="249" selected>Semrush* ($249/mo)</option>
         <option value="800">HubSpot* ($800/mo)</option>
         <option value="350">Mailchimp* ($350/mo)</option>
         <option value="79">Monday.com* ($79/mo)</option>
@@ -421,20 +403,20 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
       </select>
       <label style="font-size:11px;display:block;margin-bottom:4px">Number of seats:</label>
       <select id="calcSeats" class="bevel-inset" onchange="updateCalc()" style="width:100%;padding:4px 8px;font-family:'Courier Prime',monospace;font-size:12px;margin-bottom:10px">
-        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="50">50</option>
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5" selected>5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="50">50</option>
       </select>
       <div class="calc-result bevel-inset" style="text-align:center;padding:8px;background:#fff;font-size:12px">
-        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Their price:</span><span class="calc-their" id="calcTheir">$0/mo</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Their price:</span><span class="calc-their" id="calcTheir">$1,245/mo</span></div>
         <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Our price:</span><span class="calc-free">$0/mo</span></div>
-        <div class="calc-save">Annual savings: <span id="calcSave">$0</span></div>
+        <div class="calc-save">Annual savings: <span id="calcSave">$14,940/yr</span></div>
       </div>
       <p style="font-size:9px;color:var(--muted);text-align:center;margin-top:8px;font-style:italic">* Based on published per-seat pricing</p>
     </div>
   </div>
   <div class="sidebar-section bevel-outset sr-left" data-sr style="transition-delay:.1s">
-    <div class="sidebar-header"><h3>&#x1F5F3; VOTE: KILL NEXT</h3><div class="accent" data-accent></div></div>
+    <div class="sidebar-header"><h3>&#x1F5F3; VOTE: BUILD NEXT</h3><div class="accent" data-accent></div></div>
     <div class="vote-wrap" id="voteWidget">
-      <div class="vote-label">Which overpriced software should we replace next? Start typing to vote:</div>
+      <div class="vote-label">Which software should we build a free alternative to next? Start typing to vote:</div>
       <div class="vote-input-wrap bevel-inset">
         <input type="text" class="vote-input" id="voteInput" placeholder="Type software name..." autocomplete="off">
         <div class="vote-dropdown" id="voteDropdown"></div>
@@ -661,15 +643,12 @@ function closeSplash(){document.getElementById('splash').classList.add('fade-out
   setTimeout(function(){closeSplash();},6500);
 })();
 
-// ===== MONEY SAVED COUNTER =====
-var savedCount=10000000;
-function updateCounter(){var d='$'+savedCount.toLocaleString();var h='';d.split('').forEach(function(c){h+='<span class="digit">'+c+'</span>';});document.getElementById('counterDigits').innerHTML=h;}
-updateCounter();setInterval(function(){savedCount+=Math.floor(Math.random()*499999)+200000;if(savedCount>=99999999)savedCount=10000000;updateCounter();},8);
+
 
 // ===== CATEGORIES =====
 (function(){var h='';CATS.forEach(function(c){h+='<button><span>\u{1F4C2} '+c.n+'</span><span class="cnt">('+c.c+')</span></button>';});document.getElementById('catList').innerHTML=h;})();
 
-// ===== VOTE: KILL NEXT =====
+// ===== VOTE: BUILD NEXT =====
 (function(){
   var SOFTWARE=[
     {n:'Statista',p:'$39-600/mo',c:'Statistics & Data'},
@@ -862,8 +841,8 @@ updateCounter();setInterval(function(){savedCount+=Math.floor(Math.random()*4999
     var inc=1;
     if(window._bonusVoteAvailable){inc=2;window._bonusVoteAvailable=false;
       var vl=document.querySelector('.vote-label');
-      if(vl)vl.innerHTML='Which overpriced software should we replace next? Start typing to vote:<br><span style="color:var(--green-dl);font-size:9px">&#x2705; Bonus vote used! Share again to earn another.</span>';
-      setTimeout(function(){var vl2=document.querySelector('.vote-label');if(vl2)vl2.textContent='Which overpriced software should we replace next? Start typing to vote:';},3000);
+      if(vl)vl.innerHTML='Which software should we build a free alternative to next? Start typing to vote:<br><span style="color:var(--green-dl);font-size:9px">&#x2705; Bonus vote used! Share again to earn another.</span>';
+      setTimeout(function(){var vl2=document.querySelector('.vote-label');if(vl2)vl2.textContent='Which software should we build a free alternative to next? Start typing to vote:';},3000);
     }
     votes[name]=(votes[name]||0)+inc;
     voted[name]=true;
@@ -916,7 +895,7 @@ updateCounter();setInterval(function(){savedCount+=Math.floor(Math.random()*4999
     h+='<article class="app-card bevel-outset" style="transition-delay:'+(idx*80)+'ms" data-app>'+
       '<div class="app-art" style="background:'+a.color+'">'+
         '<div style="text-align:center;color:#fff"><div class="icon">'+a.icon+'</div><p class="cat">'+a.cat+'</p></div>'+
-        '<div class="badge-stack">'+(a.isNew?'<span class="badge-new">NEW!</span>':'')+(a.isHot?'<span class="badge-hot">HOT!</span>':'')+'</div>'+
+        '<div class="badge-stack">'+(a.isNew?'<span class="badge-new">FREE</span>':'')+(a.isHot?'<span class="badge-hot">HOT!</span>':'')+'</div>'+
         '<div class="star-row">'+stars+'</div>'+
       '</div>'+
       '<div class="app-body">'+
@@ -978,7 +957,7 @@ function completeShare(){
   // Update vote widget to show bonus
   var voteLabel=document.querySelector('.vote-label');
   if(voteLabel && _bonusVoteAvailable){
-    voteLabel.innerHTML='Which overpriced software should we replace next? Start typing to vote:<br><span style="color:var(--green-dl);font-size:9px">&#x2B50; You earned +1 bonus vote! Your next vote counts double.</span>';
+    voteLabel.innerHTML='Which software should we build a free alternative to next? Start typing to vote:<br><span style="color:var(--green-dl);font-size:9px">&#x2B50; You earned +1 bonus vote! Your next vote counts double.</span>';
   }
   setTimeout(function(){
     document.getElementById('shareOverlay').classList.remove('open');
@@ -1030,6 +1009,7 @@ function runDownload(btn){
 
 // ===== CALCULATOR =====
 function updateCalc(){var p=parseInt(document.getElementById('calcSw').value)||0,s=parseInt(document.getElementById('calcSeats').value)||1,mo=p*s,yr=mo*12;document.getElementById('calcTheir').textContent='$'+mo.toLocaleString()+'/mo';document.getElementById('calcSave').textContent='$'+yr.toLocaleString()+'/yr';}
+updateCalc();
 
 // ===== STATUS BAR =====
 function updateClock(){document.getElementById('statusTime').textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}
@@ -1047,7 +1027,6 @@ function initSR(){
     document.getElementById('hl1').classList.add('show');document.getElementById('hl2').classList.add('show');
     document.getElementById('headerTitle').classList.add('show');document.getElementById('headerSub').classList.add('show');
     document.getElementById('headerSep').classList.add('show');document.getElementById('sepL').classList.add('show');document.getElementById('sepR').classList.add('show');
-    document.getElementById('headerMeta').classList.add('show');
     document.querySelectorAll('#headerNav a').forEach(function(a,i){setTimeout(function(){a.classList.add('show');},600+i*100);});
   }});},{threshold:.1});
   hObs.observe(document.getElementById('siteHeader'));
