@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>App Buster - FREE SaaS Alternatives</title>
-<meta name="description" content="App Buster - The #1 source for FREE SaaS alternatives. Why pay $249/mo for SEO tools?">
+<meta name="description" content="App Buster - Free SaaS, Built with AI by Business Owners. Why pay $249/mo for SEO tools?">
 <meta name="theme-color" content="#0a0e2a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@300;400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@300;400;700&family=Courier+Prime:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0a0e2a;--navy-light:#1a1e4a;--silver:#c0c0c0;--silver-light:#d4d0c8;--green-dl:#00cc00;--green-glow:#00ff00;--red-price:#cc0000;--yellow-alert:#ffd700;--xp-blue:#0055ea;--border:#808080;--fg:#000;--muted:#555}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
@@ -102,8 +102,8 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .header-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin:16px 0;font-size:13px}
 .header-nav a{color:#fff;text-decoration:underline;opacity:0;transform:translateY(12px);transition:all .5s}
 .header-nav a.show{opacity:1;transform:translateY(0)}
-.header-nav a:hover{color:var(--green-glow)}
-.header-nav .sep{color:var(--green-glow)}
+.header-nav a:hover{color:#ffd700}
+.header-nav .sep{color:rgba(255,255,255,.4)}
 .new-badge{color:var(--red-price);font-weight:bold;animation:blink-c 1s step-end infinite;margin-left:4px}
 .hit-counter{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:16px}
 .hit-counter .label{font-size:11px;color:#fff}
@@ -301,7 +301,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
   <div class="splash-title">
     <p class="splash-welcome" id="sW">WELCOME TO</p>
     <h1 class="splash-name" id="sN">App Buster</h1>
-    <p class="splash-tagline" id="sTg">Free SaaS alternatives, built with AI, given away for free</p>
+    <p class="splash-tagline" id="sTg">Free SaaS, Built with AI by Business Owners</p>
     <p class="splash-enter" id="sE" onclick="closeSplash()" style="cursor:pointer">[ CLICK TO ENTER ]</p>
     <p class="splash-ie" id="sIE">Best viewed in Internet Explorer 6.0 at 800x600</p>
   </div>
@@ -320,39 +320,16 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 
 
 <header class="site-header" id="siteHeader">
-  <div class="accent-line accent-h" style="top:25%" id="hl1"></div>
-  <div class="accent-line accent-h" style="top:75%" id="hl2"></div>
-  <div class="header-title" id="headerTitle">
-    <div style="display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,32px);flex-wrap:nowrap">
-      <svg width="90" height="90" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+  <div style="display:inline-block;transform:rotate(-2deg);margin-bottom:24px;position:relative">
+    <div style="display:flex;align-items:center;gap:clamp(12px,2vw,24px);justify-content:center">
+      <h1 style="font-family:'Arial Black',Impact,sans-serif;font-size:clamp(28px,7vw,72px);color:#ffd700;letter-spacing:2px;text-shadow:3px 3px 0 #b8960a,0 0 40px rgba(0,85,234,.7),0 0 80px rgba(0,85,234,.4);line-height:1;margin:0">APPBUSTER</h1>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;width:clamp(40px,6vw,70px);height:clamp(40px,6vw,70px)">
         <defs>
-          <linearGradient id="ybL" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe44d"/><stop offset="50%" stop-color="#ffd700"/><stop offset="100%" stop-color="#ccaa00"/></linearGradient>
-          <filter id="shL" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#0055ea" flood-opacity="0.7"/><feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/></filter>
+          <linearGradient id="ybF" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe44d"/><stop offset="50%" stop-color="#ffd700"/><stop offset="100%" stop-color="#ccaa00"/></linearGradient>
+          <filter id="shF" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#0055ea" flood-opacity="0.9"/><feDropShadow dx="0" dy="0" stdDeviation="24" flood-color="#0055ea" flood-opacity="0.5"/></filter>
         </defs>
-        <g filter="url(#shL)">
-          <rect x="20" y="10" width="160" height="170" rx="6" fill="url(#ybL)" stroke="#aa8800" stroke-width="1.5"/>
-          <rect x="55" y="14" width="90" height="46" rx="3" fill="#c4bfb0" stroke="#a09a8a" stroke-width="1"/>
-          <rect x="72" y="20" width="56" height="34" rx="2" fill="#a09a8a"/>
-          <rect x="80" y="24" width="40" height="26" rx="1" fill="#8a8578"/>
-          <rect x="34" y="72" width="132" height="88" rx="3" fill="#fffff5" stroke="#c4bfb0" stroke-width="1"/>
-          <line x1="40" y1="90" x2="160" y2="90" stroke="#e0ddd0" stroke-width="0.5"/>
-          <line x1="40" y1="104" x2="160" y2="104" stroke="#e0ddd0" stroke-width="0.5"/>
-          <text x="100" y="112" font-family="'Courier Prime',monospace" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">App Buster</text>
-          <text x="100" y="134" font-family="'Courier Prime',monospace" font-size="8" fill="#888" text-anchor="middle">INSTALL DISK 1 OF 1</text>
-          <rect x="75" y="168" width="50" height="14" rx="3" fill="#a09a8a" stroke="#8a8578" stroke-width="0.8"/>
-        </g>
-      </svg>
-      <div style="text-align:center">
-        <h1 style="font-family:'Press Start 2P',monospace;font-size:clamp(16px,3.5vw,36px);color:var(--green-glow);text-shadow:2px 2px 0 rgba(0,0,0,.8),0 0 20px rgba(0,255,0,.3);line-height:1.4;white-space:nowrap"><span style="color:#00ff00">App</span> <span style="color:#fff">Buster</span></h1>
-        <div class="header-subtitle" id="headerSub" style="color:#fff;margin-top:4px">Free SaaS alternatives, built with AI, given away for free</div>
-      </div>
-      <svg width="90" height="90" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
-        <defs>
-          <linearGradient id="ybR" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe44d"/><stop offset="50%" stop-color="#ffd700"/><stop offset="100%" stop-color="#ccaa00"/></linearGradient>
-          <filter id="shR" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#0055ea" flood-opacity="0.7"/><feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/></filter>
-        </defs>
-        <g filter="url(#shR)">
-          <rect x="20" y="10" width="160" height="170" rx="6" fill="url(#ybR)" stroke="#aa8800" stroke-width="1.5"/>
+        <g filter="url(#shF)">
+          <rect x="20" y="10" width="160" height="170" rx="6" fill="url(#ybF)" stroke="#aa8800" stroke-width="1.5"/>
           <rect x="55" y="14" width="90" height="46" rx="3" fill="#c4bfb0" stroke="#a09a8a" stroke-width="1"/>
           <rect x="72" y="20" width="56" height="34" rx="2" fill="#a09a8a"/>
           <rect x="80" y="24" width="40" height="26" rx="1" fill="#8a8578"/>
@@ -365,20 +342,15 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
         </g>
       </svg>
     </div>
+    <div style="color:#ffffff;opacity:.7;font-family:'Share Tech Mono',monospace;font-size:15px;margin-top:10px;text-align:center">Free SaaS, Built with AI by Business Owners</div>
   </div>
-  <div class="header-sep" id="headerSep">
-    <div class="line" id="sepL"></div>
-    <span class="est">EST. 2026</span>
-    <div class="line" id="sepR"></div>
-  </div>
-  <nav class="header-nav" id="headerNav">
-    <a href="roadmap.html" style="color:#cc0000;text-decoration:underline" onmouseover="this.style.color='#ff0000'" onmouseout="this.style.color='#cc0000'">Roadmap</a><span class="sep">|</span>
-    <a href="#downloads">Downloads</a><span class="sep">|</span>
-    <a href="#faq">F.A.Q.</a><span class="sep">|</span>
-    <a href="#compare" style="color:var(--green-glow)"><span style="color:var(--green-glow)">$</span> Compare &amp; Save <span style="color:var(--green-glow)">$</span></a><span class="sep">|</span>
-    <a href="#pitch">Pitch Deck</a>
+  <nav class="header-nav" id="headerNav" style="margin-top:20px">
+    <a href="roadmap.html" style="color:#fff;text-decoration:underline" onmouseover="this.style.color='#ccc'" onmouseout="this.style.color='#fff'">Roadmap</a><span class="sep">|</span>
+    <a href="#downloads" style="color:#fff">Downloads</a><span class="sep">|</span>
+    <a href="#faq" style="color:#fff">F.A.Q.</a><span class="sep">|</span>
+    <a href="#compare" style="color:#ffd700"><span style="color:#ffd700">$</span> Compare &amp; Save <span style="color:#ffd700">$</span></a><span class="sep">|</span>
+    <a href="#pitch" style="color:#fff">Pitch Deck</a>
   </nav>
-
 </header>
 
 <div class="content-area">
@@ -1024,9 +996,7 @@ function initSR(){
   document.querySelectorAll('[data-divider]').forEach(function(el){obs.observe(el);});
 
   var hObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){
-    document.getElementById('hl1').classList.add('show');document.getElementById('hl2').classList.add('show');
-    document.getElementById('headerTitle').classList.add('show');document.getElementById('headerSub').classList.add('show');
-    document.getElementById('headerSep').classList.add('show');document.getElementById('sepL').classList.add('show');document.getElementById('sepR').classList.add('show');
+    // header visible by default
     document.querySelectorAll('#headerNav a').forEach(function(a,i){setTimeout(function(){a.classList.add('show');},600+i*100);});
   }});},{threshold:.1});
   hObs.observe(document.getElementById('siteHeader'));
