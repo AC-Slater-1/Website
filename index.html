@@ -122,75 +122,75 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .sidebar{width:240px;flex-shrink:0}
 .sidebar-section{margin-bottom:16px;transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .sidebar-section *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.sidebar-section:hover{border-radius:16px;background:#fff;border-color:transparent !important;box-shadow:0 20px 60px rgba(0,0,0,.15),0 8px 20px rgba(0,0,0,.1)}
+.sidebar-section:hover{border-radius:16px;background:#fff;border:2px solid rgba(255,215,0,.15) !important;box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 40px rgba(255,215,0,.04);transform:translateY(-4px)}
 .sidebar-section:hover .sidebar-header{border-radius:16px 16px 0 0;background:linear-gradient(135deg,#0f172a,#1e293b)}
-.sidebar-section:hover .sidebar-header h3{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;color:#ffd700}
+.sidebar-section:hover .sidebar-header h3{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;color:#ffd700}
 .sidebar-section:hover .sidebar-header .accent{background:linear-gradient(90deg,#ffd700,#f59e0b) !important;height:3px;border-radius:0 0 2px 2px}
-.sidebar-section:hover select{font-family:-apple-system,sans-serif;border-radius:8px;border:1px solid #e2e8f0 !important;background:#f8fafc;padding:6px 10px}
-.sidebar-section:hover label{font-family:-apple-system,sans-serif;font-size:12px;color:#64748b;font-weight:500}
-.sidebar-section:hover .calc-result{border-radius:12px;background:linear-gradient(135deg,#f8fafc,#f1f5f9) !important;border-color:#e2e8f0 !important;box-shadow:none}
-.sidebar-section:hover .calc-result span{font-family:-apple-system,sans-serif}
-.sidebar-section:hover .calc-their{color:#ef4444;font-weight:600}
-.sidebar-section:hover .calc-free{color:#10b981;font-weight:700}
-.sidebar-section:hover .calc-save{font-family:-apple-system,sans-serif;color:#10b981;border-color:#e2e8f0}
-.sidebar-section:hover .vote-label{font-family:-apple-system,sans-serif;font-size:12px;color:#475569;font-weight:500}
-.sidebar-section:hover .vote-input{font-family:-apple-system,sans-serif;font-size:13px;border-radius:8px;border:1px solid #e2e8f0 !important;background:#f8fafc;padding:8px 12px}
+.sidebar-section:hover select{font-family:'Inter',-apple-system,sans-serif;border-radius:8px;border:1px solid #e2e8f0 !important;background:#f8fafc;padding:6px 10px;color:#334155}
+.sidebar-section:hover label{font-family:'Inter',-apple-system,sans-serif;font-size:12px;color:#64748b;font-weight:500}
+.sidebar-section:hover .calc-result{border-radius:12px;background:linear-gradient(135deg,#f8fafc,#f1f5f9) !important;border:1px solid #e2e8f0 !important;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.sidebar-section:hover .calc-result span{font-family:"Inter",-apple-system,sans-serif;color:#334155}
+.sidebar-section:hover .calc-their{color:#ef4444;font-weight:700;font-family:"Inter",-apple-system,sans-serif}
+.sidebar-section:hover .calc-free{color:#10b981;font-weight:800;font-family:"Inter",-apple-system,sans-serif}
+.sidebar-section:hover .calc-save{font-family:"Inter",-apple-system,sans-serif;color:#10b981;border-color:#e2e8f0;font-weight:700}
+.sidebar-section:hover .vote-label{font-family:"Inter",-apple-system,sans-serif;font-size:12px;color:#475569;font-weight:500}
+.sidebar-section:hover .vote-input{font-family:"Inter",-apple-system,sans-serif;font-size:13px;border-radius:8px;border:1px solid #e2e8f0 !important;background:#f8fafc;padding:8px 12px}
 .sidebar-section:hover .vote-input-wrap{border-radius:8px;border-color:#e2e8f0 !important;box-shadow:none}
-.sidebar-section:hover .vote-bar-name{font-family:-apple-system,sans-serif;font-size:11px;font-weight:600;color:#334155}
+.sidebar-section:hover .vote-bar-name{font-family:"Inter",-apple-system,sans-serif;font-size:11px;font-weight:600;color:#334155}
 .sidebar-section:hover .vote-bar-track{border-radius:20px;background:#e2e8f0;height:10px}
-.sidebar-section:hover .vote-bar-fill{border-radius:20px;background:linear-gradient(90deg,#10b981,#059669)}
-.sidebar-section:hover .vote-count{font-family:-apple-system,sans-serif;font-size:10px;color:#94a3b8}
-.sidebar-section:hover .vote-total{font-family:-apple-system,sans-serif;font-size:10px;color:#94a3b8;border-color:#e2e8f0}
-.sidebar-section:hover .sidebar-list button{font-family:-apple-system,sans-serif;font-size:13px;font-weight:500;border-radius:8px;padding:6px 10px}
-.sidebar-section:hover .sidebar-list button:hover{background:linear-gradient(135deg,#10b981,#059669);color:#fff;border-radius:8px}
-.sidebar-section:hover .sidebar-list .cnt{font-family:-apple-system,sans-serif;font-size:11px}
+.sidebar-section:hover .vote-bar-fill{border-radius:20px;background:linear-gradient(90deg,#ffd700,#f59e0b)}
+.sidebar-section:hover .vote-count{font-family:"Inter",-apple-system,sans-serif;font-size:10px;color:#94a3b8}
+.sidebar-section:hover .vote-total{font-family:"Inter",-apple-system,sans-serif;font-size:10px;color:#94a3b8;border-color:#e2e8f0}
+.sidebar-section:hover .sidebar-list button{font-family:"Inter",-apple-system,sans-serif;font-size:13px;font-weight:500;border-radius:8px;padding:6px 10px}
+.sidebar-section:hover .sidebar-list button:hover{background:linear-gradient(135deg,#ffd700,#f59e0b);color:#0a0e2a;border-radius:8px}
+.sidebar-section:hover .sidebar-list .cnt{font-family:"Inter",-apple-system,sans-serif;font-size:11px}
 
 /* ===== UNIVERSAL CONTEMPORARY HOVER ===== */
 /* Major sections */
 #compare,#pitch,#faq{transition:all .5s cubic-bezier(.2,.8,.3,1)}
 #compare *,#pitch *,#faq *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-#compare:hover,#pitch:hover,#faq:hover{border-radius:16px;background:#fff !important;border-color:transparent !important;box-shadow:0 20px 60px rgba(0,0,0,.15),0 8px 20px rgba(0,0,0,.1)}
+#compare:hover,#pitch:hover,#faq:hover{border-radius:16px;background:#fff !important;border:2px solid rgba(255,215,0,.15) !important;box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 40px rgba(255,215,0,.04);transform:translateY(-4px)}
 #compare:hover .section-bar,#pitch:hover .section-bar,#faq:hover .section-bar{border-radius:16px 16px 0 0;background:linear-gradient(135deg,#0f172a,#1e293b)}
-#compare:hover .section-bar h2,#pitch:hover .section-bar h2,#faq:hover .section-bar h2{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;font-weight:700;letter-spacing:.3px;color:#ffd700}
+#compare:hover .section-bar h2,#pitch:hover .section-bar h2,#faq:hover .section-bar h2{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:16px;font-weight:700;letter-spacing:.3px;color:#ffd700}
 #compare:hover .section-bar .accent,#pitch:hover .section-bar .accent,#faq:hover .section-bar .accent{background:linear-gradient(90deg,#ffd700,#f59e0b) !important;height:3px}
-#compare:hover table{border-radius:12px;overflow:hidden;border-color:#e2e8f0 !important;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+#compare:hover table{border-radius:12px;overflow:hidden;border:1px solid #e2e8f0 !important;box-shadow:0 2px 8px rgba(0,0,0,.04)}
 #compare:hover thead tr{background:linear-gradient(135deg,#0f172a,#1e293b) !important}
-#compare:hover thead th{font-family:-apple-system,sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px}
+#compare:hover thead th{font-family:'Inter',-apple-system,sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px}
 #compare:hover tfoot tr{background:linear-gradient(135deg,#0f172a,#1e293b) !important}
-#compare:hover tfoot td{font-family:-apple-system,sans-serif !important;letter-spacing:.3px}
-#compare:hover tbody td{font-family:-apple-system,sans-serif}
-#compare:hover p{font-family:-apple-system,sans-serif}
-#pitch:hover .bevel-inset{border-radius:12px;border-color:#e2e8f0 !important;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-#pitch:hover h3{font-family:-apple-system,sans-serif !important;font-size:13px !important;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#0f172a}
-#pitch:hover p{font-family:-apple-system,sans-serif}
-#pitch:hover li{font-family:-apple-system,sans-serif}
-#pitch:hover table{border-radius:8px;overflow:hidden}
-#pitch:hover table td{font-family:-apple-system,sans-serif;padding:8px 12px !important}
-#faq:hover .bevel-inset{border-radius:12px;border-color:#e2e8f0 !important;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-#faq:hover p{font-family:-apple-system,sans-serif}
+#compare:hover tfoot td{font-family:'Inter',-apple-system,sans-serif !important;letter-spacing:.3px}
+#compare:hover tbody td{font-family:'Inter',-apple-system,sans-serif;color:#334155}
+#compare:hover p{font-family:'Inter',-apple-system,sans-serif;color:#334155}
+#pitch:hover .bevel-inset{border-radius:12px;border-color:#e2e8f0 !important;box-shadow:0 2px 8px rgba(0,0,0,.04);background:#f8fafc}
+#pitch:hover h3{font-family:'Inter',-apple-system,sans-serif !important;font-size:13px !important;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#0f172a}
+#pitch:hover p{font-family:'Inter',-apple-system,sans-serif;color:#334155;line-height:1.6}
+#pitch:hover li{font-family:'Inter',-apple-system,sans-serif;color:#334155}
+#pitch:hover table{border-radius:8px;overflow:hidden;border-color:#e2e8f0 !important}
+#pitch:hover table td{font-family:'Inter',-apple-system,sans-serif;padding:8px 12px !important}
+#faq:hover .bevel-inset{border-radius:12px;border-color:#e2e8f0 !important;box-shadow:0 2px 8px rgba(0,0,0,.04);background:#f8fafc}
+#faq:hover p{font-family:'Inter',-apple-system,sans-serif;color:#334155;line-height:1.6}
 /* Downloads section header - no hover */
 .under-construction{transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .under-construction *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.under-construction:hover{border-radius:16px !important;background:#fff !important;border-color:transparent !important;box-shadow:0 20px 60px rgba(0,0,0,.15),0 8px 20px rgba(0,0,0,.1)}
-.under-construction:hover .utext{font-family:-apple-system,sans-serif;font-size:14px;font-weight:700;color:#0f172a}
-.under-construction:hover .usub{font-family:-apple-system,sans-serif;font-size:13px;color:#64748b}
+.under-construction:hover{border-radius:16px !important;background:#fff !important;border:2px solid rgba(255,215,0,.15) !important;box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 40px rgba(255,215,0,.04);transform:translateY(-4px)}
+.under-construction:hover .utext{font-family:"Inter",-apple-system,sans-serif;font-size:14px;font-weight:700;color:#0f172a}
+.under-construction:hover .usub{font-family:"Inter",-apple-system,sans-serif;font-size:13px;color:#64748b}
 .load-more .bevel-button{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.load-more .bevel-button:hover{font-family:-apple-system,sans-serif;border-radius:12px;background:linear-gradient(135deg,#10b981,#059669);color:#fff;border-color:transparent !important;box-shadow:0 4px 14px rgba(16,185,129,.4);padding:12px 36px}
+.load-more .bevel-button:hover{font-family:'Inter',-apple-system,sans-serif;border-radius:12px;background:linear-gradient(135deg,#ffd700,#f59e0b);color:#0a0e2a;border-color:transparent !important;box-shadow:0 0 30px rgba(255,215,0,.3),0 4px 14px rgba(255,215,0,.2);padding:12px 36px;font-weight:700}
 .load-more .info{transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .sec-divider{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.sec-divider:hover .label{font-family:-apple-system,sans-serif;font-size:10px;font-weight:600;color:#64748b;letter-spacing:1px}
+.sec-divider:hover .label{font-family:'Inter',-apple-system,sans-serif;font-size:10px;font-weight:600;color:#64748b;letter-spacing:1px}
 .sec-divider:hover .line{border-color:#e2e8f0 !important}
 .webring-box{transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .webring-box *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.webring-box:hover{border-radius:16px;border-color:transparent !important;box-shadow:0 20px 60px rgba(0,0,0,.15),0 8px 20px rgba(0,0,0,.1)}
-.webring-box:hover .webring-header{border-radius:16px 16px 0 0;font-family:-apple-system,sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#0f172a,#1e293b)}
-.webring-box:hover .bevel-button{font-family:-apple-system,sans-serif;border-radius:8px;background:linear-gradient(135deg,#f1f5f9,#e2e8f0);border-color:transparent !important;font-weight:500}
-.webring-box:hover .ring-name{font-family:-apple-system,sans-serif !important}
-.webring-box:hover .ring-count{font-family:-apple-system,sans-serif !important}
-.webring-box:hover p{font-family:-apple-system,sans-serif}
-.webring-box:hover a{font-family:-apple-system,sans-serif}
+.webring-box:hover{border-radius:16px;background:#fff;border:2px solid rgba(255,215,0,.15) !important;box-shadow:0 20px 60px rgba(0,0,0,.2),0 0 40px rgba(255,215,0,.04);transform:translateY(-4px)}
+.webring-box:hover .webring-header{border-radius:16px 16px 0 0;font-family:"Inter",-apple-system,sans-serif;font-size:12px;font-weight:700;letter-spacing:.5px;background:linear-gradient(135deg,#0f172a,#1e293b)}
+.webring-box:hover .bevel-button{font-family:"Inter",-apple-system,sans-serif;border-radius:8px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);border:1px solid #e2e8f0 !important;font-weight:500;color:#334155}
+.webring-box:hover .ring-name{font-family:"Inter",-apple-system,sans-serif !important}
+.webring-box:hover .ring-count{font-family:"Inter",-apple-system,sans-serif !important}
+.webring-box:hover p{font-family:"Inter",-apple-system,sans-serif;color:#334155}
+.webring-box:hover a{font-family:"Inter",-apple-system,sans-serif}
 .footer-badge{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.footer-badge:hover{font-family:-apple-system,sans-serif !important;border-radius:20px;background:linear-gradient(135deg,#10b981,#059669) !important;color:#fff;border-color:transparent !important;padding:4px 12px;box-shadow:0 2px 8px rgba(16,185,129,.4)}
+.footer-badge:hover{font-family:'Inter',-apple-system,sans-serif !important;border-radius:20px;background:linear-gradient(135deg,#ffd700,#f59e0b) !important;color:#0a0e2a;border-color:transparent !important;padding:4px 12px;box-shadow:0 0 20px rgba(255,215,0,.3);font-weight:700}
 .xp-titlebar{transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .xp-titlebar *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .xp-titlebar:hover{background:linear-gradient(135deg,#0f172a,#1e293b) !important;border-radius:0 0 12px 12px}
@@ -251,7 +251,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .section-bar .cnt{font-family:'Courier Prime',monospace;font-size:10px;color:var(--silver)}
 .section-bar .accent{position:absolute;bottom:0;left:0;height:2px;background:var(--yellow-alert);width:0%;transition:width 1s}
 .section-bar .accent.show{width:100%}
-.section-sub{background:rgba(255,215,0,.2);padding:8px;text-align:center;font-size:12px;font-weight:bold}
+.section-sub{background:var(--silver-light);padding:8px;text-align:center;font-size:12px;font-weight:bold}
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:16px}
 .app-card{background:var(--silver-light);display:flex;flex-direction:column;opacity:0;transform:translateY(32px) scale(.95);transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .app-card.show{opacity:1;transform:translateY(0) scale(1)}
@@ -493,7 +493,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 <section class="app-section" id="downloads">
   <div class="bevel-outset" style="margin-bottom:16px">
     <div class="section-bar" id="appBar">
-      <h2>>> STOP OVERPAYING FOR SOFTWARE &lt;&lt;</h2>
+      <h2>>> STOP OVERPAYING FOR BUSINESS SOFTWARE &lt;&lt;</h2>
       <span class="cnt" id="appCount"></span>
       <div class="accent" data-accent></div>
     </div>
