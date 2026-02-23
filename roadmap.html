@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SaaS_Buster.exe // Development Scoring Roadmap</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #c0c0c0; font-family: 'Courier New', Courier, monospace; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #0a0a1a; }
+  ::-webkit-scrollbar-thumb { background: #333; }
+  ::-webkit-scrollbar-thumb:hover { background: #555; }
+  input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 0; outline: none; cursor: pointer; }
+  input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; background: #c0c0c0; border: 1px solid #666; cursor: pointer; }
+  input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; background: #c0c0c0; border: 1px solid #666; cursor: pointer; border-radius: 0; }
+  table { width: 100%; border-collapse: collapse; }
+  th { position: sticky; top: 0; z-index: 2; }
+  tr.datarow:hover { background: #1a1a3e !important; }
+  button { font-family: 'Courier New', Courier, monospace; }
+  button:hover { opacity: 0.85; }
+  .pixel-font { font-family: 'Press Start 2P', 'Courier New', monospace; }
+  @keyframes glow { 0%,100% { text-shadow: 0 0 20px rgba(0,255,65,0.5); } 50% { text-shadow: 0 0 30px rgba(0,255,65,0.8), 0 0 60px rgba(0,255,65,0.3); } }
+  .revenue-glow { animation: glow 3s ease-in-out infinite; }
+  @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100vh); } }
+  .scanline-overlay { pointer-events: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px); z-index: 9999; }
+  .eye-tip { position: relative; display: inline-flex; align-items: center; cursor: help; }
+  .eye-tip .tip-bubble { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); width: 280px; background: #0a0a1a; border: 1px solid #00ff41; padding: 10px 12px; font-size: 11px; color: #999; line-height: 1.6; z-index: 200; pointer-events: none; }
+  .eye-tip .tip-bubble::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: #00ff41; }
+  .eye-tip:hover .tip-bubble { display: block; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div class="scanline-overlay"></div>
+
+<script type="text/babel">
+const { useState, useMemo } = React;
+
+const RAW_DATA = [
+  { name: "SB_Stats", category: "Statistics & Data", replaces: "Statista, IBISWorld, Euromonitor", price: "$39-600/mo", tam: "Millions", revenue: 500, priceResent: 5, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "Public data repackaged with charts. Zero moat. Universal resentment across students, marketers, consultants.",
+    competitors: [
+      { name: "Statista", url: "https://www.statista.com", price: "$39-149/mo", rev: "$250M", users: "2M+ registered", vulnerability: "Public data behind a paywall. AI can source and visualize the same datasets for free." },
+      { name: "IBISWorld", url: "https://www.ibisworld.com", price: "$500-600/mo", rev: "$150M", users: "Enterprise/academia", vulnerability: "Industry reports built from public data. AI-generated analysis is comparable." },
+      { name: "Euromonitor", url: "https://www.euromonitor.com", price: "Custom enterprise", rev: "$100M+", users: "Enterprise", vulnerability: "Premium positioning but same public data sources underneath." },
+    ]},
+  { name: "SB_PDF", category: "PDF Tools", replaces: "Adobe Acrobat, SmallPDF, ILovePDF, Foxit, Nitro", price: "$9-23/mo", tam: "100M+", revenue: 4200, priceResent: 5, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "Solved open-source tech behind a paywall. People Google 'merge PDF free' every single day. Zero loyalty.",
+    competitors: [
+      { name: "Adobe Acrobat", url: "https://www.adobe.com/acrobat", price: "$12.99-22.99/mo", rev: "$3.5B (Document Cloud)", users: "300M+ ecosystem", vulnerability: "Bundled into Creative Cloud. Standalone PDF users resent the price for basic operations." },
+      { name: "SmallPDF", url: "https://smallpdf.com", price: "$9-14/mo", rev: "$100M+", users: "50M+ monthly", vulnerability: "Pure wrapper over commodity tech. Zero proprietary technology." },
+      { name: "ILovePDF", url: "https://www.ilovepdf.com", price: "$4-6/mo", rev: "$50M+", users: "40M+ monthly", vulnerability: "Race to bottom already happening. Free tier very limited." },
+      { name: "Foxit", url: "https://www.foxit.com", price: "$14-16/mo", rev: "$150M+", users: "Enterprise focus", vulnerability: "Selling to enterprises what open-source does for free." },
+      { name: "Nitro", url: "https://www.gonitro.com", price: "$14/mo", rev: "$80M+", users: "SMB focus", vulnerability: "Acquired by Alludo. Distracted parent company." },
+    ]},
+  { name: "SB_Write", category: "AI Writing & Grammar", replaces: "Grammarly, ProWritingAid, QuillBot, Wordtune, Hemingway", price: "$12-30/mo", tam: "30M+ DAU", revenue: 350, priceResent: 4, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "LLMs commoditized grammar overnight. Browser extension swap = 30 seconds. Grammarly's moat is brand, not tech.",
+    competitors: [
+      { name: "Grammarly", url: "https://www.grammarly.com", price: "$12-30/mo", rev: "$250M+", users: "30M DAU", vulnerability: "$13B valuation but LLMs made core tech free. Brand is the only moat." },
+      { name: "ProWritingAid", url: "https://prowritingaid.com", price: "$10-30/mo", rev: "$20M+", users: "2M+", vulnerability: "Niche audience. Less brand recognition than Grammarly." },
+      { name: "QuillBot", url: "https://quillbot.com", price: "$10-20/mo", rev: "$50M+", users: "35M+ monthly", vulnerability: "Paraphrasing tool. ChatGPT does this better for free." },
+      { name: "Wordtune", url: "https://www.wordtune.com", price: "$10-25/mo", rev: "$15M+", users: "10M+", vulnerability: "AI21 Labs product. Rewriting is a commodity LLM task." },
+      { name: "Hemingway", url: "https://hemingwayapp.com", price: "$10 one-time", rev: "<$5M", users: "1M+", vulnerability: "Readability scoring. Trivially replicable." },
+    ]},
+  { name: "SB_SEO", category: "SEO & Web Intelligence", replaces: "Semrush, Ahrefs, Moz, SpyFu, Mangools, Serpstat", price: "$39-500/mo", tam: "2M+ paying", revenue: 850, priceResent: 5, users: 5, replication: 3, switching: 5, switchTonight: "YES", note: "Adobe acquiring Semrush = distraction. Already built NexRank prototype in 72 hours. Backlink index is the only hard part.",
+    competitors: [
+      { name: "Semrush", url: "https://www.semrush.com", price: "$130-500/mo", rev: "$400M", users: "1M+ paying", vulnerability: "Adobe acquiring for ~$1.9B. Declining growth. Most vulnerable moment." },
+      { name: "Ahrefs", url: "https://ahrefs.com", price: "$99-449/mo", rev: "$200M+", users: "400K+", vulnerability: "Best backlink index but bootstrapped, slow to innovate on AI." },
+      { name: "Moz", url: "https://moz.com", price: "$49-299/mo", rev: "$60M+", users: "500K+", vulnerability: "Lost market share for years. Acquired by iContact/Zeta." },
+      { name: "SpyFu", url: "https://www.spyfu.com", price: "$39-79/mo", rev: "$15M+", users: "100K+", vulnerability: "Competitor keyword tool. Small team, limited features." },
+      { name: "Mangools", url: "https://mangools.com", price: "$30-90/mo", rev: "$10M+", users: "50K+", vulnerability: "Budget SEO. Already undercut by everyone." },
+      { name: "Serpstat", url: "https://serpstat.com", price: "$59-479/mo", rev: "$10M+", users: "100K+", vulnerability: "Ukrainian company. Growth limited by market positioning." },
+    ]},
+  { name: "SB_Schedule", category: "Scheduling & Booking", replaces: "Calendly, Acuity, Cal.com, SavvyCal, TidyCal", price: "$10-46/mo", tam: "20M+", revenue: 300, priceResent: 4, users: 4, replication: 5, switching: 5, switchTonight: "YES", note: "Change one link, done. Cal.com proves open-source works. No data to migrate.",
+    competitors: [
+      { name: "Calendly", url: "https://calendly.com", price: "$10-16/mo", rev: "$250M+", users: "20M+", vulnerability: "$3B valuation for a booking page. Cal.com proving open-source works." },
+      { name: "Acuity (Squarespace)", url: "https://acuityscheduling.com", price: "$16-46/mo", rev: "$30M+", users: "2M+", vulnerability: "Bundled into Squarespace. Overpriced standalone." },
+      { name: "Cal.com", url: "https://cal.com", price: "$0-12/mo", rev: "$5M+", users: "Growing", vulnerability: "Open-source competitor already exists. Validates the market." },
+      { name: "SavvyCal", url: "https://savvycal.com", price: "$12-20/mo", rev: "<$5M", users: "Small", vulnerability: "Niche premium. Limited differentiation." },
+    ]},
+  { name: "SB_Record", category: "Screen Recording", replaces: "Loom, Vidyard, CloudApp, ScreenPal", price: "$3-59/mo", tam: "25M+", revenue: 200, priceResent: 4, users: 4, replication: 5, switching: 5, switchTonight: "YES", note: "Screen recording is an OS feature. Recordings are just .mp4 files. No data gravity.",
+    competitors: [
+      { name: "Loom", url: "https://www.loom.com", price: "$12.50-15/mo", rev: "$150M+", users: "25M+", vulnerability: "Acquired by Atlassian for $975M. Screen recording is an OS feature now." },
+      { name: "Vidyard", url: "https://www.vidyard.com", price: "$19-59/mo", rev: "$30M+", users: "1M+", vulnerability: "Sales-focused video. Niche use case." },
+      { name: "CloudApp (Zight)", url: "https://www.zight.com", price: "$10-16/mo", rev: "$15M+", users: "500K+", vulnerability: "Screenshot + recording. Rebranded, losing momentum." },
+      { name: "ScreenPal", url: "https://screenpal.com", price: "$3-6/mo", rev: "$10M+", users: "5M+", vulnerability: "Already cheap. Race to bottom." },
+    ]},
+  { name: "SB_Links", category: "Link Mgmt & Bio Pages", replaces: "Bitly, Linktree, Rebrandly, Short.io", price: "$5-35/mo", tam: "50M+", revenue: 380, priceResent: 3, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "URL shortening is a one-line function. Linktree's 50M users paying for a single HTML page.",
+    competitors: [
+      { name: "Bitly", url: "https://bitly.com", price: "$8-35/mo", rev: "$200M+", users: "5M+", vulnerability: "URL shortening is literally one database row and a redirect." },
+      { name: "Linktree", url: "https://linktr.ee", price: "$5-24/mo", rev: "$80M+", users: "50M+", vulnerability: "A single HTML page with links. Peak SaaS absurdity." },
+      { name: "Rebrandly", url: "https://www.rebrandly.com", price: "$13-32/mo", rev: "$15M+", users: "500K+", vulnerability: "Branded links. Custom domains trivial to implement." },
+      { name: "Short.io", url: "https://short.io", price: "$5-20/mo", rev: "$5M+", users: "200K+", vulnerability: "Commodity service with commodity pricing." },
+    ]},
+  { name: "SB_Forms", category: "Forms & Surveys", replaces: "Typeform, SurveyMonkey, JotForm, Tally", price: "$25-99/mo", tam: "1M+ paying", revenue: 700, priceResent: 4, users: 4, replication: 5, switching: 4, switchTonight: "YES", note: "Forms rebuilt each campaign anyway. AI generates any form from a prompt. Design is the only differentiator.",
+    competitors: [
+      { name: "Typeform", url: "https://www.typeform.com", price: "$25-83/mo", rev: "$100M+", users: "500K+", vulnerability: "Pretty forms. AI can generate any design from a prompt." },
+      { name: "SurveyMonkey", url: "https://www.surveymonkey.com", price: "$25-99/mo", rev: "$500M+", users: "800K paying", vulnerability: "Legacy brand. Overpriced for what it does." },
+      { name: "JotForm", url: "https://www.jotform.com", price: "$34-99/mo", rev: "$60M+", users: "25M+", vulnerability: "Bootstrapped. Feature-rich but bloated." },
+      { name: "Tally", url: "https://tally.so", price: "$0-29/mo", rev: "$5M+", users: "200K+", vulnerability: "Free tier already disrupting. Validates the approach." },
+    ]},
+  { name: "SB_Transcribe", category: "Transcription & Notes", replaces: "Otter.ai, Rev, Fireflies.ai, tl;dv, Notta", price: "$10-30/mo", tam: "10M+", revenue: 150, priceResent: 4, users: 3, replication: 5, switching: 5, switchTonight: "YES", note: "Whisper API made this commodity overnight. Each meeting is independent. Zero switching cost.",
+    competitors: [
+      { name: "Otter.ai", url: "https://otter.ai", price: "$10-20/mo", rev: "$50M+", users: "5M+", vulnerability: "Whisper matches quality for free. No moat beyond brand." },
+      { name: "Rev", url: "https://www.rev.com", price: "$10-25/mo", rev: "$50M+", users: "2M+", vulnerability: "Human transcription pivot to AI. Legacy pricing remains." },
+      { name: "Fireflies.ai", url: "https://fireflies.ai", price: "$10-19/mo", rev: "$20M+", users: "2M+", vulnerability: "Meeting bot. Core transcription is commodity." },
+      { name: "tl;dv", url: "https://tldv.io", price: "$18-29/mo", rev: "$10M+", users: "500K+", vulnerability: "Meeting summaries. GPT wrapper with calendar integration." },
+    ]},
+  { name: "SB_Stock", category: "Stock Media", replaces: "Shutterstock, iStock, Getty, Adobe Stock", price: "$29-199/mo", tam: "Millions paying", revenue: 2800, priceResent: 4, users: 4, replication: 4, switching: 5, switchTonight: "YES", note: "AI image generation destroying this category. Previous purchases already downloaded. Zero gravity.",
+    competitors: [
+      { name: "Shutterstock", url: "https://www.shutterstock.com", price: "$29-199/mo", rev: "$800M+", users: "2M+", vulnerability: "Stock down 60% from peak. AI image gen is existential threat." },
+      { name: "Getty Images", url: "https://www.gettyimages.com", price: "$100-300/mo", rev: "$900M+", users: "1M+ enterprise", vulnerability: "Premium positioning but AI alternatives emerging fast." },
+      { name: "iStock (Getty)", url: "https://www.istockphoto.com", price: "$29-199/mo", rev: "Included in Getty", users: "SMB tier", vulnerability: "Budget Getty. Same existential AI threat." },
+      { name: "Adobe Stock", url: "https://stock.adobe.com", price: "$30-80/mo", rev: "$500M+", users: "Bundled CC", vulnerability: "Bundled with Creative Cloud. Firefly eating its own product." },
+    ]},
+  { name: "SB_Traffic", category: "Web Traffic Estimates", replaces: "SimilarWeb, Comscore", price: "$149-999/mo", tam: "500K+", revenue: 400, priceResent: 5, users: 3, replication: 4, switching: 5, switchTonight: "YES", note: "Traffic estimates are directional guesses. Customers already know the data is approximate.",
+    competitors: [
+      { name: "SimilarWeb", url: "https://www.similarweb.com", price: "$149-999/mo", rev: "$350M+", users: "500K+", vulnerability: "Traffic estimates everyone knows are inaccurate. Charging premium for approximations." },
+      { name: "Comscore", url: "https://www.comscore.com", price: "Enterprise custom", rev: "$50M+", users: "Enterprise", vulnerability: "Legacy panel-based measurement. Declining relevance." },
+    ]},
+  { name: "SB_Detect", category: "Tech Stack Detection", replaces: "BuiltWith, Wappalyzer, SimilarTech", price: "$50-495/mo", tam: "50K-100K", revenue: 25, priceResent: 5, users: 1, replication: 5, switching: 5, switchTonight: "YES", note: "Scriptable. Wappalyzer is already open-source. ~5 person team at BuiltWith. Tiny TAM caps upside.",
+    competitors: [
+      { name: "BuiltWith", url: "https://builtwith.com", price: "$295-495/mo", rev: "$15M+", users: "~50K", vulnerability: "~5 person team. Absurd pricing for scriptable detection." },
+      { name: "Wappalyzer", url: "https://www.wappalyzer.com", price: "$50-250/mo", rev: "$5M+", users: "50K+", vulnerability: "Already open-source. Paid tier for bulk lookups." },
+      { name: "SimilarTech", url: "https://www.similartech.com", price: "$100-300/mo", rev: "$5M+", users: "10K+", vulnerability: "Niche of a niche. Tiny market." },
+    ]},
+  { name: "SB_Train", category: "Training / SOPs", replaces: "Trainual, Process Street, Scribe, SweetProcess, Whale", price: "$29-499/mo", tam: "100K+ SMBs", revenue: 120, priceResent: 4, users: 4, replication: 4, switching: 3, switchTonight: "PARTIAL", note: "AI generates SOPs from prompts. Trainual $249/mo floor hurts SMBs. Must rebuild SOP library once, but content is portable.",
+    competitors: [
+      { name: "Trainual", url: "https://trainual.com", price: "$249-499/mo", rev: "$50M+", users: "25K+ companies", vulnerability: "$249/mo floor for SMBs is painful. AI generates SOPs from prompts instantly." },
+      { name: "Process Street", url: "https://www.process.st", price: "$100/mo+", rev: "$20M+", users: "10K+", vulnerability: "Workflow checklists. Notion + AI does this better." },
+      { name: "Scribe", url: "https://scribehow.com", price: "$29-99/mo", rev: "$15M+", users: "500K+", vulnerability: "Auto-generates docs from screen recordings. Smart but replicable." },
+      { name: "SweetProcess", url: "https://www.sweetprocess.com", price: "$99-149/mo", rev: "$5M+", users: "5K+", vulnerability: "Niche SOP tool. Small market, high prices." },
+    ]},
+  { name: "SB_Funding", category: "Startup / Funding Data", replaces: "Crunchbase, PitchBook", price: "$49-30K+/yr", tam: "Millions casual", revenue: 580, priceResent: 3, users: 4, replication: 4, switching: 5, switchTonight: "YES", note: "Funding data largely public (SEC filings). PitchBook charges $30K+/yr for what AI can aggregate.",
+    competitors: [
+      { name: "Crunchbase", url: "https://www.crunchbase.com", price: "$49-99/mo", rev: "$80M+", users: "Millions casual", vulnerability: "Funding data from SEC filings and press releases. Largely public." },
+      { name: "PitchBook", url: "https://pitchbook.com", price: "$25K-40K+/yr", rev: "$500M+", users: "Enterprise", vulnerability: "Morningstar subsidiary. Premium data but core is aggregatable." },
+    ]},
+  { name: "SB_Mail", category: "Email Marketing", replaces: "Mailchimp, ConvertKit, MailerLite, Brevo, Constant Contact", price: "$13-350/mo", tam: "800K+ paying", revenue: 1800, priceResent: 4, users: 5, replication: 3, switching: 2, switchTonight: "NO", note: "Automations, subscriber lists, deliverability reputation = real switching friction. Not a tonight swap.",
+    competitors: [
+      { name: "Mailchimp (Intuit)", url: "https://mailchimp.com", price: "$13-350/mo", rev: "$800M+", users: "800K+ paying", vulnerability: "Intuit acquisition bloated pricing. But automation workflows create real lock-in." },
+      { name: "ConvertKit (Kit)", url: "https://kit.com", price: "$25-50/mo", rev: "$40M+", users: "50K+", vulnerability: "Creator-focused. Loyal base but small." },
+      { name: "MailerLite", url: "https://www.mailerlite.com", price: "$9-18/mo", rev: "$30M+", users: "100K+", vulnerability: "Already budget option. Hard to undercut." },
+      { name: "Brevo (Sendinblue)", url: "https://www.brevo.com", price: "$25-65/mo", rev: "$150M+", users: "500K+", vulnerability: "Multi-channel pivot. Email becoming one feature of many." },
+    ]},
+  { name: "SB_Meet", category: "Video Conferencing", replaces: "Zoom, Google Meet, Teams, Webex", price: "$0-22/user/mo", tam: "3.3M+ orgs", revenue: 5200, priceResent: 3, users: 5, replication: 2, switching: 3, switchTonight: "PARTIAL", note: "Generous free tiers already exist. Real infra costs (bandwidth, TURN servers). No savings headline.",
+    competitors: [
+      { name: "Zoom", url: "https://zoom.us", price: "$0-22/user/mo", rev: "$4.5B", users: "3.3M+ enterprise", vulnerability: "Generous free tier. Growth stalled. But real infrastructure moat." },
+      { name: "Google Meet", url: "https://meet.google.com", price: "Free (Workspace)", rev: "Bundled", users: "300M+ MAU", vulnerability: "Free with Google Workspace. Hard to compete with free." },
+      { name: "Webex (Cisco)", url: "https://www.webex.com", price: "$12-25/user/mo", rev: "$500M+", users: "Enterprise", vulnerability: "Legacy enterprise. Declining market share." },
+    ]},
+  { name: "SB_CRM", category: "Simple CRM", replaces: "Pipedrive, Less Annoying CRM, Streak, folk, Capsule, Close", price: "$14-129/user/mo", tam: "500K+", revenue: 400, priceResent: 3, users: 4, replication: 3, switching: 2, switchTonight: "NO", note: "Psychological switching cost > technical cost. HubSpot already free. The 'never set up a CRM' crowd is the real opportunity.",
+    competitors: [
+      { name: "Pipedrive", url: "https://www.pipedrive.com", price: "$14-99/user/mo", rev: "$200M+", users: "100K+ companies", vulnerability: "Pipeline UI is commodity. AI can auto-log and suggest." },
+      { name: "Close", url: "https://www.close.com", price: "$49-129/user/mo", rev: "$30M+", users: "10K+", vulnerability: "Sales-focused. Premium pricing for calling features." },
+      { name: "Streak", url: "https://www.streak.com", price: "$15-49/user/mo", rev: "$15M+", users: "100K+", vulnerability: "Gmail CRM. Niche but sticky." },
+      { name: "Less Annoying CRM", url: "https://www.lessannoyingcrm.com", price: "$15/user/mo", rev: "$10M+", users: "30K+", vulnerability: "Simple and cheap. Hard to undercut on price." },
+    ]},
+  { name: "SB_Chat", category: "Team Messaging", replaces: "Slack, Teams, Discord, Mattermost", price: "$0-12.50/user/mo", tam: "750K+ orgs", revenue: 2200, priceResent: 4, users: 5, replication: 2, switching: 1, switchTonight: "NO", note: "Load-bearing infrastructure. 2,600+ Slack integrations, message history, muscle memory. Discord is already free.",
+    competitors: [
+      { name: "Slack (Salesforce)", url: "https://slack.com", price: "$7.25-12.50/user/mo", rev: "$2B+", users: "750K+ orgs", vulnerability: "2,600+ integrations are the moat, not the chat. Load-bearing infra." },
+      { name: "Discord", url: "https://discord.com", price: "$0-10/mo", rev: "$200M+", users: "200M+ MAU", vulnerability: "Already free for teams. Not enterprise-grade but good enough." },
+      { name: "Mattermost", url: "https://mattermost.com", price: "$0-10/user/mo", rev: "$30M+", users: "Self-hosted", vulnerability: "Open-source already exists. Validates that chat is commodity." },
+    ]},
+  { name: "SB_Contacts", category: "B2B Sales Intelligence", replaces: "ZoomInfo, Apollo, Lusha, Cognism, SalesIntel", price: "$0-25K+/yr", tam: "500K+", revenue: 1600, priceResent: 4, users: 3, replication: 2, switching: 2, switchTonight: "NO", note: "Apollo already won this fight. CRM-integrated users have real switching costs. Late to the game.",
+    competitors: [
+      { name: "ZoomInfo", url: "https://www.zoominfo.com", price: "$15-25K+/yr", rev: "$1.2B", users: "35K+ companies", vulnerability: "Stock down 90% from peak. Apollo eating lunch at $0/mo." },
+      { name: "Apollo.io", url: "https://www.apollo.io", price: "$0-99/user/mo", rev: "$200M+", users: "500K+", vulnerability: "Already disrupting with freemium. Hard to out-free Apollo." },
+      { name: "Lusha", url: "https://www.lusha.com", price: "$29-79/user/mo", rev: "$50M+", users: "100K+", vulnerability: "Contact enrichment. Commodity data." },
+      { name: "Cognism", url: "https://www.cognism.com", price: "Custom enterprise", rev: "$100M+", users: "Enterprise", vulnerability: "European focus. GDPR compliance is a real moat." },
+    ]},
+  { name: "SB_Shifts", category: "Workforce / Shifts", replaces: "Homebase, When I Work, 7shifts, Deputy, Sling", price: "$0-10/user/mo", tam: "1M+ locations", revenue: 250, priceResent: 2, users: 3, replication: 3, switching: 4, switchTonight: "YES", note: "Already $2-4/user. No savings headline. Can't out-free the near-free.",
+    competitors: [
+      { name: "Homebase", url: "https://joinhomebase.com", price: "$0-8/user/mo", rev: "$80M+", users: "500K+ locations", vulnerability: "Already near-free. Generous free tier. Hard to undercut." },
+      { name: "When I Work", url: "https://wheniwork.com", price: "$2-8/user/mo", rev: "$50M+", users: "200K+", vulnerability: "Rock-bottom pricing. No savings headline possible." },
+      { name: "7shifts", url: "https://www.7shifts.com", price: "$2-8/user/mo", rev: "$40M+", users: "50K+ restaurants", vulnerability: "Restaurant-specific. Niche but loyal." },
+      { name: "Deputy", url: "https://www.deputy.com", price: "$4-7/user/mo", rev: "$60M+", users: "300K+", vulnerability: "Slightly higher priced but still under $10/user." },
+    ]},
+  { name: "SB_Seller", category: "Amazon Marketplace Tools", replaces: "Helium10, Jungle Scout, Viral Launch, AMZScout, SmartScout, SellerApp", price: "$30-450/mo", tam: "2M+ Amazon sellers", revenue: 500, priceResent: 5, users: 4, replication: 3, switching: 5, switchTonight: "YES", note: "Helium10 bloated after Pacvue acquisition, price hikes incoming. Most sellers use 3 of 20 features. Keyword research + listing optimization + review tracking are AI-native. We run NatNutra on these tools daily.",
+    competitors: [
+      { name: "Helium10", url: "https://www.helium10.com", price: "$39-229/mo", rev: "$200M+", users: "1M+", vulnerability: "Pacvue acquired. Price hikes alienating SMB sellers. 20 tools, most use 3. Bloatware." },
+      { name: "Jungle Scout", url: "https://www.junglescout.com", price: "$49-399/mo", rev: "$100M+", users: "500K+", vulnerability: "Product research focus. Historical BSR data is the moat but shrinking." },
+      { name: "Viral Launch", url: "https://www.virallaunch.com", price: "$69-199/mo", rev: "$30M+", users: "100K+", vulnerability: "Market intelligence. Declining relevance as AI tools emerge." },
+      { name: "AMZScout", url: "https://amzscout.net", price: "$30-50/mo", rev: "$15M+", users: "200K+", vulnerability: "Budget Jungle Scout. Chrome extension is the entire product." },
+      { name: "SmartScout", url: "https://smartscout.com", price: "$29-197/mo", rev: "$10M+", users: "50K+", vulnerability: "Brand/subcategory analytics. Niche data play." },
+      { name: "SellerApp", url: "https://www.sellerapp.com", price: "$49-149/mo", rev: "$10M+", users: "50K+", vulnerability: "PPC + keyword tool. AI can optimize bids better than rule-based automation." },
+      { name: "Keepa", url: "https://keepa.com", price: "$19/mo", rev: "$20M+", users: "500K+", vulnerability: "Price tracking and BSR history. Data moat but API-accessible." },
+      { name: "DataDive", url: "https://datadive.tools", price: "$20-50/mo", rev: "$5M+", users: "30K+", vulnerability: "Cerebro/Magnet alternative. Pure keyword research, trivially replicable." },
+    ]},
+  { name: "SB_Social", category: "Social Media Management", replaces: "Hootsuite, Buffer, Sprout Social, Later, Planoly", price: "$25-500/mo", tam: "1M+ paying", revenue: 600, priceResent: 4, users: 4, replication: 5, switching: 5, switchTonight: "YES", note: "Post scheduling is a cron job hitting platform APIs. Buffer charges $60/mo for what takes 50 lines of code. Analytics pulled from native platform APIs.",
+    competitors: [
+      { name: "Hootsuite", url: "https://www.hootsuite.com", price: "$99-249/mo", rev: "$250M+", users: "200K+ paying", vulnerability: "Bloated enterprise pivot. SMBs priced out. Core scheduling is trivial." },
+      { name: "Buffer", url: "https://buffer.com", price: "$6-120/mo", rev: "$20M+", users: "100K+", vulnerability: "Bootstrapped, simple tool. But scheduling posts is a solved problem." },
+      { name: "Sprout Social", url: "https://sproutsocial.com", price: "$199-399/user/mo", rev: "$350M+", users: "30K+ companies", vulnerability: "Enterprise pricing insanity. $400/user/mo for social media posting." },
+      { name: "Later", url: "https://later.com", price: "$25-80/mo", rev: "$40M+", users: "200K+", vulnerability: "Instagram-first. Visual planner is nice but commodity." },
+      { name: "Planoly", url: "https://www.planoly.com", price: "$13-43/mo", rev: "$15M+", users: "100K+", vulnerability: "Visual planning. Small team, limited moat." },
+    ]},
+  { name: "SB_Landing", category: "Landing Pages", replaces: "Unbounce, Instapage, Leadpages, Carrd", price: "$14-200/mo", tam: "500K+ paying", revenue: 300, priceResent: 4, users: 3, replication: 5, switching: 5, switchTonight: "YES", note: "AI generates full landing pages from a prompt. Unbounce at $100/mo for a drag-and-drop builder is dead. Export HTML and host anywhere.",
+    competitors: [
+      { name: "Unbounce", url: "https://unbounce.com", price: "$99-199/mo", rev: "$100M+", users: "100K+", vulnerability: "Drag-and-drop builder. AI generates better pages from a single prompt." },
+      { name: "Instapage", url: "https://instapage.com", price: "$99-199/mo", rev: "$30M+", users: "50K+", vulnerability: "Enterprise landing pages. Same AI vulnerability as Unbounce." },
+      { name: "Leadpages", url: "https://www.leadpages.com", price: "$37-74/mo", rev: "$30M+", users: "50K+", vulnerability: "SMB landing pages. Templates that AI makes obsolete." },
+      { name: "Carrd", url: "https://carrd.co", price: "$9-49/yr", rev: "$5M+", users: "500K+", vulnerability: "Already cheap. One-page sites. Hard to undercut but validates demand." },
+    ]},
+];
+
+function getTier(score) {
+  if (score >= 4.5) return 1;
+  if (score >= 4.0) return 2;
+  if (score >= 3.0) return 3;
+  return 4;
+}
+
+const TIER_COLORS = { 1: "#00ff41", 2: "#4fc3f7", 3: "#ffd740", 4: "#ff5252" };
+const SWITCH_COLORS = { YES: "#00ff41", PARTIAL: "#ffd740", NO: "#ff5252" };
+
+function ScoreBar({ val }) {
+  return (
+    <div style={{ display: "flex", gap: 1, justifyContent: "center" }}>
+      {[1,2,3,4,5].map(i => (
+        <div key={i} style={{
+          width: 7, height: 13,
+          background: i <= val ? (val >= 4 ? "#00ff41" : val >= 3 ? "#ffd740" : "#ff5252") : "#2a2a3a",
+          borderRadius: 1
+        }} />
+      ))}
+    </div>
+  );
+}
+
+function formatRev(m) {
+  return m >= 1000 ? `$${(m/1000).toFixed(1)}B` : `$${m}M`;
+}
+
+function App() {
+  const [weights, setWeights] = useState({ priceResent: 30, users: 25, replication: 25, switching: 20 });
+  const [expanded, setExpanded] = useState(null);
+  const [filterTier, setFilterTier] = useState(0);
+  const [filterSwitch, setFilterSwitch] = useState("ALL");
+  const [revMode, setRevMode] = useState("attackable");
+  const [sortCol, setSortCol] = useState(null);
+  const [sortDir, setSortDir] = useState("desc");
+
+  const totalWeight = weights.priceResent + weights.users + weights.replication + weights.switching;
+
+  const scored = useMemo(() => {
+    return RAW_DATA.map(d => {
+      const composite = totalWeight > 0
+        ? (d.priceResent * weights.priceResent + d.users * weights.users + d.replication * weights.replication + d.switching * weights.switching) / totalWeight
+        : 0;
+      const rounded = Math.round(composite * 100) / 100;
+      return { ...d, composite: rounded, tier: getTier(rounded) };
+    }).sort((a, b) => b.composite - a.composite).map((d, i) => ({ ...d, rank: i + 1 }));
+  }, [weights, totalWeight]);
+
+  const sorted = useMemo(() => {
+    if (!sortCol) return scored;
+    const list = [...scored];
+    list.sort((a, b) => {
+      let va = a[sortCol], vb = b[sortCol];
+      if (typeof va === "string") va = va.toLowerCase();
+      if (typeof vb === "string") vb = vb.toLowerCase();
+      if (va < vb) return sortDir === "asc" ? -1 : 1;
+      if (va > vb) return sortDir === "asc" ? 1 : -1;
+      return 0;
+    });
+    return list;
+  }, [scored, sortCol, sortDir]);
+
+  const filtered = sorted.filter(d => {
+    if (filterTier > 0 && d.tier !== filterTier) return false;
+    if (filterSwitch !== "ALL" && d.switchTonight !== filterSwitch) return false;
+    return true;
+  });
+
+  const totalRevenue = filtered.reduce((s, d) => s + d.revenue, 0);
+  const allRevenue = scored.reduce((s, d) => s + d.revenue, 0);
+  const attackableRevenue = scored.filter(d => d.tier <= 2).reduce((s, d) => s + d.revenue, 0);
+  const displayRevenue = revMode === "attackable" ? attackableRevenue : allRevenue;
+  const tierCounts = {};
+  scored.forEach(d => { tierCounts[d.tier] = (tierCounts[d.tier] || 0) + 1; });
+
+  const handleSort = (col) => {
+    if (sortCol === col) { setSortDir(d => d === "asc" ? "desc" : "asc"); }
+    else { setSortCol(col); setSortDir("desc"); }
+  };
+
+  const resetSort = () => { setSortCol(null); setSortDir("desc"); };
+
+  const sliderBg = (val, max, color) =>
+    `linear-gradient(90deg, ${color} 0%, ${color} ${(val/max)*100}%, #2a2a3a ${(val/max)*100}%, #2a2a3a 100%)`;
+
+  return (
+    <div style={{ minHeight: "100vh" }}>
+      {/* XP Title Bar */}
+      <div style={{
+        background: "linear-gradient(180deg, #33ff66 0%, #00cc33 45%, #009922 55%, #00cc33 100%)",
+        padding: "4px 10px", display: "flex", justifyContent: "space-between", alignItems: "center",
+        borderBottom: "2px solid #006600", position: "sticky", top: 0, zIndex: 100,
+      }}>
+        <span style={{ color: "white", fontWeight: "bold", fontSize: 12, fontFamily: "Tahoma, sans-serif", textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
+          📊 SaaS_Buster.exe -- Development Scoring Roadmap [CONFIDENTIAL]
+        </span>
+        <div style={{ display: "flex", gap: 2 }}>
+          {["_","□","✕"].map((b,i) => (
+            <div key={i} style={{
+              width: 21, height: 21, background: "linear-gradient(180deg, #fff 0%, #ddd 100%)",
+              border: "1px solid #999", borderRadius: 2, display: "flex", alignItems: "center",
+              justifyContent: "center", fontSize: 12, color: "#333", fontFamily: "Tahoma", cursor: "default",
+            }}>{b}</div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ padding: "12px 16px", maxWidth: 1400, margin: "0 auto" }}>
+
+        {/* Revenue Displacement Banner */}
+        <div style={{
+          background: "linear-gradient(90deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%)",
+          border: "1px solid #00ff41", padding: "16px 20px", marginBottom: 12, textAlign: "center",
+          position: "relative", overflow: "visible",
+        }}>
+          {/* Floppy Disk Home Link */}
+          <a href="index.html" title="Back to SaaS Buster Home" style={{
+            position: "absolute", bottom: 40, left: 28, zIndex: 10, opacity: 0.7,
+            transition: "opacity 0.3s, transform 0.3s", display: "block",
+          }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "scale(1.1)"; }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.transform = "scale(1)"; }}
+          >
+            <svg width="64" height="68" viewBox="-70 -20 280 280" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="fGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b1"/><feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b2"/><feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/></feMerge></filter>
+              </defs>
+              <g transform="rotate(25, 70, 115)">
+                <rect x="-30" y="10" width="200" height="210" rx="7" fill="#00ff41" opacity="0.45" filter="url(#fGlow)"/>
+                <rect x="-30" y="10" width="200" height="210" rx="7" fill="#1a1a2e" stroke="#00ff4150" strokeWidth="2"/>
+                <rect x="30" y="10" width="90" height="46" rx="3" fill="#2a2a3a" stroke="#444" strokeWidth="1.5"/>
+                <rect x="64" y="14" width="50" height="38" rx="2" fill="#555"/>
+                <rect x="71" y="20" width="36" height="24" rx="2" fill="#0d1117"/>
+                <rect x="-14" y="68" width="168" height="118" rx="4" fill="#0d1117" stroke="#00ff4118" strokeWidth="1.5"/>
+                <rect x="46" y="196" width="50" height="18" rx="3" fill="#0d1117" stroke="#333" strokeWidth="1.5"/>
+              </g>
+            </svg>
+          </a>
+          {/* Toggle */}
+          <div style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 10 }}>
+            <button onClick={() => setRevMode("attackable")} style={{
+              padding: "4px 14px", border: `1px solid ${revMode === "attackable" ? "#00ff41" : "#333"}`,
+              background: revMode === "attackable" ? "#00ff4115" : "transparent",
+              color: revMode === "attackable" ? "#00ff41" : "#555",
+              fontSize: 10, fontFamily: "monospace", cursor: "pointer", borderRadius: 0, letterSpacing: 1,
+            }}>ATTACKABLE (T1+T2)</button>
+            <button onClick={() => setRevMode("total")} style={{
+              padding: "4px 14px", border: `1px solid ${revMode === "total" ? "#ffd740" : "#333"}`,
+              background: revMode === "total" ? "#ffd74015" : "transparent",
+              color: revMode === "total" ? "#ffd740" : "#555",
+              fontSize: 10, fontFamily: "monospace", cursor: "pointer", borderRadius: 0, letterSpacing: 1,
+            }}>TOTAL ADDRESSABLE</button>
+          </div>
+          <div style={{ fontSize: 10, color: revMode === "attackable" ? "#00ff41" : "#ffd740", letterSpacing: 3, textTransform: "uppercase", marginBottom: 6 }}>
+            {revMode === "attackable" ? "Attackable Revenue (Tier 1 + Tier 2)" : "Total Addressable Revenue (All Categories)"}
+          </div>
+          <div className="pixel-font revenue-glow" style={{ fontSize: 40, fontWeight: "bold", color: revMode === "attackable" ? "#00ff41" : "#ffd740",
+            textShadow: revMode === "attackable" ? "0 0 20px rgba(0,255,65,0.5)" : "0 0 20px rgba(255,215,64,0.5)" }}>
+            {formatRev(displayRevenue)}
+          </div>
+          <div style={{ fontSize: 10, color: "#555", marginTop: 6 }}>
+            {revMode === "attackable"
+              ? `${scored.filter(d => d.tier <= 2).length} categories we build // ${Math.round(attackableRevenue / allRevenue * 100)}% of total market`
+              : `${scored.length} categories scored // ${formatRev(allRevenue)} across all tiers`
+            }
+          </div>
+          {filterTier > 0 || filterSwitch !== "ALL" ? (
+            <div style={{ fontSize: 10, color: "#444", marginTop: 4 }}>
+              Filtered view: {filtered.length} categories // {formatRev(totalRevenue)}
+              {filterTier > 0 ? ` // Tier ${filterTier}` : ""}
+              {filterSwitch !== "ALL" ? ` // Switch: ${filterSwitch}` : ""}
+            </div>
+          ) : null}
+        </div>
+
+        {/* Weight Sliders */}
+        <div style={{ background: "#12122a", border: "1px solid #333", padding: "16px 24px", marginBottom: 12 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontSize: 10, color: "#00ff41", letterSpacing: 2, textTransform: "uppercase" }}>
+                  ⚙ Development Scoring Roadmap
+                </span>
+                <span style={{ fontSize: 12, fontWeight: "bold", letterSpacing: 1, color: totalWeight === 100 ? "#00ff41" : "#ff5252" }}>
+                  {totalWeight}%{totalWeight === 100 ? " ✓" : " ⚠"}
+                </span>
+              </div>
+              <button onClick={() => setWeights({ priceResent: 30, users: 25, replication: 25, switching: 20 })}
+                style={{ background: "transparent", border: "1px solid #333", color: "#555", fontSize: 9,
+                  padding: "3px 10px", cursor: "pointer", letterSpacing: 1 }}>
+                RESET DEFAULTS
+              </button>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px 28px" }}>
+              {[
+                { key: "priceResent", label: "PRICE RESENTMENT", icon: "💸", color: "#ff5252",
+                  tip: "How angry are customers about what they pay? A $600/mo Statista subscription for public data scores 5. Homebase at $2/user scores 2. High resentment = loud, motivated switchers who will evangelize a free alternative." },
+                { key: "users", label: "ADDRESSABLE USERS", icon: "👥", color: "#4fc3f7",
+                  tip: "How many people are actually paying for this category? Grammarly's 30M daily active users = massive viral surface. BuiltWith's 50K niche = technically vulnerable but limited upside. We want categories where free alternatives spread through word of mouth." },
+                { key: "replication", label: "REPLICATION EASE", icon: "🔧", color: "#00ff41",
+                  tip: "Can we build a credible alternative in a weekend vs. a year? PDF merge/split = weekend project using open-source libs. Video conferencing = months of WebRTC infrastructure. SEO tools = weeks (keyword data easy, backlink index hard). We prioritize categories where AI collapses build time to near zero." },
+                { key: "switching", label: "LOW SWITCH COST", icon: "🔄", color: "#ce93d8",
+                  tip: "Can someone swap tonight with zero operational risk? Changing a Calendly link = 5 minutes. Swapping a browser grammar extension = 30 seconds. Migrating a CRM with pipeline data and team workflows = weeks of dread. Low switching cost means users try us with zero commitment." },
+              ].map(({ key, label, icon, color, tip }) => (
+                <div key={key}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <span style={{ fontSize: 9, color: "#888", letterSpacing: 1 }}>{icon} {label}</span>
+                      <span className="eye-tip">
+                        <span style={{ fontSize: 11, color: "#00ff4180", transition: "color 0.2s" }}
+                          onMouseEnter={e => e.target.style.color = "#00ff41"}
+                          onMouseLeave={e => e.target.style.color = "#00ff4180"}>👁</span>
+                        <span className="tip-bubble">
+                          <div style={{ color, fontWeight: "bold", fontSize: 10, letterSpacing: 1, marginBottom: 4 }}>{icon} {label}</div>
+                          {tip}
+                        </span>
+                      </span>
+                    </div>
+                    <span className="pixel-font" style={{ fontSize: 14, color }}>{weights[key]}%</span>
+                  </div>
+                  <input type="range" min={0} max={50} value={weights[key]}
+                    onChange={e => setWeights(p => ({ ...p, [key]: Number(e.target.value) }))}
+                    style={{ background: sliderBg(weights[key], 50, color) }} />
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: "#333", marginTop: 2 }}>
+                    <span>0</span><span>50</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Weight Distribution Bar */}
+            <div style={{ marginTop: 14, background: "#0a0a1a", padding: "8px 10px", border: "1px solid #222" }}>
+              <div style={{ fontSize: 9, color: "#555", letterSpacing: 1, marginBottom: 6 }}>WEIGHT DISTRIBUTION</div>
+              <div style={{ display: "flex", height: 8, overflow: "hidden", gap: 1 }}>
+                {[
+                  { key: "priceResent", color: "#ff5252" },
+                  { key: "users", color: "#4fc3f7" },
+                  { key: "replication", color: "#00ff41" },
+                  { key: "switching", color: "#ce93d8" },
+                ].map(({ key, color }) => (
+                  <div key={key} style={{
+                    width: totalWeight > 0 ? `${(weights[key] / totalWeight) * 100}%` : "25%",
+                    background: color,
+                    transition: "width 0.2s",
+                    minWidth: weights[key] > 0 ? 2 : 0,
+                  }} />
+                ))}
+              </div>
+            </div>
+        </div>
+
+        {/* Filters */}
+        <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
+          <span style={{ fontSize: 9, color: "#555", letterSpacing: 2, marginRight: 2 }}>TIER:</span>
+          {[0,1,2,3,4].map(t => {
+            const active = filterTier === t;
+            const color = t === 0 ? "#c0c0c0" : TIER_COLORS[t];
+            const count = t === 0 ? scored.length : (tierCounts[t] || 0);
+            return (
+              <button key={t} onClick={() => setFilterTier(t)} style={{
+                padding: "3px 10px", border: `1px solid ${active ? color : "#333"}`,
+                background: active ? `${color}15` : "transparent",
+                color: active ? color : "#444", fontSize: 10, cursor: "pointer", borderRadius: 0,
+              }}>{t === 0 ? "ALL" : `T${t}`} [{count}]</button>
+            );
+          })}
+          <span style={{ color: "#222", margin: "0 8px" }}>|</span>
+          <span style={{ fontSize: 9, color: "#555", letterSpacing: 2, marginRight: 2 }}>SWITCH:</span>
+          {["ALL","YES","PARTIAL","NO"].map(s => {
+            const active = filterSwitch === s;
+            const color = s === "ALL" ? "#c0c0c0" : SWITCH_COLORS[s];
+            return (
+              <button key={s} onClick={() => setFilterSwitch(s)} style={{
+                padding: "3px 10px", border: `1px solid ${active ? color : "#333"}`,
+                background: active ? `${color}15` : "transparent",
+                color: active ? color : "#444", fontSize: 10, cursor: "pointer", borderRadius: 0,
+              }}>{s}</button>
+            );
+          })}
+          {sortCol && <>
+            <span style={{ color: "#222", margin: "0 8px" }}>|</span>
+            <button onClick={resetSort} style={{
+              padding: "3px 10px", border: "1px solid #ff5252", background: "transparent",
+              color: "#ff5252", fontSize: 10, cursor: "pointer", borderRadius: 0,
+            }}>✕ CLEAR SORT</button>
+          </>}
+        </div>
+
+        {/* Table */}
+        <div style={{ border: "1px solid #333", overflowX: "auto" }}>
+          <table>
+            <thead>
+              <tr style={{ background: "#0a0a1a", borderBottom: "2px solid #00ff41" }}>
+                {[
+                  { label: "#", col: "rank", w: 44 },
+                  { label: "PRODUCT", col: "name", w: null },
+                  { label: "CATEGORY", col: "category", w: null },
+                  { label: "REPLACES", col: null, w: null },
+                  { label: "PRICE", col: null, w: null },
+                  { label: "REV", col: "revenue", w: 65 },
+                  { label: "💸", col: "priceResent", w: 50 },
+                  { label: "👥", col: "users", w: 50 },
+                  { label: "🔧", col: "replication", w: 50 },
+                  { label: "🔄", col: "switching", w: 50 },
+                  { label: "SCORE", col: "composite", w: 65 },
+                  { label: "TIER", col: "tier", w: 50 },
+                  { label: "SWITCH", col: "switchTonight", w: 60 },
+                ].map(({ label, col, w }, i) => (
+                  <th key={i} onClick={() => col && handleSort(col)} style={{
+                    padding: "9px 6px", color: sortCol === col ? "#fff" : "#00ff41",
+                    fontWeight: "bold", textAlign: i >= 5 ? "center" : "left", fontSize: 9,
+                    letterSpacing: 1, whiteSpace: "nowrap", cursor: col ? "pointer" : "default",
+                    background: sortCol === col ? "#00ff4118" : "#0a0a1a",
+                    borderBottom: "1px solid #222", width: w || undefined, userSelect: "none",
+                  }}>
+                    {label}{sortCol === col ? (sortDir === "desc" ? " ▼" : " ▲") : ""}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((d, idx) => {
+                const tc = TIER_COLORS[d.tier];
+                const isEx = expanded === d.name;
+                return (
+                  <React.Fragment key={d.name}>
+                    <tr className="datarow" onClick={() => setExpanded(isEx ? null : d.name)}
+                      style={{
+                        borderBottom: isEx ? "none" : "1px solid #1a1a2e",
+                        cursor: "pointer",
+                        background: isEx ? "#12122a" : idx % 2 === 0 ? "#0f0f23" : "#111128",
+                      }}>
+                      <td style={{ padding: "9px 6px", color: "#00ff41", textAlign: "center", fontSize: 10, whiteSpace: "nowrap" }}>
+                        <span style={{ color: "#00ff41", fontSize: 8, marginRight: 3, display: "inline-block", transform: isEx ? "rotate(90deg)" : "none", transition: "transform 0.15s" }}>▶</span>
+                        <span style={{ fontWeight: "bold" }}>{d.rank}</span>
+                      </td>
+                      <td style={{ padding: "9px 6px", fontWeight: "bold", color: "#e0e0e0", whiteSpace: "nowrap", fontSize: 12 }}>{d.name}</td>
+                      <td style={{ padding: "9px 6px", color: "#777", fontSize: 10 }}>{d.category}</td>
+                      <td style={{ padding: "9px 6px", color: "#555", fontSize: 9, maxWidth: 200 }}>{d.replaces}</td>
+                      <td style={{ padding: "9px 6px", color: "#ff5252", fontSize: 10, whiteSpace: "nowrap" }}>{d.price}</td>
+                      <td style={{ padding: "9px 6px", textAlign: "center", fontWeight: "bold", fontSize: 11, color: "#ffd740" }}>
+                        {formatRev(d.revenue)}
+                      </td>
+                      {[d.priceResent, d.users, d.replication, d.switching].map((v,i) => (
+                        <td key={i} style={{ padding: "9px 2px" }}><ScoreBar val={v} /></td>
+                      ))}
+                      <td style={{ padding: "9px 6px", textAlign: "center" }}>
+                        <span style={{ fontWeight: "bold", fontSize: 15, color: tc, textShadow: `0 0 8px ${tc}40` }}>
+                          {d.composite}
+                        </span>
+                      </td>
+                      <td style={{ padding: "9px 6px", textAlign: "center" }}>
+                        <span style={{ padding: "2px 6px", border: `1px solid ${tc}`, color: tc, fontSize: 9, letterSpacing: 1 }}>
+                          T{d.tier}
+                        </span>
+                      </td>
+                      <td style={{ padding: "9px 6px", textAlign: "center" }}>
+                        <span style={{ color: SWITCH_COLORS[d.switchTonight], fontSize: 9, fontWeight: "bold" }}>
+                          {d.switchTonight}
+                        </span>
+                      </td>
+                    </tr>
+                    {isEx && (
+                      <tr style={{ background: "#0a0a1a" }}>
+                        <td colSpan={13} style={{ padding: 0 }}>
+                          <div style={{ borderLeft: `3px solid ${tc}`, borderBottom: `1px solid ${tc}30`, padding: 16 }}>
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
+                              <div>
+                                <span style={{ fontSize: 18, fontWeight: "bold", color: "#e0e0e0" }}>{d.name}</span>
+                                <span style={{ fontSize: 11, color: "#555", marginLeft: 10 }}>{d.category}</span>
+                              </div>
+                              <div style={{ textAlign: "right" }}>
+                                <div style={{ fontSize: 28, fontWeight: "bold", color: tc, textShadow: `0 0 12px ${tc}40` }}>
+                                  {d.composite}
+                                </div>
+                                <div style={{ fontSize: 9, color: "#555", letterSpacing: 1 }}>TIER {d.tier}</div>
+                              </div>
+                            </div>
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 6, marginBottom: 12, fontSize: 11 }}>
+                              <div><span style={{ color: "#555" }}>TAM: </span><span style={{ color: "#aaa" }}>{d.tam}</span></div>
+                              <div><span style={{ color: "#555" }}>Their pricing: </span><span style={{ color: "#ff5252" }}>{d.price}</span></div>
+                              <div><span style={{ color: "#555" }}>Revenue displaced: </span><span style={{ color: "#ffd740", fontWeight: "bold" }}>{formatRev(d.revenue)}</span></div>
+                            </div>
+                            <div style={{ fontSize: 11, color: "#999", fontStyle: "italic", marginBottom: 14, lineHeight: 1.6 }}>{d.note}</div>
+
+                            {/* Competitor Sub-Rows */}
+                            <div style={{ marginBottom: 14 }}>
+                              <div style={{ fontSize: 9, color: "#00ff41", letterSpacing: 2, marginBottom: 8, textTransform: "uppercase" }}>
+                                Competitors We Replace ({d.competitors.length})
+                              </div>
+                              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                                <thead>
+                                  <tr style={{ borderBottom: "1px solid #222" }}>
+                                    {["COMPANY", "PRICING", "EST. REVENUE", "USERS", "VULNERABILITY"].map((h, i) => (
+                                      <th key={i} style={{ padding: "6px 8px", fontSize: 8, color: "#555", letterSpacing: 1, textAlign: "left", fontWeight: "bold" }}>{h}</th>
+                                    ))}
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {d.competitors.map((c, ci) => (
+                                    <tr key={ci} style={{ borderBottom: "1px solid #1a1a2e" }}>
+                                      <td style={{ padding: "7px 8px", fontSize: 11, whiteSpace: "nowrap" }}>
+                                        <a href={c.url} target="_blank" rel="noopener noreferrer"
+                                          onClick={e => e.stopPropagation()}
+                                          style={{ color: "#e0e0e0", fontWeight: "bold", textDecoration: "none", borderBottom: "1px dotted #00ff4160" }}
+                                          onMouseEnter={e => { e.target.style.color = "#00ff41"; e.target.style.borderBottomColor = "#00ff41"; }}
+                                          onMouseLeave={e => { e.target.style.color = "#e0e0e0"; e.target.style.borderBottomColor = "#00ff4160"; }}
+                                        >{c.name} ↗</a>
+                                      </td>
+                                      <td style={{ padding: "7px 8px", fontSize: 10, color: "#ff5252", whiteSpace: "nowrap" }}>{c.price}</td>
+                                      <td style={{ padding: "7px 8px", fontSize: 10, color: "#ffd740", fontWeight: "bold", whiteSpace: "nowrap" }}>{c.rev}</td>
+                                      <td style={{ padding: "7px 8px", fontSize: 10, color: "#888" }}>{c.users}</td>
+                                      <td style={{ padding: "7px 8px", fontSize: 10, color: "#999", lineHeight: 1.4 }}>{c.vulnerability}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+
+                            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>
+                              {[
+                                { label: "PRICE RESENTMENT", val: d.priceResent, w: weights.priceResent, color: "#ff5252" },
+                                { label: "ADDRESSABLE USERS", val: d.users, w: weights.users, color: "#4fc3f7" },
+                                { label: "REPLICATION EASE", val: d.replication, w: weights.replication, color: "#00ff41" },
+                                { label: "LOW SWITCH COST", val: d.switching, w: weights.switching, color: "#ce93d8" },
+                              ].map(({ label, val, w, color }) => (
+                                <div key={label} style={{ textAlign: "center", padding: 10, border: "1px solid #222", background: "#12122a" }}>
+                                  <div style={{ fontSize: 8, color: "#555", letterSpacing: 1, marginBottom: 4 }}>{label}</div>
+                                  <div style={{ fontSize: 24, fontWeight: "bold", color }}>{val}</div>
+                                  <div style={{ fontSize: 9, color: "#444" }}>x {w}% = {totalWeight > 0 ? ((val * w) / totalWeight).toFixed(2) : "0"}</div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    )}
+                  </React.Fragment>
+                );
+              })}
+              {filtered.length === 0 && (
+                <tr><td colSpan={13} style={{ padding: 40, textAlign: "center", color: "#555" }}>
+                  NO CATEGORIES MATCH CURRENT FILTERS
+                </td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+
+        {/* Revenue by Tier */}
+        <div style={{ marginTop: 12, background: "#0a0a1a", border: "1px solid #333", padding: 14 }}>
+          <div style={{ fontSize: 9, color: "#555", letterSpacing: 2, marginBottom: 10 }}>REVENUE DISPLACEMENT BY TIER</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 10 }}>
+            {[1,2,3,4].map(t => {
+              const prods = scored.filter(d => d.tier === t);
+              const rev = prods.reduce((s, d) => s + d.revenue, 0);
+              const c = TIER_COLORS[t];
+              return (
+                <div key={t} style={{ textAlign: "center", padding: 10, border: `1px solid ${c}25`, background: `${c}08` }}>
+                  <div style={{ fontSize: 9, color: c, letterSpacing: 1, marginBottom: 4 }}>TIER {t}</div>
+                  <div className="pixel-font" style={{ fontSize: 16, fontWeight: "bold", color: c, textShadow: `0 0 8px ${c}30` }}>
+                    {formatRev(rev)}
+                  </div>
+                  <div style={{ fontSize: 9, color: "#444", marginTop: 2 }}>
+                    {prods.length} categories // {allRevenue > 0 ? Math.round(rev / allRevenue * 100) : 0}%
+                  </div>
+                  <div style={{ marginTop: 6, height: 4, background: "#1a1a2e", overflow: "hidden" }}>
+                    <div style={{ height: "100%", width: `${allRevenue > 0 ? (rev / allRevenue) * 100 : 0}%`, background: c, transition: "width 0.3s" }} />
+                  </div>
+                  <div style={{ fontSize: 8, color: "#333", marginTop: 4 }}>
+                    {prods.map(p => p.name).join(" / ")}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div style={{ marginTop: 14, textAlign: "center", fontSize: 9, color: "#2a2a3a", borderTop: "1px solid #1a1a2e", paddingTop: 10 }}>
+          SAAS_BUSTER.EXE // DEVELOPMENT SCORING ROADMAP // {scored.length} CATEGORIES // TOTAL: {formatRev(allRevenue)} ADDRESSABLE REVENUE
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+</script>
+</body>
+</html>

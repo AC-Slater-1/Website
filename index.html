@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Buster - FREE SaaS Alternatives</title>
+<meta name="description" content="App Buster - The #1 source for FREE SaaS alternatives. Why pay $249/mo for SEO tools?">
+<meta name="theme-color" content="#0a0e2a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Comic+Neue:wght@300;400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a0e2a;--navy-light:#1a1e4a;--silver:#c0c0c0;--silver-light:#d4d0c8;--green-dl:#00cc00;--green-glow:#00ff00;--red-price:#cc0000;--yellow-alert:#ffd700;--xp-blue:#0055ea;--border:#808080;--fg:#000;--muted:#555}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);color:var(--fg);overflow-x:hidden}
+.font-heading{font-family:'Press Start 2P',monospace}.font-mono{font-family:'Courier Prime','Courier New',monospace}
+.bevel-outset{border:2px solid;border-color:#fff #808080 #808080 #fff;box-shadow:inset 1px 1px 0 #dfdfdf,inset -1px -1px 0 #404040}
+.bevel-inset{border:2px solid;border-color:#808080 #fff #fff #808080;box-shadow:inset 1px 1px 0 #404040,inset -1px -1px 0 #dfdfdf}
+.bevel-button{border:2px solid;border-color:#fff #808080 #808080 #fff;background:#d4d0c8;padding:4px 12px;cursor:pointer;font-family:'Comic Neue',cursive}
+.bevel-button:active{border-color:#808080 #fff #fff #808080}
+
+/* RETRO PC */
+.retro-pc{display:inline-block;vertical-align:middle;transform:perspective(300px) rotateY(-18deg);margin-right:4px}
+.retro-pc .wrap{position:relative;width:56px;height:50px}
+.retro-pc .body{width:50px;height:38px;background:linear-gradient(160deg,#ddd8cc,#c4bfb0);border:2px solid #a09a8a;border-radius:3px 3px 2px 2px;position:absolute;right:0;top:0;padding:4px 4px 6px;box-shadow:2px 2px 0 #8a8578}
+.retro-pc .bulge{position:absolute;left:-6px;top:4px;width:8px;height:30px;background:linear-gradient(90deg,#b0aa98,#c4bfb0);border:1px solid #a09a8a;border-right:none;border-radius:4px 0 0 4px}
+.retro-pc .screen{width:100%;height:100%;background:linear-gradient(145deg,#1a1a2e,#0e0e1a);border:1px solid #6a6a5a;border-radius:1px}
+.retro-pc .chin{position:absolute;bottom:1px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:3px}
+.retro-pc .chin .led{width:3px;height:3px;background:#4a8a4a;border-radius:50%}
+.retro-pc .chin .logo{width:10px;height:2px;background:#a09a8a;border-radius:1px}
+.retro-pc .foot{width:46px;height:4px;background:linear-gradient(180deg,#b8b3a4,#a8a398);border:1px solid #a09a8a;border-top:none;border-radius:0 0 3px 3px;margin:0 auto;position:absolute;right:2px;bottom:6px}
+.retro-pc .base{width:36px;height:3px;background:#a8a398;border:1px solid #9a9488;border-radius:0 0 2px 2px;margin:0 auto;position:absolute;right:9px;bottom:3px}
+.retro-pc .kbd{width:34px;height:5px;background:linear-gradient(180deg,#d4d0c4,#c4c0b4);border:1px solid #a09a8a;border-radius:1px;position:absolute;right:8px;bottom:0}
+.retro-pc .kbd::after{content:'';position:absolute;top:1px;left:3px;right:3px;height:2px;background:repeating-linear-gradient(90deg,#9a9488 0px,#9a9488 1px,transparent 1px,transparent 2.5px)}
+
+/* SPLASH */
+#splash{position:fixed;inset:0;z-index:200;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:opacity .7s}
+#splash.fade-out{opacity:0;pointer-events:none}
+#splash .scanlines{position:absolute;inset:0;pointer-events:none;opacity:.1;background:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,255,0,.03) 1px,rgba(0,255,0,.03) 2px)}
+#splash .vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.5) 100%)}
+.splash-loading{color:var(--green-glow);font-family:'Courier Prime',monospace;font-size:13px;margin-bottom:40px;opacity:0;transition:opacity .5s}
+.splash-loading.show{opacity:1}
+.splash-cursor{animation:blink-c 1s step-end infinite}
+@keyframes blink-c{0%,100%{opacity:1}50%{opacity:0}}
+.splash-progress{width:300px;margin-bottom:50px;opacity:0;transition:opacity .5s}.splash-progress.show{opacity:1}
+.splash-progress-track{height:20px;background:#000}
+.splash-progress-bar{height:100%;background:var(--xp-blue);width:0%;transition:width .15s;display:flex}
+.splash-pct{color:var(--silver);font-family:'Courier Prime',monospace;font-size:10px;text-align:center;margin-top:4px}
+.splash-title{text-align:center}
+.splash-welcome{font-family:'Press Start 2P',monospace;font-size:11px;color:var(--silver);letter-spacing:.3em;margin-bottom:16px;opacity:0;transform:translateY(16px);transition:all .7s}
+.splash-welcome.show{opacity:1;transform:translateY(0)}
+.splash-name{font-family:'Press Start 2P',monospace;font-size:clamp(14px,3vw,30px);color:var(--green-glow);filter:drop-shadow(0 0 20px rgba(0,255,0,.6));opacity:0;transform:scale(1.1);transition:all .5s;line-height:1.6}
+.splash-name.show{opacity:1;transform:scale(1)}
+.splash-tagline{font-size:15px;color:#fff;margin:16px 0 32px;opacity:0;transform:translateY(16px);transition:all .7s}
+.splash-tagline.show{opacity:1;transform:translateY(0)}
+.splash-enter{font-family:'Press Start 2P',monospace;font-size:10px;color:var(--green-glow);filter:drop-shadow(0 0 10px rgba(0,255,0,.5));animation:pulse-e 1.5s ease infinite;opacity:0;transition:opacity .7s}
+.splash-enter.show{opacity:1}
+@keyframes pulse-e{0%,100%{opacity:.6}50%{opacity:1}}
+.splash-ie{font-family:'Courier Prime',monospace;font-size:9px;color:rgba(192,192,192,.5);margin-top:12px;opacity:0;transition:opacity .7s}
+.splash-ie.show{opacity:1}
+#main-site{opacity:0;transition:opacity .7s}#main-site.show{opacity:1}
+
+/* XP TITLEBAR */
+.xp-titlebar{background:linear-gradient(180deg,#0997ff 0%,#0055ea 8%,#0031a9 40%,#0055ea 88%,#0997ff 93%,#ade4ff 95%,#0997ff 100%);padding:3px 8px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.xp-titlebar span{color:#fff;font-size:12px;font-weight:bold;text-shadow:1px 1px 0 rgba(0,0,0,.5)}
+.xp-btns{display:flex;gap:2px}
+.xp-btns button{width:21px;height:21px;background:#d4d0c8;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--navy);padding:8px 0;border-top:2px solid var(--yellow-alert);border-bottom:2px solid var(--yellow-alert);overflow:hidden;position:relative}
+.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none}
+.marquee-wrap::before{left:0;background:linear-gradient(90deg,var(--navy),transparent)}
+.marquee-wrap::after{right:0;background:linear-gradient(270deg,var(--navy),transparent)}
+.marquee-text{display:inline-block;white-space:nowrap;font-family:'Press Start 2P',monospace;font-size:10px;color:var(--yellow-alert);animation:marquee 28s linear infinite}
+@keyframes marquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+/* DISCLAIMER */
+.construction-stripe{background:repeating-linear-gradient(45deg,#ffd700,#ffd700 10px,#000 10px,#000 20px);padding:4px}
+.disclaimer-inner{background:var(--yellow-alert);padding:8px 16px;text-align:center}
+.disclaimer-inner .dtitle{font-family:'Press Start 2P',monospace;font-size:9px}
+.disclaimer-inner .dbody{font-size:13px;font-weight:bold;margin-top:4px}
+.disclaimer-inner .dcopy{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);margin-top:4px}
+
+/* HEADER */
+.site-header{background:var(--navy);padding:32px 16px;text-align:center;position:relative;overflow:hidden}
+.site-header .accent-line{position:absolute;background:rgba(0,255,0,.08);transition:transform 1s;transform:scaleX(0)}
+.site-header .accent-line.show{transform:scaleX(1)}
+.accent-h{left:0;right:0;height:1px}
+.header-title{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(32px);transition:all .7s}
+.header-title.show{opacity:1;transform:translateY(0)}
+.header-title .emoji{font-size:clamp(28px,5vw,48px)}
+.header-title h1{font-family:'Press Start 2P',monospace;font-size:clamp(11px,2.2vw,20px);color:var(--green-glow);text-shadow:2px 2px 0 rgba(0,0,0,.8),0 0 20px rgba(0,255,0,.3);line-height:1.8}
+.header-subtitle{color:#fff;font-size:clamp(12px,1.8vw,16px);margin-top:8px;opacity:0;transform:translateY(16px);transition:all .7s .3s}
+.header-subtitle.show{opacity:1;transform:translateY(0)}
+.header-sep{display:flex;align-items:center;gap:12px;max-width:400px;margin:16px auto;opacity:0;transition:opacity 1s .4s}
+.header-sep.show{opacity:1}
+.header-sep .line{flex:1;height:1px;background:rgba(192,192,192,.3);transform:scaleX(0);transition:transform 1s .4s}
+.header-sep .line.show{transform:scaleX(1)}
+.header-sep .line:first-child{transform-origin:right}
+.header-sep .line:last-child{transform-origin:left}
+.header-sep .est{font-family:'Press Start 2P',monospace;font-size:8px;color:rgba(0,255,0,.6)}
+.header-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin:16px 0;font-size:13px}
+.header-nav a{color:#fff;text-decoration:underline;opacity:0;transform:translateY(12px);transition:all .5s}
+.header-nav a.show{opacity:1;transform:translateY(0)}
+.header-nav a:hover{color:var(--green-glow)}
+.header-nav .sep{color:var(--green-glow)}
+.new-badge{color:var(--red-price);font-weight:bold;animation:blink-c 1s step-end infinite;margin-left:4px}
+.hit-counter{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:16px}
+.hit-counter .label{font-size:11px;color:#fff}
+.hit-counter .digits{display:flex;background:#000;padding:4px 8px}
+.hit-counter .digit{font-family:'Courier Prime',monospace;font-size:18px;font-weight:bold;color:var(--green-glow);width:14px;text-align:center;animation:cg 2s ease infinite}
+@keyframes cg{0%,100%{text-shadow:0 0 4px #0f0}50%{text-shadow:0 0 8px #0f0,0 0 16px #0c0}}
+.hit-counter .since{font-family:'Courier Prime',monospace;font-size:10px;color:var(--muted)}
+.header-meta{font-family:'Courier Prime',monospace;font-size:10px;color:var(--silver);margin-top:8px;opacity:0;transition:opacity .7s 1s}
+.header-meta.show{opacity:1}
+
+/* CONTENT */
+.content-area{max-width:1200px;margin:0 auto;padding:16px 8px}
+.content-flex{display:flex;gap:16px}
+
+/* SIDEBAR */
+.sidebar{width:240px;flex-shrink:0}
+.sidebar-section{margin-bottom:16px}
+.sidebar-header{background:var(--navy);padding:6px 8px;position:relative;overflow:hidden}
+.sidebar-header h3{font-family:'Press Start 2P',monospace;font-size:8px;color:var(--yellow-alert)}
+.sidebar-header .accent{position:absolute;bottom:0;left:0;height:2px;background:rgba(255,215,0,.6);width:0%;transition:width 1s}
+.sidebar-header .accent.show{width:100%}
+.sidebar-list{padding:4px}
+.sidebar-list button{display:flex;justify-content:space-between;width:100%;text-align:left;padding:4px 8px;font-size:12px;cursor:pointer;border:none;background:transparent;font-family:'Comic Neue',cursive;transition:all .3s}
+.sidebar-list button:hover{background:var(--xp-blue);color:#fff}
+.sidebar-list button .cnt{font-family:'Courier Prime',monospace;font-size:10px;opacity:.7}
+.calc-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;cursor:pointer;border:none;background:transparent;padding:0}
+.calc-body{max-height:0;overflow:hidden;transition:max-height .5s,opacity .5s;opacity:0}
+.calc-body.open{max-height:360px;opacity:1}
+.calc-body .inner{padding:12px}
+.calc-body label{font-size:11px;display:block;margin-bottom:4px}
+.calc-body select,.calc-body input{width:100%;padding:4px 8px;font-family:'Courier Prime',monospace;font-size:12px;margin-bottom:10px}
+.calc-result{text-align:center;padding:8px;background:#fff;font-size:12px}
+.calc-their{color:var(--red-price);text-decoration:line-through;font-weight:bold}
+.calc-free{color:var(--green-dl);font-weight:bold}
+.calc-save{color:var(--green-dl);font-weight:bold;margin-top:4px;border-top:1px solid #ccc;padding-top:4px}
+.sidebar-links a{display:block;font-size:11px;color:var(--xp-blue);text-decoration:underline;padding:2px 0}
+.sidebar-links a:hover{color:var(--red-price)}
+.vote-wrap{padding:8px}
+.vote-label{font-size:10px;font-weight:bold;margin-bottom:6px;color:var(--fg);line-height:1.4}
+.vote-input-wrap{position:relative;margin-bottom:8px}
+.vote-input{width:100%;padding:4px 8px;font-family:'Comic Neue',cursive;font-size:12px;border:none;background:#fff}
+.vote-dropdown{position:absolute;top:100%;left:-2px;right:-2px;background:#fff;border:2px solid;border-color:#808080 #fff #fff #808080;max-height:180px;overflow-y:auto;z-index:50;display:none}
+.vote-dropdown.open{display:block}
+.vote-dropdown .vd-item{padding:4px 8px;font-size:11px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Comic Neue',cursive;border-bottom:1px solid #eee}
+.vote-dropdown .vd-item:hover,.vote-dropdown .vd-item.active{background:var(--xp-blue);color:#fff}
+.vote-dropdown .vd-item .vd-price{font-family:'Courier Prime',monospace;font-size:9px;color:var(--red-price);opacity:.8}
+.vote-dropdown .vd-item:hover .vd-price,.vote-dropdown .vd-item.active .vd-price{color:#ffaaaa}
+.vote-dropdown .vd-cat{font-size:8px;color:var(--muted);padding:4px 8px 2px;font-weight:bold;text-transform:uppercase;background:#f5f5f5}
+.vote-results{margin-top:4px}
+.vote-row{display:flex;align-items:center;gap:4px;margin-bottom:3px;font-size:10px}
+.vote-rank{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);width:14px;text-align:right;flex-shrink:0}
+.vote-bar-wrap{flex:1;min-width:0}
+.vote-bar-name{font-size:9px;font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:1px}
+.vote-bar-track{height:8px;background:#eee;border-radius:1px;overflow:hidden}
+.vote-bar-fill{height:100%;background:linear-gradient(90deg,var(--xp-blue),#0997ff);border-radius:1px;transition:width .5s}
+.vote-count{font-family:'Courier Prime',monospace;font-size:8px;color:var(--muted);flex-shrink:0;width:28px;text-align:right}
+.vote-total{font-family:'Courier Prime',monospace;font-size:8px;color:var(--muted);text-align:center;margin-top:6px;padding-top:4px;border-top:1px solid #ddd}
+.vote-flash{animation:vflash .4s ease}
+@keyframes vflash{0%{background:#c6efce}100%{background:transparent}}
+
+/* APP CARDS */
+.app-section{flex:1;min-width:0}
+.section-bar{background:var(--navy);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden}
+.section-bar h2{font-family:'Press Start 2P',monospace;font-size:11px;color:var(--yellow-alert)}
+.section-bar .cnt{font-family:'Courier Prime',monospace;font-size:10px;color:var(--silver)}
+.section-bar .accent{position:absolute;bottom:0;left:0;height:2px;background:var(--yellow-alert);width:0%;transition:width 1s}
+.section-bar .accent.show{width:100%}
+.section-sub{background:rgba(255,215,0,.2);padding:8px;text-align:center;font-size:12px;font-weight:bold}
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:16px}
+.app-card{background:var(--silver-light);display:flex;flex-direction:column;opacity:0;transform:translateY(32px) scale(.95);transition:opacity .6s,transform .6s,box-shadow .3s}
+.app-card.show{opacity:1;transform:translateY(0) scale(1)}
+.app-card:hover{box-shadow:4px 4px 0 rgba(0,0,0,.3);transform:translateY(-4px) scale(1)}
+.app-art{height:130px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.app-art .icon{font-size:40px;text-shadow:2px 2px 0 rgba(0,0,0,.5);transition:transform .5s}
+.app-card:hover .icon{transform:scale(1.1)}
+.app-art .cat{font-family:'Press Start 2P',monospace;font-size:7px;color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.5);margin-top:4px}
+.badge-stack{position:absolute;top:4px;left:4px;display:flex;flex-direction:column;gap:2px}
+.badge-new{background:var(--red-price);color:#fff;font-family:'Press Start 2P',monospace;font-size:7px;padding:2px 6px;animation:blink-c 1s step-end infinite}
+.badge-hot{background:var(--yellow-alert);color:#000;font-family:'Press Start 2P',monospace;font-size:7px;padding:2px 6px}
+.star-row{position:absolute;top:4px;right:4px;display:flex;gap:1px}
+.star{font-size:12px}.star.on{color:var(--yellow-alert)}.star.off{color:rgba(255,255,255,.3)}
+.app-body{padding:12px;flex:1;display:flex;flex-direction:column}
+.app-name{font-family:'Press Start 2P',monospace;font-size:9px;line-height:1.5;margin-bottom:6px}
+.compare-to{font-family:'Courier Prime',monospace;font-size:13px;color:var(--muted);margin-bottom:2px}
+.compare-to .brand{color:var(--red-price);font-weight:bold}
+.app-desc{font-size:12px;line-height:1.4;margin-bottom:8px}
+.app-meta{font-family:'Courier Prime',monospace;font-size:10px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.price-box{background:#fff;padding:8px;margin-bottom:12px}
+.price-row{display:flex;justify-content:space-between;align-items:center}
+.price-label{font-size:10px;color:var(--muted)}
+.their-price{font-size:16px;color:var(--red-price);text-decoration:line-through;font-weight:bold;font-family:'Courier Prime',monospace}
+.free-price{font-family:'Press Start 2P',monospace;font-size:12px;color:var(--green-dl)}
+.free-sub{font-size:10px;color:var(--muted)}
+.savings{font-size:10px;color:var(--green-dl);font-weight:bold;text-align:center;margin-top:4px}
+.dl-btn{width:100%;background:var(--green-dl);color:#fff;font-weight:bold;padding:8px;cursor:pointer;border:none;font-family:'Comic Neue',cursive;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 0 8px #0f0,0 0 16px #0f0,0 0 24px #0c0;transition:box-shadow .3s;margin-top:auto}
+.dl-btn:hover{box-shadow:0 0 16px #0f0,0 0 32px #0f0,0 0 48px #0c0,0 0 64px #0c0}
+/* SHARE MODAL */
+.share-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.share-overlay.open{opacity:1;pointer-events:all}
+.share-modal{background:var(--silver-light);border:2px solid;border-color:#fff #808080 #808080 #fff;width:360px;max-width:92vw;box-shadow:4px 4px 0 #000}
+.share-title-bar{background:linear-gradient(90deg,var(--navy),var(--navy-light));color:#fff;padding:4px 8px;display:flex;justify-content:space-between;align-items:center;font-family:'Press Start 2P',monospace;font-size:7px}
+.share-title-bar .close-x{background:#c0c0c0;border:2px solid;border-color:#fff #808080 #808080 #fff;width:16px;height:14px;font-size:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:sans-serif;color:#000;line-height:1}
+.share-body{padding:16px}
+.share-headline{font-family:'Press Start 2P',monospace;font-size:9px;text-align:center;margin-bottom:4px;color:var(--navy)}
+.share-sub{font-size:11px;text-align:center;color:var(--muted);margin-bottom:12px;line-height:1.4}
+.share-bonus{font-size:10px;text-align:center;color:var(--green-dl);font-weight:bold;margin-bottom:12px;padding:6px;background:#f0fff0;border:1px dashed var(--green-dl)}
+.share-btns{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.share-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border:2px solid;border-color:#fff #808080 #808080 #fff;background:#fff;cursor:pointer;font-family:'Comic Neue',cursive;font-size:13px;font-weight:bold;transition:background .15s}
+.share-btn:hover{background:#e8e8ff}
+.share-btn:active{border-color:#808080 #fff #fff #808080}
+.share-btn .s-icon{width:20px;text-align:center;font-size:16px}
+.share-btn .s-label{flex:1}
+.share-btn .s-arrow{color:var(--muted);font-size:10px}
+.share-skip{text-align:center;font-size:10px;color:var(--muted)}
+.share-skip a{color:var(--muted);cursor:pointer;text-decoration:underline}
+.share-skip a:hover{color:var(--fg)}
+.share-copied{font-size:10px;color:var(--green-dl);text-align:center;display:none;margin-top:4px;font-weight:bold}
+
+.dl-progress{padding:8px;background:#fff}
+.dl-progress-header{display:flex;justify-content:space-between;font-size:10px;margin-bottom:4px}
+.dl-progress-fill{height:12px;background:var(--xp-blue);transition:width .2s}
+.load-more{text-align:center;margin-top:16px}
+.load-more .info{font-family:'Courier Prime',monospace;font-size:10px;color:var(--muted);margin-top:8px}
+
+.sec-divider{display:flex;align-items:center;gap:12px;padding:16px 0}
+.sec-divider .line{flex:1;border-top:2px dashed #808080;transform:scaleX(0);transition:transform 1s}
+.sec-divider .line.show{transform:scaleX(1)}
+.sec-divider .line:first-child{transform-origin:right}
+.sec-divider .line:last-child{transform-origin:left}
+.sec-divider .label{font-family:'Press Start 2P',monospace;font-size:7px;color:var(--muted)}
+
+/* GUESTBOOK */
+.guestbook{background:var(--silver-light)}
+.gb-form{padding:12px;margin-bottom:16px}
+.gb-form .row{display:flex;gap:8px;margin-bottom:8px}
+.gb-form .field{flex:1}
+.gb-form label{font-size:11px;display:block;margin-bottom:2px}
+.gb-form input,.gb-form textarea{width:100%;padding:4px 8px;font-family:'Comic Neue',cursive;font-size:12px}
+.gb-form textarea{height:60px;resize:none}
+.gb-thanks{color:var(--green-dl);font-weight:bold;font-size:12px}
+.gb-entry{background:#fff;padding:8px;margin-bottom:8px}
+.gb-entry-header{display:flex;justify-content:space-between;margin-bottom:4px}
+.gb-entry-header .name{font-size:12px;color:var(--xp-blue);font-weight:bold}
+.gb-entry-header .date{font-family:'Courier Prime',monospace;font-size:10px;color:var(--muted)}
+.gb-entry .msg{font-size:12px;margin-bottom:4px}
+.gb-entry .loc{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);font-style:italic}
+
+.under-construction{background:var(--silver-light);padding:12px;text-align:center}
+.under-construction .utext{font-family:'Press Start 2P',monospace;font-size:9px}
+.under-construction .usub{font-size:12px;color:var(--muted);margin-top:4px}
+
+.webring-footer{background:var(--navy);padding:24px 16px}
+.webring-box{max-width:600px;margin:0 auto 24px;background:var(--silver-light)}
+.webring-header{background:var(--navy-light);padding:6px;text-align:center;font-family:'Press Start 2P',monospace;font-size:8px;color:var(--yellow-alert)}
+.webring-content{padding:12px;display:flex;align-items:center;justify-content:center;gap:16px;text-align:center}
+.ring-name{font-size:12px;color:var(--xp-blue);font-weight:bold;text-decoration:underline}
+.ring-count{font-family:'Courier Prime',monospace;font-size:10px;color:var(--muted)}
+.webring-links{padding:0 12px 8px;text-align:center}
+.webring-links a{font-size:10px;color:var(--xp-blue);text-decoration:underline;margin:0 8px}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:16px}
+.footer-links a{font-size:11px;color:var(--silver);text-decoration:underline}
+.footer-links a:hover{color:var(--yellow-alert)}
+.footer-links .sep{color:var(--silver)}
+.footer-copy{text-align:center}
+.footer-copy .made{font-size:10px;color:var(--silver)}
+.footer-copy .heart{color:var(--red-price)}
+.footer-copy .hosted{font-family:'Courier Prime',monospace;font-size:9px;color:rgba(192,192,192,.6);margin-top:4px}
+.footer-badges{display:flex;justify-content:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+.footer-badge{background:var(--silver-light);padding:2px 8px;font-family:'Courier Prime',monospace;font-size:9px}
+
+.status-bar{background:#ece9d8;padding:2px 8px;display:flex;justify-content:space-between;align-items:center;font-size:11px;position:sticky;bottom:0;z-index:100}
+.sr{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.sr.show{opacity:1;transform:translateY(0)}
+.sr-left{opacity:0;transform:translateX(-24px);transition:opacity .7s,transform .7s}
+.sr-left.show{opacity:1;transform:translateX(0)}
+
+::-webkit-scrollbar{width:16px}
+::-webkit-scrollbar-track{background:#c0c0c0;border:1px solid #808080}
+::-webkit-scrollbar-thumb{background:#d4d0c8;border:2px solid;border-color:#fff #808080 #808080 #fff}
+
+@media(max-width:768px){.content-flex{flex-direction:column}.sidebar{width:100%}.app-grid{grid-template-columns:1fr}.gb-form .row{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<!-- ===== SPLASH ===== -->
+<div id="splash">
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+  <div class="splash-loading" id="sL"><span id="sT"></span><span class="splash-cursor">_</span></div>
+  <div class="splash-progress bevel-inset" id="sP">
+    <div class="splash-progress-track bevel-inset"><div class="splash-progress-bar" id="sB"></div></div>
+    <div class="splash-pct" id="sPct">Loading... 0%</div>
+  </div>
+  <div class="splash-title">
+    <p class="splash-welcome" id="sW">WELCOME TO</p>
+    <h1 class="splash-name" id="sN">App Buster</h1>
+    <p class="splash-tagline" id="sTg">Free SaaS alternatives, built with AI, given away for free</p>
+    <p class="splash-enter" id="sE" onclick="closeSplash()" style="cursor:pointer">[ CLICK TO ENTER ]</p>
+    <p class="splash-ie" id="sIE">Best viewed in Internet Explorer 6.0 at 800x600</p>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<div id="main-site">
+
+<div class="xp-titlebar">
+  <span>&#x1F4BE; App Buster - FREE Downloads - Microsoft Internet Explorer</span>
+  <div class="xp-btns"><button class="bevel-outset">_</button><button class="bevel-outset">&#9633;</button><button class="bevel-outset">X</button></div>
+</div>
+
+<div class="marquee-wrap">
+  <div class="marquee-text">*** APP BUSTER *** Every app is 100% FREE *** Built from scratch with AI *** NexRank: compare to Semrush ($249/mo) *** BulkPipe: compare to HubSpot ($800/mo) *** BulkMail: compare to Mailchimp ($350/mo) *** We just think $249/mo for an SEO tool is insane *** New apps added weekly ***</div>
+</div>
+
+<div class="sr" data-sr>
+  <div class="construction-stripe">
+    <div class="disclaimer-inner bevel-outset">
+      <p class="dtitle">*** IMPORTANT LEGAL NOTICE ***</p>
+      <p class="dbody">Every application is built from scratch using AI. 100% legal. 100% free. We are not affiliated with any trademarks referenced.* "Compare to" labels are for consumer price comparison only.</p>
+      <p class="dcopy">Copyright 2026 AppBuster.ai - All Rights Reserved</p>
+    </div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="accent-line accent-h" style="top:25%" id="hl1"></div>
+  <div class="accent-line accent-h" style="top:75%" id="hl2"></div>
+  <div class="header-title" id="headerTitle">
+    <div style="display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,32px);flex-wrap:nowrap">
+      <svg width="90" height="90" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+        <defs>
+          <linearGradient id="ybL" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe44d"/><stop offset="50%" stop-color="#ffd700"/><stop offset="100%" stop-color="#ccaa00"/></linearGradient>
+          <filter id="shL" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#0055ea" flood-opacity="0.7"/><feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/></filter>
+        </defs>
+        <g filter="url(#shL)">
+          <rect x="20" y="10" width="160" height="170" rx="6" fill="url(#ybL)" stroke="#aa8800" stroke-width="1.5"/>
+          <rect x="55" y="14" width="90" height="46" rx="3" fill="#c4bfb0" stroke="#a09a8a" stroke-width="1"/>
+          <rect x="72" y="20" width="56" height="34" rx="2" fill="#a09a8a"/>
+          <rect x="80" y="24" width="40" height="26" rx="1" fill="#8a8578"/>
+          <rect x="34" y="72" width="132" height="88" rx="3" fill="#fffff5" stroke="#c4bfb0" stroke-width="1"/>
+          <line x1="40" y1="90" x2="160" y2="90" stroke="#e0ddd0" stroke-width="0.5"/>
+          <line x1="40" y1="104" x2="160" y2="104" stroke="#e0ddd0" stroke-width="0.5"/>
+          <text x="100" y="112" font-family="'Courier Prime',monospace" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">App Buster</text>
+          <text x="100" y="134" font-family="'Courier Prime',monospace" font-size="8" fill="#888" text-anchor="middle">INSTALL DISK 1 OF 1</text>
+          <rect x="75" y="168" width="50" height="14" rx="3" fill="#a09a8a" stroke="#8a8578" stroke-width="0.8"/>
+        </g>
+      </svg>
+      <div style="text-align:center">
+        <h1 style="font-family:'Press Start 2P',monospace;font-size:clamp(16px,3.5vw,36px);color:var(--green-glow);text-shadow:2px 2px 0 rgba(0,0,0,.8),0 0 20px rgba(0,255,0,.3);line-height:1.4;white-space:nowrap"><span style="color:#00ff00">App</span> <span style="color:#fff">Buster</span></h1>
+        <div class="header-subtitle" id="headerSub" style="color:#fff;margin-top:4px">Free SaaS alternatives, built with AI, given away for free</div>
+      </div>
+      <svg width="90" height="90" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+        <defs>
+          <linearGradient id="ybR" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffe44d"/><stop offset="50%" stop-color="#ffd700"/><stop offset="100%" stop-color="#ccaa00"/></linearGradient>
+          <filter id="shR" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#0055ea" flood-opacity="0.7"/><feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/></filter>
+        </defs>
+        <g filter="url(#shR)">
+          <rect x="20" y="10" width="160" height="170" rx="6" fill="url(#ybR)" stroke="#aa8800" stroke-width="1.5"/>
+          <rect x="55" y="14" width="90" height="46" rx="3" fill="#c4bfb0" stroke="#a09a8a" stroke-width="1"/>
+          <rect x="72" y="20" width="56" height="34" rx="2" fill="#a09a8a"/>
+          <rect x="80" y="24" width="40" height="26" rx="1" fill="#8a8578"/>
+          <rect x="34" y="72" width="132" height="88" rx="3" fill="#fffff5" stroke="#c4bfb0" stroke-width="1"/>
+          <line x1="40" y1="90" x2="160" y2="90" stroke="#e0ddd0" stroke-width="0.5"/>
+          <line x1="40" y1="104" x2="160" y2="104" stroke="#e0ddd0" stroke-width="0.5"/>
+          <text x="100" y="112" font-family="'Courier Prime',monospace" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">App Buster</text>
+          <text x="100" y="134" font-family="'Courier Prime',monospace" font-size="8" fill="#888" text-anchor="middle">INSTALL DISK 1 OF 1</text>
+          <rect x="75" y="168" width="50" height="14" rx="3" fill="#a09a8a" stroke="#8a8578" stroke-width="0.8"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="header-sep" id="headerSep">
+    <div class="line" id="sepL"></div>
+    <span class="est">EST. 2026</span>
+    <div class="line" id="sepR"></div>
+  </div>
+  <nav class="header-nav" id="headerNav">
+    <a href="roadmap.html" style="color:#cc0000;text-decoration:underline" onmouseover="this.style.color='#ff0000'" onmouseout="this.style.color='#cc0000'">Roadmap</a><span class="sep">|</span>
+    <a href="#downloads">New Releases<span class="new-badge">NEW!</span></a><span class="sep">|</span>
+    <a href="#faq">F.A.Q.</a><span class="sep">|</span>
+    <a href="#compare" style="color:var(--green-glow)"><span class="new-badge" style="color:var(--green-glow)">$</span> Compare &amp; Save <span class="new-badge" style="color:var(--green-glow)">$</span></a><span class="sep">|</span>
+    <a href="#pitch">Pitch Deck</a>
+  </nav>
+  <div class="hit-counter">
+    <span class="label" style="color:var(--green-glow)">&#x1F4B0; TOTAL MONEY SAVED [estimate] &#x1F4B0;</span>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="digits bevel-inset" id="counterDigits" style="font-size:0"></div>
+      <span style="font-size:24px">&#x1F525;</span>
+    </div>
+    <span class="since">...and counting</span>
+  </div>
+  <div class="header-meta" id="headerMeta">Last Updated: Feb 21, 2026 | "We just think $249/mo for an SEO tool is insane."</div>
+</header>
+
+<div class="content-area">
+<div class="content-flex">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-section bevel-outset sr-left" data-sr>
+    <div class="sidebar-header"><h3>&#x1F4B0; SAVINGS CALC</h3><div class="accent" data-accent></div></div>
+    <div style="padding:12px">
+      <label style="font-size:11px;display:block;margin-bottom:4px">I currently pay for:</label>
+      <select id="calcSw" class="bevel-inset" onchange="updateCalc()" style="width:100%;padding:4px 8px;font-family:'Courier Prime',monospace;font-size:12px;margin-bottom:10px">
+        <option value="0">-- select --</option>
+        <option value="249">Semrush* ($249/mo)</option>
+        <option value="800">HubSpot* ($800/mo)</option>
+        <option value="350">Mailchimp* ($350/mo)</option>
+        <option value="79">Monday.com* ($79/mo)</option>
+        <option value="89">Mixpanel* ($89/mo)</option>
+        <option value="115">Zendesk* ($115/mo)</option>
+        <option value="96">Notion* ($96/mo)</option>
+        <option value="120">Canva Pro* ($120/mo)</option>
+      </select>
+      <label style="font-size:11px;display:block;margin-bottom:4px">Number of seats:</label>
+      <select id="calcSeats" class="bevel-inset" onchange="updateCalc()" style="width:100%;padding:4px 8px;font-family:'Courier Prime',monospace;font-size:12px;margin-bottom:10px">
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="50">50</option>
+      </select>
+      <div class="calc-result bevel-inset" style="text-align:center;padding:8px;background:#fff;font-size:12px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Their price:</span><span class="calc-their" id="calcTheir">$0/mo</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Our price:</span><span class="calc-free">$0/mo</span></div>
+        <div class="calc-save">Annual savings: <span id="calcSave">$0</span></div>
+      </div>
+      <p style="font-size:9px;color:var(--muted);text-align:center;margin-top:8px;font-style:italic">* Based on published per-seat pricing</p>
+    </div>
+  </div>
+  <div class="sidebar-section bevel-outset sr-left" data-sr style="transition-delay:.1s">
+    <div class="sidebar-header"><h3>&#x1F5F3; VOTE: KILL NEXT</h3><div class="accent" data-accent></div></div>
+    <div class="vote-wrap" id="voteWidget">
+      <div class="vote-label">Which overpriced software should we replace next? Start typing to vote:</div>
+      <div class="vote-input-wrap bevel-inset">
+        <input type="text" class="vote-input" id="voteInput" placeholder="Type software name..." autocomplete="off">
+        <div class="vote-dropdown" id="voteDropdown"></div>
+      </div>
+      <div class="vote-results" id="voteResults"></div>
+      <div class="vote-total" id="voteTotal"></div>
+    </div>
+  </div>
+  <div class="sidebar-section bevel-outset sr-left" data-sr style="transition-delay:.2s">
+    <div class="sidebar-header"><h3>&#x1F4C1; CATEGORIES</h3><div class="accent" data-accent></div></div>
+    <div class="sidebar-list" id="catList"></div>
+  </div>
+</aside>
+
+<!-- APP GRID -->
+<section class="app-section" id="downloads">
+  <div class="bevel-outset" style="margin-bottom:16px">
+    <div class="section-bar" id="appBar">
+      <h2>>> STOP OVERPAYING FOR SOFTWARE &lt;&lt;</h2>
+      <span class="cnt" id="appCount"></span>
+      <div class="accent" data-accent></div>
+    </div>
+    <div class="section-sub">Your business pays $0/mo. Same tools. Same features. Every app is FREE.</div>
+  </div>
+  <div class="app-grid" id="appGrid"></div>
+  <div class="load-more sr" data-sr>
+    <button class="bevel-button" style="font-size:14px;font-weight:bold;padding:8px 32px">&gt;&gt;&gt; More Apps Coming Soon &gt;&gt;&gt;</button>
+    <p class="info">Coming next: BulkChat (Intercom) | BulkInvoice (FreshBooks) | BulkForm (Typeform) | BulkSurvey (SurveyMonkey)</p>
+  </div>
+  <p style="font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);text-align:center;margin-top:16px;line-height:1.6;max-width:600px;margin-left:auto;margin-right:auto">*Semrush, HubSpot, Mailchimp, Monday.com, Mixpanel, Zendesk, Notion, Canva, and Buffer are registered trademarks of their respective owners. App Buster is not affiliated with, endorsed by, or connected to any of these companies. Product names are used solely for purposes of comparison, in the same way store-brand products identify national brand equivalents.</p>
+</section>
+
+</div>
+
+<div class="sec-divider"><div class="line" data-divider></div><span class="label">COMPARE &amp; SAVE</span><div class="line" data-divider></div></div>
+
+<section id="compare" class="bevel-outset sr" data-sr style="background:var(--silver-light)">
+  <div class="section-bar"><h2>&#x1F4B0; COMPARE &amp; SAVE &#x1F4B0;</h2><div class="accent" data-accent></div></div>
+  <div style="padding:16px">
+    <p style="text-align:center;font-size:14px;font-weight:bold;margin-bottom:16px">See how much your business saves per year by switching to our free alternatives.</p>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;background:#fff" class="bevel-inset">
+      <thead>
+        <tr style="background:var(--navy);color:var(--yellow-alert);font-family:'Press Start 2P',monospace;font-size:8px">
+          <th style="padding:8px;text-align:left">THEY CHARGE FOR</th>
+          <th style="padding:8px;text-align:left">OUR FREE VERSION</th>
+          <th style="padding:8px;text-align:right">THEIR PRICE</th>
+          <th style="padding:8px;text-align:right">OUR PRICE</th>
+          <th style="padding:8px;text-align:right">YOU SAVE/YR</th>
+        </tr>
+      </thead>
+      <tbody id="compareTable"></tbody>
+      <tfoot>
+        <tr style="background:var(--navy);font-weight:bold">
+          <td colspan="2" style="padding:8px;font-family:'Press Start 2P',monospace;font-size:9px;color:var(--yellow-alert)">TOTAL IF YOU SWITCH EVERYTHING</td>
+          <td style="padding:8px;text-align:right;color:var(--red-price);font-family:'Courier Prime',monospace;font-size:14px;text-decoration:line-through" id="compareTotalTheir"></td>
+          <td style="padding:8px;text-align:right;color:var(--green-glow);font-family:'Press Start 2P',monospace;font-size:12px">$0</td>
+          <td style="padding:8px;text-align:right;color:var(--green-glow);font-family:'Courier Prime',monospace;font-size:14px;font-weight:bold" id="compareTotalSave"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <p style="text-align:center;margin-top:12px;font-size:11px;color:var(--muted);font-family:'Courier Prime',monospace">* Prices based on published per-seat pricing as of Feb 2026. Your actual savings may vary.</p>
+    <p style="text-align:center;margin-top:4px;font-size:12px;font-weight:bold">That's a new employee. That's a marketing budget. That's YOUR money back.</p>
+  </div>
+</section>
+
+<div class="sec-divider"><div class="line" data-divider></div><span class="label">PITCH DECK</span><div class="line" data-divider></div></div>
+
+<section id="pitch" class="bevel-outset sr" data-sr style="background:var(--silver-light)">
+  <div class="section-bar"><h2>&#x1F4BC; THE PITCH &#x1F4BC;</h2><div class="accent" data-accent></div></div>
+  <div style="padding:16px">
+
+    <div class="bevel-inset" style="background:var(--navy);padding:24px;text-align:center;margin-bottom:16px">
+      <p style="font-family:'Press Start 2P',monospace;font-size:clamp(10px,2vw,16px);color:var(--green-glow);line-height:2">APP BUSTER</p>
+      <p style="color:var(--silver);font-size:14px;margin-top:8px">"Same tools. Same features. $0/mo."</p>
+      <p style="color:var(--yellow-alert);font-family:'Courier Prime',monospace;font-size:11px;margin-top:12px">Est. 2026 | Built with AI | Free forever</p>
+    </div>
+
+    <div class="bevel-inset" style="background:#fff;padding:16px;margin-bottom:12px">
+      <h3 style="font-family:'Press Start 2P',monospace;font-size:9px;color:var(--navy);margin-bottom:8px">THE PROBLEM</h3>
+      <p style="font-size:13px;line-height:1.6">Small and mid-size businesses spend $5,000 to $50,000 per year on SaaS subscriptions they can barely afford. Semrush charges $249/mo for SEO tools. HubSpot charges $800/mo for a CRM. Monday.com charges $79/mo for a task board. Most businesses use 10% of the features and pay 100% of the price. The SaaS industry has been overcharging for a decade and nobody has called them on it.</p>
+    </div>
+
+    <div class="bevel-inset" style="background:#fff;padding:16px;margin-bottom:12px">
+      <h3 style="font-family:'Press Start 2P',monospace;font-size:9px;color:var(--navy);margin-bottom:8px">THE INSIGHT</h3>
+      <p style="font-size:13px;line-height:1.6">AI can now build functional software in hours, not months. The cost to develop and maintain a CRM, an email tool, or an SEO suite has collapsed by 90%+. But SaaS companies haven't passed those savings to customers. We will.</p>
+    </div>
+
+    <div class="bevel-inset" style="background:#fff;padding:16px;margin-bottom:12px">
+      <h3 style="font-family:'Press Start 2P',monospace;font-size:9px;color:var(--navy);margin-bottom:8px">THE MODEL</h3>
+      <p style="font-size:13px;line-height:1.6;margin-bottom:8px">Think store brands, but for software. Same functionality as name-brand SaaS, built from scratch with AI, given away for free. The cost to build software collapsed 90%+. The prices didn't. We're the correction.</p>
+      <ul style="font-size:12px;line-height:1.8;margin-left:20px">
+        <li><strong>Every app is free.</strong> No freemium tricks, no 14-day trials, no credit card required.</li>
+        <li><strong>AI-built from scratch.</strong> Not cloned, not pirated, not forked. Original code, built with AI.</li>
+        <li><strong>"Compare to" positioning.</strong> Just like Kirkland vs. Tide. Our NexRank vs. their Semrush.</li>
+        <li><strong>Revenue from premium support, custom deployments, and enterprise features.</strong></li>
+      </ul>
+    </div>
+
+    <div class="bevel-inset" style="background:#fff;padding:16px;margin-bottom:12px">
+      <h3 style="font-family:'Press Start 2P',monospace;font-size:9px;color:var(--navy);margin-bottom:8px">THE MARKET</h3>
+      <p style="font-size:13px;line-height:1.6">The global SaaS market is $197B and growing 12% YoY. There are 33 million small businesses in the US alone. Most are overpaying for software they don't fully use. We're not trying to beat Salesforce. We're trying to save the businesses that can't afford Salesforce.</p>
+    </div>
+
+    <div class="bevel-inset" style="background:#fff;padding:16px;margin-bottom:12px">
+      <h3 style="font-family:'Press Start 2P',monospace;font-size:9px;color:var(--navy);margin-bottom:8px">TRACTION</h3>
+      <table style="width:100%;font-size:12px;border-collapse:collapse">
+        <tr><td style="padding:4px 8px">&#x1F4E6; Apps launched</td><td style="padding:4px 8px;text-align:right;font-weight:bold">9</td></tr>
+        <tr style="background:#f5f5f5"><td style="padding:4px 8px">&#x2B07; Total downloads</td><td style="padding:4px 8px;text-align:right;font-weight:bold">80,591</td></tr>
+        <tr><td style="padding:4px 8px">&#x1F4B0; Total user savings (est.)</td><td style="padding:4px 8px;text-align:right;font-weight:bold;color:var(--green-dl)">$2.8M+/yr</td></tr>
+        <tr style="background:#f5f5f5"><td style="padding:4px 8px">&#x1F4C8; Apps in pipeline</td><td style="padding:4px 8px;text-align:right;font-weight:bold">5</td></tr>
+        <tr><td style="padding:4px 8px">&#x1F310; Competitor pricing replaced</td><td style="padding:4px 8px;text-align:right;font-weight:bold;color:var(--red-price)">$1,898/mo combined</td></tr>
+      </table>
+    </div>
+
+    <div class="bevel-inset" style="background:#fff;padding:16px;margin-bottom:12px">
+      <h3 style="font-family:'Press Start 2P',monospace;font-size:9px;color:var(--navy);margin-bottom:8px">WHY NOW</h3>
+      <p style="font-size:13px;line-height:1.6">AI just crossed the threshold where one developer with AI tools can build what used to take a team of 10 engineers six months. The cost structure of software has fundamentally changed. The pricing hasn't caught up. We're the correction.</p>
+    </div>
+
+    <div class="bevel-inset" style="background:var(--navy);padding:16px;text-align:center">
+      <p style="font-family:'Press Start 2P',monospace;font-size:9px;color:var(--green-glow);line-height:2">WE JUST THINK $249/MO<br>FOR AN SEO TOOL IS INSANE.</p>
+      <p style="color:var(--silver);font-size:12px;margin-top:8px">Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2cac7cececde2d6cac7c1cdd1d6c1cdcdc4d1cdc4d6d5c3d0c78cc1cdcf">[email&#160;protected]</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="sec-divider"><div class="line" data-divider></div><span class="label">F.A.Q.</span><div class="line" data-divider></div></div>
+
+<section id="faq" class="bevel-outset sr" data-sr style="background:var(--silver-light)">
+  <div class="section-bar"><h2>&#x2753; FREQUENTLY ASKED QUESTIONS</h2><div class="accent" data-accent></div></div>
+  <div style="padding:16px" id="faqList"></div>
+</section>
+
+<div class="sec-divider"><div class="line" data-divider style="border-style:dotted"></div><div class="line" data-divider style="border-style:dotted"></div></div>
+
+<div class="sr" data-sr>
+  <div class="bevel-outset under-construction">
+    <span style="font-size:20px">&#x1F6A7; &#x1F477; &#x1F6A7;</span>
+    <p class="utext">MORE APPS UNDER CONSTRUCTION</p>
+    <p class="usub">BulkChat (Intercom) | BulkSocial (Hootsuite) | BulkInvoice (FreshBooks) | BulkForm (Typeform) | BulkSurvey (SurveyMonkey)</p>
+  </div>
+</div>
+</div>
+
+<footer class="webring-footer">
+  <div class="webring-box bevel-outset sr" data-sr>
+    <div class="webring-header">&#x1F310; FREE SOFTWARE WEBRING &#x1F310;</div>
+    <div class="webring-content">
+      <button class="bevel-button" style="font-size:11px">&laquo; Prev</button>
+      <div>
+        <p style="font-size:12px;color:var(--fg)">This site is part of the</p>
+        <p class="ring-name">Free Software Alternatives WebRing</p>
+        <p class="ring-count">[ 89 sites in ring ]</p>
+      </div>
+      <button class="bevel-button" style="font-size:11px">Next &raquo;</button>
+    </div>
+    <div class="webring-links">
+      <a href="#">Random</a><span style="color:var(--muted)">|</span>
+      <a href="#">List All Sites</a><span style="color:var(--muted)">|</span>
+      <a href="#">Join This Ring</a>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Home</a><span class="sep">|</span><a href="#">About</a><span class="sep">|</span><a href="#">GitHub</a><span class="sep">|</span><a href="#">r/AppBuster</a><span class="sep">|</span><a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">
+    <p class="made">We just think $249/mo for an SEO tool is insane. <span class="heart">&lt;3</span></p>
+    <p class="hosted">App Buster - Est. 2026 - Built with AI, priced with common sense.</p>
+    <div class="footer-badges">
+      <span class="footer-badge bevel-outset">&#9989; 100% LEGAL</span>
+      <span class="footer-badge bevel-outset">&#9989; AI-BUILT</span>
+      <span class="footer-badge bevel-outset">&#9989; OPEN SOURCE</span>
+      <span class="footer-badge bevel-outset">&#9989; NO SPYWARE</span>
+    </div>
+  </div>
+</footer>
+
+<div class="status-bar bevel-outset">
+  <div style="display:flex;gap:12px">
+    <span class="bevel-inset" style="padding:1px 8px">Done</span>
+    <span class="bevel-inset" style="padding:1px 8px;display:none" id="statusProt">Internet | Protected Mode: On</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="color:var(--green-dl)">&#x1F6E1;</span>
+    <span class="bevel-inset" style="padding:1px 8px" id="statusTime"></span>
+  </div>
+</div>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ===== DATA =====
+var APPS=[
+  {title:"NexRank",desc:"Full SEO suite. Rank tracking, keyword research, site audit, backlink analysis, competitor intel.",compareTo:"Semrush",price:249,cat:"SEO & Marketing",ver:"v2.1",rating:5,color:"#1a2a4a",isNew:true,isHot:true,downloads:"14,829",icon:"\u{1F50D}"},
+  {title:"BulkPipe",desc:"Complete CRM. Contacts, deals, pipeline, email sequences, reporting, automations.",compareTo:"HubSpot",price:800,cat:"CRM & Sales",ver:"v1.8",rating:5,color:"#2a1a4a",isNew:true,isHot:true,downloads:"11,204",icon:"\u{1F4CA}"},
+  {title:"BulkMail",desc:"Email marketing. Drag-and-drop builder, automations, segmentation, A/B testing, analytics.",compareTo:"Mailchimp",price:350,cat:"Email & Comms",ver:"v1.5",rating:5,color:"#1a3a3a",isNew:true,isHot:false,downloads:"9,741",icon:"\u{1F4E7}"},
+  {title:"BulkBoard",desc:"Project management. Boards, timelines, Gantt charts, workload view, automations.",compareTo:"Monday.com",price:79,cat:"Project Mgmt",ver:"v1.3",rating:5,color:"#3a2a1a",isNew:false,isHot:true,downloads:"22,156",icon:"\u{1F4CB}"},
+  {title:"BulkTrack",desc:"Product analytics. Funnels, cohorts, retention, user paths, real-time dashboards.",compareTo:"Mixpanel",price:89,cat:"Analytics",ver:"v1.2",rating:5,color:"#2a4a2a",isNew:false,isHot:false,downloads:"7,104",icon:"\u{1F4C8}"},
+  {title:"BulkDesk",desc:"Helpdesk & support. Ticket management, live chat, knowledge base, SLA tracking.",compareTo:"Zendesk",price:115,cat:"Support",ver:"v1.1",rating:5,color:"#4a1a2a",isNew:false,isHot:false,downloads:"5,887",icon:"\u{1F3E2}"},
+  {title:"BulkDocs",desc:"Document collaboration. Real-time editing, comments, version history, templates.",compareTo:"Notion",price:96,cat:"Productivity",ver:"v1.0",rating:5,color:"#1a1a4a",isNew:true,isHot:false,downloads:"3,127",icon:"\u{1F4DD}"},
+  {title:"BulkDesign",desc:"Graphic design. Templates, brand kits, resize, background removal, team collab.",compareTo:"Canva Pro",price:120,cat:"Design Tools",ver:"v0.9",rating:5,color:"#4a2a4a",isNew:false,isHot:false,downloads:"2,891",icon:"\u{1F3A8}"},
+  {title:"BulkSchedule",desc:"Social media scheduler. Multi-platform posting, analytics, content calendar.",compareTo:"Buffer",price:120,cat:"Social Media",ver:"v1.0",rating:5,color:"#2a3a1a",isNew:false,isHot:false,downloads:"4,532",icon:"\u{1F4F1}"}
+];
+
+var CATS=[
+  {n:"SEO & Marketing",c:3},{n:"CRM & Sales",c:2},{n:"Email & Comms",c:2},{n:"Project Management",c:3},
+  {n:"Analytics",c:2},{n:"Design Tools",c:2},{n:"Dev Tools",c:4},{n:"Support & Helpdesk",c:2},
+  {n:"Productivity",c:3},{n:"Social Media",c:2}
+];
+
+
+// ===== SPLASH =====
+var splashPhase=0,loadingText="C:\\SOFTWARE\\App_Buster.exe";
+function closeSplash(){document.getElementById('splash').classList.add('fade-out');setTimeout(function(){document.getElementById('splash').style.display='none';document.getElementById('main-site').classList.add('show');initSR();},700);}
+(function(){
+  setTimeout(function(){document.getElementById('sL').classList.add('show');},400);
+  var i=0;
+  setTimeout(function(){var iv=setInterval(function(){if(i<=loadingText.length){document.getElementById('sT').textContent=loadingText.slice(0,i);i++;}else{clearInterval(iv);splashPhase=2;}},50);},600);
+  setTimeout(function(){document.getElementById('sP').classList.add('show');var w=0;var iv=setInterval(function(){w+=Math.random()*15+3;if(w>=100){w=100;clearInterval(iv);splashPhase=3;}document.getElementById('sB').style.width=Math.min(100,w)+'%';document.getElementById('sPct').textContent=(splashPhase<3?'Loading... ':'Complete! ')+Math.round(Math.min(100,w))+'%';},120);},2200);
+  setTimeout(function(){splashPhase=4;document.getElementById('sW').classList.add('show');},3400);
+  setTimeout(function(){splashPhase=5;document.getElementById('sN').classList.add('show');},4200);
+  setTimeout(function(){splashPhase=6;document.getElementById('sTg').classList.add('show');document.getElementById('sE').classList.add('show');document.getElementById('sIE').classList.add('show');},5000);
+  // Auto-dismiss after animation completes
+  setTimeout(function(){closeSplash();},6500);
+})();
+
+// ===== MONEY SAVED COUNTER =====
+var savedCount=10000000;
+function updateCounter(){var d='$'+savedCount.toLocaleString();var h='';d.split('').forEach(function(c){h+='<span class="digit">'+c+'</span>';});document.getElementById('counterDigits').innerHTML=h;}
+updateCounter();setInterval(function(){savedCount+=Math.floor(Math.random()*499999)+200000;if(savedCount>=99999999)savedCount=10000000;updateCounter();},8);
+
+// ===== CATEGORIES =====
+(function(){var h='';CATS.forEach(function(c){h+='<button><span>\u{1F4C2} '+c.n+'</span><span class="cnt">('+c.c+')</span></button>';});document.getElementById('catList').innerHTML=h;})();
+
+// ===== VOTE: KILL NEXT =====
+(function(){
+  var SOFTWARE=[
+    {n:'Statista',p:'$39-600/mo',c:'Statistics & Data'},
+    {n:'IBISWorld',p:'$1-10K/yr',c:'Statistics & Data'},
+    {n:'Euromonitor',p:'$2-8K/yr',c:'Statistics & Data'},
+    {n:'Adobe Acrobat',p:'$13-23/mo',c:'PDF Tools'},
+    {n:'SmallPDF',p:'$9-15/mo',c:'PDF Tools'},
+    {n:'ILovePDF',p:'$4-8/mo',c:'PDF Tools'},
+    {n:'Foxit PDF',p:'$8-15/mo',c:'PDF Tools'},
+    {n:'Nitro PDF',p:'$14-18/mo',c:'PDF Tools'},
+    {n:'PDF Expert',p:'$80/yr',c:'PDF Tools'},
+    {n:'Grammarly',p:'$12-30/mo',c:'AI Writing & Grammar'},
+    {n:'ProWritingAid',p:'$10-30/mo',c:'AI Writing & Grammar'},
+    {n:'QuillBot',p:'$10-20/mo',c:'AI Writing & Grammar'},
+    {n:'Wordtune',p:'$10-25/mo',c:'AI Writing & Grammar'},
+    {n:'Hemingway Editor',p:'$10/mo',c:'AI Writing & Grammar'},
+    {n:'Calendly',p:'$10-16/mo',c:'Scheduling & Booking'},
+    {n:'Acuity Scheduling',p:'$16-46/mo',c:'Scheduling & Booking'},
+    {n:'SavvyCal',p:'$12-20/mo',c:'Scheduling & Booking'},
+    {n:'TidyCal',p:'$29 LTD',c:'Scheduling & Booking'},
+    {n:'Bitly',p:'$8-35/mo',c:'Link Management'},
+    {n:'Linktree',p:'$5-24/mo',c:'Link Management'},
+    {n:'Rebrandly',p:'$13-32/mo',c:'Link Management'},
+    {n:'Short.io',p:'$20-150/mo',c:'Link Management'},
+    {n:'Semrush',p:'$130-500/mo',c:'SEO & Web Intel'},
+    {n:'Ahrefs',p:'$99-449/mo',c:'SEO & Web Intel'},
+    {n:'Moz Pro',p:'$49-299/mo',c:'SEO & Web Intel'},
+    {n:'SpyFu',p:'$39-79/mo',c:'SEO & Web Intel'},
+    {n:'Mangools',p:'$30-90/mo',c:'SEO & Web Intel'},
+    {n:'SE Ranking',p:'$44-191/mo',c:'SEO & Web Intel'},
+    {n:'Serpstat',p:'$50-349/mo',c:'SEO & Web Intel'},
+    {n:'Typeform',p:'$25-83/mo',c:'Forms & Surveys'},
+    {n:'SurveyMonkey',p:'$25-99/mo',c:'Forms & Surveys'},
+    {n:'JotForm',p:'$34-99/mo',c:'Forms & Surveys'},
+    {n:'Tally',p:'$29/mo',c:'Forms & Surveys'},
+    {n:'Loom',p:'$13-15/mo',c:'Screen Recording'},
+    {n:'Vidyard',p:'$19-59/mo',c:'Screen Recording'},
+    {n:'CloudApp',p:'$10-17/mo',c:'Screen Recording'},
+    {n:'Screencast-O-Matic',p:'$3-6/mo',c:'Screen Recording'},
+    {n:'Otter.ai',p:'$10-25/mo',c:'Transcription'},
+    {n:'Fireflies.ai',p:'$10-29/mo',c:'Transcription'},
+    {n:'Rev',p:'$10-30/mo',c:'Transcription'},
+    {n:'tl;dv',p:'$18-59/mo',c:'Transcription'},
+    {n:'Notta',p:'$9-18/mo',c:'Transcription'},
+    {n:'Shutterstock',p:'$29-199/mo',c:'Stock Media'},
+    {n:'iStock',p:'$12-25/mo',c:'Stock Media'},
+    {n:'Getty Images',p:'$30-300/mo',c:'Stock Media'},
+    {n:'Adobe Stock',p:'$30-80/mo',c:'Stock Media'},
+    {n:'SimilarWeb',p:'$149-999/mo',c:'Traffic Analytics'},
+    {n:'Comscore',p:'Enterprise',c:'Traffic Analytics'},
+    {n:'Trainual',p:'$249-499/mo',c:'Training & SOPs'},
+    {n:'Process Street',p:'$25-150/mo',c:'Training & SOPs'},
+    {n:'Scribe',p:'$23-29/user/mo',c:'Training & SOPs'},
+    {n:'SweetProcess',p:'$29-79/mo',c:'Training & SOPs'},
+    {n:'Whale',p:'$6-12/user/mo',c:'Training & SOPs'},
+    {n:'Tango',p:'$0-20/user/mo',c:'Training & SOPs'},
+    {n:'BuiltWith',p:'$295-495/mo',c:'Tech Detection'},
+    {n:'Wappalyzer',p:'$50-450/mo',c:'Tech Detection'},
+    {n:'Mailchimp',p:'$13-350/mo',c:'Email Marketing'},
+    {n:'ConvertKit',p:'$9-79/mo',c:'Email Marketing'},
+    {n:'MailerLite',p:'$9-18/mo',c:'Email Marketing'},
+    {n:'Brevo',p:'$9-65/mo',c:'Email Marketing'},
+    {n:'Constant Contact',p:'$12-80/mo',c:'Email Marketing'},
+    {n:'ActiveCampaign',p:'$29-149/mo',c:'Email Marketing'},
+    {n:'Pipedrive',p:'$14-129/user/mo',c:'CRM'},
+    {n:'Less Annoying CRM',p:'$15/user/mo',c:'CRM'},
+    {n:'Streak',p:'$15-89/user/mo',c:'CRM'},
+    {n:'folk CRM',p:'$20-60/user/mo',c:'CRM'},
+    {n:'Capsule CRM',p:'$18-72/user/mo',c:'CRM'},
+    {n:'Close CRM',p:'$29-149/user/mo',c:'CRM'},
+    {n:'Copper CRM',p:'$9-134/user/mo',c:'CRM'},
+    {n:'ZoomInfo',p:'$15-25K/yr',c:'Sales Intelligence'},
+    {n:'Apollo.io',p:'$0-99/mo',c:'Sales Intelligence'},
+    {n:'Lusha',p:'$29-51/user/mo',c:'Sales Intelligence'},
+    {n:'Cognism',p:'Custom',c:'Sales Intelligence'},
+    {n:'Crunchbase',p:'$49-99/mo',c:'Sales Intelligence'},
+    {n:'HubSpot',p:'$0-3600/mo',c:'All-in-One'},
+    {n:'Salesforce',p:'$25-330/user/mo',c:'All-in-One'},
+    {n:'Monday.com',p:'$9-24/seat/mo',c:'Project Management'},
+    {n:'Asana',p:'$11-25/user/mo',c:'Project Management'},
+    {n:'ClickUp',p:'$7-12/user/mo',c:'Project Management'},
+    {n:'Notion',p:'$8-10/mo',c:'Notes & Docs'},
+    {n:'Evernote',p:'$11-15/mo',c:'Notes & Docs'},
+    {n:'Canva Pro',p:'$13/mo',c:'Design'},
+    {n:'Adobe Creative Cloud',p:'$55-90/mo',c:'Design'},
+    {n:'Figma',p:'$12-75/editor/mo',c:'Design'},
+    {n:'Zendesk',p:'$19-115/agent/mo',c:'Support'},
+    {n:'Intercom',p:'$39-139/seat/mo',c:'Support'},
+    {n:'Freshdesk',p:'$15-79/agent/mo',c:'Support'},
+    {n:'Hootsuite',p:'$99-249/mo',c:'Social Media'},
+    {n:'Buffer',p:'$6-120/mo',c:'Social Media'},
+    {n:'Sprout Social',p:'$249-499/mo',c:'Social Media'},
+    {n:'LastPass',p:'$3-7/user/mo',c:'Password Manager'},
+    {n:'1Password',p:'$3-8/user/mo',c:'Password Manager'},
+    {n:'Dashlane',p:'$5-8/user/mo',c:'Password Manager'},
+    {n:'Zapier',p:'$20-100/mo',c:'Automation'},
+    {n:'Make (Integromat)',p:'$9-29/mo',c:'Automation'},
+    {n:'DocuSign',p:'$10-40/mo',c:'E-Signature'},
+    {n:'PandaDoc',p:'$19-49/user/mo',c:'E-Signature'},
+    {n:'QuickBooks',p:'$30-200/mo',c:'Accounting'},
+    {n:'Xero',p:'$15-78/mo',c:'Accounting'},
+    {n:'FreshBooks',p:'$10-55/mo',c:'Accounting'},
+    {n:'Slack',p:'$8-13/user/mo',c:'Messaging'},
+    {n:'Zoom',p:'$13-22/user/mo',c:'Video'},
+    {n:'Datadog',p:'$15-23/host/mo',c:'Monitoring'},
+    {n:'New Relic',p:'$0.30-0.50/GB',c:'Monitoring'},
+    {n:'Mixpanel',p:'$20-833/mo',c:'Analytics'},
+    {n:'Amplitude',p:'Custom',c:'Analytics'},
+    {n:'Hotjar',p:'$32-171/mo',c:'Analytics'},
+    {n:'PitchBook',p:'$20-50K/yr',c:'Market Intel'},
+    {n:'CB Insights',p:'$50K+/yr',c:'Market Intel'},
+    {n:'Glassdoor',p:'Custom',c:'HR/Recruiting'},
+    {n:'LinkedIn Premium',p:'$30-60/mo',c:'HR/Recruiting'}
+  ];
+
+  // Seed votes to look active
+  var votes={};
+  var seeds=[
+    ['Semrush',847],['Grammarly',712],['Trainual',634],['Adobe Acrobat',589],
+    ['Calendly',543],['Statista',498],['Linktree',467],['Typeform',423],
+    ['SurveyMonkey',398],['Loom',376],['Shutterstock',352],['Mailchimp',341],
+    ['Ahrefs',329],['HubSpot',314],['Salesforce',301],['Otter.ai',287],
+    ['SimilarWeb',264],['Bitly',251],['Pipedrive',238],['Slack',224],
+    ['Monday.com',219],['BuiltWith',198],['Hootsuite',187],['ZoomInfo',176],
+    ['Process Street',165],['Canva Pro',158],['Adobe Creative Cloud',152],
+    ['Zendesk',147],['Zapier',139],['QuickBooks',134],['DocuSign',128],
+    ['SmallPDF',121],['Intercom',117],['Notion',112],['Zoom',108]
+  ];
+  seeds.forEach(function(s){votes[s[0]]=s[1];});
+
+  var input=document.getElementById('voteInput');
+  var dropdown=document.getElementById('voteDropdown');
+  var resultsEl=document.getElementById('voteResults');
+  var totalEl=document.getElementById('voteTotal');
+  var voted={};
+  var activeIdx=-1;
+
+  function getTotal(){var t=0;for(var k in votes)t+=votes[k];return t;}
+
+  function renderResults(){
+    var sorted=[];for(var k in votes)sorted.push([k,votes[k]]);
+    sorted.sort(function(a,b){return b[1]-a[1];});
+    var top=sorted.slice(0,8);
+    var maxV=top[0]?top[0][1]:1;
+    var h='';
+    top.forEach(function(item,i){
+      var pct=Math.round(item[1]/maxV*100);
+      var sw=SOFTWARE.filter(function(s){return s.n===item[0];})[0];
+      var price=sw?sw.p:'';
+      h+='<div class="vote-row" id="vr_'+i+'">'+
+        '<span class="vote-rank">#'+(i+1)+'</span>'+
+        '<div class="vote-bar-wrap">'+
+          '<div class="vote-bar-name">'+item[0]+(price?' <span style="color:var(--red-price);font-size:8px;font-family:Courier Prime,monospace">'+price+'</span>':'')+'</div>'+
+          '<div class="vote-bar-track"><div class="vote-bar-fill" style="width:'+pct+'%"></div></div>'+
+        '</div>'+
+        '<span class="vote-count">'+item[1].toLocaleString()+'</span>'+
+      '</div>';
+    });
+    resultsEl.innerHTML=h;
+    totalEl.textContent=getTotal().toLocaleString()+' total votes from '+Math.round(getTotal()/2.3).toLocaleString()+' visitors';
+  }
+
+  function showDropdown(q){
+    q=q.toLowerCase().trim();
+    if(!q){dropdown.classList.remove('open');activeIdx=-1;return;}
+    var matches=SOFTWARE.filter(function(s){return s.n.toLowerCase().indexOf(q)>-1;});
+    if(!matches.length){dropdown.innerHTML='<div style="padding:6px 8px;font-size:10px;color:var(--muted)">No matches. Try another name.</div>';dropdown.classList.add('open');activeIdx=-1;return;}
+    var cats={};matches.forEach(function(m){if(!cats[m.c])cats[m.c]=[];cats[m.c].push(m);});
+    var h='';var flatIdx=0;
+    for(var cat in cats){
+      h+='<div class="vd-cat">'+cat+'</div>';
+      cats[cat].forEach(function(m){
+        var isVoted=voted[m.n];
+        h+='<div class="vd-item'+(flatIdx===activeIdx?' active':'')+'" data-name="'+m.n+'" data-idx="'+flatIdx+'">'+
+          '<span>'+(isVoted?'\u2705 ':'')+m.n+'</span>'+
+          '<span class="vd-price">'+m.p+'</span>'+
+        '</div>';
+        flatIdx++;
+      });
+    }
+    dropdown.innerHTML=h;
+    dropdown.classList.add('open');
+    dropdown.querySelectorAll('.vd-item').forEach(function(el){
+      el.addEventListener('click',function(){castVote(el.getAttribute('data-name'));});
+    });
+  }
+
+  function castVote(name){
+    if(voted[name]){dropdown.classList.remove('open');input.value='';return;}
+    var inc=1;
+    if(window._bonusVoteAvailable){inc=2;window._bonusVoteAvailable=false;
+      var vl=document.querySelector('.vote-label');
+      if(vl)vl.innerHTML='Which overpriced software should we replace next? Start typing to vote:<br><span style="color:var(--green-dl);font-size:9px">&#x2705; Bonus vote used! Share again to earn another.</span>';
+      setTimeout(function(){var vl2=document.querySelector('.vote-label');if(vl2)vl2.textContent='Which overpriced software should we replace next? Start typing to vote:';},3000);
+    }
+    votes[name]=(votes[name]||0)+inc;
+    voted[name]=true;
+    input.value='';
+    dropdown.classList.remove('open');
+    activeIdx=-1;
+    renderResults();
+    var sorted=[];for(var k in votes)sorted.push([k,votes[k]]);
+    sorted.sort(function(a,b){return b[1]-a[1];});
+    var idx=-1;sorted.slice(0,8).forEach(function(s,i){if(s[0]===name)idx=i;});
+    if(idx>=0){
+      var row=document.getElementById('vr_'+idx);
+      if(row){row.classList.add('vote-flash');setTimeout(function(){row.classList.remove('vote-flash');},500);}
+    }
+  }
+
+  input.addEventListener('input',function(){activeIdx=-1;showDropdown(this.value);});
+  input.addEventListener('focus',function(){if(this.value)showDropdown(this.value);});
+
+  input.addEventListener('keydown',function(e){
+    var items=dropdown.querySelectorAll('.vd-item');
+    if(!items.length)return;
+    if(e.key==='ArrowDown'){e.preventDefault();activeIdx=Math.min(activeIdx+1,items.length-1);highlightItem(items);}
+    else if(e.key==='ArrowUp'){e.preventDefault();activeIdx=Math.max(activeIdx-1,0);highlightItem(items);}
+    else if(e.key==='Enter'&&activeIdx>=0){e.preventDefault();castVote(items[activeIdx].getAttribute('data-name'));}
+    else if(e.key==='Escape'){dropdown.classList.remove('open');activeIdx=-1;}
+  });
+
+  function highlightItem(items){
+    items.forEach(function(el,i){
+      if(i===activeIdx){el.classList.add('active');el.scrollIntoView({block:'nearest'});}
+      else el.classList.remove('active');
+    });
+  }
+
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('#voteWidget'))dropdown.classList.remove('open');
+  });
+
+  renderResults();
+})();
+
+// ===== RENDER APPS =====
+(function(){
+  document.getElementById('appCount').textContent=APPS.length+' apps available';
+  var h='';
+  APPS.forEach(function(a,idx){
+    var annual='$'+(a.price*12).toLocaleString();
+    var stars='';for(var s=0;s<5;s++) stars+='<span class="star '+(s<a.rating?'on':'off')+'">\u2605</span>';
+    h+='<article class="app-card bevel-outset" style="transition-delay:'+(idx*80)+'ms" data-app>'+
+      '<div class="app-art" style="background:'+a.color+'">'+
+        '<div style="text-align:center;color:#fff"><div class="icon">'+a.icon+'</div><p class="cat">'+a.cat+'</p></div>'+
+        '<div class="badge-stack">'+(a.isNew?'<span class="badge-new">NEW!</span>':'')+(a.isHot?'<span class="badge-hot">HOT!</span>':'')+'</div>'+
+        '<div class="star-row">'+stars+'</div>'+
+      '</div>'+
+      '<div class="app-body">'+
+        '<div class="compare-to">Compare to: <span class="brand">'+a.compareTo+'* ($'+a.price+'/mo)</span></div>'+
+        '<div class="app-name">'+a.title+'</div>'+
+        '<p class="app-desc">'+a.desc+'</p>'+
+        '<div class="app-meta">'+a.ver+' | Web App | Downloads: '+a.downloads+'</div>'+
+        '<div class="price-box bevel-inset">'+
+          '<div class="price-row"><div><p class="price-label">'+a.compareTo+'* charges:</p><p class="their-price">$'+a.price+'/mo</p></div><div style="text-align:center"><p class="free-price">FREE</p><p class="free-sub">($0.00/mo)</p></div></div>'+
+          '<p class="savings">You save '+annual+'/year!!!</p>'+
+        '</div>'+
+        '<button class="dl-btn bevel-outset" onclick="fakeDL(this)">\u2B07 DOWNLOAD FREE</button>'+
+      '</div></article>';
+  });
+  document.getElementById('appGrid').innerHTML=h;
+})();
+
+// ===== SHARE-GATED DOWNLOAD =====
+var _pendingBtn=null;
+var _hasShared=false;
+var _bonusVoteAvailable=false;
+
+function fakeDL(btn){
+  if(_hasShared){
+    // Already shared this session, just download
+    runDownload(btn);
+    return;
+  }
+  _pendingBtn=btn;
+  document.getElementById('shareOverlay').classList.add('open');
+  document.getElementById('shareCopied').style.display='none';
+}
+
+function closeShare(){
+  document.getElementById('shareOverlay').classList.remove('open');
+  _pendingBtn=null;
+}
+
+function doShare(platform){
+  var url=encodeURIComponent(window.location.href);
+  var text=encodeURIComponent('I just found free alternatives to every overpriced SaaS tool. Semrush, Mailchimp, Calendly... all $0/mo. This is wild.');
+  var shareUrl='';
+  if(platform==='x') shareUrl='https://x.com/intent/tweet?text='+text+'&url='+url;
+  else if(platform==='linkedin') shareUrl='https://www.linkedin.com/sharing/share-offsite/?url='+url;
+  else if(platform==='facebook') shareUrl='https://www.facebook.com/sharer/sharer.php?u='+url;
+  else if(platform==='copy'){
+    navigator.clipboard.writeText(window.location.href).catch(function(){});
+    document.getElementById('shareCopied').style.display='block';
+    completeShare();
+    return;
+  }
+  if(shareUrl) window.open(shareUrl,'_blank','width=600,height=400');
+  completeShare();
+}
+
+function completeShare(){
+  _hasShared=true;
+  _bonusVoteAvailable=true;
+  // Update vote widget to show bonus
+  var voteLabel=document.querySelector('.vote-label');
+  if(voteLabel && _bonusVoteAvailable){
+    voteLabel.innerHTML='Which overpriced software should we replace next? Start typing to vote:<br><span style="color:var(--green-dl);font-size:9px">&#x2B50; You earned +1 bonus vote! Your next vote counts double.</span>';
+  }
+  setTimeout(function(){
+    document.getElementById('shareOverlay').classList.remove('open');
+    if(_pendingBtn) runDownload(_pendingBtn);
+    _pendingBtn=null;
+  },800);
+}
+
+function skipShare(){
+  document.getElementById('shareOverlay').classList.remove('open');
+  if(_pendingBtn) runDownload(_pendingBtn);
+  _pendingBtn=null;
+}
+
+function runDownload(btn){
+  var card=btn.parentElement;btn.style.display='none';
+  var p=document.createElement('div');p.className='dl-progress bevel-inset';
+  p.innerHTML='<div class="dl-progress-header"><span>Installing...</span><span class="dpct">0%</span></div><div class="bevel-inset" style="height:12px"><div class="dl-progress-fill" style="width:0%"></div></div>';
+  card.appendChild(p);var w=0,fill=p.querySelector('.dl-progress-fill'),pct=p.querySelector('.dpct'),lbl=p.querySelector('.dl-progress-header span');
+  var iv=setInterval(function(){w+=Math.random()*15+5;if(w>=100){w=100;clearInterval(iv);lbl.textContent='Installed!';setTimeout(function(){p.remove();btn.style.display='flex';},1500);}fill.style.width=Math.min(100,w)+'%';pct.textContent=Math.round(Math.min(100,w))+'%';},200);
+}
+
+// ===== COMPARE TABLE =====
+(function(){
+  var h='',tot=0;
+  APPS.forEach(function(a,i){var yr=a.price*12;tot+=yr;
+    h+='<tr style="background:'+(i%2?'#f5f5f5':'#fff')+'"><td style="padding:6px 8px"><span style="color:var(--red-price);font-weight:bold">'+a.compareTo+'*</span> <span style="color:var(--muted);font-size:10px">($'+a.price+'/mo)</span></td><td style="padding:6px 8px;font-weight:bold">'+a.title+' <span style="color:var(--green-dl);font-size:10px">FREE</span></td><td style="padding:6px 8px;text-align:right;color:var(--red-price);text-decoration:line-through;font-family:Courier Prime,monospace">$'+a.price+'/mo</td><td style="padding:6px 8px;text-align:right;color:var(--green-dl);font-family:Press Start 2P,monospace;font-size:8px">$0</td><td style="padding:6px 8px;text-align:right;color:var(--green-dl);font-weight:bold;font-family:Courier Prime,monospace">$'+yr.toLocaleString()+'/yr</td></tr>';
+  });
+  document.getElementById('compareTable').innerHTML=h;
+  document.getElementById('compareTotalTheir').textContent='$'+(tot/12).toLocaleString()+'/mo';
+  document.getElementById('compareTotalSave').textContent='$'+tot.toLocaleString()+'/yr';
+})();
+
+// ===== FAQ =====
+(function(){
+  var fq=[
+    ["Is this actually free? What's the catch?","Yes, 100% free. No freemium, no trial, no credit card. We make money from premium enterprise support and custom deployments. The core apps are free forever."],
+    ["How is this legal?","Every app is built from scratch using AI. Nothing is copied, cloned, or reverse-engineered. We don't use anyone's code. \"Compare to\" labels are for price comparison, the same way Kirkland says \"Compare to Tide\" on their detergent."],
+    ["Are these as good as the paid versions?","They cover 80-90% of the features most businesses actually use. If you need deep enterprise features like Salesforce-level customization, you probably need Salesforce. If you need a solid CRM that tracks deals and sends emails, BulkPipe does that for $0."],
+    ["Who built these?","A small team using AI-assisted development. What used to take 10 engineers six months, AI can now build in weeks. We pass those savings directly to you: the price is $0."],
+    ["Can I use these for my business?","Absolutely. These are built for businesses. Use them for your startup, your agency, your 50-person company. No seat limits, no per-user pricing, no annual contracts."],
+    ["What if I need help or support?","Community support is free via GitHub and our subreddit. If you need priority support, onboarding, or custom features, we offer paid enterprise plans."],
+    ["Will you add more apps?","Yes. We have 5 more in the pipeline: BulkChat (Intercom), BulkSocial (Hootsuite), BulkInvoice (FreshBooks), BulkForm (Typeform), and BulkSurvey (SurveyMonkey). New apps ship monthly."],
+    ["Why the retro website design?","Because we spent $0 on marketing and $0 on a fancy website. We put everything into the software. Also, it's fun."]
+  ];
+  var h='';fq.forEach(function(f){h+='<div class="bevel-inset" style="background:#fff;padding:12px;margin-bottom:8px"><p style="font-weight:bold;font-size:13px;margin-bottom:6px">Q: '+f[0]+'</p><p style="font-size:12px;line-height:1.6;color:var(--muted)">A: '+f[1]+'</p></div>';});
+  document.getElementById('faqList').innerHTML=h;
+})();
+
+// ===== CALCULATOR =====
+function updateCalc(){var p=parseInt(document.getElementById('calcSw').value)||0,s=parseInt(document.getElementById('calcSeats').value)||1,mo=p*s,yr=mo*12;document.getElementById('calcTheir').textContent='$'+mo.toLocaleString()+'/mo';document.getElementById('calcSave').textContent='$'+yr.toLocaleString()+'/yr';}
+
+// ===== STATUS BAR =====
+function updateClock(){document.getElementById('statusTime').textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});}
+updateClock();setInterval(updateClock,1000);
+if(window.innerWidth>768)document.getElementById('statusProt').style.display='inline';
+
+// ===== SCROLL REVEALS =====
+function initSR(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');e.target.querySelectorAll('[data-accent]').forEach(function(a){a.classList.add('show');});}});},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('[data-sr]').forEach(function(el){obs.observe(el);});
+  document.querySelectorAll('[data-app]').forEach(function(el){obs.observe(el);});
+  document.querySelectorAll('[data-divider]').forEach(function(el){obs.observe(el);});
+
+  var hObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){
+    document.getElementById('hl1').classList.add('show');document.getElementById('hl2').classList.add('show');
+    document.getElementById('headerTitle').classList.add('show');document.getElementById('headerSub').classList.add('show');
+    document.getElementById('headerSep').classList.add('show');document.getElementById('sepL').classList.add('show');document.getElementById('sepR').classList.add('show');
+    document.getElementById('headerMeta').classList.add('show');
+    document.querySelectorAll('#headerNav a').forEach(function(a,i){setTimeout(function(){a.classList.add('show');},600+i*100);});
+  }});},{threshold:.1});
+  hObs.observe(document.getElementById('siteHeader'));
+
+  document.querySelectorAll('.sidebar-header .accent').forEach(function(a){
+    var o=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('show');});},{threshold:.5});o.observe(a);
+  });
+  var bObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var a=e.target.querySelector('.accent');if(a)a.classList.add('show');}});},{threshold:.1});
+  document.querySelectorAll('.section-bar').forEach(function(el){bObs.observe(el);});
+}
+</script>
+<!-- SHARE MODAL -->
+<div class="share-overlay" id="shareOverlay">
+  <div class="share-modal bevel-outset">
+    <div class="share-title-bar"><span>&#x1F4E4; Share to Download</span><button class="close-x" onclick="closeShare()">&times;</button></div>
+    <div class="share-body">
+      <div class="share-headline">SPREAD THE WORD</div>
+      <div class="share-sub">Share this page to unlock your free download.<br>Help other businesses stop overpaying too.</div>
+      <div class="share-bonus">&#x1F5F3; BONUS: Sharing earns you +1 extra vote on any software!</div>
+      <div class="share-btns">
+        <button class="share-btn" onclick="doShare('x')"><span class="s-icon">&#x1D54F;</span><span class="s-label">Share on X</span><span class="s-arrow">&#x27A4;</span></button>
+        <button class="share-btn" onclick="doShare('linkedin')"><span class="s-icon">in</span><span class="s-label">Share on LinkedIn</span><span class="s-arrow">&#x27A4;</span></button>
+        <button class="share-btn" onclick="doShare('facebook')"><span class="s-icon">f</span><span class="s-label">Share on Facebook</span><span class="s-arrow">&#x27A4;</span></button>
+        <button class="share-btn" onclick="doShare('copy')"><span class="s-icon">&#x1F4CB;</span><span class="s-label">Copy Link</span><span class="s-arrow">&#x27A4;</span></button>
+      </div>
+      <div class="share-copied" id="shareCopied">&#x2705; Link copied! Download starting...</div>
+      <div class="share-skip"><a onclick="skipShare()">No thanks, just download &raquo;</a></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
