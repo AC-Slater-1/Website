@@ -7,6 +7,9 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffe44d'/%3E%3Cstop offset='50%25' stop-color='%23ffd700'/%3E%3Cstop offset='100%25' stop-color='%23ccab00'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a3a8a'/%3E%3Cstop offset='100%25' stop-color='%230f2460'/%3E%3C/linearGradient%3E%3ClinearGradient id='s' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23c0c0c0'/%3E%3Cstop offset='50%25' stop-color='%23e8e8e8'/%3E%3Cstop offset='100%25' stop-color='%23a0a0a0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='4' fill='url(%23b)' stroke='%23b8960a' stroke-width='1.5'/%3E%3Crect x='28' y='5' width='44' height='28' rx='2' fill='url(%23s)' stroke='%23888' stroke-width='.8'/%3E%3Crect x='36' y='8' width='20' height='22' rx='1' fill='%23333'/%3E%3Crect x='12' y='36' width='76' height='46' rx='2' fill='url(%23l)' stroke='%230a1a4a' stroke-width='.8'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' fill='%23ffd700'%3EAB%3C/text%3E%3Crect x='9' y='86' width='8' height='6' rx='1.5' fill='%23b8960a' stroke='%23a07800' stroke-width='.5'/%3E%3Ccircle cx='50' cy='90' r='3' fill='none' stroke='%23b8960a' stroke-width='.8'/%3E%3Ccircle cx='50' cy='90' r='1' fill='%23b8960a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#f8fafc;color:#111827;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased}
@@ -15,16 +18,24 @@ body{background:#f8fafc;color:#111827;font-family:'Inter',-apple-system,BlinkMac
 ::-webkit-scrollbar-thumb{background:#e2e8f0;border-radius:3px}
 @keyframes goldGlow{0%,100%{text-shadow:0 0 30px rgba(255,215,0,.4),0 0 60px rgba(255,215,0,.15)}50%{text-shadow:0 0 40px rgba(255,215,0,.6),0 0 80px rgba(255,215,0,.25)}}
 .glow{animation:goldGlow 3s ease-in-out infinite}
+table{width:100%;border-collapse:collapse}
+th{position:sticky;top:0;z-index:2;user-select:none}
+input[type="range"]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;outline:none;cursor:pointer}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;background:#fff;border:2px solid currentColor;border-radius:50%;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+input[type="range"]::-moz-range-thumb{width:16px;height:16px;background:#fff;border:2px solid currentColor;border-radius:50%;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.eye-tip{position:relative;display:inline-flex;align-items:center;cursor:help}
+.eye-tip .tip-bubble{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:260px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;font-size:12px;color:#6b7280;line-height:1.6;z-index:200;pointer-events:none;box-shadow:0 10px 25px rgba(0,0,0,.1)}
+.eye-tip .tip-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#e2e8f0}
+.eye-tip:hover .tip-bubble{display:block}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header style="background:linear-gradient(135deg,#0f1a3a 0%,#1a2a4a 40%,#243352 70%,#1e2d48 100%);padding:28px 20px 20px;text-align:center;position:relative;border-bottom:1px solid rgba(255,215,0,.08)">
   <div style="position:absolute;top:14px;right:20px;display:flex;gap:14px;z-index:10">
-    <a href="#" style="color:rgba(255,255,255,.55);display:flex;align-items:center;transition:color .2s"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></a>
-    <a href="#" style="color:rgba(255,255,255,.55);display:flex;align-items:center;transition:color .2s"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></a>
-    <a href="#" style="color:rgba(255,255,255,.55);display:flex;align-items:center;transition:color .2s"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
+    <a href="#" style="color:rgba(255,255,255,.55);display:flex;align-items:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></a>
+    <a href="#" style="color:rgba(255,255,255,.55);display:flex;align-items:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg></a>
+    <a href="#" style="color:rgba(255,255,255,.55);display:flex;align-items:center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></a>
   </div>
   <div style="margin:12px 0 16px">
     <h1 style="font-size:clamp(28px,6vw,52px);font-weight:900;color:#ffd700;letter-spacing:-1px;line-height:1" class="glow">APPBUSTER</h1>
@@ -40,436 +51,493 @@ body{background:#f8fafc;color:#111827;font-family:'Inter',-apple-system,BlinkMac
   </nav>
 </header>
 
-<div style="padding:20px 24px;max-width:1440px;margin:0 auto">
+<div id="root"></div>
 
-  <!-- REVENUE BANNER -->
-  <div style="background:linear-gradient(135deg,#0f1a3a 0%,#1a2a4a 40%,#243352 70%,#1e2d48 100%);border-radius:24px;padding:32px;margin-bottom:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(10,14,42,.2),0 0 0 1px rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.08)">
-    <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,215,0,.3),transparent)"></div>
-    <div style="font-size:11px;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;font-weight:500">Attackable Revenue · Tier 1 + Tier 2</div>
-    <div style="font-size:56px;font-weight:900;color:#ffd700;letter-spacing:-2px;line-height:1">$12.3B</div>
-    <div style="font-size:13px;color:#fff;margin-top:12px;font-weight:400">15 categories · 50% of $24.4B total addressable market</div>
-  </div>
+<script type="text/babel">
+const { useState, useMemo } = React;
 
-  <!-- WEIGHTS SUMMARY -->
-  <div style="background:linear-gradient(135deg,#f9fafb,#f3f4f6);border-radius:20px;padding:20px 24px;margin-bottom:20px;border:1px solid rgba(229,231,235,.5);box-shadow:0 1px 3px rgba(0,0,0,.03)">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <span style="font-size:16px;font-weight:700;color:#0a0e2a;letter-spacing:-.2px">Scoring Weights</span>
-      <span style="font-size:11px;font-weight:600;color:#16a34a;background:rgba(22,163,74,.08);padding:4px 12px;border-radius:20px;border:1px solid rgba(22,163,74,.2)">100% ✓</span>
+const RAW_DATA = [
+  { name: "SB_Stats", category: "Statistics & Data", replaces: "Statista, IBISWorld, Euromonitor", price: "$39-600/mo", tam: "Millions", revenue: 500, priceResent: 5, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "Public data repackaged with charts. Zero moat. Universal resentment across students, marketers, consultants.",
+    competitors: [
+      { name: "Statista", url: "https://www.statista.com", price: "$39-149/mo", rev: "$250M", users: "2M+ registered", vulnerability: "Public data behind a paywall. AI can source and visualize the same datasets for free." },
+      { name: "IBISWorld", url: "https://www.ibisworld.com", price: "$500-600/mo", rev: "$150M", users: "Enterprise/academia", vulnerability: "Industry reports built from public data. AI-generated analysis is comparable." },
+      { name: "Euromonitor", url: "https://www.euromonitor.com", price: "Custom enterprise", rev: "$100M+", users: "Enterprise", vulnerability: "Premium positioning but same public data sources underneath." },
+    ]},
+  { name: "SB_PDF", category: "PDF Tools", replaces: "Adobe Acrobat, SmallPDF, ILovePDF, Foxit, Nitro", price: "$9-23/mo", tam: "100M+", revenue: 4200, priceResent: 5, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "Solved open-source tech behind a paywall. People Google 'merge PDF free' every single day. Zero loyalty.",
+    competitors: [
+      { name: "Adobe Acrobat", url: "https://www.adobe.com/acrobat", price: "$12.99-22.99/mo", rev: "$3.5B (Document Cloud)", users: "300M+ ecosystem", vulnerability: "Bundled into Creative Cloud. Standalone PDF users resent the price for basic operations." },
+      { name: "SmallPDF", url: "https://smallpdf.com", price: "$9-14/mo", rev: "$100M+", users: "50M+ monthly", vulnerability: "Pure wrapper over commodity tech. Zero proprietary technology." },
+      { name: "ILovePDF", url: "https://www.ilovepdf.com", price: "$4-6/mo", rev: "$50M+", users: "40M+ monthly", vulnerability: "Race to bottom already happening. Free tier very limited." },
+      { name: "Foxit", url: "https://www.foxit.com", price: "$14-16/mo", rev: "$150M+", users: "Enterprise focus", vulnerability: "Selling to enterprises what open-source does for free." },
+      { name: "Nitro", url: "https://www.gonitro.com", price: "$14/mo", rev: "$80M+", users: "SMB focus", vulnerability: "Acquired by Alludo. Distracted parent company." },
+    ]},
+  { name: "SB_Write", category: "AI Writing & Grammar", replaces: "Grammarly, ProWritingAid, QuillBot, Wordtune, Hemingway", price: "$12-30/mo", tam: "30M+ DAU", revenue: 350, priceResent: 4, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "LLMs commoditized grammar overnight. Browser extension swap = 30 seconds. Grammarly's moat is brand, not tech.",
+    competitors: [
+      { name: "Grammarly", url: "https://www.grammarly.com", price: "$12-30/mo", rev: "$250M+", users: "30M DAU", vulnerability: "$13B valuation but LLMs made core tech free. Brand is the only moat." },
+      { name: "ProWritingAid", url: "https://prowritingaid.com", price: "$10-30/mo", rev: "$20M+", users: "2M+", vulnerability: "Niche audience. Less brand recognition than Grammarly." },
+      { name: "QuillBot", url: "https://quillbot.com", price: "$10-20/mo", rev: "$50M+", users: "35M+ monthly", vulnerability: "Paraphrasing tool. ChatGPT does this better for free." },
+      { name: "Wordtune", url: "https://www.wordtune.com", price: "$10-25/mo", rev: "$15M+", users: "10M+", vulnerability: "AI21 Labs product. Rewriting is a commodity LLM task." },
+      { name: "Hemingway", url: "https://hemingwayapp.com", price: "$10 one-time", rev: "<$5M", users: "1M+", vulnerability: "Readability scoring. Trivially replicable." },
+    ]},
+  { name: "SB_SEO", category: "SEO & Web Intelligence", replaces: "Semrush, Ahrefs, Moz, SpyFu, Mangools, Serpstat", price: "$39-500/mo", tam: "2M+ paying", revenue: 850, priceResent: 5, users: 5, replication: 3, switching: 5, switchTonight: "YES", note: "Adobe acquiring Semrush = distraction. Already built NexRank prototype in 72 hours. Backlink index is the only hard part.",
+    competitors: [
+      { name: "Semrush", url: "https://www.semrush.com", price: "$130-500/mo", rev: "$400M", users: "1M+ paying", vulnerability: "Adobe acquiring for ~$1.9B. Declining growth. Most vulnerable moment." },
+      { name: "Ahrefs", url: "https://ahrefs.com", price: "$99-449/mo", rev: "$200M+", users: "400K+", vulnerability: "Best backlink index but bootstrapped, slow to innovate on AI." },
+      { name: "Moz", url: "https://moz.com", price: "$49-299/mo", rev: "$60M+", users: "500K+", vulnerability: "Lost market share for years. Acquired by iContact/Zeta." },
+      { name: "SpyFu", url: "https://www.spyfu.com", price: "$39-79/mo", rev: "$15M+", users: "100K+", vulnerability: "Competitor keyword tool. Small team, limited features." },
+      { name: "Mangools", url: "https://mangools.com", price: "$30-90/mo", rev: "$10M+", users: "50K+", vulnerability: "Budget SEO. Already undercut by everyone." },
+      { name: "Serpstat", url: "https://serpstat.com", price: "$59-479/mo", rev: "$10M+", users: "100K+", vulnerability: "Ukrainian company. Growth limited by market positioning." },
+    ]},
+  { name: "SB_Schedule", category: "Scheduling & Booking", replaces: "Calendly, Acuity, Cal.com, SavvyCal, TidyCal", price: "$10-46/mo", tam: "20M+", revenue: 300, priceResent: 4, users: 4, replication: 5, switching: 5, switchTonight: "YES", note: "Change one link, done. Cal.com proves open-source works. No data to migrate.",
+    competitors: [
+      { name: "Calendly", url: "https://calendly.com", price: "$10-16/mo", rev: "$250M+", users: "20M+", vulnerability: "$3B valuation for a booking page. Cal.com proving open-source works." },
+      { name: "Acuity (Squarespace)", url: "https://acuityscheduling.com", price: "$16-46/mo", rev: "$30M+", users: "2M+", vulnerability: "Bundled into Squarespace. Overpriced standalone." },
+      { name: "Cal.com", url: "https://cal.com", price: "$0-12/mo", rev: "$5M+", users: "Growing", vulnerability: "Open-source competitor already exists. Validates the market." },
+      { name: "SavvyCal", url: "https://savvycal.com", price: "$12-20/mo", rev: "<$5M", users: "Small", vulnerability: "Niche premium. Limited differentiation." },
+    ]},
+  { name: "SB_Record", category: "Screen Recording", replaces: "Loom, Vidyard, CloudApp, ScreenPal", price: "$3-59/mo", tam: "25M+", revenue: 200, priceResent: 4, users: 4, replication: 5, switching: 5, switchTonight: "YES", note: "Screen recording is an OS feature. Recordings are just .mp4 files. No data gravity.",
+    competitors: [
+      { name: "Loom", url: "https://www.loom.com", price: "$12.50-15/mo", rev: "$150M+", users: "25M+", vulnerability: "Acquired by Atlassian for $975M. Screen recording is an OS feature now." },
+      { name: "Vidyard", url: "https://www.vidyard.com", price: "$19-59/mo", rev: "$30M+", users: "1M+", vulnerability: "Sales-focused video. Niche use case." },
+      { name: "CloudApp (Zight)", url: "https://www.zight.com", price: "$10-16/mo", rev: "$15M+", users: "500K+", vulnerability: "Screenshot + recording. Rebranded, losing momentum." },
+      { name: "ScreenPal", url: "https://screenpal.com", price: "$3-6/mo", rev: "$10M+", users: "5M+", vulnerability: "Already cheap. Race to bottom." },
+    ]},
+  { name: "SB_Links", category: "Link Mgmt & Bio Pages", replaces: "Bitly, Linktree, Rebrandly, Short.io", price: "$5-35/mo", tam: "50M+", revenue: 380, priceResent: 3, users: 5, replication: 5, switching: 5, switchTonight: "YES", note: "URL shortening is a one-line function. Linktree's 50M users paying for a single HTML page.",
+    competitors: [
+      { name: "Bitly", url: "https://bitly.com", price: "$8-35/mo", rev: "$200M+", users: "5M+", vulnerability: "URL shortening is literally one database row and a redirect." },
+      { name: "Linktree", url: "https://linktr.ee", price: "$5-24/mo", rev: "$80M+", users: "50M+", vulnerability: "A single HTML page with links. Peak SaaS absurdity." },
+      { name: "Rebrandly", url: "https://www.rebrandly.com", price: "$13-32/mo", rev: "$15M+", users: "500K+", vulnerability: "Branded links. Custom domains trivial to implement." },
+      { name: "Short.io", url: "https://short.io", price: "$5-20/mo", rev: "$5M+", users: "200K+", vulnerability: "Commodity service with commodity pricing." },
+    ]},
+  { name: "SB_Forms", category: "Forms & Surveys", replaces: "Typeform, SurveyMonkey, JotForm, Tally", price: "$25-99/mo", tam: "1M+ paying", revenue: 700, priceResent: 4, users: 4, replication: 5, switching: 4, switchTonight: "YES", note: "Forms rebuilt each campaign anyway. AI generates any form from a prompt. Design is the only differentiator.",
+    competitors: [
+      { name: "Typeform", url: "https://www.typeform.com", price: "$25-83/mo", rev: "$100M+", users: "500K+", vulnerability: "Pretty forms. AI can generate any design from a prompt." },
+      { name: "SurveyMonkey", url: "https://www.surveymonkey.com", price: "$25-99/mo", rev: "$500M+", users: "800K paying", vulnerability: "Legacy brand. Overpriced for what it does." },
+      { name: "JotForm", url: "https://www.jotform.com", price: "$34-99/mo", rev: "$60M+", users: "25M+", vulnerability: "Bootstrapped. Feature-rich but bloated." },
+      { name: "Tally", url: "https://tally.so", price: "$0-29/mo", rev: "$5M+", users: "200K+", vulnerability: "Free tier already disrupting. Validates the approach." },
+    ]},
+  { name: "SB_Transcribe", category: "Transcription & Notes", replaces: "Otter.ai, Rev, Fireflies.ai, tl;dv, Notta", price: "$10-30/mo", tam: "10M+", revenue: 150, priceResent: 4, users: 3, replication: 5, switching: 5, switchTonight: "YES", note: "Whisper API made this commodity overnight. Each meeting is independent. Zero switching cost.",
+    competitors: [
+      { name: "Otter.ai", url: "https://otter.ai", price: "$10-20/mo", rev: "$50M+", users: "5M+", vulnerability: "Whisper matches quality for free. No moat beyond brand." },
+      { name: "Rev", url: "https://www.rev.com", price: "$10-25/mo", rev: "$50M+", users: "2M+", vulnerability: "Human transcription pivot to AI. Legacy pricing remains." },
+      { name: "Fireflies.ai", url: "https://fireflies.ai", price: "$10-19/mo", rev: "$20M+", users: "2M+", vulnerability: "Meeting bot. Core transcription is commodity." },
+      { name: "tl;dv", url: "https://tldv.io", price: "$18-29/mo", rev: "$10M+", users: "500K+", vulnerability: "Meeting summaries. GPT wrapper with calendar integration." },
+    ]},
+  { name: "SB_Stock", category: "Stock Media", replaces: "Shutterstock, iStock, Getty, Adobe Stock", price: "$29-199/mo", tam: "Millions paying", revenue: 2800, priceResent: 4, users: 4, replication: 4, switching: 5, switchTonight: "YES", note: "AI image generation destroying this category. Previous purchases already downloaded. Zero gravity.",
+    competitors: [
+      { name: "Shutterstock", url: "https://www.shutterstock.com", price: "$29-199/mo", rev: "$800M+", users: "2M+", vulnerability: "Stock down 60% from peak. AI image gen is existential threat." },
+      { name: "Getty Images", url: "https://www.gettyimages.com", price: "$100-300/mo", rev: "$900M+", users: "1M+ enterprise", vulnerability: "Premium positioning but AI alternatives emerging fast." },
+      { name: "iStock (Getty)", url: "https://www.istockphoto.com", price: "$29-199/mo", rev: "Included in Getty", users: "SMB tier", vulnerability: "Budget Getty. Same existential AI threat." },
+      { name: "Adobe Stock", url: "https://stock.adobe.com", price: "$30-80/mo", rev: "$500M+", users: "Bundled CC", vulnerability: "Bundled with Creative Cloud. Firefly eating its own product." },
+    ]},
+  { name: "SB_Traffic", category: "Web Traffic Estimates", replaces: "SimilarWeb, Comscore", price: "$149-999/mo", tam: "500K+", revenue: 400, priceResent: 5, users: 3, replication: 4, switching: 5, switchTonight: "YES", note: "Traffic estimates are directional guesses. Customers already know the data is approximate.",
+    competitors: [
+      { name: "SimilarWeb", url: "https://www.similarweb.com", price: "$149-999/mo", rev: "$350M+", users: "500K+", vulnerability: "Traffic estimates everyone knows are inaccurate. Charging premium for approximations." },
+      { name: "Comscore", url: "https://www.comscore.com", price: "Enterprise custom", rev: "$50M+", users: "Enterprise", vulnerability: "Legacy panel-based measurement. Declining relevance." },
+    ]},
+  { name: "SB_Detect", category: "Tech Stack Detection", replaces: "BuiltWith, Wappalyzer, SimilarTech", price: "$50-495/mo", tam: "50K-100K", revenue: 25, priceResent: 5, users: 1, replication: 5, switching: 5, switchTonight: "YES", note: "Scriptable. Wappalyzer is already open-source. ~5 person team at BuiltWith. Tiny TAM caps upside.",
+    competitors: [
+      { name: "BuiltWith", url: "https://builtwith.com", price: "$295-495/mo", rev: "$15M+", users: "~50K", vulnerability: "~5 person team. Absurd pricing for scriptable detection." },
+      { name: "Wappalyzer", url: "https://www.wappalyzer.com", price: "$50-250/mo", rev: "$5M+", users: "50K+", vulnerability: "Already open-source. Paid tier for bulk lookups." },
+      { name: "SimilarTech", url: "https://www.similartech.com", price: "$100-300/mo", rev: "$5M+", users: "10K+", vulnerability: "Niche of a niche. Tiny market." },
+    ]},
+  { name: "SB_Train", category: "Training / SOPs", replaces: "Trainual, Process Street, Scribe, SweetProcess, Whale", price: "$29-499/mo", tam: "100K+ SMBs", revenue: 120, priceResent: 4, users: 4, replication: 4, switching: 3, switchTonight: "PARTIAL", note: "AI generates SOPs from prompts. Trainual $249/mo floor hurts SMBs. Must rebuild SOP library once, but content is portable.",
+    competitors: [
+      { name: "Trainual", url: "https://trainual.com", price: "$249-499/mo", rev: "$50M+", users: "25K+ companies", vulnerability: "$249/mo floor for SMBs is painful. AI generates SOPs from prompts instantly." },
+      { name: "Process Street", url: "https://www.process.st", price: "$100/mo+", rev: "$20M+", users: "10K+", vulnerability: "Workflow checklists. Notion + AI does this better." },
+      { name: "Scribe", url: "https://scribehow.com", price: "$29-99/mo", rev: "$15M+", users: "500K+", vulnerability: "Auto-generates docs from screen recordings. Smart but replicable." },
+      { name: "SweetProcess", url: "https://www.sweetprocess.com", price: "$99-149/mo", rev: "$5M+", users: "5K+", vulnerability: "Niche SOP tool. Small market, high prices." },
+    ]},
+  { name: "SB_Funding", category: "Startup / Funding Data", replaces: "Crunchbase, PitchBook", price: "$49-30K+/yr", tam: "Millions casual", revenue: 580, priceResent: 3, users: 4, replication: 4, switching: 5, switchTonight: "YES", note: "Funding data largely public (SEC filings). PitchBook charges $30K+/yr for what AI can aggregate.",
+    competitors: [
+      { name: "Crunchbase", url: "https://www.crunchbase.com", price: "$49-99/mo", rev: "$80M+", users: "Millions casual", vulnerability: "Funding data from SEC filings and press releases. Largely public." },
+      { name: "PitchBook", url: "https://pitchbook.com", price: "$25K-40K+/yr", rev: "$500M+", users: "Enterprise", vulnerability: "Morningstar subsidiary. Premium data but core is aggregatable." },
+    ]},
+  { name: "SB_Mail", category: "Email Marketing", replaces: "Mailchimp, ConvertKit, MailerLite, Brevo, Constant Contact", price: "$13-350/mo", tam: "800K+ paying", revenue: 1800, priceResent: 4, users: 5, replication: 3, switching: 2, switchTonight: "NO", note: "Automations, subscriber lists, deliverability reputation = real switching friction. Not a tonight swap.",
+    competitors: [
+      { name: "Mailchimp (Intuit)", url: "https://mailchimp.com", price: "$13-350/mo", rev: "$800M+", users: "800K+ paying", vulnerability: "Intuit acquisition bloated pricing. But automation workflows create real lock-in." },
+      { name: "ConvertKit (Kit)", url: "https://kit.com", price: "$25-50/mo", rev: "$40M+", users: "50K+", vulnerability: "Creator-focused. Loyal base but small." },
+      { name: "MailerLite", url: "https://www.mailerlite.com", price: "$9-18/mo", rev: "$30M+", users: "100K+", vulnerability: "Already budget option. Hard to undercut." },
+      { name: "Brevo (Sendinblue)", url: "https://www.brevo.com", price: "$25-65/mo", rev: "$150M+", users: "500K+", vulnerability: "Multi-channel pivot. Email becoming one feature of many." },
+    ]},
+  { name: "SB_Meet", category: "Video Conferencing", replaces: "Zoom, Google Meet, Teams, Webex", price: "$0-22/user/mo", tam: "3.3M+ orgs", revenue: 5200, priceResent: 3, users: 5, replication: 2, switching: 3, switchTonight: "PARTIAL", note: "Generous free tiers already exist. Real infra costs (bandwidth, TURN servers). No savings headline.",
+    competitors: [
+      { name: "Zoom", url: "https://zoom.us", price: "$0-22/user/mo", rev: "$4.5B", users: "3.3M+ enterprise", vulnerability: "Generous free tier. Growth stalled. But real infrastructure moat." },
+      { name: "Google Meet", url: "https://meet.google.com", price: "Free (Workspace)", rev: "Bundled", users: "300M+ MAU", vulnerability: "Free with Google Workspace. Hard to compete with free." },
+      { name: "Webex (Cisco)", url: "https://www.webex.com", price: "$12-25/user/mo", rev: "$500M+", users: "Enterprise", vulnerability: "Legacy enterprise. Declining market share." },
+    ]},
+  { name: "SB_CRM", category: "Simple CRM", replaces: "Pipedrive, Less Annoying CRM, Streak, folk, Capsule, Close", price: "$14-129/user/mo", tam: "500K+", revenue: 400, priceResent: 3, users: 4, replication: 3, switching: 2, switchTonight: "NO", note: "Psychological switching cost > technical cost. HubSpot already free. The 'never set up a CRM' crowd is the real opportunity.",
+    competitors: [
+      { name: "Pipedrive", url: "https://www.pipedrive.com", price: "$14-99/user/mo", rev: "$200M+", users: "100K+ companies", vulnerability: "Pipeline UI is commodity. AI can auto-log and suggest." },
+      { name: "Close", url: "https://www.close.com", price: "$49-129/user/mo", rev: "$30M+", users: "10K+", vulnerability: "Sales-focused. Premium pricing for calling features." },
+      { name: "Streak", url: "https://www.streak.com", price: "$15-49/user/mo", rev: "$15M+", users: "100K+", vulnerability: "Gmail CRM. Niche but sticky." },
+      { name: "Less Annoying CRM", url: "https://www.lessannoyingcrm.com", price: "$15/user/mo", rev: "$10M+", users: "30K+", vulnerability: "Simple and cheap. Hard to undercut on price." },
+    ]},
+  { name: "SB_Chat", category: "Team Messaging", replaces: "Slack, Teams, Discord, Mattermost", price: "$0-12.50/user/mo", tam: "750K+ orgs", revenue: 2200, priceResent: 4, users: 5, replication: 2, switching: 1, switchTonight: "NO", note: "Load-bearing infrastructure. 2,600+ Slack integrations, message history, muscle memory. Discord is already free.",
+    competitors: [
+      { name: "Slack (Salesforce)", url: "https://slack.com", price: "$7.25-12.50/user/mo", rev: "$2B+", users: "750K+ orgs", vulnerability: "2,600+ integrations are the moat, not the chat. Load-bearing infra." },
+      { name: "Discord", url: "https://discord.com", price: "$0-10/mo", rev: "$200M+", users: "200M+ MAU", vulnerability: "Already free for teams. Not enterprise-grade but good enough." },
+      { name: "Mattermost", url: "https://mattermost.com", price: "$0-10/user/mo", rev: "$30M+", users: "Self-hosted", vulnerability: "Open-source already exists. Validates that chat is commodity." },
+    ]},
+  { name: "SB_Contacts", category: "B2B Sales Intelligence", replaces: "ZoomInfo, Apollo, Lusha, Cognism, SalesIntel", price: "$0-25K+/yr", tam: "500K+", revenue: 1600, priceResent: 4, users: 3, replication: 2, switching: 2, switchTonight: "NO", note: "Apollo already won this fight. CRM-integrated users have real switching costs. Late to the game.",
+    competitors: [
+      { name: "ZoomInfo", url: "https://www.zoominfo.com", price: "$15-25K+/yr", rev: "$1.2B", users: "35K+ companies", vulnerability: "Stock down 90% from peak. Apollo eating lunch at $0/mo." },
+      { name: "Apollo.io", url: "https://www.apollo.io", price: "$0-99/user/mo", rev: "$200M+", users: "500K+", vulnerability: "Already disrupting with freemium. Hard to out-free Apollo." },
+      { name: "Lusha", url: "https://www.lusha.com", price: "$29-79/user/mo", rev: "$50M+", users: "100K+", vulnerability: "Contact enrichment. Commodity data." },
+      { name: "Cognism", url: "https://www.cognism.com", price: "Custom enterprise", rev: "$100M+", users: "Enterprise", vulnerability: "European focus. GDPR compliance is a real moat." },
+    ]},
+  { name: "SB_Shifts", category: "Workforce / Shifts", replaces: "Homebase, When I Work, 7shifts, Deputy, Sling", price: "$0-10/user/mo", tam: "1M+ locations", revenue: 250, priceResent: 2, users: 3, replication: 3, switching: 4, switchTonight: "YES", note: "Already $2-4/user. No savings headline. Can't out-free the near-free.",
+    competitors: [
+      { name: "Homebase", url: "https://joinhomebase.com", price: "$0-8/user/mo", rev: "$80M+", users: "500K+ locations", vulnerability: "Already near-free. Generous free tier. Hard to undercut." },
+      { name: "When I Work", url: "https://wheniwork.com", price: "$2-8/user/mo", rev: "$50M+", users: "200K+", vulnerability: "Rock-bottom pricing. No savings headline possible." },
+      { name: "7shifts", url: "https://www.7shifts.com", price: "$2-8/user/mo", rev: "$40M+", users: "50K+ restaurants", vulnerability: "Restaurant-specific. Niche but loyal." },
+      { name: "Deputy", url: "https://www.deputy.com", price: "$4-7/user/mo", rev: "$60M+", users: "300K+", vulnerability: "Slightly higher priced but still under $10/user." },
+    ]},
+  { name: "SB_Seller", category: "Amazon Marketplace Tools", replaces: "Helium10, Jungle Scout, Viral Launch, AMZScout, SmartScout, SellerApp", price: "$30-450/mo", tam: "2M+ Amazon sellers", revenue: 500, priceResent: 5, users: 4, replication: 3, switching: 5, switchTonight: "YES", note: "Helium10 bloated after Pacvue acquisition, price hikes incoming. Most sellers use 3 of 20 features. Keyword research + listing optimization + review tracking are AI-native. We run NatNutra on these tools daily.",
+    competitors: [
+      { name: "Helium10", url: "https://www.helium10.com", price: "$39-229/mo", rev: "$200M+", users: "1M+", vulnerability: "Pacvue acquired. Price hikes alienating SMB sellers. 20 tools, most use 3. Bloatware." },
+      { name: "Jungle Scout", url: "https://www.junglescout.com", price: "$49-399/mo", rev: "$100M+", users: "500K+", vulnerability: "Product research focus. Historical BSR data is the moat but shrinking." },
+      { name: "Viral Launch", url: "https://www.virallaunch.com", price: "$69-199/mo", rev: "$30M+", users: "100K+", vulnerability: "Market intelligence. Declining relevance as AI tools emerge." },
+      { name: "AMZScout", url: "https://amzscout.net", price: "$30-50/mo", rev: "$15M+", users: "200K+", vulnerability: "Budget Jungle Scout. Chrome extension is the entire product." },
+      { name: "SmartScout", url: "https://smartscout.com", price: "$29-197/mo", rev: "$10M+", users: "50K+", vulnerability: "Brand/subcategory analytics. Niche data play." },
+      { name: "SellerApp", url: "https://www.sellerapp.com", price: "$49-149/mo", rev: "$10M+", users: "50K+", vulnerability: "PPC + keyword tool. AI can optimize bids better than rule-based automation." },
+      { name: "Keepa", url: "https://keepa.com", price: "$19/mo", rev: "$20M+", users: "500K+", vulnerability: "Price tracking and BSR history. Data moat but API-accessible." },
+      { name: "DataDive", url: "https://datadive.tools", price: "$20-50/mo", rev: "$5M+", users: "30K+", vulnerability: "Cerebro/Magnet alternative. Pure keyword research, trivially replicable." },
+    ]},
+  { name: "SB_Social", category: "Social Media Management", replaces: "Hootsuite, Buffer, Sprout Social, Later, Planoly", price: "$25-500/mo", tam: "1M+ paying", revenue: 600, priceResent: 4, users: 4, replication: 5, switching: 5, switchTonight: "YES", note: "Post scheduling is a cron job hitting platform APIs. Buffer charges $60/mo for what takes 50 lines of code. Analytics pulled from native platform APIs.",
+    competitors: [
+      { name: "Hootsuite", url: "https://www.hootsuite.com", price: "$99-249/mo", rev: "$250M+", users: "200K+ paying", vulnerability: "Bloated enterprise pivot. SMBs priced out. Core scheduling is trivial." },
+      { name: "Buffer", url: "https://buffer.com", price: "$6-120/mo", rev: "$20M+", users: "100K+", vulnerability: "Bootstrapped, simple tool. But scheduling posts is a solved problem." },
+      { name: "Sprout Social", url: "https://sproutsocial.com", price: "$199-399/user/mo", rev: "$350M+", users: "30K+ companies", vulnerability: "Enterprise pricing insanity. $400/user/mo for social media posting." },
+      { name: "Later", url: "https://later.com", price: "$25-80/mo", rev: "$40M+", users: "200K+", vulnerability: "Instagram-first. Visual planner is nice but commodity." },
+      { name: "Planoly", url: "https://www.planoly.com", price: "$13-43/mo", rev: "$15M+", users: "100K+", vulnerability: "Visual planning. Small team, limited moat." },
+    ]},
+  { name: "SB_Landing", category: "Landing Pages", replaces: "Unbounce, Instapage, Leadpages, Carrd", price: "$14-200/mo", tam: "500K+ paying", revenue: 300, priceResent: 4, users: 3, replication: 5, switching: 5, switchTonight: "YES", note: "AI generates full landing pages from a prompt. Unbounce at $100/mo for a drag-and-drop builder is dead. Export HTML and host anywhere.",
+    competitors: [
+      { name: "Unbounce", url: "https://unbounce.com", price: "$99-199/mo", rev: "$100M+", users: "100K+", vulnerability: "Drag-and-drop builder. AI generates better pages from a single prompt." },
+      { name: "Instapage", url: "https://instapage.com", price: "$99-199/mo", rev: "$30M+", users: "50K+", vulnerability: "Enterprise landing pages. Same AI vulnerability as Unbounce." },
+      { name: "Leadpages", url: "https://www.leadpages.com", price: "$37-74/mo", rev: "$30M+", users: "50K+", vulnerability: "SMB landing pages. Templates that AI makes obsolete." },
+      { name: "Carrd", url: "https://carrd.co", price: "$9-49/yr", rev: "$5M+", users: "500K+", vulnerability: "Already cheap. One-page sites. Hard to undercut but validates demand." },
+    ]},
+];
+
+
+const NAVY_ART = "linear-gradient(135deg,#0f1a3a 0%,#1a2a4a 40%,#243352 70%,#1e2d48 100%)";
+const TC = { 1: "#b8960a", 2: "#60a5fa", 3: "#f59e0b", 4: "#ef4444" };
+const TC_BRIGHT = { 1: "#ffd700", 2: "#60a5fa", 3: "#f59e0b", 4: "#ef4444" };
+const TBG = { 1: "rgba(255,215,0,.06)", 2: "rgba(96,165,250,.06)", 3: "rgba(245,158,11,.06)", 4: "rgba(239,68,68,.06)" };
+const TBORDER = { 1: "rgba(255,215,0,.2)", 2: "rgba(96,165,250,.2)", 3: "rgba(245,158,11,.2)", 4: "rgba(239,68,68,.2)" };
+const SW = { YES: "#16a34a", PARTIAL: "#f59e0b", NO: "#ef4444" };
+const SWBG = { YES: "rgba(22,163,74,.06)", PARTIAL: "rgba(245,158,11,.06)", NO: "rgba(239,68,68,.06)" };
+const WEIGHT_META = [
+  { key: "priceResent", label: "Price Resentment", icon: "💸", color: "#dc2626",
+    tip: "How angry are customers about what they pay? A $600/mo Statista subscription for public data scores 5." },
+  { key: "users", label: "Addressable Users", icon: "👥", color: "#3b82f6",
+    tip: "How many people are actually paying for this category? Grammarly's 30M daily active users = massive viral surface." },
+  { key: "replication", label: "Replication Ease", icon: "🔧", color: "#b8960a",
+    tip: "Can we build a credible alternative in a weekend vs. a year? PDF merge/split = weekend project." },
+  { key: "switching", label: "Low Switch Cost", icon: "🔄", color: "#7c3aed",
+    tip: "Can someone swap tonight with zero operational risk? Changing a Calendly link = 5 minutes." },
+];
+
+function getTier(s) { return s >= 4.5 ? 1 : s >= 4.0 ? 2 : s >= 3.0 ? 3 : 4; }
+function fmtRev(m) { return m >= 1000 ? "$"+(m/1000).toFixed(1)+"B" : "$"+m+"M"; }
+
+function ScoreBar({ val }) {
+  return (
+    <div style={{ display: "flex", gap: 2, justifyContent: "center" }}>
+      {[1,2,3,4,5].map(i => (
+        <div key={i} style={{ width: 5, height: 16, borderRadius: 2,
+          background: i <= val ? (val >= 4 ? "#d4a800" : val >= 3 ? "#f59e0b" : "#ef4444") : "#f1f5f9",
+        }} />
+      ))}
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
-      <div style="text-align:center;padding:16px 14px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-        <div style="font-size:14px;color:#0a0e2a;font-weight:700;margin-bottom:8px">💸 Price Resentment</div>
-        <div style="font-size:24px;font-weight:900;color:#dc2626">30%</div><div style="margin-top:10px;position:relative;height:6px;background:rgba(0,0,0,.15);border-radius:3px">
-            <div style="height:100%;width:60%;background:#dc2626;border-radius:3px"></div>
-            <div style="position:absolute;top:50%;left:60%;transform:translate(-50%,-50%);width:14px;height:14px;background:#fff;border-radius:50%;border:2px solid #dc2626;box-shadow:0 1px 4px rgba(0,0,0,.15)"></div>
+  );
+}
+
+function App() {
+  const [weights, setWeights] = useState({ priceResent: 30, users: 25, replication: 25, switching: 20 });
+  const [expanded, setExpanded] = useState(null);
+  const [filterTier, setFilterTier] = useState(0);
+  const [filterSwitch, setFilterSwitch] = useState("ALL");
+  const [revMode, setRevMode] = useState("attackable");
+  const [sortCol, setSortCol] = useState(null);
+  const [sortDir, setSortDir] = useState("desc");
+
+  const tw = weights.priceResent + weights.users + weights.replication + weights.switching;
+
+  const scored = useMemo(() => {
+    return RAW_DATA.map(d => {
+      const c = tw > 0 ? (d.priceResent*weights.priceResent + d.users*weights.users + d.replication*weights.replication + d.switching*weights.switching) / tw : 0;
+      const rounded = Math.round(c * 100) / 100;
+      return { ...d, composite: rounded, tier: getTier(rounded) };
+    }).sort((a,b) => b.composite - a.composite).map((d,i) => ({ ...d, rank: i+1 }));
+  }, [weights, tw]);
+
+  const sorted = useMemo(() => {
+    if (!sortCol) return scored;
+    const list = [...scored];
+    list.sort((a,b) => {
+      let va = a[sortCol], vb = b[sortCol];
+      if (typeof va === "string") { va = va.toLowerCase(); vb = vb.toLowerCase(); }
+      if (va < vb) return sortDir === "asc" ? -1 : 1;
+      if (va > vb) return sortDir === "asc" ? 1 : -1;
+      return 0;
+    });
+    return list;
+  }, [scored, sortCol, sortDir]);
+
+  const filtered = sorted.filter(d => {
+    if (filterTier > 0 && d.tier !== filterTier) return false;
+    if (filterSwitch !== "ALL" && d.switchTonight !== filterSwitch) return false;
+    return true;
+  });
+
+  const allRev = scored.reduce((s,d) => s+d.revenue, 0);
+  const attackRev = scored.filter(d => d.tier <= 2).reduce((s,d) => s+d.revenue, 0);
+  const displayRev = revMode === "attackable" ? attackRev : allRev;
+  const displayCount = revMode === "attackable" ? scored.filter(d => d.tier <= 2).length : scored.length;
+  const tierCounts = {}; scored.forEach(d => { tierCounts[d.tier] = (tierCounts[d.tier]||0)+1; });
+
+  const handleSort = (col) => {
+    if (sortCol === col) setSortDir(d => d === "asc" ? "desc" : "asc");
+    else { setSortCol(col); setSortDir("desc"); }
+  };
+
+  const sliderBg = (val, max, color) =>
+    `linear-gradient(90deg, ${color} 0%, ${color} ${(val/max)*100}%, rgba(0,0,0,.15) ${(val/max)*100}%, rgba(0,0,0,.15) 100%)`;
+
+  const isDefault = weights.priceResent===30 && weights.users===25 && weights.replication===25 && weights.switching===20;
+
+  return (
+    <div style={{ padding: "20px 24px", maxWidth: 1440, margin: "0 auto" }}>
+
+      {/* REVENUE BANNER */}
+      <div style={{ background: NAVY_ART, borderRadius: 24, padding: 32, marginBottom: 20, textAlign: "center", position: "relative", overflow: "hidden", boxShadow: "0 4px 24px rgba(10,14,42,.2),0 0 0 1px rgba(255,215,0,.06)", border: "1px solid rgba(255,215,0,.08)" }}>
+        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 200, height: 1, background: "linear-gradient(90deg,transparent,rgba(255,215,0,.3),transparent)" }} />
+        <div style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 12 }}>
+          <button onClick={() => setRevMode("attackable")} style={{
+            padding: "6px 16px", border: "none", borderRadius: 8, fontSize: 11, cursor: "pointer", fontWeight: 600, letterSpacing: .5, fontFamily: "Inter,sans-serif",
+            background: revMode === "attackable" ? "rgba(255,215,0,.12)" : "rgba(255,255,255,.06)",
+            color: revMode === "attackable" ? "#ffd700" : "rgba(255,255,255,.4)",
+          }}>ATTACKABLE (T1+T2)</button>
+          <button onClick={() => setRevMode("total")} style={{
+            padding: "6px 16px", border: "none", borderRadius: 8, fontSize: 11, cursor: "pointer", fontWeight: 600, letterSpacing: .5, fontFamily: "Inter,sans-serif",
+            background: revMode === "total" ? "rgba(255,215,0,.12)" : "rgba(255,255,255,.06)",
+            color: revMode === "total" ? "#ffd700" : "rgba(255,255,255,.4)",
+          }}>TOTAL ADDRESSABLE</button>
+        </div>
+        <div style={{ fontSize: 11, color: "#fff", letterSpacing: 3, textTransform: "uppercase", marginBottom: 10, fontWeight: 500 }}>
+          {revMode === "attackable" ? "Attackable Revenue · Tier 1 + Tier 2" : "Total Addressable Revenue · All Categories"}
+        </div>
+        <div style={{ fontSize: 56, fontWeight: 900, color: "#ffd700", letterSpacing: -2, lineHeight: 1 }}>{fmtRev(displayRev)}</div>
+        <div style={{ fontSize: 13, color: "#fff", marginTop: 12, fontWeight: 400 }}>
+          {displayCount} categories · {Math.round((revMode === "attackable" ? attackRev : allRev) / allRev * 100)}% of {fmtRev(allRev)} total addressable market
+        </div>
+      </div>
+
+      {/* WEIGHT SLIDERS */}
+      <div style={{ background: "linear-gradient(135deg,#f9fafb,#f3f4f6)", borderRadius: 20, padding: "20px 24px", marginBottom: 20, border: "1px solid rgba(229,231,235,.5)", boxShadow: "0 1px 3px rgba(0,0,0,.03)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+          <span style={{ fontSize: 16, fontWeight: 700, color: "#0a0e2a", letterSpacing: -.2 }}>Scoring Weights</span>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            {!isDefault && <button onClick={() => setWeights({ priceResent: 30, users: 25, replication: 25, switching: 20 })}
+              style={{ background: "#fff", border: "1px solid #e2e8f0", color: "#64748b", fontSize: 11, padding: "4px 12px", cursor: "pointer", borderRadius: 6, fontWeight: 500, fontFamily: "Inter,sans-serif" }}>Reset</button>}
+            <span style={{ fontSize: 11, fontWeight: 600, padding: "4px 12px", borderRadius: 20,
+              color: tw === 100 ? "#16a34a" : "#dc2626",
+              background: tw === 100 ? "rgba(22,163,74,.08)" : "rgba(220,38,38,.08)",
+              border: `1px solid ${tw === 100 ? "rgba(22,163,74,.2)" : "rgba(220,38,38,.2)"}`,
+            }}>{tw}%{tw === 100 ? " ✓" : " ⚠"}</span>
           </div>
-          <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:4px"><span>0</span><span>50</span></div>
-      </div>
-      <div style="text-align:center;padding:16px 14px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-        <div style="font-size:14px;color:#0a0e2a;font-weight:700;margin-bottom:8px">👥 Addressable Users</div>
-        <div style="font-size:24px;font-weight:900;color:#3b82f6">25%</div><div style="margin-top:10px;position:relative;height:6px;background:rgba(0,0,0,.15);border-radius:3px">
-            <div style="height:100%;width:50%;background:#3b82f6;border-radius:3px"></div>
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:14px;height:14px;background:#fff;border-radius:50%;border:2px solid #3b82f6;box-shadow:0 1px 4px rgba(0,0,0,.15)"></div>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10 }}>
+          {WEIGHT_META.map(({ key, label, icon, color, tip }) => (
+            <div key={key} style={{ textAlign: "center", padding: "16px 14px", background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0", boxShadow: "0 1px 3px rgba(0,0,0,.04)" }}>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 4, marginBottom: 8 }}>
+                <span style={{ fontSize: 14, color: "#0a0e2a", fontWeight: 700 }}>{icon} {label}</span>
+                <span className="eye-tip">
+                  <span style={{ fontSize: 13, color: "#cbd5e1" }}>ⓘ</span>
+                  <span className="tip-bubble"><div style={{ color, fontWeight: 700, fontSize: 11, marginBottom: 4 }}>{icon} {label}</div>{tip}</span>
+                </span>
+              </div>
+              <div style={{ fontSize: 24, fontWeight: 900, color }}>{weights[key]}%</div>
+              <div style={{ marginTop: 10, position: "relative" }}>
+                <input type="range" min={0} max={50} value={weights[key]}
+                  onChange={e => setWeights(p => ({ ...p, [key]: Number(e.target.value) }))}
+                  style={{ background: sliderBg(weights[key], 50, color), color }} />
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: "#94a3b8", marginTop: 4 }}><span>0</span><span>50</span></div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: 12, padding: 3, background: "#fff", borderRadius: 8, border: "1px solid #f1f5f9" }}>
+          <div style={{ display: "flex", height: 5, overflow: "hidden", gap: 2, borderRadius: 4 }}>
+            {WEIGHT_META.map(({ key, color }) => (
+              <div key={key} style={{ width: tw > 0 ? `${(weights[key]/tw)*100}%` : "25%", background: color, borderRadius: 3, transition: "width .2s", minWidth: weights[key] > 0 ? 2 : 0 }} />
+            ))}
           </div>
-          <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:4px"><span>0</span><span>50</span></div>
+        </div>
       </div>
-      <div style="text-align:center;padding:16px 14px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-        <div style="font-size:14px;color:#0a0e2a;font-weight:700;margin-bottom:8px">🔧 Replication Ease</div>
-        <div style="font-size:24px;font-weight:900;color:#b8960a">25%</div><div style="margin-top:10px;position:relative;height:6px;background:rgba(0,0,0,.15);border-radius:3px">
-            <div style="height:100%;width:50%;background:#b8960a;border-radius:3px"></div>
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:14px;height:14px;background:#fff;border-radius:50%;border:2px solid #b8960a;box-shadow:0 1px 4px rgba(0,0,0,.15)"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:4px"><span>0</span><span>50</span></div>
+
+      {/* TIER SUMMARY CARDS */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 20 }}>
+        {[1,2,3,4].map(t => {
+          const prods = scored.filter(d => d.tier === t);
+          const rev = prods.reduce((s,d) => s+d.revenue, 0);
+          const c = TC_BRIGHT[t];
+          return (
+            <div key={t} onClick={() => setFilterTier(filterTier === t ? 0 : t)} style={{ padding: 20, background: "#fff", borderRadius: 20, border: `1px solid ${filterTier === t ? c : TBORDER[t]}`, boxShadow: filterTier === t ? `0 0 0 2px ${c}40` : "0 2px 8px rgba(0,0,0,.03)", position: "relative", overflow: "hidden", cursor: "pointer", transition: "all .15s" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: c, borderRadius: "20px 20px 0 0" }} />
+              <div style={{ fontSize: 10, color: TC[t], fontWeight: 700, letterSpacing: 1.5, marginBottom: 8, marginTop: 4 }}>TIER {t}</div>
+              <div style={{ fontSize: 28, fontWeight: 900, color: TC[t], letterSpacing: -1 }}>{fmtRev(rev)}</div>
+              <div style={{ fontSize: 12, color: "#64748b", marginTop: 6, fontWeight: 500 }}>{prods.length} categories · {allRev > 0 ? Math.round(rev/allRev*100) : 0}%</div>
+              <div style={{ marginTop: 10, height: 4, background: "#f1f5f9", overflow: "hidden", borderRadius: 2 }}>
+                <div style={{ height: "100%", width: `${allRev > 0 ? (rev/allRev)*100 : 0}%`, background: c, borderRadius: 2, transition: "width .3s" }} />
+              </div>
+              <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 8, lineHeight: 1.5 }}>{prods.map(p => p.name).join(" · ")}</div>
+            </div>
+          );
+        })}
       </div>
-      <div style="text-align:center;padding:16px 14px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(0,0,0,.04)">
-        <div style="font-size:14px;color:#0a0e2a;font-weight:700;margin-bottom:8px">🔄 Low Switch Cost</div>
-        <div style="font-size:24px;font-weight:900;color:#7c3aed">20%</div><div style="margin-top:10px;position:relative;height:6px;background:rgba(0,0,0,.15);border-radius:3px">
-            <div style="height:100%;width:40%;background:#7c3aed;border-radius:3px"></div>
-            <div style="position:absolute;top:50%;left:40%;transform:translate(-50%,-50%);width:14px;height:14px;background:#fff;border-radius:50%;border:2px solid #7c3aed;box-shadow:0 1px 4px rgba(0,0,0,.15)"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:9px;color:#94a3b8;margin-top:4px"><span>0</span><span>50</span></div>
+
+      {/* FILTERS */}
+      {(filterTier > 0 || filterSwitch !== "ALL" || sortCol) && (
+        <div style={{ display: "flex", gap: 6, marginBottom: 16, flexWrap: "wrap", alignItems: "center" }}>
+          {filterTier > 0 && <span style={{ fontSize: 11, fontWeight: 600, color: TC_BRIGHT[filterTier], background: TBG[filterTier], padding: "4px 12px", borderRadius: 20, border: `1px solid ${TBORDER[filterTier]}` }}>Tier {filterTier} <span onClick={() => setFilterTier(0)} style={{ cursor: "pointer", marginLeft: 4 }}>✕</span></span>}
+          {filterSwitch !== "ALL" && <span style={{ fontSize: 11, fontWeight: 600, color: SW[filterSwitch], background: SWBG[filterSwitch], padding: "4px 12px", borderRadius: 20 }}>{filterSwitch} <span onClick={() => setFilterSwitch("ALL")} style={{ cursor: "pointer", marginLeft: 4 }}>✕</span></span>}
+          {sortCol && <span onClick={() => { setSortCol(null); setSortDir("desc"); }} style={{ fontSize: 11, fontWeight: 600, color: "#dc2626", background: "#fef2f2", padding: "4px 12px", borderRadius: 20, border: "1px solid #fecaca", cursor: "pointer" }}>✕ Clear Sort</span>}
+          <span style={{ fontSize: 11, color: "#94a3b8" }}>{filtered.length} of {scored.length} categories · {fmtRev(filtered.reduce((s,d) => s+d.revenue, 0))}</span>
+        </div>
+      )}
+
+      {/* TABLE */}
+      <div style={{ background: "#fff", borderRadius: 20, overflow: "hidden", border: "1px solid #e2e8f0", boxShadow: "0 2px 12px rgba(0,0,0,.04)", marginBottom: 20 }}>
+        <table>
+          <thead>
+            <tr style={{ background: NAVY_ART }}>
+              {[
+                { label: "#", col: "rank", w: 44, align: "center" },
+                { label: "Product", col: "name", align: "left" },
+                { label: "Category", col: "category", align: "left" },
+                { label: "Replaces", align: "left" },
+                { label: "Price", align: "left" },
+                { label: "Rev", col: "revenue", w: 65, align: "center" },
+                { label: "💸", col: "priceResent", w: 52, align: "center", emoji: true },
+                { label: "👥", col: "users", w: 52, align: "center", emoji: true },
+                { label: "🔧", col: "replication", w: 52, align: "center", emoji: true },
+                { label: "🔄", col: "switching", w: 52, align: "center", emoji: true },
+                { label: "Score", col: "composite", w: 70, align: "center" },
+              ].map(({ label, col, w, align, emoji }, i) => (
+                <th key={i} onClick={() => col && handleSort(col)} style={{
+                  padding: emoji ? "16px 8px" : "16px 12px",
+                  color: sortCol === col ? "#fff" : (emoji ? "rgba(255,255,255,.9)" : "#ffd700"),
+                  fontWeight: 700, textAlign: align, fontSize: emoji ? 15 : 13, letterSpacing: .3,
+                  whiteSpace: "nowrap", cursor: col ? "pointer" : "default",
+                  background: sortCol === col ? "rgba(255,215,0,.12)" : "transparent",
+                  borderBottom: "1px solid rgba(255,255,255,.04)", width: w || undefined,
+                }}>{label}{sortCol === col ? (sortDir === "desc" ? " ↓" : " ↑") : ""}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((d, idx) => {
+              const tc = TC[d.tier];
+              const isEx = expanded === d.name;
+              return (
+                <React.Fragment key={d.name}>
+                  <tr onClick={() => setExpanded(isEx ? null : d.name)}
+                    style={{ borderBottom: isEx ? "none" : "1px solid #f1f5f9", cursor: "pointer",
+                      background: isEx ? "#fafbfe" : idx % 2 === 0 ? "#fff" : "#fafbfe", transition: "background .15s" }}>
+                    <td style={{ padding: "12px 10px", textAlign: "center" }}>
+                      <span style={{ color: tc, fontSize: 9, marginRight: 3, display: "inline-block", transform: isEx ? "rotate(90deg)" : "none", transition: "transform .15s" }}>▶</span>
+                      <span style={{ fontWeight: 700, color: "#334155", fontSize: 13 }}>{d.rank}</span>
+                    </td>
+                    <td style={{ padding: "12px 10px", fontWeight: 700, color: "#111827", fontSize: 14, whiteSpace: "nowrap", letterSpacing: -.2 }}>{d.name}</td>
+                    <td style={{ padding: "12px 10px", color: "#6b7280", fontSize: 12, fontWeight: 500 }}>{d.category}</td>
+                    <td style={{ padding: "12px 10px", color: "#64748b", fontSize: 11, maxWidth: 220, lineHeight: 1.4 }}>{d.replaces}</td>
+                    <td style={{ padding: "12px 10px", color: "#dc2626", fontSize: 12, whiteSpace: "nowrap", fontWeight: 600 }}>{d.price}</td>
+                    <td style={{ padding: "12px 10px", textAlign: "center", fontWeight: 700, fontSize: 13, color: "#b8960a" }}>{fmtRev(d.revenue)}</td>
+                    {[d.priceResent, d.users, d.replication, d.switching].map((v,i) => (
+                      <td key={i} style={{ padding: "12px 4px" }}><ScoreBar val={v} /></td>
+                    ))}
+                    <td style={{ padding: "12px 10px", textAlign: "center" }}>
+                      <span style={{ fontWeight: 900, fontSize: 18, color: tc, letterSpacing: -.5 }}>{d.composite}</span>
+                    </td>
+                  </tr>
+                  {isEx && (
+                    <tr style={{ background: "#fafbfe" }}>
+                      <td colSpan={11} style={{ padding: 0 }}>
+                        <div style={{ borderLeft: `3px solid ${TC_BRIGHT[d.tier]}`, padding: 24, margin: "0 10px 10px" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                            <div>
+                              <span style={{ fontSize: 22, fontWeight: 800, color: "#111827" }}>{d.name}</span>
+                              <span style={{ fontSize: 12, color: "#94a3b8", marginLeft: 10 }}>{d.category}</span>
+                            </div>
+                            <div style={{ textAlign: "right" }}>
+                              <div style={{ fontSize: 36, fontWeight: 900, color: TC_BRIGHT[d.tier] }}>{d.composite}</div>
+                              <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 600, letterSpacing: 1 }}>TIER {d.tier} · {d.switchTonight}</div>
+                            </div>
+                          </div>
+                          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 16 }}>
+                            {[{ label: "TAM", value: d.tam, color: "#111827" }, { label: "Their pricing", value: d.price, color: "#dc2626" }, { label: "Revenue displaced", value: fmtRev(d.revenue), color: "#b8960a" }].map(({ label, value, color }) => (
+                              <div key={label} style={{ background: "#f1f5f9", borderRadius: 12, padding: "12px 16px" }}>
+                                <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 600, letterSpacing: .5, marginBottom: 2 }}>{label}</div>
+                                <div style={{ fontSize: 15, fontWeight: 700, color }}>{value}</div>
+                              </div>
+                            ))}
+                          </div>
+                          <div style={{ fontSize: 13, color: "#6b7280", fontStyle: "italic", marginBottom: 20, lineHeight: 1.6, background: "#f8fafc", borderRadius: 12, padding: "14px 18px", border: "1px solid #f1f5f9" }}>{d.note}</div>
+                          <div style={{ marginBottom: 20 }}>
+                            <div style={{ fontSize: 11, color: "#111827", fontWeight: 700, letterSpacing: .5, marginBottom: 10, textTransform: "uppercase" }}>Competitors We Replace ({d.competitors.length})</div>
+                            <div style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #e2e8f0" }}>
+                              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                                <thead><tr style={{ background: "#f8fafc" }}>
+                                  {["Company","Pricing","Est. Revenue","Users","Vulnerability"].map((h,i) => (
+                                    <th key={i} style={{ padding: "10px 12px", fontSize: 10, color: "#94a3b8", letterSpacing: .5, textAlign: "left", fontWeight: 600, borderBottom: "1px solid #e2e8f0" }}>{h}</th>
+                                  ))}
+                                </tr></thead>
+                                <tbody>
+                                  {d.competitors.map((c, ci) => (
+                                    <tr key={ci} style={{ borderBottom: "1px solid #f1f5f9" }}>
+                                      <td style={{ padding: "10px 12px", fontSize: 12, whiteSpace: "nowrap" }}>
+                                        <a href={c.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}
+                                          style={{ color: "#111827", fontWeight: 600, textDecoration: "none", borderBottom: "1px solid #e2e8f0" }}>{c.name} ↗</a>
+                                      </td>
+                                      <td style={{ padding: "10px 12px", fontSize: 11, color: "#dc2626", whiteSpace: "nowrap", fontWeight: 600 }}>{c.price}</td>
+                                      <td style={{ padding: "10px 12px", fontSize: 11, color: "#b8960a", fontWeight: 700, whiteSpace: "nowrap" }}>{c.rev}</td>
+                                      <td style={{ padding: "10px 12px", fontSize: 11, color: "#6b7280" }}>{c.users}</td>
+                                      <td style={{ padding: "10px 12px", fontSize: 11, color: "#6b7280", lineHeight: 1.5 }}>{c.vulnerability}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10 }}>
+                            {WEIGHT_META.map(({ key, label, color }) => (
+                              <div key={key} style={{ textAlign: "center", padding: 14, border: "1px solid #e2e8f0", borderRadius: 14, background: "#fff" }}>
+                                <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 600, letterSpacing: .5, marginBottom: 6 }}>{label}</div>
+                                <div style={{ fontSize: 28, fontWeight: 900, color }}>{d[key]}</div>
+                                <div style={{ fontSize: 11, color: "#cbd5e1", marginTop: 2 }}>× {weights[key]}% = {tw > 0 ? ((d[key]*weights[key])/tw).toFixed(2) : "0"}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </React.Fragment>
+              );
+            })}
+            {filtered.length === 0 && <tr><td colSpan={11} style={{ padding: 40, textAlign: "center", color: "#94a3b8" }}>No categories match current filters</td></tr>}
+          </tbody>
+        </table>
       </div>
     </div>
-    <div style="margin-top:12px;padding:3px;background:#fff;border-radius:8px;border:1px solid #f1f5f9">
-      <div style="display:flex;height:5px;overflow:hidden;gap:2px;border-radius:4px">
-        <div style="width:30%;background:#dc2626;border-radius:3px"></div>
-        <div style="width:25%;background:#60a5fa;border-radius:3px"></div>
-        <div style="width:25%;background:#d4a800;border-radius:3px"></div>
-        <div style="width:20%;background:#a78bfa;border-radius:3px"></div>
-      </div>
-    </div>
-  </div>
+  );
+}
 
-  <!-- TIER SUMMARY -->
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px">
-
-    <div style="padding:20px;background:#fff;border-radius:20px;border:1px solid rgba(255,215,0,.2);box-shadow:0 2px 8px rgba(0,0,0,.03);position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#d4a800;border-radius:20px 20px 0 0"></div>
-      <div style="font-size:10px;color:#b8960a;font-weight:700;letter-spacing:1.5px;margin-bottom:8px;margin-top:4px">TIER 1</div>
-      <div style="font-size:28px;font-weight:900;color:#b8960a;letter-spacing:-1px">$5.9B</div>
-      <div style="font-size:12px;color:#64748b;margin-top:6px;font-weight:500">4 categories · 24%</div>
-      <div style="margin-top:10px;height:4px;background:#f1f5f9;overflow:hidden;border-radius:2px">
-        <div style="height:100%;width:24%;background:#d4a800;border-radius:2px"></div>
-      </div>
-      <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.5">SB_Stats · SB_PDF · SB_Write · SB_SEO</div>
-    </div>
-    <div style="padding:20px;background:#fff;border-radius:20px;border:1px solid rgba(96,165,250,.2);box-shadow:0 2px 8px rgba(0,0,0,.03);position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#60a5fa;border-radius:20px 20px 0 0"></div>
-      <div style="font-size:10px;color:#60a5fa;font-weight:700;letter-spacing:1.5px;margin-bottom:8px;margin-top:4px">TIER 2</div>
-      <div style="font-size:28px;font-weight:900;color:#60a5fa;letter-spacing:-1px">$6.4B</div>
-      <div style="font-size:12px;color:#64748b;margin-top:6px;font-weight:500">11 categories · 26%</div>
-      <div style="margin-top:10px;height:4px;background:#f1f5f9;overflow:hidden;border-radius:2px">
-        <div style="height:100%;width:26%;background:#60a5fa;border-radius:2px"></div>
-      </div>
-      <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.5">SB_Schedule · SB_Record · SB_Social · SB_Links · SB_Forms · SB_Traffic · SB_Seller · SB_Transcribe · SB_Stock · SB_Landing · SB_Detect</div>
-    </div>
-    <div style="padding:20px;background:#fff;border-radius:20px;border:1px solid rgba(245,158,11,.2);box-shadow:0 2px 8px rgba(0,0,0,.03);position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#f59e0b;border-radius:20px 20px 0 0"></div>
-      <div style="font-size:10px;color:#f59e0b;font-weight:700;letter-spacing:1.5px;margin-bottom:8px;margin-top:4px">TIER 3</div>
-      <div style="font-size:28px;font-weight:900;color:#f59e0b;letter-spacing:-1px">$10.3B</div>
-      <div style="font-size:12px;color:#64748b;margin-top:6px;font-weight:500">6 categories · 42%</div>
-      <div style="margin-top:10px;height:4px;background:#f1f5f9;overflow:hidden;border-radius:2px">
-        <div style="height:100%;width:42%;background:#f59e0b;border-radius:2px"></div>
-      </div>
-      <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.5">SB_Funding · SB_Train · SB_Mail · SB_Meet · SB_Chat · SB_CRM</div>
-    </div>
-    <div style="padding:20px;background:#fff;border-radius:20px;border:1px solid rgba(239,68,68,.2);box-shadow:0 2px 8px rgba(0,0,0,.03);position:relative;overflow:hidden">
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:#ef4444;border-radius:20px 20px 0 0"></div>
-      <div style="font-size:10px;color:#ef4444;font-weight:700;letter-spacing:1.5px;margin-bottom:8px;margin-top:4px">TIER 4</div>
-      <div style="font-size:28px;font-weight:900;color:#ef4444;letter-spacing:-1px">$1.9B</div>
-      <div style="font-size:12px;color:#64748b;margin-top:6px;font-weight:500">2 categories · 8%</div>
-      <div style="margin-top:10px;height:4px;background:#f1f5f9;overflow:hidden;border-radius:2px">
-        <div style="height:100%;width:8%;background:#ef4444;border-radius:2px"></div>
-      </div>
-      <div style="font-size:10px;color:#94a3b8;margin-top:8px;line-height:1.5">SB_Shifts · SB_Contacts</div>
-    </div>
-  </div>
-
-  
-  <!-- TABLE -->
-  <div style="background:#fff;border-radius:20px;overflow:hidden;border:1px solid #e2e8f0;box-shadow:0 2px 12px rgba(0,0,0,.04);margin-bottom:20px">
-    <table style="width:100%;border-collapse:collapse">
-      <thead>
-        <tr style="background:linear-gradient(135deg,#0f1a3a 0%,#1a2a4a 40%,#243352 70%,#1e2d48 100%)">
-          <th style="padding:16px 12px;color:#ffd700;font-weight:600;text-align:center;font-size:13px;letter-spacing:.5px;width:44px">#</th>
-          <th style="padding:16px 12px;color:#ffd700;font-weight:700;text-align:left;font-size:13px;letter-spacing:.3px">Product</th>
-          <th style="padding:16px 12px;color:#ffd700;font-weight:700;text-align:left;font-size:13px;letter-spacing:.3px">Category</th>
-          <th style="padding:16px 12px;color:#ffd700;font-weight:700;text-align:left;font-size:13px;letter-spacing:.3px">Replaces</th>
-          <th style="padding:16px 12px;color:#ffd700;font-weight:700;text-align:left;font-size:13px;letter-spacing:.3px">Price</th>
-          <th style="padding:16px 12px;color:#ffd700;font-weight:700;text-align:center;font-size:13px;letter-spacing:.3px;width:65px">Rev</th>
-          <th style="padding:16px 8px;color:rgba(255,255,255,.9);font-weight:600;text-align:center;font-size:15px;width:52px">💸</th>
-          <th style="padding:16px 8px;color:rgba(255,255,255,.9);font-weight:600;text-align:center;font-size:15px;width:52px">👥</th>
-          <th style="padding:16px 8px;color:rgba(255,255,255,.9);font-weight:600;text-align:center;font-size:15px;width:52px">🔧</th>
-          <th style="padding:16px 8px;color:rgba(255,255,255,.9);font-weight:600;text-align:center;font-size:15px;width:52px">🔄</th>
-          <th style="padding:16px 12px;color:#ffd700;font-weight:700;text-align:center;font-size:13px;letter-spacing:.3px;width:70px">Score</th>
-          </tr>
-      </thead>
-      <tbody>
-
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">1</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Stats</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Statistics & Data</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Statista, IBISWorld, Euromonitor</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$39-600/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$500M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#b8960a;letter-spacing:-.5px">5</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">2</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_PDF</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">PDF Tools</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Adobe Acrobat, SmallPDF, ILovePDF, Foxit, Nitro</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$9-23/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$4.2B</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#b8960a;letter-spacing:-.5px">5</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">3</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Write</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">AI Writing & Grammar</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Grammarly, ProWritingAid, QuillBot, Wordtune, Hemingway</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$12-30/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$350M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#b8960a;letter-spacing:-.5px">4.7</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">4</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_SEO</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">SEO & Web Intelligence</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Semrush, Ahrefs, Moz, SpyFu, Mangools, Serpstat</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$39-500/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$850M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#b8960a;letter-spacing:-.5px">4.5</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">5</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Schedule</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Scheduling & Booking</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Calendly, Acuity, Cal.com, SavvyCal, TidyCal</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$10-46/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$300M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.45</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">6</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Record</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Screen Recording</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Loom, Vidyard, CloudApp, ScreenPal</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$3-59/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$200M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.45</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">7</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Social</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Social Media Management</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Hootsuite, Buffer, Sprout Social, Later, Planoly</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$25-500/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$600M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.45</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">8</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Links</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Link Mgmt & Bio Pages</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Bitly, Linktree, Rebrandly, Short.io</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$5-35/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$380M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.4</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">9</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Forms</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Forms & Surveys</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Typeform, SurveyMonkey, JotForm, Tally</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$25-99/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$700M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.25</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">10</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Traffic</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Web Traffic Estimates</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">SimilarWeb, Comscore</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$149-999/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$400M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.25</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">11</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Seller</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Amazon Marketplace Tools</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Helium10, Jungle Scout, Viral Launch, AMZScout, SmartScout, SellerApp</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$30-450/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$500M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.25</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">12</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Transcribe</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Transcription & Notes</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Otter.ai, Rev, Fireflies.ai, tl;dv, Notta</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$10-30/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$150M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.2</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">13</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Stock</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Stock Media</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Shutterstock, iStock, Getty, Adobe Stock</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$29-199/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$2.8B</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.2</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">14</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Landing</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Landing Pages</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Unbounce, Instapage, Leadpages, Carrd</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$14-200/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$300M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4.2</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">15</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Detect</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Tech Stack Detection</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">BuiltWith, Wappalyzer, SimilarTech</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$50-495/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$25M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#60a5fa;letter-spacing:-.5px">4</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">16</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Funding</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Startup / Funding Data</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Crunchbase, PitchBook</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$49-30K+/yr</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$580M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#f59e0b;letter-spacing:-.5px">3.9</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">17</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Train</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Training / SOPs</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Trainual, Process Street, Scribe, SweetProcess, Whale</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$29-499/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$120M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#f59e0b;letter-spacing:-.5px">3.8</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">18</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Mail</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Email Marketing</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Mailchimp, ConvertKit, MailerLite, Brevo, Constant Contact</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$13-350/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$1.8B</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#f59e0b;letter-spacing:-.5px">3.6</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">19</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Meet</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Video Conferencing</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Zoom, Google Meet, Teams, Webex</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$0-22/user/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$5.2B</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#f59e0b;letter-spacing:-.5px">3.25</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">20</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Chat</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Team Messaging</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Slack, Teams, Discord, Mattermost</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$0-12.50/user/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$2.2B</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#f59e0b;letter-spacing:-.5px">3.15</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">21</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_CRM</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Simple CRM</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Pipedrive, Less Annoying CRM, Streak, folk, Capsule, Close</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$14-129/user/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$400M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#f59e0b;letter-spacing:-.5px">3.05</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fafbfe">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">22</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Shifts</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">Workforce / Shifts</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">Homebase, When I Work, 7shifts, Deputy, Sling</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$0-10/user/mo</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$250M</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#ef4444;letter-spacing:-.5px">2.9</span></td>
-      </tr>
-    <tr style="border-bottom:1px solid #f1f5f9;background:#fff">
-      <td style="padding:12px 10px;text-align:center;font-weight:700;color:#334155;font-size:13px;font-variant-numeric:tabular-nums">23</td>
-      <td style="padding:12px 10px;font-weight:700;color:#111827;font-size:14px;white-space:nowrap;letter-spacing:-.2px">SB_Contacts</td>
-      <td style="padding:12px 10px;color:#6b7280;font-size:12px;font-weight:500">B2B Sales Intelligence</td>
-      <td style="padding:12px 10px;color:#64748b;font-size:11px;max-width:220px;line-height:1.4">ZoomInfo, Apollo, Lusha, Cognism, SalesIntel</td>
-      <td style="padding:12px 10px;color:#dc2626;font-size:12px;white-space:nowrap;font-weight:600">$0-25K+/yr</td>
-      <td style="padding:12px 10px;text-align:center;font-weight:700;font-size:13px;color:#b8960a;font-variant-numeric:tabular-nums">$1.6B</td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#d4a800"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f59e0b"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 4px"><div style="display:flex;gap:2px;justify-content:center"><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#ef4444"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div><div style="width:5px;height:16px;border-radius:2px;background:#f1f5f9"></div></div></td>
-      <td style="padding:12px 10px;text-align:center"><span style="font-weight:900;font-size:18px;color:#ef4444;letter-spacing:-.5px">2.85</span></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  </div>
-
+ReactDOM.render(<App />, document.getElementById("root"));
+</script>
 </body>
 </html>
