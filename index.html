@@ -258,7 +258,7 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .app-card.show{opacity:1;transform:translateY(0) scale(1)}
 .app-card:hover{box-shadow:0 25px 50px rgba(0,0,0,.25);transform:translateY(-8px) scale(1);border-radius:24px;background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.2) !important;backdrop-filter:blur(20px)}
 .app-card *{transition:all .5s cubic-bezier(.2,.8,.3,1)}
-.app-card:hover .app-art{border-radius:24px 24px 0 0;background:linear-gradient(135deg,rgba(120,53,15,.85),rgba(68,64,60,.85)) !important;padding:12px}
+.app-card:hover .app-art{border-radius:24px 24px 0 0;background:linear-gradient(135deg,#0f1a3a 0%,#1a2a4a 40%,#243352 70%,#1e2d48 100%) !important;padding:12px}
 .app-card:hover .icon{transform:none}
 .app-card:hover .icon-emoji{filter:drop-shadow(0 0 20px rgba(255,215,0,.5)) drop-shadow(0 0 40px rgba(255,215,0,.3));text-shadow:none}
 .app-card:hover .cat{font-family:'Inter',-apple-system,sans-serif;font-size:13px;color:#fff;letter-spacing:3px;font-weight:600;text-shadow:none}
@@ -266,9 +266,13 @@ body{font-family:'Comic Neue','Comic Sans MS',cursive;background:var(--silver);c
 .app-card:hover .star-row{top:12px;right:12px}
 .app-card:hover .badge-new,.app-card:hover .badge-hot{font-family:'Inter',sans-serif;border-radius:20px;font-size:10px;padding:4px 12px;animation:none !important;opacity:1;font-weight:700}
 .app-card:hover .badge-new{background:linear-gradient(135deg,#ffd700,#f59e0b);color:#0a0e2a;box-shadow:0 2px 8px rgba(255,215,0,.3)}
-.app-card:hover .badge-hot{background:linear-gradient(135deg,#f97316,#ef4444);color:#fff;box-shadow:0 2px 8px rgba(249,115,22,.3)}
-.app-card:hover .star.on{color:#facc15;filter:drop-shadow(0 0 4px rgba(250,204,21,.5))}
+.app-card:hover .badge-hot{background:linear-gradient(135deg,#f97316,#ef4444);color:#fff;box-shadow:0 2px 8px rgba(249,115,22,.3);display:flex;align-items:center;gap:3px}
+.app-card:hover .badge-hot .flame-icon{display:inline-block;width:12px;height:12px}
+.badge-hot .flame-icon{display:none}
+.app-card:hover .star.on{color:#fbbf24;-webkit-text-stroke:.5px #b8860b;text-shadow:1px 1px 0 rgba(0,0,0,.3);filter:none}
 .app-card:hover .app-body{padding:16px}
+.app-card:hover .info-card{background:linear-gradient(135deg,#f9fafb,#f3f4f6);border-radius:16px;padding:14px;margin-bottom:12px;border:1px solid rgba(229,231,235,.5);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.info-card{transition:all .5s cubic-bezier(.2,.8,.3,1)}
 .app-card:hover .compare-to{font-family:'Inter',-apple-system,sans-serif;font-size:12px;color:#6b7280;font-weight:400}
 .app-card:hover .compare-to .brand{color:#dc2626;font-weight:600}
 .app-card:hover .app-name{font-family:'Inter',-apple-system,sans-serif;font-size:20px;font-weight:800;color:#111827;text-shadow:none;letter-spacing:-.3px}
@@ -977,14 +981,16 @@ var SVG_ICONS={
     h+='<article class="app-card bevel-outset" style="transition-delay:'+(idx*80)+'ms" data-app>'+
       '<div class="app-art" style="background:'+a.color+'">'+
         '<div style="text-align:center;color:#fff"><div class="icon"><span class="icon-emoji">'+a.icon+'</span>'+(SVG_ICONS[a.title]?'<span class="icon-svg">'+SVG_ICONS[a.title]+'</span>':'')+'</div><p class="cat">'+a.cat+'</p></div>'+
-        '<div class="badge-stack">'+(a.isNew?'<span class="badge-new">FREE</span>':'')+(a.isHot?'<span class="badge-hot">HOT!</span>':'')+'</div>'+
+        '<div class="badge-stack">'+(a.isNew?'<span class="badge-new">FREE</span>':'')+(a.isHot?'<span class="badge-hot"><svg class="flame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>HOT!</span>':'')+'</div>'+
         '<div class="star-row">'+stars+'</div>'+
       '</div>'+
       '<div class="app-body">'+
+        '<div class="info-card">'+
         '<div class="compare-to">Compare to: <span class="brand">'+a.compareTo+'* ($'+a.price+'/mo)</span></div>'+
         '<div class="app-name">'+a.title+'</div>'+
         '<p class="app-desc">'+a.desc+'</p>'+
         '<div class="app-meta">'+a.ver+' | Web App | Downloads: '+a.downloads+'</div>'+
+        '</div>'+
         '<div class="price-box bevel-inset">'+
           '<div class="price-row"><div><p class="price-label">'+a.compareTo+'* charges:</p><p class="their-price">$'+a.price+'/mo</p></div><div style="text-align:center"><p class="free-price">FREE</p><p class="free-sub">($0.00/mo)</p></div></div>'+
           '<p class="savings">You save '+annual+'/year!!!</p>'+
