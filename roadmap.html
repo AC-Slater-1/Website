@@ -27,6 +27,27 @@ input[type="range"]::-moz-range-thumb{width:16px;height:16px;background:#fff;bor
 .eye-tip .tip-bubble{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:260px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;font-size:12px;color:#6b7280;line-height:1.6;z-index:200;pointer-events:none;box-shadow:0 10px 25px rgba(0,0,0,.1)}
 .eye-tip .tip-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#e2e8f0}
 .eye-tip:hover .tip-bubble{display:block}
+
+@media(max-width:768px){
+  .weight-grid,.tier-grid{grid-template-columns:repeat(2,1fr) !important}
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .table-scroll table{min-width:900px}
+  .main-container{padding:12px 10px !important}
+  .revenue-banner{padding:24px 16px !important;border-radius:16px !important}
+  .revenue-amount{font-size:42px !important}
+  .weights-panel{padding:14px 12px !important;border-radius:14px !important}
+  .weight-card{padding:12px 8px !important}
+  .weight-label{font-size:12px !important}
+  .weight-pct{font-size:20px !important}
+  .tier-card{padding:14px !important;border-radius:14px !important}
+  .tier-rev{font-size:22px !important}
+  .footer-section{border-radius:16px 16px 0 0 !important;padding:20px 12px !important}
+}
+@media(max-width:480px){
+  .weight-grid,.tier-grid{grid-template-columns:1fr 1fr !important;gap:8px !important}
+  .revenue-amount{font-size:36px !important}
+  .nav-bar{gap:6px 12px !important;font-size:12px !important}
+}
 </style>
 </head>
 <body>
@@ -41,7 +62,7 @@ input[type="range"]::-moz-range-thumb{width:16px;height:16px;background:#fff;bor
     <h1 style="font-size:clamp(28px,6vw,52px);font-weight:900;color:#ffd700;letter-spacing:-1px;line-height:1" class="glow">APPBUSTER</h1>
     <div style="color:rgba(255,255,255,.65);font-size:13px;margin-top:8px;font-weight:400;letter-spacing:1px">Development Scoring Roadmap</div>
   </div>
-  <nav style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;font-size:13px;font-weight:500">
+  <nav class="nav-bar" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;font-size:13px;font-weight:500">
     <a href="index.html" style="color:rgba(255,255,255,.8);text-decoration:none">Home</a><span style="color:rgba(255,255,255,.25)">|</span>
     <a href="roadmap.html" style="color:#ffd700;text-decoration:none;font-weight:700">Roadmap</a><span style="color:rgba(255,255,255,.25)">|</span>
     <a href="index.html#downloads" style="color:rgba(255,255,255,.8);text-decoration:none">Downloads</a><span style="color:rgba(255,255,255,.25)">|</span>
@@ -253,7 +274,7 @@ function ScoreBar({ val }) {
       ))}
 
       {/* FOOTER */}
-      <footer style={{ background: "linear-gradient(135deg,#0f1a3a 0%,#1a2a4a 40%,#243352 70%,#1e2d48 100%)", padding: "24px 16px", borderRadius: "24px 24px 0 0", marginTop: 0 }}>
+      <footer className="footer-section" style={{ background: "linear-gradient(135deg,#0f1a3a 0%,#1a2a4a 40%,#243352 70%,#1e2d48 100%)", padding: "24px 16px", borderRadius: "24px 24px 0 0", marginTop: 0 }}>
         <div style={{ maxWidth: 600, margin: "0 auto 24px", background: "#d4d0c8", borderRadius: 12, overflow: "hidden", border: "1px solid rgba(255,255,255,.1)" }}>
           <div style={{ background: "#1a1e4a", padding: 8, textAlign: "center", fontSize: 10, color: "#ffd700", fontWeight: 700, letterSpacing: 1 }}>🌐 FREE SOFTWARE WEBRING 🌐</div>
           <div style={{ padding: 14, display: "flex", alignItems: "center", justifyContent: "center", gap: 16, textAlign: "center" }}>
@@ -347,10 +368,10 @@ function App() {
   const isDefault = weights.priceResent===30 && weights.users===25 && weights.replication===25 && weights.switching===20;
 
   return (
-    <div style={{ padding: "20px 24px", maxWidth: 1440, margin: "0 auto" }}>
+    <div className="main-container" style={{ padding: "20px 24px", maxWidth: 1440, margin: "0 auto" }}>
 
       {/* REVENUE BANNER */}
-      <div style={{ background: NAVY_ART, borderRadius: 24, padding: 32, marginBottom: 20, textAlign: "center", position: "relative", overflow: "hidden", boxShadow: "0 4px 24px rgba(10,14,42,.2),0 0 0 1px rgba(255,215,0,.06)", border: "1px solid rgba(255,215,0,.08)" }}>
+      <div className="revenue-banner" style={{ background: NAVY_ART, borderRadius: 24, padding: 32, marginBottom: 20, textAlign: "center", position: "relative", overflow: "hidden", boxShadow: "0 4px 24px rgba(10,14,42,.2),0 0 0 1px rgba(255,215,0,.06)", border: "1px solid rgba(255,215,0,.08)" }}>
         <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 200, height: 1, background: "linear-gradient(90deg,transparent,rgba(255,215,0,.3),transparent)" }} />
         <div style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 12 }}>
           <button onClick={() => setRevMode("attackable")} style={{
@@ -367,14 +388,14 @@ function App() {
         <div style={{ fontSize: 11, color: "#fff", letterSpacing: 3, textTransform: "uppercase", marginBottom: 10, fontWeight: 500 }}>
           {revMode === "attackable" ? "Attackable Revenue · Tier 1 + Tier 2" : "Total Addressable Revenue · All Categories"}
         </div>
-        <div style={{ fontSize: 56, fontWeight: 900, color: "#ffd700", letterSpacing: -2, lineHeight: 1 }}>{fmtRev(displayRev)}</div>
+        <div className="revenue-amount" style={{ fontSize: 56, fontWeight: 900, color: "#ffd700", letterSpacing: -2, lineHeight: 1 }}>{fmtRev(displayRev)}</div>
         <div style={{ fontSize: 13, color: "#fff", marginTop: 12, fontWeight: 400 }}>
           {displayCount} categories · {Math.round((revMode === "attackable" ? attackRev : allRev) / allRev * 100)}% of {fmtRev(allRev)} total addressable market
         </div>
       </div>
 
       {/* WEIGHT SLIDERS */}
-      <div style={{ background: "linear-gradient(135deg,#f9fafb,#f3f4f6)", borderRadius: 20, padding: "20px 24px", marginBottom: 20, border: "1px solid rgba(229,231,235,.5)", boxShadow: "0 1px 3px rgba(0,0,0,.03)" }}>
+      <div className="weights-panel" style={{ background: "linear-gradient(135deg,#f9fafb,#f3f4f6)", borderRadius: 20, padding: "20px 24px", marginBottom: 20, border: "1px solid rgba(229,231,235,.5)", boxShadow: "0 1px 3px rgba(0,0,0,.03)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
           <span style={{ fontSize: 16, fontWeight: 700, color: "#0a0e2a", letterSpacing: -.2 }}>Scoring Weights</span>
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
@@ -387,17 +408,17 @@ function App() {
             }}>{tw}%{tw === 100 ? " ✓" : " ⚠"}</span>
           </div>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10 }}>
+        <div className="weight-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10 }}>
           {WEIGHT_META.map(({ key, label, icon, color, tip }) => (
-            <div key={key} style={{ textAlign: "center", padding: "16px 14px", background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0", boxShadow: "0 1px 3px rgba(0,0,0,.04)" }}>
+            <div key={key} className="weight-card" style={{ textAlign: "center", padding: "16px 14px", background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0", boxShadow: "0 1px 3px rgba(0,0,0,.04)" }}>
               <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 4, marginBottom: 8 }}>
-                <span style={{ fontSize: 14, color: "#0a0e2a", fontWeight: 700 }}>{icon} {label}</span>
+                <span className="weight-label" style={{ fontSize: 14, color: "#0a0e2a", fontWeight: 700 }}>{icon} {label}</span>
                 <span className="eye-tip">
                   <span style={{ fontSize: 13, color: "#cbd5e1" }}>ⓘ</span>
                   <span className="tip-bubble"><div style={{ color, fontWeight: 700, fontSize: 11, marginBottom: 4 }}>{icon} {label}</div>{tip}</span>
                 </span>
               </div>
-              <div style={{ fontSize: 24, fontWeight: 900, color }}>{weights[key]}%</div>
+              <div className="weight-pct" style={{ fontSize: 24, fontWeight: 900, color }}>{weights[key]}%</div>
               <div style={{ marginTop: 10, position: "relative" }}>
                 <input type="range" min={0} max={50} value={weights[key]}
                   onChange={e => setWeights(p => ({ ...p, [key]: Number(e.target.value) }))}
@@ -417,16 +438,16 @@ function App() {
       </div>
 
       {/* TIER SUMMARY CARDS */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 20 }}>
+      <div className="tier-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 20 }}>
         {[1,2,3,4].map(t => {
           const prods = scored.filter(d => d.tier === t);
           const rev = prods.reduce((s,d) => s+d.revenue, 0);
           const c = TC_BRIGHT[t];
           return (
-            <div key={t} onClick={() => setFilterTier(filterTier === t ? 0 : t)} style={{ padding: 20, background: "#fff", borderRadius: 20, border: `1px solid ${filterTier === t ? c : TBORDER[t]}`, boxShadow: filterTier === t ? `0 0 0 2px ${c}40` : "0 2px 8px rgba(0,0,0,.03)", position: "relative", overflow: "hidden", cursor: "pointer", transition: "all .15s" }}>
+            <div key={t} className="tier-card" onClick={() => setFilterTier(filterTier === t ? 0 : t)} style={{ padding: 20, background: "#fff", borderRadius: 20, border: `1px solid ${filterTier === t ? c : TBORDER[t]}`, boxShadow: filterTier === t ? `0 0 0 2px ${c}40` : "0 2px 8px rgba(0,0,0,.03)", position: "relative", overflow: "hidden", cursor: "pointer", transition: "all .15s" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: c, borderRadius: "20px 20px 0 0" }} />
               <div style={{ fontSize: 10, color: TC[t], fontWeight: 700, letterSpacing: 1.5, marginBottom: 8, marginTop: 4 }}>TIER {t}</div>
-              <div style={{ fontSize: 28, fontWeight: 900, color: TC[t], letterSpacing: -1 }}>{fmtRev(rev)}</div>
+              <div className="tier-rev" style={{ fontSize: 28, fontWeight: 900, color: TC[t], letterSpacing: -1 }}>{fmtRev(rev)}</div>
               <div style={{ fontSize: 12, color: "#64748b", marginTop: 6, fontWeight: 500 }}>{prods.length} categories · {allRev > 0 ? Math.round(rev/allRev*100) : 0}%</div>
               <div style={{ marginTop: 10, height: 4, background: "#f1f5f9", overflow: "hidden", borderRadius: 2 }}>
                 <div style={{ height: "100%", width: `${allRev > 0 ? (rev/allRev)*100 : 0}%`, background: c, borderRadius: 2, transition: "width .3s" }} />
@@ -449,6 +470,7 @@ function App() {
 
       {/* TABLE */}
       <div style={{ background: "#fff", borderRadius: 20, overflow: "hidden", border: "1px solid #e2e8f0", boxShadow: "0 2px 12px rgba(0,0,0,.04)", marginBottom: 20 }}>
+        <div className="table-scroll">
         <table>
           <thead>
             <tr style={{ background: NAVY_ART }}>
@@ -569,6 +591,7 @@ function App() {
             {filtered.length === 0 && <tr><td colSpan={11} style={{ padding: 40, textAlign: "center", color: "#94a3b8" }}>No categories match current filters</td></tr>}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );
