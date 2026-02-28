@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/votes", "destination": "/api/votes" },
+    { "source": "/api/guestbook", "destination": "/api/guestbook" },
+    { "source": "/api/downloads", "destination": "/api/downloads/index" },
+    { "source": "/api/downloads/:appName", "destination": "/api/downloads/[appName]" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    }
+  ]
+}
