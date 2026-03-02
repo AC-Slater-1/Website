@@ -1,11 +1,7 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/api/admin/login", "destination": "/api/admin/login" },
-    { "source": "/api/admin/guestbook", "destination": "/api/admin/guestbook" },
-    { "source": "/api/admin/votes", "destination": "/api/admin/votes" },
-    { "source": "/api/admin/downloads", "destination": "/api/admin/downloads" },
-    { "source": "/api/admin/stats", "destination": "/api/admin/stats" },
+    { "source": "/api/admin/:path*", "destination": "/api/admin/:path*" },
     { "source": "/api/votes", "destination": "/api/votes" },
     { "source": "/api/guestbook", "destination": "/api/guestbook" },
     { "source": "/api/downloads", "destination": "/api/downloads/index" },
@@ -42,7 +38,7 @@
       "source": "/api/feedback",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, OPTIONS" },
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
       ]
     }
