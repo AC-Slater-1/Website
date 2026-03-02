@@ -10,7 +10,8 @@
     { "source": "/api/guestbook", "destination": "/api/guestbook" },
     { "source": "/api/downloads", "destination": "/api/downloads/index" },
     { "source": "/api/downloads/:appName", "destination": "/api/downloads/[appName]" },
-    { "source": "/api/signup", "destination": "/api/signup" }
+    { "source": "/api/signup", "destination": "/api/signup" },
+    { "source": "/api/feedback", "destination": "/api/feedback" }
   ],
   "headers": [
     {
@@ -31,6 +32,14 @@
     },
     {
       "source": "/api/downloads/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    },
+    {
+      "source": "/api/feedback",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },

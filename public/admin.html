@@ -327,6 +327,37 @@ a:has(.brand-preview){text-decoration:none}
   padding:12px 20px 16px;display:flex;justify-content:flex-end;gap:8px
 }
 
+/* ── KEVIN FEEDBACK ──────────────────────────────────────── */
+.fb-thumb{
+  width:64px;height:44px;object-fit:cover;border-radius:4px;
+  border:1px solid var(--border);cursor:pointer;transition:transform .15s
+}
+.fb-thumb:hover{transform:scale(2.5);z-index:10;position:relative;box-shadow:0 4px 24px rgba(0,0,0,.6)}
+.fb-no-img{
+  width:64px;height:44px;border-radius:4px;
+  background:var(--surface-raised);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-tertiary);font-size:16px
+}
+.fb-cat{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:600;padding:2px 8px;
+  border-radius:20px;text-transform:uppercase;letter-spacing:.03em
+}
+.fb-cat-bug{color:var(--danger);background:var(--danger-muted)}
+.fb-cat-cosmetic{color:#a78bfa;background:rgba(167,139,250,.12)}
+.fb-cat-mobile{color:var(--accent);background:var(--accent-muted)}
+.fb-cat-copy{color:var(--warning);background:var(--warning-muted)}
+.fb-cat-suggestion{color:var(--success);background:var(--success-muted)}
+.fb-status{
+  appearance:auto;background:var(--bg);color:var(--text);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:4px 8px;font-size:11px;font-weight:500;cursor:pointer;
+  font-family:inherit
+}
+.fb-desc{max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.fb-date{font-size:11px;color:var(--text-tertiary);white-space:nowrap}
+
 /* ── TOAST ────────────────────────────────────────────────── */
 .toast{
   position:fixed;bottom:24px;right:24px;
@@ -400,6 +431,7 @@ a:has(.brand-preview){text-decoration:none}
     <button data-tab="votes">Votes</button>
     <button data-tab="roadmap">Roadmap</button>
     <button data-tab="pitch">Pitch</button>
+    <button data-tab="feedback">Kevin 📸</button>
   </div>
 
   <!-- VOTES -->
@@ -645,6 +677,52 @@ a:has(.brand-preview){text-decoration:none}
     </div>
   </div>
 
+  <!-- KEVIN FEEDBACK -->
+  <div class="tab-panel" style="display:none" id="panel-feedback">
+    <div class="tab-content">
+      <div class="panel">
+        <div class="toolbar">
+          <div style="display:flex;align-items:center;gap:8px">
+            <select id="feedbackFilter" class="btn btn-sm" style="appearance:auto;padding-right:28px">
+              <option value="">All Status</option>
+              <option value="new">New</option>
+              <option value="reviewed">Reviewed</option>
+              <option value="fixed">Fixed</option>
+              <option value="wontfix">Won't Fix</option>
+            </select>
+            <select id="feedbackCatFilter" class="btn btn-sm" style="appearance:auto;padding-right:28px">
+              <option value="">All Categories</option>
+              <option value="bug">Bug</option>
+              <option value="cosmetic">Cosmetic</option>
+              <option value="mobile">Mobile</option>
+              <option value="copy">Copy/Text</option>
+              <option value="suggestion">Suggestion</option>
+            </select>
+          </div>
+          <span class="spacer"></span>
+          <span id="feedbackCount" style="font-size:12px;color:var(--text-tertiary);margin-right:8px"></span>
+          <button class="btn btn-sm btn-ghost" id="feedbackRefresh">Refresh</button>
+        </div>
+        <div class="panel-body">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:80px">Image</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Description</th>
+                <th>Reporter</th>
+                <th>Status</th>
+                <th style="width:48px">Date</th>
+              </tr>
+            </thead>
+            <tbody id="feedbackBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- CONFIRM DIALOG -->
@@ -747,6 +825,7 @@ a:has(.brand-preview){text-decoration:none}
     document.getElementById('panel-' + id).style.display = 'block';
     btn.classList.add('active');
     if (id === 'votes') loadVotes();
+    if (id === 'feedback') loadFeedback();
   }
 
   // ===== VOTES =====
@@ -790,6 +869,81 @@ a:has(.brand-preview){text-decoration:none}
     });
   }
 
+  // ===== KEVIN FEEDBACK =====
+  var FEEDBACK_API = '/api/feedback';
+  function loadFeedback() {
+    var statusFilter = document.getElementById('feedbackFilter').value;
+    var catFilter = document.getElementById('feedbackCatFilter').value;
+    var url = FEEDBACK_API + '?list=1';
+    if (statusFilter) url += '&status=' + statusFilter;
+    if (catFilter) url += '&category=' + catFilter;
+
+    fetch(url)
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        var tbody = clearEl('feedbackBody');
+        var items = d.feedback || [];
+        document.getElementById('feedbackCount').textContent = items.length + ' item' + (items.length !== 1 ? 's' : '');
+
+        if (items.length === 0) {
+          tbody.appendChild(el('tr', null, [
+            el('td', {colspan: '7', text: 'No feedback yet — send partners to /feedback.html', style: 'color:var(--text-tertiary);padding:24px 16px;text-align:center'})
+          ]));
+          return;
+        }
+
+        items.forEach(function(fb) {
+          var imgCell;
+          if (fb.image_url) {
+            var img = el('img', {cls: 'fb-thumb', src: fb.image_url, loading: 'lazy', alt: 'Screenshot'});
+            imgCell = el('td', null, [img]);
+          } else {
+            imgCell = el('td', null, [el('div', {cls: 'fb-no-img', text: '—'})]);
+          }
+
+          var catEmoji = {bug:'🐛',cosmetic:'🎨',mobile:'📱',copy:'💬',suggestion:'💡'};
+          var catEl = el('span', {cls: 'fb-cat fb-cat-' + (fb.category || 'bug'), text: (catEmoji[fb.category] || '') + ' ' + (fb.category || 'bug')});
+
+          var statusSel = el('select', {cls: 'fb-status'});
+          ['new','reviewed','fixed','wontfix'].forEach(function(s) {
+            var opt = el('option', {value: s, text: s});
+            if (s === fb.status) opt.selected = true;
+            statusSel.appendChild(opt);
+          });
+          statusSel.addEventListener('change', function() {
+            updateFeedbackStatus(fb.id, this.value);
+          });
+
+          var dateStr = fb.created_at ? new Date(fb.created_at).toLocaleDateString('en-US', {month:'short',day:'numeric'}) : '';
+
+          tbody.appendChild(el('tr', null, [
+            imgCell,
+            el('td', null, [catEl]),
+            el('td', {text: fb.brand || '—', style: 'font-size:12px'}),
+            el('td', {cls: 'fb-desc', text: fb.description || '', title: fb.description || ''}),
+            el('td', {text: fb.reporter_name || '—', style: 'font-size:12px'}),
+            el('td', null, [statusSel]),
+            el('td', {cls: 'fb-date', text: dateStr})
+          ]));
+        });
+      })
+      .catch(function(err) {
+        console.error('[Kevin] Failed to load feedback:', err);
+      });
+  }
+
+  function updateFeedbackStatus(id, status) {
+    fetch(FEEDBACK_API + '?update=1', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({id: id, status: status})
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.ok) toast('Status updated');
+    });
+  }
+
   // ===== CONFIRM =====
   function showConfirm(msg, cb) {
     document.getElementById('confirmText').textContent = msg;
@@ -830,6 +984,9 @@ a:has(.brand-preview){text-decoration:none}
   });
   document.getElementById('confirmYes').addEventListener('click', function() { closeConfirm(); if (confirmCb) confirmCb(); });
   document.getElementById('confirmNo').addEventListener('click', closeConfirm);
+  document.getElementById('feedbackRefresh').addEventListener('click', loadFeedback);
+  document.getElementById('feedbackFilter').addEventListener('change', loadFeedback);
+  document.getElementById('feedbackCatFilter').addEventListener('change', loadFeedback);
 
   // ===== INIT =====
   if (TOKEN) {
