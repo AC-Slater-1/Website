@@ -14,22 +14,20 @@ const votesHandler = require('./api/votes');
 const guestbookHandler = require('./api/guestbook');
 const downloadsListHandler = require('./api/downloads/index');
 const downloadsIncrHandler = require('./api/downloads/[appName]');
-const adminLoginHandler = require('./api/admin/login');
-const adminGuestbookHandler = require('./api/admin/guestbook');
-const adminVotesHandler = require('./api/admin/votes');
-const adminDownloadsHandler = require('./api/admin/downloads');
-const adminStatsHandler = require('./api/admin/stats');
+const adminHandler = require('./api/admin/[[...path]]');
 const signupHandler = require('./api/signup');
+const feedbackHandler = require('./api/feedback');
 
-app.all('/api/admin/login', adminLoginHandler);
-app.all('/api/admin/guestbook', adminGuestbookHandler);
-app.all('/api/admin/votes', adminVotesHandler);
-app.all('/api/admin/downloads', adminDownloadsHandler);
-app.all('/api/admin/stats', adminStatsHandler);
+// Admin catch-all — extract sub-route into req.query.path for the handler
+app.all('/api/admin/:route', (req, res) => {
+  req.query.path = [req.params.route];
+  adminHandler(req, res);
+});
 
 app.all('/api/votes', votesHandler);
 app.all('/api/guestbook', guestbookHandler);
 app.all('/api/signup', signupHandler);
+app.all('/api/feedback', feedbackHandler);
 app.get('/api/downloads', downloadsListHandler);
 app.post('/api/downloads/:appName', (req, res) => {
   // Vercel uses req.query for dynamic params, Express uses req.params
