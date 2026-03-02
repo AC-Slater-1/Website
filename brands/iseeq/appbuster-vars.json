@@ -1,0 +1,21 @@
+{
+  "isDark": false,
+  "vars": {
+    "bg": "#ffffff",
+    "surface": "#f8fafb",
+    "surfaceHover": "#f0fdf4",
+    "border": "#e2e8f0",
+    "text": "#1a202c",
+    "muted": "#64748b",
+    "gold": "#059669",
+    "goldDim": "rgba(5, 150, 105, 0.1)",
+    "goldGlow": "rgba(5, 150, 105, 0.06)",
+    "blue": "#059669",
+    "blueDim": "rgba(5, 150, 105, 0.1)",
+    "sans": "'DM Sans', system-ui, -apple-system, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "i<span>SeeQ</span>",
+  "accentOnBg": "#fff",
+  "extraCSS": ""
+}

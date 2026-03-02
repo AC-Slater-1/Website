@@ -1,0 +1,70 @@
+{
+  "slug": "screen-recording",
+  "name": "ScreenCast",
+  "category": "Screen Recording",
+  "tagline": "Record your screen, webcam, or both. Instant sharing, auto-transcripts, and viewer analytics. Professional video messaging, completely free.",
+  "metaDescription": "ScreenCast is a free screen recording tool that replaces Loom. Record screen and webcam, get auto-transcripts, share instantly, and track viewer engagement. No time limits.",
+  "competitor": "Loom",
+  "competitorPrice": "$15/mo",
+  "annualSavings": "$180/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\ud83c\udfac</text></svg>",
+  "features": [
+    {
+      "icon": "&#127909;",
+      "title": "Screen &amp; Webcam Recording",
+      "desc": "Record your full screen, a specific window, or a selected region with optional webcam overlay. Switch between screen-only, cam-only, or picture-in-picture during recording."
+    },
+    {
+      "icon": "&#9889;",
+      "title": "Instant Sharing",
+      "desc": "Get a shareable link the moment you stop recording. No upload wait times, no file size worries. Recipients watch in-browser without downloading anything."
+    },
+    {
+      "icon": "&#128196;",
+      "title": "Auto-Transcription",
+      "desc": "Every recording is automatically transcribed with speaker detection. Viewers can search within transcripts and jump to specific moments in the video."
+    },
+    {
+      "icon": "&#9986;",
+      "title": "Video Editing",
+      "desc": "Trim, cut, and stitch clips directly in the browser. Add callouts, blur sensitive areas, and insert chapter markers without exporting to a separate editing tool."
+    },
+    {
+      "icon": "&#128202;",
+      "title": "Viewer Analytics",
+      "desc": "See who watched your video, how much they viewed, and where they dropped off. Get notified when key stakeholders open your recording."
+    },
+    {
+      "icon": "&#128193;",
+      "title": "Video Library",
+      "desc": "Organize recordings into folders and workspaces. Tag videos by project, team, or topic. Full-text search across transcripts finds any recording in seconds."
+    }
+  ],
+  "includes": [
+    "Unlimited recording length",
+    "Screen, webcam, and audio capture",
+    "Picture-in-picture webcam overlay",
+    "Instant shareable links",
+    "Automatic transcription with search",
+    "In-browser video trimming and editing",
+    "Custom thumbnails and branding",
+    "Viewer engagement analytics",
+    "Password-protected sharing",
+    "Embed videos on any website",
+    "Organized video library with folders",
+    "No watermarks on recordings"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Screen Recording", "them": "&#10003;", "themType": "check" },
+      { "feature": "Webcam Overlay", "them": "&#10003;", "themType": "check" },
+      { "feature": "Instant Sharing", "them": "&#10003;", "themType": "check" },
+      { "feature": "Auto-Transcription", "them": "&#10003;", "themType": "check" },
+      { "feature": "Viewer Analytics", "them": "$15+/mo", "themType": "paid" },
+      { "feature": "Video Editing", "them": "$15+/mo", "themType": "paid" },
+      { "feature": "Unlimited Recording Length", "them": "&#10007;", "themType": "cross" },
+      { "feature": "No Watermarks", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

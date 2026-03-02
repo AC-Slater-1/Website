@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppBuster Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090b;
+  --surface:#18181b;
+  --surface-raised:#1f1f23;
+  --surface-hover:#27272a;
+  --border:#27272a;
+  --border-subtle:#1f1f23;
+  --text:#fafafa;
+  --text-secondary:#fafafa;
+  --text-tertiary:#fafafa;
+  --accent:#3b82f6;
+  --accent-hover:#2563eb;
+  --accent-muted:rgba(59,130,246,.12);
+  --success:#22c55e;
+  --success-muted:rgba(34,197,94,.12);
+  --danger:#ef4444;
+  --danger-muted:rgba(239,68,68,.12);
+  --warning:#f59e0b;
+  --warning-muted:rgba(245,158,11,.12);
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 1px 3px rgba(0,0,0,.2);
+  --shadow-lg:0 4px 12px rgba(0,0,0,.4),0 2px 4px rgba(0,0,0,.3);
+  --transition:150ms cubic-bezier(.4,0,.2,1)
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ── DOT BACKGROUND (Orgo.ai-style) ──────────────────────── */
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  font-size:14px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  position:relative
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(59,130,246,.08) 1px, transparent 1px),
+    radial-gradient(circle at 85% 15%, rgba(34,197,94,.06) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 45% 80%, rgba(139,92,246,.07) 1px, transparent 1px),
+    radial-gradient(circle at 70% 45%, rgba(59,130,246,.05) 2px, transparent 2px),
+    radial-gradient(circle at 25% 60%, rgba(6,182,212,.06) 1px, transparent 1px),
+    radial-gradient(circle at 90% 75%, rgba(34,197,94,.05) 1px, transparent 1px),
+    radial-gradient(circle at 55% 20%, rgba(139,92,246,.04) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 10% 85%, rgba(59,130,246,.06) 1px, transparent 1px),
+    radial-gradient(circle at 65% 10%, rgba(6,182,212,.05) 1px, transparent 1px),
+    radial-gradient(circle at 35% 45%, rgba(34,197,94,.04) 2px, transparent 2px),
+    radial-gradient(circle at 80% 60%, rgba(139,92,246,.06) 1px, transparent 1px),
+    radial-gradient(circle at 20% 35%, rgba(6,182,212,.04) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 50% 55%, rgba(59,130,246,.03) 1px, transparent 1px),
+    radial-gradient(circle at 75% 85%, rgba(34,197,94,.05) 1px, transparent 1px),
+    radial-gradient(circle at 40% 15%, rgba(139,92,246,.05) 1px, transparent 1px),
+    radial-gradient(circle at 5% 50%, rgba(59,130,246,.04) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 95% 40%, rgba(6,182,212,.06) 1px, transparent 1px),
+    radial-gradient(circle at 30% 90%, rgba(139,92,246,.04) 1px, transparent 1px),
+    radial-gradient(circle at 60% 65%, rgba(34,197,94,.03) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 85% 30%, rgba(59,130,246,.05) 1px, transparent 1px);
+  background-size:
+    200px 200px, 180px 220px, 250px 190px, 160px 240px, 220px 170px,
+    190px 210px, 230px 180px, 170px 250px, 210px 160px, 240px 200px,
+    180px 230px, 200px 190px, 260px 210px, 150px 240px, 220px 180px,
+    190px 260px, 230px 170px, 210px 230px, 250px 200px, 170px 220px
+}
+
+::selection{background:var(--accent);color:#fff}
+
+/* ── BUTTONS ─────────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--border);background:var(--surface);color:var(--text);
+  border-radius:var(--radius-sm);padding:6px 14px;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:500;
+  transition:all var(--transition);white-space:nowrap
+}
+.btn:hover{background:var(--surface-hover);border-color:var(--text-tertiary)}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-danger{color:var(--danger);border-color:var(--danger-muted);background:var(--danger-muted)}
+.btn-danger:hover{background:var(--danger);color:#fff;border-color:var(--danger)}
+.btn-ghost{border-color:transparent;background:transparent;color:var(--text-secondary)}
+.btn-ghost:hover{color:var(--text);background:var(--surface-hover)}
+.btn-sm{padding:4px 10px;font-size:12px}
+
+/* ── LOGIN ───────────────────────────────────────────────── */
+.login-overlay{
+  position:fixed;inset:0;
+  background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  z-index:100
+}
+.login-box{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  width:400px;max-width:calc(100vw - 32px);
+  box-shadow:var(--shadow-lg);
+  position:relative;z-index:1
+}
+.login-body{padding:40px 32px}
+.login-header{text-align:center;margin-bottom:32px}
+.login-header h1{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:4px}
+.login-header p{font-size:13px;color:var(--text-tertiary)}
+.login-body label{display:block;margin-bottom:6px;font-weight:500;font-size:13px;color:var(--text-secondary)}
+.login-body input[type=text],.login-body input[type=password]{
+  width:100%;padding:10px 14px;
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  font-family:'JetBrains Mono',monospace;font-size:13px;
+  background:var(--bg);color:var(--text);
+  margin-bottom:16px;transition:border-color var(--transition)
+}
+.login-body input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-muted)}
+.login-body input::placeholder{color:var(--text-tertiary)}
+.login-submit{
+  width:100%;padding:10px 0;margin-top:8px;
+  background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);
+  font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;
+  transition:all var(--transition)
+}
+.login-submit:hover{background:var(--accent-hover)}
+.login-submit:active{transform:scale(.98)}
+.login-error{
+  background:var(--danger-muted);border:1px solid rgba(239,68,68,.2);
+  border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:16px;
+  color:var(--danger);font-size:13px;font-weight:500;display:none
+}
+
+/* ── DASHBOARD ───────────────────────────────────────────── */
+.dashboard{display:none;max-width:1280px;margin:0 auto;position:relative;z-index:1}
+
+.dash-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  border-bottom:1px solid var(--border);
+  background:rgba(9,9,11,.8);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  position:sticky;top:0;z-index:10
+}
+.dash-header .logo{display:flex;align-items:center;gap:10px}
+.dash-header .logo a{color:var(--text-tertiary);font-size:13px;text-decoration:none;transition:color var(--transition)}
+.dash-header .logo a:hover{color:var(--text-secondary)}
+.dash-header .logo .sep{color:var(--text-tertiary);font-size:16px}
+.dash-header .logo h1{font-size:15px;font-weight:600;color:var(--text);letter-spacing:-.02em}
+.dash-header .actions{display:flex;align-items:center;gap:12px}
+
+/* ── TABS ────────────────────────────────────────────────── */
+.admin-nav{
+  display:flex;gap:0;
+  border-bottom:1px solid var(--border);
+  padding:0 24px;
+  background:rgba(9,9,11,.6);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px)
+}
+.admin-nav button{
+  background:none;border:none;border-bottom:2px solid transparent;
+  padding:12px 16px;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:500;
+  color:var(--text-tertiary);
+  transition:all var(--transition);
+  position:relative;white-space:nowrap
+}
+.admin-nav button:hover{color:var(--text-secondary);background:rgba(255,255,255,.02)}
+.admin-nav button.active{color:var(--text);border-bottom-color:var(--accent)}
+
+/* ── PANELS ──────────────────────────────────────────────── */
+.tab-content{padding:24px}
+.panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  box-shadow:var(--shadow)
+}
+.panel-header{
+  padding:16px 20px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between
+}
+.panel-header h2{font-size:15px;font-weight:600;color:var(--text);letter-spacing:-.01em}
+.panel-header p{font-size:13px;color:var(--text-tertiary);margin-top:2px}
+.panel-body{padding:0;overflow-x:auto}
+
+/* ── TABLES ──────────────────────────────────────────────── */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{
+  padding:10px 16px;text-align:left;font-weight:500;font-size:11px;
+  color:var(--text-tertiary);letter-spacing:.04em;text-transform:uppercase;
+  background:var(--surface-raised);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:1;white-space:nowrap
+}
+td{padding:10px 16px;border-bottom:1px solid var(--border-subtle);color:var(--text);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.02)}
+.mono{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-secondary)}
+.num-cell{font-family:'JetBrains Mono',monospace;text-align:right;font-weight:500}
+input.edit-num{
+  width:80px;padding:5px 8px;
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  font-family:'JetBrains Mono',monospace;font-size:13px;
+  text-align:right;font-weight:500;
+  background:var(--bg);color:var(--text);
+  transition:border-color var(--transition)
+}
+input.edit-num:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-muted)}
+
+/* ── STATUS PILLS ────────────────────────────────────────── */
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:3px 10px;border-radius:20px}
+.status-live{color:var(--success);background:var(--success-muted)}
+.status-live::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--success)}
+.status-built{color:var(--warning);background:var(--warning-muted)}
+.status-built::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--warning)}
+
+/* ── TOOLBAR ─────────────────────────────────────────────── */
+.toolbar{
+  display:flex;gap:8px;align-items:center;
+  padding:12px 20px;
+  border-bottom:1px solid var(--border)
+}
+.toolbar .spacer{flex:1}
+
+/* ── BRAND TABLE ─────────────────────────────────────────── */
+.brand-table th{font-size:10px;padding:10px 12px}
+.brand-table td{padding:10px 12px;font-size:13px;line-height:1.5}
+.brand-link{color:var(--accent);font-weight:600;text-decoration:none;transition:color var(--transition)}
+.brand-link:hover{color:#60a5fa}
+.brand-preview{
+  width:200px;height:100px;
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  display:flex;flex-direction:column;overflow:hidden;
+  text-decoration:none
+}
+a:has(.brand-preview){text-decoration:none}
+.brand-preview-name{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:15px;letter-spacing:-.02em;
+  font-family:'Inter',system-ui,sans-serif
+}
+.brand-preview-bar{height:28px;flex-shrink:0}
+.brand-desc{font-size:12px;color:var(--text-secondary);line-height:1.5}
+.brand-inspo{text-align:center}
+.brand-inspo b{color:var(--text);font-size:12px}
+.brand-inspo span{font-size:10px;color:var(--text-tertiary);display:block}
+
+/* ── INSIGHT BOX ─────────────────────────────────────────── */
+.insight-box{
+  margin:16px 16px 16px;padding:14px 18px;
+  background:var(--accent-muted);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-size:13px;color:var(--text-secondary);line-height:1.6
+}
+.insight-box strong{color:var(--text)}
+
+/* ── PITCH DECK ──────────────────────────────────────────── */
+.pitch-section{
+  background:var(--surface-raised);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px 24px;margin-bottom:12px
+}
+.pitch-section h3{
+  font-size:11px;font-weight:600;color:var(--accent);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px
+}
+.pitch-section p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+.pitch-section ul{margin-left:18px;font-size:13px;color:var(--text-secondary);line-height:2}
+.pitch-section ul strong{color:var(--text)}
+.pitch-hero{
+  background:linear-gradient(135deg,#1e3a5f 0%,#0f172a 50%,#1a1a2e 100%);
+  border:1px solid rgba(59,130,246,.15);border-radius:var(--radius);
+  padding:40px 24px;text-align:center;margin-bottom:12px
+}
+.pitch-hero h2{font-size:clamp(18px,3vw,28px);font-weight:700;color:#fff;letter-spacing:.08em;margin-bottom:8px}
+.pitch-hero p{color:#fff;font-size:14px}
+.pitch-hero .meta{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:11px;margin-top:14px}
+.pitch-footer{
+  background:linear-gradient(135deg,#1e3a5f 0%,#0f172a 100%);
+  border:1px solid rgba(59,130,246,.15);border-radius:var(--radius);
+  padding:24px;text-align:center
+}
+.pitch-footer p:first-child{font-size:14px;font-weight:600;color:var(--accent);line-height:1.8}
+.pitch-footer p:last-child{color:var(--text-tertiary);font-size:12px;margin-top:8px}
+.pitch-stat-table{width:100%;border-collapse:collapse;font-size:13px}
+.pitch-stat-table td{padding:8px 12px;border-bottom:1px solid var(--border-subtle)}
+.pitch-stat-table tr:last-child td{border-bottom:none}
+.pitch-stat-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.pitch-stat-table td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600}
+
+/* ── CONFIRM DIALOG ──────────────────────────────────────── */
+.confirm-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  z-index:200;align-items:center;justify-content:center
+}
+.confirm-overlay.open{display:flex}
+.confirm-box{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;width:400px;max-width:calc(100vw - 32px);
+  box-shadow:var(--shadow-lg);overflow:hidden
+}
+.confirm-header{padding:16px 20px;border-bottom:1px solid var(--border)}
+.confirm-header h3{font-size:15px;font-weight:600;color:var(--text)}
+.confirm-body{padding:20px;font-size:14px;color:var(--text-secondary);line-height:1.6}
+.confirm-actions{
+  padding:12px 20px 16px;display:flex;justify-content:flex-end;gap:8px
+}
+
+/* ── TOAST ────────────────────────────────────────────────── */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--surface-raised);color:var(--text);
+  border:1px solid var(--border);
+  font-size:13px;font-weight:500;
+  padding:12px 20px;border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);z-index:300;display:none
+}
+.toast.show{display:flex;align-items:center;gap:8px;animation:toast-in .25s ease-out}
+.toast::before{content:'\2713';color:var(--success);font-weight:700}
+@keyframes toast-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── STATUS BAR ──────────────────────────────────────────── */
+.status-bar{
+  position:fixed;bottom:0;left:0;right:0;
+  background:var(--surface);border-top:1px solid var(--border);
+  padding:4px 16px;font-size:11px;
+  display:flex;gap:16px;z-index:50
+}
+.status-bar .status-section{color:var(--text-tertiary);font-weight:500;padding:2px 0}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media(max-width:768px){
+  .dash-header{padding:10px 16px}
+  .admin-nav{padding:0 16px;overflow-x:auto}
+  .tab-content{padding:16px}
+  .brand-table td,.brand-table th{padding:8px;font-size:11px}
+  .panel-header{padding:12px 16px}
+  .toolbar{padding:10px 16px}
+  .login-body{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-box">
+    <div class="login-body">
+      <div class="login-header">
+        <h1>AppBuster</h1>
+        <p>Admin Dashboard</p>
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <label for="loginUser">Username</label>
+      <input type="text" id="loginUser" placeholder="Enter username" autofocus>
+      <label for="loginPass">Password</label>
+      <input type="password" id="loginPass" placeholder="Enter password">
+      <button class="login-submit" id="loginBtn">Sign In</button>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+
+  <div class="dash-header">
+    <div class="logo">
+      <a href="/">&larr; Site</a>
+      <span class="sep">/</span>
+      <h1>Admin</h1>
+    </div>
+    <div class="actions">
+      <button class="btn btn-ghost btn-sm" id="logoutBtn">Log out</button>
+    </div>
+  </div>
+
+  <div class="admin-nav" id="adminNav">
+    <button class="active" data-tab="brands">Brands</button>
+    <button data-tab="votes">Votes</button>
+    <button data-tab="roadmap">Roadmap</button>
+    <button data-tab="pitch">Pitch</button>
+  </div>
+
+  <!-- VOTES -->
+  <div class="tab-panel" style="display:none" id="panel-votes">
+    <div class="tab-content">
+      <div class="panel">
+        <div class="toolbar">
+          <button class="btn btn-sm btn-danger" id="votesResetAll">Reset All Votes</button>
+          <span class="spacer"></span>
+          <button class="btn btn-sm btn-ghost" id="votesRefresh">Refresh</button>
+        </div>
+        <div class="panel-body">
+          <table>
+            <thead><tr><th>Software</th><th style="text-align:right">Votes</th><th style="width:48px"></th></tr></thead>
+            <tbody id="votesBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND PORTFOLIO -->
+  <div class="tab-panel" id="panel-brands">
+    <div class="tab-content">
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Brand Portfolio</h2>
+            <p>13 brands, one backend. Theme is the only difference.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="brand-table">
+            <thead><tr><th>#</th><th>Brand</th><th>Domain</th><th>Target Audience</th><th>Design Style</th><th>Inspiration</th><th>Preview</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="mono">1</td>
+                <td><a href="/" target="_blank" class="brand-link">AppBuster</a></td>
+                <td><span class="mono">appbuster.com</span></td>
+                <td class="brand-desc">Nostalgic devs, indie hackers</td>
+                <td class="brand-desc">Retro Win95/XP — beveled borders, pixel art, system dialogs</td>
+                <td class="brand-inspo"><b>Nintendo</b><span>nintendo.com</span></td>
+                <td><a href="/" target="_blank"><div class="brand-preview" style="background:#09090b"><span class="brand-preview-name" style="font-family:'Arial Black',Impact,sans-serif;font-size:18px;letter-spacing:2px;color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,.3)"><span style="color:#fafafa">APP</span>BUSTER</span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#ffd700,#b8960a)"></div></div></a></td>
+                <td><span class="status status-live">Live</span></td>
+              </tr>
+              <tr>
+                <td class="mono">2</td>
+                <td><a href="/saasbuster/" target="_blank" class="brand-link">SaaS Buster</a></td>
+                <td><span class="mono">saasbuster.ai</span></td>
+                <td class="brand-desc">Startup founders, CTOs</td>
+                <td class="brand-desc">Sleek dark mode — glassmorphism, gradient accents, subtle glow</td>
+                <td class="brand-inspo"><b>Razer</b><span>razer.com</span></td>
+                <td><a href="/saasbuster/" target="_blank"><div class="brand-preview" style="background:#0a0a0f"><span class="brand-preview-name" style="font-size:15px;letter-spacing:-.02em"><span style="color:#e2e8f0;font-weight:400">SaaS </span><span style="color:#3b82f6;font-weight:700">Buster</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">3</td>
+                <td><a href="/iseeq/" target="_blank" class="brand-link">iSeeQ</a></td>
+                <td><span class="mono">iseeq.ai</span></td>
+                <td class="brand-desc">Non-technical business owners</td>
+                <td class="brand-desc">Clean discovery — search-bar hero, categorized cards, white space</td>
+                <td class="brand-inspo"><b>Glossier</b><span>glossier.com</span></td>
+                <td><a href="/iseeq/" target="_blank"><div class="brand-preview" style="background:#ffffff"><span class="brand-preview-name" style="font-size:17px;letter-spacing:-.03em"><span style="color:#1a202c;font-weight:300">i</span><span style="color:#1a202c;font-weight:300">See</span><span style="color:#059669;font-weight:700">Q</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#059669,#10b981)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">4</td>
+                <td><a href="/16kb/" target="_blank" class="brand-link">16kb</a></td>
+                <td><span class="mono">16kb.ai</span></td>
+                <td class="brand-desc">Performance nerds, minimalists</td>
+                <td class="brand-desc">Brutalist — raw HTML, monospace everything, near-zero CSS</td>
+                <td class="brand-inspo"><b>The Ordinary</b><span>theordinary.com</span></td>
+                <td><a href="/16kb/" target="_blank"><div class="brand-preview" style="background:#ffffff;border:2px solid #000"><span class="brand-preview-name" style="color:#000;font-family:'JetBrains Mono',monospace;font-weight:800;font-size:20px;letter-spacing:-.05em">16kb</span><div class="brand-preview-bar" style="background:#dc2626"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">5</td>
+                <td><a href="/limeware/" target="_blank" class="brand-link">LimeWare</a></td>
+                <td><span class="mono">limeware.ai</span></td>
+                <td class="brand-desc">Eco-conscious SMBs, green-tech</td>
+                <td class="brand-desc">Fresh organic — rounded shapes, leaf motifs, pastel backgrounds</td>
+                <td class="brand-inspo"><b>Lush</b><span>lush.com</span></td>
+                <td><a href="/limeware/" target="_blank"><div class="brand-preview" style="background:#fefce8"><span class="brand-preview-name" style="font-size:16px;letter-spacing:-.02em"><span style="color:#84cc16;font-weight:700">Lime</span><span style="color:#1c1917;font-weight:500">Ware</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#84cc16,#a3e635)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">6</td>
+                <td><a href="/modelt/" target="_blank" class="brand-link">Model T</a></td>
+                <td><span class="mono">modelt.ai</span></td>
+                <td class="brand-desc">Budget enterprise, procurement</td>
+                <td class="brand-desc">Industrial heritage — Ford Model T, serious, reliable</td>
+                <td class="brand-inspo"><b>Carhartt</b><span>carhartt.com</span></td>
+                <td><a href="/modelt/" target="_blank"><div class="brand-preview" style="background:#1c1917"><span class="brand-preview-name" style="font-size:16px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-family:'Playfair Display',serif"><span style="color:#fafafa">Model </span><span style="color:#d97706">T</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#d97706,#f59e0b)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">7</td>
+                <td><a href="/appbusters/" target="_blank" class="brand-link">App Busters</a></td>
+                <td><span class="mono">appbusters.ai</span></td>
+                <td class="brand-desc">Gen-Z SaaS users, social crowd</td>
+                <td class="brand-desc">Bold pop-culture — Ghostbusters energy, comic-book feel</td>
+                <td class="brand-inspo"><b>Crocs</b><span>crocs.com</span></td>
+                <td><a href="/appbusters/" target="_blank"><div class="brand-preview" style="background:#0f0a0a"><span class="brand-preview-name" style="font-size:16px;font-weight:800;letter-spacing:-.02em;font-family:'Bangers',cursive"><span style="color:#fafafa">App </span><span style="color:#ef4444">Busters</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#ef4444,#f87171)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">8</td>
+                <td><a href="/sassbuster/" target="_blank" class="brand-link">SassBuster</a></td>
+                <td><span class="mono">sassbuster.ai</span></td>
+                <td class="brand-desc">Creative agencies, designers</td>
+                <td class="brand-desc">Edgy editorial — magazine layout, asymmetric grids</td>
+                <td class="brand-inspo"><b>Fenty Beauty</b><span>fentybeauty.com</span></td>
+                <td><a href="/sassbuster/" target="_blank"><div class="brand-preview" style="background:#18181b"><span class="brand-preview-name" style="font-size:16px;letter-spacing:-.03em"><span style="color:#ec4899;font-weight:700;font-style:italic">Sass</span><span style="color:#f1f5f9;font-weight:400">Buster</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#ec4899,#f472b6)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">9</td>
+                <td><a href="/vanillalabs/" target="_blank" class="brand-link">Vanilla Labs</a></td>
+                <td><span class="mono">vanillalabs.ai</span></td>
+                <td class="brand-desc">Enterprise IT, cautious buyers</td>
+                <td class="brand-desc">Pastel lavender-vanilla, premium-soft — Visme pastel aesthetic, pill buttons, DM Sans</td>
+                <td class="brand-inspo"><b>Visme Pastel Guide</b><span>visme.co</span></td>
+                <td><a href="/vanillalabs/" target="_blank"><div class="brand-preview" style="background:#f8fafc"><span class="brand-preview-name" style="font-size:14px;letter-spacing:.02em;font-family:'IBM Plex Sans',sans-serif"><span style="color:#1e293b;font-weight:400">Vanilla </span><span style="color:#FFA66B;font-weight:800">Labs</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#FFA66B,#ffbd8a)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">10</td>
+                <td><a href="/plainlabel/" target="_blank" class="brand-link">Plain Label</a></td>
+                <td><span class="mono">plainlabel.ai</span></td>
+                <td class="brand-desc">Price-sensitive SMBs</td>
+                <td class="brand-desc">Store-brand — plain packaging, block letters, yellow price tags</td>
+                <td class="brand-inspo"><b>Kirkland Signature</b><span>(Costco)</span></td>
+                <td><a href="/plainlabel/" target="_blank"><div class="brand-preview" style="background:#ffffff"><span class="brand-preview-name" style="font-size:15px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#1c1917;border:2px solid #1c1917;padding:2px 8px">Plain Label</span><div class="brand-preview-bar" style="background:#fbbf24"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">11</td>
+                <td><a href="/nocatch/" target="_blank" class="brand-link">No Catch</a></td>
+                <td><span class="mono">nocatch.ai</span></td>
+                <td class="brand-desc">Skeptics, freemium-burned users</td>
+                <td class="brand-desc">Transparent — trust badges, pricing breakdowns, green checks</td>
+                <td class="brand-inspo"><b>Patagonia</b><span>patagonia.com</span></td>
+                <td><a href="/nocatch/" target="_blank"><div class="brand-preview" style="background:#f8faf9"><span class="brand-preview-name" style="font-size:16px;letter-spacing:-.02em"><span style="color:#1e293b;font-weight:600">No </span><span style="color:#10b981;font-weight:700">Catch</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#10b981,#34d399)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">12</td>
+                <td><a href="/compareto/" target="_blank" class="brand-link">Compare To</a></td>
+                <td><span class="mono">compareto.ai</span></td>
+                <td class="brand-desc">Analytical buyers, spreadsheet people</td>
+                <td class="brand-desc">Dashboard/data — table-heavy, charts, analytical layout</td>
+                <td class="brand-inspo"><b>Dyson</b><span>dyson.com</span></td>
+                <td><a href="/compareto/" target="_blank"><div class="brand-preview" style="background:#f9fafb"><span class="brand-preview-name" style="font-size:15px;letter-spacing:-.02em"><span style="color:#111827;font-weight:500">Compare </span><span style="color:#4f46e5;font-weight:700">To</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#4f46e5,#6366f1)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+              <tr>
+                <td class="mono">13</td>
+                <td><a href="/samebutfree/" target="_blank" class="brand-link">Same But Free</a></td>
+                <td><span class="mono">samebutfree.ai</span></td>
+                <td class="brand-desc">Bargain hunters, freemium converts</td>
+                <td class="brand-desc">Deal-focused — price slashes, "them vs us", battle format</td>
+                <td class="brand-inspo"><b>Dollar Shave Club</b><span>dollarshaveclub.com</span></td>
+                <td><a href="/samebutfree/" target="_blank"><div class="brand-preview" style="background:#09090b"><span class="brand-preview-name" style="font-size:14px;letter-spacing:-.02em"><span style="color:#fafafa;font-weight:500">Same But </span><span style="color:#ffd700;font-weight:800">Free</span></span><div class="brand-preview-bar" style="background:linear-gradient(90deg,#ffd700,#b8960a)"></div></div></a></td>
+                <td><span class="status status-built">Built</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="insight-box">
+          <strong>Key insight:</strong> Every inspiration brand is a consumer company that disrupted their category through design + positioning, NOT through inventing new technology. We're doing the same — same products, radically different packaging for each audience.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="tab-panel" style="display:none" id="panel-roadmap">
+    <div class="tab-content">
+      <div class="panel">
+        <div class="panel-header"><h2>Development Roadmap</h2></div>
+        <div style="height:calc(100vh - 200px)">
+          <iframe src="/roadmap.html" style="width:100%;height:100%;border:none;border-radius:0 0 var(--radius) var(--radius)"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PITCH DECK -->
+  <div class="tab-panel" style="display:none" id="panel-pitch">
+    <div class="tab-content">
+      <div class="pitch-hero">
+        <h2>APPBUSTER</h2>
+        <p>"Same tools. Same features. $0/mo."</p>
+        <p class="meta">Est. 2026 &middot; Built with AI &middot; Free forever</p>
+      </div>
+
+      <div class="pitch-section">
+        <h3>The Problem</h3>
+        <p>Small and mid-size businesses spend $5,000 to $50,000 per year on SaaS subscriptions they can barely afford. Semrush charges $249/mo for SEO tools. HubSpot charges $800/mo for a CRM. Monday.com charges $79/mo for a task board. Most businesses use 10% of the features and pay 100% of the price.</p>
+      </div>
+
+      <div class="pitch-section">
+        <h3>The Insight</h3>
+        <p>AI can now build functional software in hours, not months. The cost to develop and maintain a CRM, an email tool, or an SEO suite has collapsed by 90%+. But SaaS companies haven't passed those savings to customers. We will.</p>
+      </div>
+
+      <div class="pitch-section">
+        <h3>The Model</h3>
+        <p style="margin-bottom:10px">Think store brands, but for software. Same functionality as name-brand SaaS, built from scratch with AI, given away for free.</p>
+        <ul>
+          <li><strong>Every app is free.</strong> No freemium tricks, no 14-day trials, no credit card required.</li>
+          <li><strong>AI-built from scratch.</strong> Not cloned, not pirated, not forked. Original code, built with AI.</li>
+          <li><strong>"Compare to" positioning.</strong> Just like Kirkland vs. Tide. Our NexRank vs. their Semrush.</li>
+          <li><strong>Revenue from premium support, custom deployments, and enterprise features.</strong></li>
+        </ul>
+      </div>
+
+      <div class="pitch-section">
+        <h3>The Market</h3>
+        <p>The global SaaS market is $197B and growing 12% YoY. There are 33 million small businesses in the US alone. Most are simply paying for software they don't fully use. We're not trying to beat Salesforce. We're trying to save the businesses that can't afford Salesforce.</p>
+      </div>
+
+      <div class="pitch-section">
+        <h3>Traction</h3>
+        <table class="pitch-stat-table">
+          <tr><td>Apps launched</td><td>9</td></tr>
+          <tr><td>Total downloads</td><td>80,591</td></tr>
+          <tr><td>Total user savings (est.)</td><td style="color:var(--success)">$2.8M+/yr</td></tr>
+          <tr><td>Apps in pipeline</td><td>5</td></tr>
+          <tr><td>Competitor pricing replaced</td><td style="color:var(--danger)">$1,898/mo</td></tr>
+        </table>
+      </div>
+
+      <div class="pitch-section">
+        <h3>Why Now</h3>
+        <p>AI just crossed the threshold where one developer with AI tools can build what used to take a team of 10 engineers six months. The cost structure of software has fundamentally changed. The pricing hasn't caught up. We're the correction.</p>
+      </div>
+
+      <div class="pitch-footer">
+        <p>We just think $249/mo for an SEO tool is insane.</p>
+        <p>Contact: hello@appbuster.com</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONFIRM DIALOG -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-header"><h3 id="confirmTitle">Confirm Action</h3></div>
+    <div class="confirm-body" id="confirmText"></div>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" id="confirmNo">Cancel</button>
+      <button class="btn btn-danger" id="confirmYes">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="status-bar">
+  <span class="status-section" id="statusMsg">Not logged in</span>
+  <span class="status-section" id="statusTime"></span>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  var TOKEN = sessionStorage.getItem('admin_token');
+  var API = '/api/admin';
+  var confirmCb = null;
+
+  // ===== DOM HELPERS =====
+  function el(tag, attrs, children) {
+    var e = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function(k) {
+      if (k === 'text') e.textContent = attrs[k];
+      else if (k === 'cls') e.className = attrs[k];
+      else if (k.indexOf('on') === 0) e.addEventListener(k.slice(2), attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    });
+    if (children) children.forEach(function(c) { if (c) e.appendChild(c); });
+    return e;
+  }
+
+  function clearEl(id) {
+    var e = document.getElementById(id);
+    while (e.firstChild) e.removeChild(e.firstChild);
+    return e;
+  }
+
+  // ===== AUTH =====
+  function authFetch(url, opts) {
+    opts = opts || {};
+    opts.headers = opts.headers || {};
+    opts.headers['Authorization'] = 'Bearer ' + TOKEN;
+    if (opts.body && typeof opts.body === 'string') opts.headers['Content-Type'] = 'application/json';
+    return fetch(url, opts).then(function(r) {
+      if (r.status === 401) { doLogout(); throw new Error('Session expired'); }
+      return r.json();
+    });
+  }
+
+  function doLogin() {
+    var user = document.getElementById('loginUser').value;
+    var pw = document.getElementById('loginPass').value;
+    if (!user || !pw) return;
+    fetch(API + '/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: user, password: pw})
+    }).then(function(r) { return r.json().then(function(d) { return {ok: r.ok, data: d}; }); })
+      .then(function(r) {
+        if (!r.ok) {
+          var err = document.getElementById('loginError');
+          err.textContent = r.data.error || 'Login failed';
+          err.style.display = 'block';
+          return;
+        }
+        TOKEN = r.data.token;
+        sessionStorage.setItem('admin_token', TOKEN);
+        showDashboard();
+      });
+  }
+
+  function doLogout() {
+    TOKEN = null;
+    sessionStorage.removeItem('admin_token');
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('loginOverlay').style.display = 'flex';
+    document.getElementById('statusMsg').textContent = 'Not logged in';
+  }
+
+  function showDashboard() {
+    document.getElementById('loginOverlay').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    document.getElementById('statusMsg').textContent = 'Logged in as Admin';
+  }
+
+  // ===== TABS =====
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.style.display = 'none'; });
+    document.querySelectorAll('.admin-nav button').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById('panel-' + id).style.display = 'block';
+    btn.classList.add('active');
+    if (id === 'votes') loadVotes();
+  }
+
+  // ===== VOTES =====
+  function loadVotes() {
+    authFetch(API + '/votes').then(function(d) {
+      var tbody = clearEl('votesBody');
+      var votes = d.votes || [];
+      if (votes.length === 0) {
+        tbody.appendChild(el('tr', null, [el('td', {colspan: '3', text: 'No votes yet', style: 'color:var(--text-tertiary);padding:20px 16px'})]));
+        return;
+      }
+      votes.forEach(function(v) {
+        var inp = el('input', {cls: 'edit-num', value: v.vote_count, title: 'Edit count'});
+        inp.addEventListener('change', function() { updateVote(v.software_name, this.value); });
+        var delBtn = el('button', {cls: 'btn btn-sm btn-danger', text: 'Delete', onclick: function() { deleteVote(v.software_name); }});
+        tbody.appendChild(el('tr', null, [
+          el('td', {text: v.software_name}),
+          el('td', {cls: 'num-cell'}, [inp]),
+          el('td', {style: 'text-align:right'}, [delBtn])
+        ]));
+      });
+    });
+  }
+
+  function updateVote(name, count) {
+    authFetch(API + '/votes', {method: 'PUT', body: JSON.stringify({software_name: name, vote_count: parseInt(count,10)})})
+      .then(function() { toast('Vote updated'); });
+  }
+
+  function deleteVote(name) {
+    showConfirm('Delete all votes for "' + name + '"? This action cannot be undone.', function() {
+      authFetch(API + '/votes', {method: 'DELETE', body: JSON.stringify({software_name: name})})
+        .then(function() { toast('Vote deleted'); loadVotes(); });
+    });
+  }
+
+  function resetAllVotes() {
+    showConfirm('Reset ALL votes to zero? This action cannot be undone.', function() {
+      authFetch(API + '/votes', {method: 'DELETE', body: JSON.stringify({reset: true})})
+        .then(function() { toast('All votes reset'); loadVotes(); });
+    });
+  }
+
+  // ===== CONFIRM =====
+  function showConfirm(msg, cb) {
+    document.getElementById('confirmText').textContent = msg;
+    document.getElementById('confirmOverlay').classList.add('open');
+    confirmCb = cb;
+  }
+  function closeConfirm() {
+    document.getElementById('confirmOverlay').classList.remove('open');
+    confirmCb = null;
+  }
+
+  // ===== TOAST =====
+  var toastTimer;
+  function toast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function() { t.classList.remove('show'); }, 2500);
+  }
+
+  // ===== CLOCK =====
+  function updateClock() {
+    document.getElementById('statusTime').textContent = new Date().toLocaleTimeString();
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // ===== EVENT BINDINGS =====
+  document.getElementById('loginBtn').addEventListener('click', doLogin);
+  document.getElementById('loginUser').addEventListener('keydown', function(e) { if (e.key === 'Enter') document.getElementById('loginPass').focus(); });
+  document.getElementById('loginPass').addEventListener('keydown', function(e) { if (e.key === 'Enter') doLogin(); });
+  document.getElementById('logoutBtn').addEventListener('click', doLogout);
+  document.getElementById('votesResetAll').addEventListener('click', resetAllVotes);
+  document.getElementById('votesRefresh').addEventListener('click', loadVotes);
+  document.querySelectorAll('.admin-nav button').forEach(function(btn) {
+    btn.addEventListener('click', function() { switchTab(btn.getAttribute('data-tab'), btn); });
+  });
+  document.getElementById('confirmYes').addEventListener('click', function() { closeConfirm(); if (confirmCb) confirmCb(); });
+  document.getElementById('confirmNo').addEventListener('click', closeConfirm);
+
+  // ===== INIT =====
+  if (TOKEN) {
+    fetch(API + '/stats', {headers: {'Authorization': 'Bearer ' + TOKEN}})
+      .then(function(r) { if (r.ok) showDashboard(); else doLogout(); })
+      .catch(function() { doLogout(); });
+  }
+})();
+</script>
+</body>
+</html>

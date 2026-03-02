@@ -1,0 +1,70 @@
+{
+  "slug": "link-management",
+  "name": "LinkVault",
+  "category": "Link Management",
+  "tagline": "Shorten, track, and optimize every link your business shares",
+  "metaDescription": "LinkVault replaces Bitly with branded short links, click analytics, QR codes, and UTM builders — all included in your AppBuster subscription.",
+  "competitor": "Bitly",
+  "competitorPrice": "$35/mo",
+  "annualSavings": "$420/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">🔗</text></svg>",
+  "features": [
+    {
+      "icon": "&#128279;",
+      "title": "Branded Short Links",
+      "desc": "Create short links using your own custom domain. Branded links build trust and increase click-through rates by up to 34% compared to generic shorteners."
+    },
+    {
+      "icon": "&#128202;",
+      "title": "Click Analytics",
+      "desc": "Track clicks, geographic locations, referrers, and device types for every link in real time. Understand exactly how your audience engages with shared content."
+    },
+    {
+      "icon": "&#128187;",
+      "title": "QR Code Generator",
+      "desc": "Generate dynamic QR codes that link to any URL. Update the destination after printing without reprinting the code — perfect for menus, packaging, and events."
+    },
+    {
+      "icon": "&#127919;",
+      "title": "UTM Builder",
+      "desc": "Attach UTM parameters to links with a visual form instead of editing URLs manually. Consistent campaign tagging means cleaner data in Google Analytics."
+    },
+    {
+      "icon": "&#128274;",
+      "title": "Link Expiration and Passwords",
+      "desc": "Set expiration dates or password-protect links for time-sensitive campaigns and confidential content. Expired links redirect to a page of your choice."
+    },
+    {
+      "icon": "&#128640;",
+      "title": "Bulk Link Creation",
+      "desc": "Upload a CSV of URLs and generate hundreds of short links in seconds. Each link inherits your default domain and tagging rules automatically."
+    }
+  ],
+  "includes": [
+    "Unlimited short links",
+    "Custom branded domains",
+    "Real-time click dashboard",
+    "Geographic click heatmap",
+    "Device and browser breakdown",
+    "Dynamic QR code generator",
+    "UTM parameter builder",
+    "Link expiration controls",
+    "Password-protected links",
+    "Bulk CSV link creation",
+    "Link tagging and folders",
+    "API access for integrations"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Branded Short Links", "them": "&#10003;", "themType": "check" },
+      { "feature": "Click Analytics", "them": "&#10003;", "themType": "check" },
+      { "feature": "QR Code Generator", "them": "&#10003;", "themType": "check" },
+      { "feature": "UTM Builder", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Domains", "them": "$35+/mo", "themType": "paid" },
+      { "feature": "Bulk Link Creation", "them": "$199+/mo", "themType": "paid" },
+      { "feature": "Link Expiration Controls", "them": "$35+/mo", "themType": "paid" },
+      { "feature": "Unlimited Link History", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

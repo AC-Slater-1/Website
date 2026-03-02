@@ -1,0 +1,21 @@
+{
+  "isDark": true,
+  "vars": {
+    "bg": "#09090b",
+    "surface": "#18181b",
+    "surfaceHover": "#27272a",
+    "border": "#27272a",
+    "text": "#fafafa",
+    "muted": "#a1a1aa",
+    "gold": "#ffd700",
+    "goldDim": "rgba(255, 215, 0, 0.15)",
+    "goldGlow": "rgba(255, 215, 0, 0.08)",
+    "blue": "#3b82f6",
+    "blueDim": "rgba(59, 130, 246, 0.15)",
+    "sans": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "<span style=\"color:#ffd700;font-weight:900\">APPBUSTER</span>",
+  "accentOnBg": "#000",
+  "extraCSS": ""
+}

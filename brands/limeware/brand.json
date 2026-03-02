@@ -1,0 +1,10 @@
+{
+  "name": "LimeWare",
+  "slug": "limeware",
+  "domain": "limeware.ai",
+  "baseUrl": "/limeware",
+  "tagline": "Software that's good for business. And the planet.",
+  "heroSubtitle": "Lightweight, efficient tools that cost nothing and waste nothing.",
+  "fonts": "https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap",
+  "fontFamily": "'Outfit',system-ui,-apple-system,sans-serif"
+}

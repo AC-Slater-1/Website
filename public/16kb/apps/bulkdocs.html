@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BulkDocs - Free Productivity | 16kb</title>
+<meta name="description" content="BulkDocs: Document collaboration. Real-time editing, comments, version history, templates. All free, forever. Save $1,152/year.">
+<meta property="og:title" content="BulkDocs - Free Productivity | 16kb">
+<meta property="og:description" content="Free Productivity. Save $1,152/year vs Notion.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffe44d'/%3E%3Cstop offset='50%25' stop-color='%23ffd700'/%3E%3Cstop offset='100%25' stop-color='%23ccab00'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a3a8a'/%3E%3Cstop offset='100%25' stop-color='%230f2460'/%3E%3C/linearGradient%3E%3ClinearGradient id='s' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23c0c0c0'/%3E%3Cstop offset='50%25' stop-color='%23e8e8e8'/%3E%3Cstop offset='100%25' stop-color='%23a0a0a0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='4' fill='url(%23b)' stroke='%23b8960a' stroke-width='1.5'/%3E%3Crect x='28' y='5' width='44' height='28' rx='2' fill='url(%23s)' stroke='%23888' stroke-width='.8'/%3E%3Crect x='36' y='8' width='20' height='22' rx='1' fill='%23333'/%3E%3Crect x='12' y='36' width='76' height='46' rx='2' fill='url(%23l)' stroke='%230a1a4a' stroke-width='.8'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' fill='%23ffd700'%3EAB%3C/text%3E%3Crect x='9' y='86' width='8' height='6' rx='1.5' fill='%23b8960a' stroke='%23a07800' stroke-width='.5'/%3E%3Ccircle cx='50' cy='90' r='3' fill='none' stroke='%23b8960a' stroke-width='.8'/%3E%3Ccircle cx='50' cy='90' r='1' fill='%23b8960a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* 16kb — Brutalist Theme */
+/* Raw HTML aesthetic. Monospace everything. Near-zero CSS. Visible grid. */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f5f5f5;
+  --text: #000000;
+  --text-muted: #555555;
+  --accent: #dc2626;
+  --accent-light: #ef4444;
+  --green: #16a34a;
+  --red: #dc2626;
+  --border: #000000;
+  --shadow: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --radius: 0;
+  --radius-sm: 0;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace, system-ui;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* ── Navigation ── */
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: var(--bg);
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.top-nav a:hover {
+  color: var(--accent);
+}
+
+.top-nav .brand {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+/* ── Hero ── */
+
+.product-hero {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  background: var(--bg);
+  border-bottom: 2px solid var(--border);
+  position: relative;
+}
+
+.product-hero::before {
+  display: none;
+}
+
+.hero-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.hero-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--text);
+}
+
+.hero-cat {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0.5rem 0;
+  letter-spacing: -0.03em;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 1rem auto 1.5rem;
+  line-height: 1.5;
+}
+
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.hero-rating .star {
+  color: var(--accent);
+}
+
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.hero-badges .badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--border);
+  font-weight: 600;
+}
+
+.badge-free {
+  background: var(--bg);
+  color: var(--green);
+  border-color: var(--green) !important;
+}
+
+.badge-hot {
+  background: var(--bg);
+  color: var(--accent);
+  border-color: var(--accent) !important;
+}
+
+.hero-vs {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero-vs .competitor {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* ── Page Content ── */
+
+.page-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Sections ── */
+
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.section-header .icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* ── Features Grid ── */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  margin: -1px;
+  transition: none;
+}
+
+.feature-card:hover {
+  background: var(--surface);
+}
+
+.feature-card .f-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.feature-card .f-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.feature-card .f-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Comparison Table ── */
+
+.compare-wrap {
+  border: 2px solid var(--border);
+  overflow-x: auto;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.compare-table thead {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.compare-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.compare-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.compare-table td:nth-child(2),
+.compare-table td:nth-child(3) {
+  text-align: center;
+  font-weight: 600;
+}
+
+.compare-table tr:nth-child(even) {
+  background: #f0f0f0;
+}
+
+.compare-table .check {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.compare-table .cross {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.compare-table .paid {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.compare-table tfoot {
+  border-top: 2px solid var(--border);
+}
+
+.compare-table tfoot td {
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.compare-table tfoot .price-free {
+  color: var(--green);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.compare-table tfoot .price-paid {
+  color: var(--text-muted);
+}
+
+/* ── Includes Grid ── */
+
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.includes-grid .item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
+}
+
+.includes-grid .item::before {
+  content: ">";
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* ── Use Cases Grid ── */
+
+.usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+}
+
+.usecase-card {
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  margin: -1px;
+  transition: none;
+}
+
+.usecase-card:hover {
+  background: var(--surface);
+}
+
+.usecase-card .uc-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.usecase-card .uc-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.usecase-card .uc-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── CTA Section ── */
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  margin: 3rem 0;
+  position: relative;
+}
+
+.cta-section::before {
+  display: none;
+}
+
+.cta-savings {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.cta-their {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.cta-arrow {
+  color: var(--accent);
+}
+
+.cta-free {
+  color: var(--green);
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.cta-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cta-btn:hover {
+  background: var(--accent-light);
+}
+
+/* ── Footer ── */
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg);
+  border-top: 2px solid var(--border);
+  font-size: 0.75rem;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-nav a:hover {
+  color: var(--accent);
+}
+
+.footer-nav .sep {
+  color: var(--border);
+  user-select: none;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 640px) {
+  .top-nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .product-hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+  }
+
+  .page-content {
+    padding: 0 1rem;
+  }
+
+  .features-grid,
+  .usecases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-section {
+    margin: 2rem 0;
+    padding: 2rem 1rem;
+  }
+
+  .cta-price-row {
+    font-size: 0.95rem;
+  }
+
+  .cta-free {
+    font-size: 1.25rem;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <a href="/16kb/">&#x2190; Back to All Apps</a>
+  <span class="brand">16kb</span>
+</nav>
+
+<!-- HERO -->
+<div class="product-hero">
+  <div class="hero-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="doc-page" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#f0ece0"/></linearGradient><linearGradient id="doc-fold" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ddd"/><stop offset="100%" stop-color="#bbb"/></linearGradient></defs><ellipse cx="50" cy="92" rx="28" ry="4" fill="rgba(0,0,0,.15)"/><rect x="22" y="10" width="56" height="76" rx="2" fill="#e8e4d8" stroke="#bbb" stroke-width=".5" transform="rotate(2 50 48)"/><rect x="20" y="8" width="56" height="76" rx="2" fill="url(#doc-page)" stroke="#ccc" stroke-width=".8"/><polygon points="76,8 76,22 62,8" fill="url(#doc-fold)" stroke="#bbb" stroke-width=".5"/><rect x="28" y="20" width="36" height="2.5" rx="1" fill="#333" opacity=".7"/><rect x="28" y="28" width="40" height="2" rx="1" fill="#888" opacity=".4"/><rect x="28" y="34" width="38" height="2" rx="1" fill="#888" opacity=".4"/><rect x="28" y="40" width="32" height="2" rx="1" fill="#888" opacity=".4"/><rect x="28" y="48" width="40" height="2" rx="1" fill="#888" opacity=".4"/><rect x="28" y="54" width="36" height="2" rx="1" fill="#888" opacity=".4"/><rect x="28" y="60" width="28" height="2" rx="1" fill="#888" opacity=".4"/></svg>
+  </div>
+  <div class="hero-cat">Productivity</div>
+  <h1 class="hero-title">BulkDocs</h1>
+  <p class="hero-tagline">Document collaboration. Real-time editing, comments, version history, templates. All free, forever.</p>
+  <div class="hero-rating">
+    <span class="star">&#x2605;</span><span class="star">&#x2605;</span><span class="star">&#x2605;</span><span class="star">&#x2605;</span><span class="star">&#x2605;</span>
+  </div>
+  <div class="hero-badges">
+    <a href="/16kb/signup.html" class="badge badge-free" style="text-decoration:none;color:inherit">FREE</a>
+  </div>
+  <p class="hero-vs">Replaces <span class="competitor">Notion ($96/mo)</span></p>
+</div>
+
+<!-- CONTENT -->
+<div class="page-content">
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="section-header"><span class="icon">&#x2699;</span><h2>Features</h2></div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="f-icon">&#x1F4DD;</div>
+        <div><div class="f-title">Real-time Collaboration</div><div class="f-desc">Multiple people editing the same document simultaneously. See cursors, selections, and changes in real time. No conflicts.</div></div>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon">&#x1F4DC;</div>
+        <div><div class="f-title">Version History</div><div class="f-desc">Every change is saved automatically. Browse previous versions, compare changes, and restore any point in time with one click.</div></div>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon">&#x1F4AC;</div>
+        <div><div class="f-title">Comments &amp; Mentions</div><div class="f-desc">Leave comments on any text. @mention teammates for review. Resolve threads when feedback is addressed. Comment history preserved.</div></div>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon">&#x1F4C4;</div>
+        <div><div class="f-title">Templates</div><div class="f-desc">Pre-built templates for meeting notes, project briefs, SOPs, wikis, and more. Create custom templates for your team's workflows.</div></div>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon">&#x1F4C1;</div>
+        <div><div class="f-title">Nested Pages</div><div class="f-desc">Wiki-style page hierarchy. Nest pages inside pages for organized knowledge bases. Drag and drop to reorganize anytime.</div></div>
+      </div>
+      <div class="feature-card">
+        <div class="f-icon">&#x1F4E4;</div>
+        <div><div class="f-title">Export Anywhere</div><div class="f-desc">Export to PDF, Markdown, HTML, or plain text. Import from Notion, Google Docs, or Markdown files. Your data is never locked in.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="section">
+    <div class="section-header"><span class="icon">&#x2696;</span><h2>BulkDocs vs Notion</h2></div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Feature</th><th>BulkDocs</th><th>Notion</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Real-time Editing</td><td class="check">&#x2714;</td><td class="check">&#x2714;</td></tr>
+          <tr><td>Version History</td><td class="check">&#x2714;</td><td class="paid">$10+/mo</td></tr>
+          <tr><td>Unlimited Blocks</td><td class="check">&#x2714;</td><td class="cross">1000 on free</td></tr>
+          <tr><td>File Uploads</td><td class="check">&#x2714;</td><td class="cross">5MB on free</td></tr>
+          <tr><td>Guest Access</td><td class="check">&#x2714;</td><td class="cross">Limited on free</td></tr>
+          <tr><td>API Access</td><td class="check">&#x2714;</td><td class="check">&#x2714;</td></tr>
+          <tr><td>Custom Templates</td><td class="check">&#x2714;</td><td class="check">&#x2714;</td></tr>
+          <tr><td>Offline Access</td><td class="check">&#x2714;</td><td class="cross">Limited</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Monthly Price</td><td class="price-free">FREE</td><td class="price-paid">$96/mo</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section">
+    <div class="section-header"><span class="icon">&#x1F4E6;</span><h2>What's Included</h2></div>
+    <div class="includes-grid">
+      <div class="item">Unlimited pages and blocks</div>
+      <div class="item">Real-time collaborative editing</div>
+      <div class="item">Full version history</div>
+      <div class="item">Comments and @mentions</div>
+      <div class="item">Nested page hierarchy</div>
+      <div class="item">50+ templates</div>
+      <div class="item">Markdown support</div>
+      <div class="item">Export to PDF, MD, HTML</div>
+      <div class="item">Import from Notion/Google</div>
+      <div class="item">Offline editing</div>
+      <div class="item">No credit card required</div>
+      <div class="item">Free forever, unlimited members</div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="section">
+    <div class="section-header"><span class="icon">&#x1F465;</span><h2>Perfect For</h2></div>
+    <div class="usecases-grid">
+      <div class="usecase-card">
+        <div class="uc-icon">&#x1F4DA;</div>
+        <div class="uc-title">Knowledge Teams</div>
+        <div class="uc-desc">Build internal wikis, SOPs, and documentation. Nested pages keep everything organized. Search finds anything instantly.</div>
+      </div>
+      <div class="usecase-card">
+        <div class="uc-icon">&#x1F46A;</div>
+        <div class="uc-title">Remote Teams</div>
+        <div class="uc-desc">Collaborative documents that replace scattered Google Docs. Meeting notes, project specs, and decisions all in one place.</div>
+      </div>
+      <div class="usecase-card">
+        <div class="uc-icon">&#x270D;</div>
+        <div class="uc-title">Content Creators</div>
+        <div class="uc-desc">Draft, review, and publish content with version history. Templates speed up recurring content types. Export to any format.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-savings">You save $1,152/year</div>
+  <div class="cta-price-row">
+    <span class="cta-their">$96/mo</span>
+    <span class="cta-arrow">&#x27A1;</span>
+    <a href="/16kb/signup.html" class="cta-free" style="text-decoration:none;color:inherit">FREE</a>
+  </div>
+  <p class="cta-sub">Same features. Same power. $0.00/month.</p>
+  <a href="/16kb/signup.html" class="cta-btn">Get Started &#x2192;</a>
+</section>
+
+<!-- FOOTER NAV -->
+<div class="footer-nav">
+  <a href="/16kb/apps/bulkdesk.html">&larr; Prev: BulkDesk</a>
+  <span class="sep">|</span>
+  
+  <a href="/16kb/">All Apps</a>
+  
+  <span class="sep">|</span>
+  <a href="/16kb/apps/bulkdesign.html">Next: BulkDesign &rarr;</a>
+</div>
+
+</body>
+</html>

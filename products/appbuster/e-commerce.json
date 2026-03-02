@@ -1,0 +1,46 @@
+{
+  "slug": "e-commerce",
+  "name": "StoreFront",
+  "category": "E-Commerce",
+  "tagline": "Sell online without giving away your margins",
+  "metaDescription": "StoreFront replaces Shopify with a complete e-commerce platform inside AppBuster. List products, process orders, and grow revenue — saving $948/year.",
+  "competitor": "Shopify",
+  "competitorPrice": "$79/mo",
+  "annualSavings": "$948/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">🛒</text></svg>",
+  "features": [
+    { "icon": "&#128722;", "title": "Product Catalog", "desc": "List unlimited products with variants, images, and detailed descriptions. Organize your inventory with categories, tags, and smart collections that update automatically." },
+    { "icon": "&#128179;", "title": "Secure Checkout", "desc": "PCI-compliant checkout that supports credit cards, Apple Pay, and Google Pay. Customize the checkout flow with upsells, order bumps, and abandoned cart recovery." },
+    { "icon": "&#128230;", "title": "Order Management", "desc": "Process, fulfill, and track orders from a single dashboard. Automatically generate shipping labels and send tracking notifications to customers." },
+    { "icon": "&#128202;", "title": "Sales Analytics", "desc": "Monitor revenue, average order value, and conversion rates in real time. Drill into product performance, traffic sources, and customer lifetime value." },
+    { "icon": "&#127758;", "title": "Multi-Channel Selling", "desc": "Sync your catalog to social media shops and marketplaces. Manage inventory across channels from one place so you never oversell." },
+    { "icon": "&#128230;", "title": "Inventory Management", "desc": "Track stock levels across locations with low-stock alerts and automatic reorder points. Bulk update quantities via CSV or barcode scanning." }
+  ],
+  "includes": [
+    "Unlimited products and variants",
+    "Customizable storefront themes",
+    "Secure PCI-compliant checkout",
+    "Abandoned cart recovery emails",
+    "Order and fulfillment management",
+    "Shipping label generation",
+    "Discount codes and gift cards",
+    "Inventory tracking with alerts",
+    "Customer accounts and order history",
+    "Product reviews and ratings",
+    "Tax calculation by region",
+    "CSV bulk import and export"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Product Management", "them": "&#10003;", "themType": "check" },
+      { "feature": "Online Checkout", "them": "&#10003;", "themType": "check" },
+      { "feature": "Abandoned Cart Recovery", "them": "&#10003;", "themType": "check" },
+      { "feature": "Zero Transaction Fees", "them": "$79+/mo", "themType": "paid" },
+      { "feature": "Advanced Reporting", "them": "$299+/mo", "themType": "paid" },
+      { "feature": "Multi-Channel Sync", "them": "&#10003;", "themType": "check" },
+      { "feature": "Gift Cards", "them": "&#10003;", "themType": "check" },
+      { "feature": "Unlimited Staff Accounts", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

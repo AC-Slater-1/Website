@@ -1,0 +1,70 @@
+{
+  "slug": "ai-writing",
+  "name": "DraftPilot",
+  "category": "AI Writing",
+  "tagline": "AI-powered writing assistant for blogs, ads, emails, and social posts. Generate, rewrite, and optimize content at scale. Free, no word limits.",
+  "metaDescription": "DraftPilot is a free AI writing tool that replaces Jasper. Generate blog posts, ad copy, emails, and social content with AI. No word limits, no subscriptions.",
+  "competitor": "Jasper",
+  "competitorPrice": "$49/mo",
+  "annualSavings": "$588/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\u270d\ufe0f</text></svg>",
+  "features": [
+    {
+      "icon": "&#128218;",
+      "title": "Long-Form Content",
+      "desc": "Generate full blog posts, articles, and reports with structured outlines. AI writes section by section while maintaining narrative coherence and your brand voice."
+    },
+    {
+      "icon": "&#127919;",
+      "title": "Ad Copy Generator",
+      "desc": "Create high-converting ad copy for Google, Facebook, Instagram, and LinkedIn in seconds. A/B test variations and optimize for click-through rates."
+    },
+    {
+      "icon": "&#128231;",
+      "title": "Email Campaigns",
+      "desc": "Draft email sequences, newsletters, and cold outreach templates. AI adapts tone from formal business to casual brand voice based on your audience."
+    },
+    {
+      "icon": "&#128241;",
+      "title": "Social Media Posts",
+      "desc": "Generate platform-specific content for Twitter, LinkedIn, Instagram, and TikTok. Auto-adapts character limits, hashtags, and formatting per platform."
+    },
+    {
+      "icon": "&#128200;",
+      "title": "SEO Content Scoring",
+      "desc": "Real-time SEO analysis as you write. Get keyword density recommendations, readability scores, and competitor content gap analysis built into the editor."
+    },
+    {
+      "icon": "&#127912;",
+      "title": "Brand Voice Training",
+      "desc": "Upload existing content to train the AI on your brand voice, tone, and terminology. Every output matches your style guide automatically."
+    }
+  ],
+  "includes": [
+    "Unlimited AI-generated words per month",
+    "50+ content templates and frameworks",
+    "Blog post and article generator",
+    "Ad copy for all major platforms",
+    "Email sequence builder",
+    "Social media content calendar",
+    "SEO optimization scoring",
+    "Brand voice customization",
+    "Plagiarism checker built in",
+    "25+ language translation",
+    "Team collaboration workspace",
+    "Chrome extension for writing anywhere"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Long-Form Content", "them": "&#10003;", "themType": "check" },
+      { "feature": "Ad Copy Generation", "them": "&#10003;", "themType": "check" },
+      { "feature": "Email Templates", "them": "&#10003;", "themType": "check" },
+      { "feature": "Brand Voice Training", "them": "&#10003;", "themType": "check" },
+      { "feature": "SEO Scoring", "them": "$49+/mo", "themType": "paid" },
+      { "feature": "Plagiarism Checker", "them": "$49+/mo", "themType": "paid" },
+      { "feature": "Unlimited Words", "them": "&#10007;", "themType": "cross" },
+      { "feature": "25+ Languages", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

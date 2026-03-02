@@ -1,0 +1,70 @@
+{
+  "slug": "project-management",
+  "name": "TaskBoard",
+  "category": "Project Management",
+  "tagline": "Organize work, hit deadlines, and keep your whole team aligned",
+  "metaDescription": "TaskBoard replaces Monday.com with kanban boards, Gantt charts, time tracking, and team workspaces — all included in your AppBuster subscription.",
+  "competitor": "Monday.com",
+  "competitorPrice": "$79/mo",
+  "annualSavings": "$948/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">🗂️</text></svg>",
+  "features": [
+    {
+      "icon": "&#128203;",
+      "title": "Kanban Boards",
+      "desc": "Visualize workflows with drag-and-drop columns for every stage of your process. Move tasks from backlog to done and spot bottlenecks at a glance."
+    },
+    {
+      "icon": "&#128197;",
+      "title": "Gantt Charts",
+      "desc": "Map out project timelines with dependency tracking between tasks. Drag bars to reschedule and watch downstream dates adjust automatically."
+    },
+    {
+      "icon": "&#9201;",
+      "title": "Time Tracking",
+      "desc": "Start a timer on any task or log hours manually after the fact. Time reports break down where your team spends effort so you can plan future sprints accurately."
+    },
+    {
+      "icon": "&#128101;",
+      "title": "Team Workspaces",
+      "desc": "Create separate workspaces for each department or client. Members see only their own projects, keeping focus tight and information secure."
+    },
+    {
+      "icon": "&#128276;",
+      "title": "Due Date Reminders",
+      "desc": "Automatic notifications alert assignees when deadlines approach or pass. Escalation rules ping managers if high-priority tasks remain unfinished."
+    },
+    {
+      "icon": "&#128200;",
+      "title": "Workload Dashboard",
+      "desc": "See each team member's assigned task count and capacity in a single view. Redistribute work before anyone becomes overloaded or underutilized."
+    }
+  ],
+  "includes": [
+    "Unlimited projects and tasks",
+    "Kanban, list, and calendar views",
+    "Gantt chart with dependencies",
+    "Built-in time tracker",
+    "Task comments and file attachments",
+    "Custom fields and labels",
+    "Due date and reminder alerts",
+    "Workload capacity planner",
+    "Recurring task templates",
+    "Guest access for clients",
+    "Activity log and audit trail",
+    "CSV and PDF project exports"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Kanban Boards", "them": "&#10003;", "themType": "check" },
+      { "feature": "Gantt Charts", "them": "&#10003;", "themType": "check" },
+      { "feature": "Task Comments", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Fields", "them": "&#10003;", "themType": "check" },
+      { "feature": "Time Tracking", "them": "$79+/mo", "themType": "paid" },
+      { "feature": "Gantt Dependencies", "them": "$79+/mo", "themType": "paid" },
+      { "feature": "Guest Access", "them": "$79+/mo", "themType": "paid" },
+      { "feature": "Unlimited Automations", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

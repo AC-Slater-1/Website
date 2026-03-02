@@ -1,0 +1,22 @@
+{
+  "isDark": false,
+  "vars": {
+    "bg": "#ffffff",
+    "surface": "#f5f5f5",
+    "surfaceHover": "#e5e5e5",
+    "border": "#000000",
+    "text": "#000000",
+    "muted": "#555555",
+    "gold": "#dc2626",
+    "goldDim": "rgba(220, 38, 38, 0.1)",
+    "goldGlow": "rgba(220, 38, 38, 0.04)",
+    "blue": "#dc2626",
+    "blueDim": "rgba(220, 38, 38, 0.1)",
+    "sans": "'JetBrains Mono', monospace, system-ui",
+    "mono": "'JetBrains Mono', monospace"
+  },
+  "brandNameHtml": "16<span>kb</span>",
+  "accentOnBg": "#ffffff",
+  "brutalist": true,
+  "extraCSS": ""
+}

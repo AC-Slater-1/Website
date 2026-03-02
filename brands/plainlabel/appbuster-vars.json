@@ -1,0 +1,22 @@
+{
+  "isDark": false,
+  "vars": {
+    "bg": "#ffffff",
+    "surface": "#f5f5f4",
+    "surfaceHover": "#e7e5e4",
+    "border": "#d6d3d1",
+    "text": "#1c1917",
+    "muted": "#57534e",
+    "gold": "#fbbf24",
+    "goldDim": "rgba(251, 191, 36, 0.15)",
+    "goldGlow": "rgba(251, 191, 36, 0.06)",
+    "blue": "#fbbf24",
+    "blueDim": "rgba(251, 191, 36, 0.15)",
+    "sans": "'Roboto Condensed', system-ui, -apple-system, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "Plain<span>Label</span>",
+  "accentOnBg": "#1c1917",
+  "brutalist": true,
+  "extraCSS": ""
+}

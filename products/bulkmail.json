@@ -1,0 +1,95 @@
+{
+  "slug": "bulkmail",
+  "name": "BulkMail",
+  "category": "Email &amp; Comms",
+  "tagline": "Email marketing platform. Drag-and-drop builder, automations, segmentation, A/B testing, analytics. All free, forever.",
+  "competitor": "Mailchimp",
+  "competitorPrice": "$350/mo",
+  "annualSavings": "$4,200/year",
+  "badges": ["FREE"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"env-body\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f8f6f0\"/><stop offset=\"100%\" stop-color=\"#e8e4d8\"/></linearGradient><linearGradient id=\"env-flap\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#eee8dc\"/><stop offset=\"100%\" stop-color=\"#ddd6c8\"/></linearGradient></defs><ellipse cx=\"50\" cy=\"88\" rx=\"35\" ry=\"4\" fill=\"rgba(0,0,0,.15)\"/><rect x=\"10\" y=\"30\" width=\"80\" height=\"52\" rx=\"3\" fill=\"url(#env-body)\" stroke=\"#b0a898\" stroke-width=\"1\"/><polygon points=\"10,30 50,60 90,30\" fill=\"url(#env-flap)\" stroke=\"#b0a898\" stroke-width=\"1\"/><line x1=\"10\" y1=\"82\" x2=\"42\" y2=\"55\" stroke=\"#d0c8b8\" stroke-width=\".8\"/><line x1=\"90\" y1=\"82\" x2=\"58\" y2=\"55\" stroke=\"#d0c8b8\" stroke-width=\".8\"/><polygon points=\"14,32 50,56 86,32 50,34\" fill=\"#fff\" opacity=\".12\"/><circle cx=\"50\" cy=\"55\" r=\"6\" fill=\"#d4a800\" stroke=\"#a07800\" stroke-width=\"1\"/><circle cx=\"50\" cy=\"55\" r=\"4\" fill=\"#ffd700\"/><circle cx=\"49\" cy=\"54\" r=\"1.5\" fill=\"#ffe44d\" opacity=\".6\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F3A8;",
+      "title": "Drag-and-Drop Builder",
+      "desc": "Visual email editor with pre-built blocks. Headers, images, buttons, columns, dividers. No HTML knowledge required."
+    },
+    {
+      "icon": "&#x26A1;",
+      "title": "Automation Workflows",
+      "desc": "Welcome series, abandoned cart, re-engagement, birthday emails. Visual workflow builder with branching logic and delays."
+    },
+    {
+      "icon": "&#x1F465;",
+      "title": "Segmentation",
+      "desc": "Segment by tags, behavior, purchase history, engagement level, and custom fields. Send the right message to the right audience."
+    },
+    {
+      "icon": "&#x1F52C;",
+      "title": "A/B Testing",
+      "desc": "Test subject lines, content, send times, and from names. Automatic winner selection based on opens, clicks, or conversions."
+    },
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Analytics Dashboard",
+      "desc": "Open rates, click rates, bounce rates, unsubscribes, and click heatmaps. Track revenue attribution per campaign."
+    },
+    {
+      "icon": "&#x1F4DC;",
+      "title": "Template Library",
+      "desc": "100+ pre-designed templates for newsletters, promotions, announcements, and transactional emails. Fully customizable."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkMail", "Mailchimp"],
+    "rows": [
+      { "feature": "Drag-and-Drop Builder", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Automation Workflows", "us": "check", "them": "$20+/mo", "themType": "paid" },
+      { "feature": "Advanced Segmentation", "us": "check", "them": "$350+/mo", "themType": "paid" },
+      { "feature": "A/B Testing", "us": "check", "them": "$20+/mo", "themType": "paid" },
+      { "feature": "Unlimited Sends", "us": "check", "them": "Capped by plan", "themType": "cross" },
+      { "feature": "Remove Branding", "us": "check", "them": "$20+/mo", "themType": "paid" },
+      { "feature": "Custom Templates", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Revenue Tracking", "us": "check", "them": "$350+/mo", "themType": "paid" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$350/mo"
+    }
+  },
+  "includes": [
+    "Unlimited email sends",
+    "Drag-and-drop email builder",
+    "100+ email templates",
+    "Automation workflows",
+    "Advanced segmentation",
+    "A/B split testing",
+    "Click heatmaps",
+    "Revenue attribution",
+    "List management and tags",
+    "Signup forms and landing pages",
+    "No branding on emails",
+    "Free forever, no subscriber limits"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F6D2;",
+      "title": "E-commerce",
+      "desc": "Abandoned cart recovery, post-purchase follow-ups, and product recommendations. Drive repeat purchases with automated sequences."
+    },
+    {
+      "icon": "&#x1F4F0;",
+      "title": "Newsletter Publishers",
+      "desc": "Beautiful newsletters with zero design skills. Grow your list, segment your audience, and track what resonates."
+    },
+    {
+      "icon": "&#x1F3E2;",
+      "title": "Service Businesses",
+      "desc": "Stay top of mind with clients. Automate appointment reminders, follow-ups, and seasonal promotions."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "bulkpipe", "name": "BulkPipe" },
+    "next": { "slug": "bulkboard", "name": "BulkBoard" }
+  }
+}

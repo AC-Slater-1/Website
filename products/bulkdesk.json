@@ -1,0 +1,95 @@
+{
+  "slug": "bulkdesk",
+  "name": "BulkDesk",
+  "category": "Support",
+  "tagline": "Helpdesk and support. Ticket management, live chat, knowledge base, SLA tracking. All free, forever.",
+  "competitor": "Zendesk",
+  "competitorPrice": "$115/mo",
+  "annualSavings": "$1,380/year",
+  "badges": ["FREE"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"bd-wall\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0%\" stop-color=\"#8899aa\"/><stop offset=\"50%\" stop-color=\"#99aabb\"/><stop offset=\"100%\" stop-color=\"#7788aa\"/></linearGradient><linearGradient id=\"bd-side\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0%\" stop-color=\"#667788\"/><stop offset=\"100%\" stop-color=\"#556677\"/></linearGradient><linearGradient id=\"bd-win\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#a8d8ff\"/><stop offset=\"50%\" stop-color=\"#80b8e8\"/><stop offset=\"100%\" stop-color=\"#4488cc\"/></linearGradient></defs><ellipse cx=\"50\" cy=\"92\" rx=\"35\" ry=\"4\" fill=\"rgba(0,0,0,.15)\"/><rect x=\"18\" y=\"15\" width=\"45\" height=\"75\" fill=\"url(#bd-wall)\" stroke=\"#667\" stroke-width=\".8\"/><polygon points=\"63,15 82,25 82,90 63,90\" fill=\"url(#bd-side)\" stroke=\"#556\" stroke-width=\".5\"/><rect x=\"16\" y=\"13\" width=\"49\" height=\"4\" fill=\"#556677\" stroke=\"#445\" stroke-width=\".5\"/><polygon points=\"63,13 65,17 84,27 82,23\" fill=\"#4a5a6a\"/><rect x=\"24\" y=\"24\" width=\"8\" height=\"10\" rx=\"1\" fill=\"url(#bd-win)\" stroke=\"#5577aa\" stroke-width=\".5\"/><rect x=\"36\" y=\"24\" width=\"8\" height=\"10\" rx=\"1\" fill=\"url(#bd-win)\" stroke=\"#5577aa\" stroke-width=\".5\"/><rect x=\"48\" y=\"24\" width=\"8\" height=\"10\" rx=\"1\" fill=\"url(#bd-win)\" stroke=\"#5577aa\" stroke-width=\".5\"/><rect x=\"24\" y=\"40\" width=\"8\" height=\"10\" rx=\"1\" fill=\"url(#bd-win)\" stroke=\"#5577aa\" stroke-width=\".5\"/><rect x=\"36\" y=\"40\" width=\"8\" height=\"10\" rx=\"1\" fill=\"url(#bd-win)\" stroke=\"#5577aa\" stroke-width=\".5\"/><rect x=\"48\" y=\"40\" width=\"8\" height=\"10\" rx=\"1\" fill=\"url(#bd-win)\" stroke=\"#5577aa\" stroke-width=\".5\"/><rect x=\"34\" y=\"74\" width=\"14\" height=\"16\" rx=\"2\" fill=\"#445566\" stroke=\"#334\" stroke-width=\".8\"/><circle cx=\"46\" cy=\"82\" r=\"1\" fill=\"#ffd700\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F3AB;",
+      "title": "Ticket Management",
+      "desc": "Organize support requests with priority, status, assignee, and tags. Auto-routing rules send tickets to the right team member."
+    },
+    {
+      "icon": "&#x1F4AC;",
+      "title": "Live Chat",
+      "desc": "Embeddable chat widget for your website. Real-time conversations, file sharing, typing indicators, and chat transcripts."
+    },
+    {
+      "icon": "&#x1F4DA;",
+      "title": "Knowledge Base",
+      "desc": "Self-service help center with categories, search, and article analytics. Reduce ticket volume by helping users help themselves."
+    },
+    {
+      "icon": "&#x23F0;",
+      "title": "SLA Tracking",
+      "desc": "Set response and resolution time targets. Automatic escalation when SLAs are at risk. Performance reports per agent and team."
+    },
+    {
+      "icon": "&#x1F4DD;",
+      "title": "Canned Responses",
+      "desc": "Pre-written reply templates for common questions. Variable substitution for personalization. Share templates across the team."
+    },
+    {
+      "icon": "&#x2B50;",
+      "title": "CSAT Surveys",
+      "desc": "Automatic satisfaction surveys after ticket resolution. Track CSAT scores per agent, team, and issue type. Identify improvement areas."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkDesk", "Zendesk"],
+    "rows": [
+      { "feature": "Ticket Management", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Live Chat", "us": "check", "them": "$55+/agent/mo", "themType": "paid" },
+      { "feature": "Knowledge Base", "us": "check", "them": "$89+/agent/mo", "themType": "paid" },
+      { "feature": "SLA Tracking", "us": "check", "them": "$89+/agent/mo", "themType": "paid" },
+      { "feature": "CSAT Surveys", "us": "check", "them": "$55+/agent/mo", "themType": "paid" },
+      { "feature": "Automation Rules", "us": "check", "them": "$89+/agent/mo", "themType": "paid" },
+      { "feature": "Custom Fields", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "No Per-Agent Pricing", "us": "check", "them": "$19-115/agent/mo", "themType": "cross" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$115/mo"
+    }
+  },
+  "includes": [
+    "Unlimited tickets",
+    "Live chat widget",
+    "Knowledge base with search",
+    "SLA policies and escalation",
+    "CSAT satisfaction surveys",
+    "Canned response templates",
+    "Auto-routing rules",
+    "Collision detection",
+    "Agent performance reports",
+    "Email-to-ticket conversion",
+    "No credit card required",
+    "Free forever, unlimited agents"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F6D2;",
+      "title": "E-commerce",
+      "desc": "Handle order issues, returns, and shipping questions. Knowledge base reduces repeat tickets. Live chat catches pre-sale questions."
+    },
+    {
+      "icon": "&#x1F4BB;",
+      "title": "SaaS Companies",
+      "desc": "Technical support with SLA tracking. Route bugs to engineering, billing to finance, onboarding to success. Track resolution times."
+    },
+    {
+      "icon": "&#x1F3E2;",
+      "title": "Service Businesses",
+      "desc": "Manage client requests professionally. Shared inbox keeps everyone aligned. CSAT scores show where to improve service quality."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "bulktrack", "name": "BulkTrack" },
+    "next": { "slug": "bulkdocs", "name": "BulkDocs" }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "analytics",
+  "name": "InsightDeck",
+  "category": "Analytics &amp; BI",
+  "tagline": "Product analytics, funnel tracking, cohort analysis, and custom dashboards. Understand your users without the enterprise price tag. Free, forever.",
+  "metaDescription": "InsightDeck is a free analytics platform that replaces Mixpanel. Track user behavior, build funnels, analyze cohorts, and create dashboards. No event limits, no data caps.",
+  "competitor": "Mixpanel",
+  "competitorPrice": "$89/mo",
+  "annualSavings": "$1,068/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\ud83d\udcca</text></svg>",
+  "features": [
+    {
+      "icon": "&#128202;",
+      "title": "Event Tracking",
+      "desc": "Track any user action with structured event data. Auto-capture clicks, page views, and form submissions, or define custom events with properties for precise analysis."
+    },
+    {
+      "icon": "&#128507;",
+      "title": "Funnel Analysis",
+      "desc": "Build multi-step conversion funnels to see exactly where users drop off. Compare funnels by segment, time period, or acquisition channel to find optimization opportunities."
+    },
+    {
+      "icon": "&#128101;",
+      "title": "Cohort Analysis",
+      "desc": "Group users by signup date, first action, or any custom property. Track retention curves over weeks and months to measure the real impact of product changes."
+    },
+    {
+      "icon": "&#128200;",
+      "title": "Custom Dashboards",
+      "desc": "Build interactive dashboards with drag-and-drop charts, tables, and metrics. Share live dashboards with your team or export as scheduled PDF reports."
+    },
+    {
+      "icon": "&#128269;",
+      "title": "User Profiles",
+      "desc": "See the complete journey of any individual user. Every event, session, and property change is recorded in a timeline view for debugging and support."
+    },
+    {
+      "icon": "&#9889;",
+      "title": "Real-Time Data",
+      "desc": "Events appear in your dashboard within seconds of occurring. Monitor live user activity, track launches in real time, and set alerts for anomalies."
+    }
+  ],
+  "includes": [
+    "Unlimited event tracking",
+    "Auto-capture for clicks and page views",
+    "Multi-step funnel builder",
+    "Retention and cohort analysis",
+    "Drag-and-drop dashboard builder",
+    "Individual user profiles and timelines",
+    "Real-time event streaming",
+    "Segmentation by any property",
+    "Scheduled PDF report delivery",
+    "JavaScript, iOS, and Android SDKs",
+    "Data export via API",
+    "No monthly event caps"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Event Tracking", "them": "&#10003;", "themType": "check" },
+      { "feature": "Funnel Analysis", "them": "&#10003;", "themType": "check" },
+      { "feature": "Cohort Analysis", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Dashboards", "them": "&#10003;", "themType": "check" },
+      { "feature": "User Profiles", "them": "$89+/mo", "themType": "paid" },
+      { "feature": "Real-Time Data", "them": "$89+/mo", "themType": "paid" },
+      { "feature": "Data Export API", "them": "$89+/mo", "themType": "paid" },
+      { "feature": "Unlimited Events", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

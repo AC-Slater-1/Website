@@ -1,11 +1,7 @@
-const { createClient } = require('@supabase/supabase-js');
+const supabase = require('../../lib/supabase');
 
-function getSupabase() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY;
-  if (!url || !key) return null;
-  return createClient(url, key);
-}
+// Known app names — prevents arbitrary table pollution
+const VALID_APPS = ['NexRank', 'BulkPipe', 'BulkMail', 'BulkBoard', 'BulkTrack', 'BulkDesk', 'BulkDocs', 'BulkDesign', 'BulkSchedule'];
 
 async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,7 +11,11 @@ async function handler(req, res) {
 
   if (req.method === 'POST') {
     const { appName } = req.query;
-    const supabase = getSupabase();
+
+    if (!appName || !VALID_APPS.includes(appName)) {
+      return res.status(400).json({ error: 'Invalid app name' });
+    }
+
     if (!supabase) return res.json({ ok: true, fallback: true });
 
     const { data: existing } = await supabase

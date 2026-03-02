@@ -1,0 +1,550 @@
+/* 16kb — Brutalist Theme */
+/* Raw HTML aesthetic. Monospace everything. Near-zero CSS. Visible grid. */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f5f5f5;
+  --text: #000000;
+  --text-muted: #555555;
+  --accent: #dc2626;
+  --accent-light: #ef4444;
+  --green: #16a34a;
+  --red: #dc2626;
+  --border: #000000;
+  --shadow: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --radius: 0;
+  --radius-sm: 0;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace, system-ui;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* ── Navigation ── */
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: var(--bg);
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.top-nav a:hover {
+  color: var(--accent);
+}
+
+.top-nav .brand {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+/* ── Hero ── */
+
+.product-hero {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  background: var(--bg);
+  border-bottom: 2px solid var(--border);
+  position: relative;
+}
+
+.product-hero::before {
+  display: none;
+}
+
+.hero-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.hero-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--text);
+}
+
+.hero-cat {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0.5rem 0;
+  letter-spacing: -0.03em;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 1rem auto 1.5rem;
+  line-height: 1.5;
+}
+
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.hero-rating .star {
+  color: var(--accent);
+}
+
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.hero-badges .badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid var(--border);
+  font-weight: 600;
+}
+
+.badge-free {
+  background: var(--bg);
+  color: var(--green);
+  border-color: var(--green) !important;
+}
+
+.badge-hot {
+  background: var(--bg);
+  color: var(--accent);
+  border-color: var(--accent) !important;
+}
+
+.hero-vs {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero-vs .competitor {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* ── Page Content ── */
+
+.page-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Sections ── */
+
+.section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.section-header .icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+
+.section-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* ── Features Grid ── */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  margin: -1px;
+  transition: none;
+}
+
+.feature-card:hover {
+  background: var(--surface);
+}
+
+.feature-card .f-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.feature-card .f-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.feature-card .f-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Comparison Table ── */
+
+.compare-wrap {
+  border: 2px solid var(--border);
+  overflow-x: auto;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.compare-table thead {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.compare-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.compare-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.compare-table td:nth-child(2),
+.compare-table td:nth-child(3) {
+  text-align: center;
+  font-weight: 600;
+}
+
+.compare-table tr:nth-child(even) {
+  background: #f0f0f0;
+}
+
+.compare-table .check {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.compare-table .cross {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.compare-table .paid {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.compare-table tfoot {
+  border-top: 2px solid var(--border);
+}
+
+.compare-table tfoot td {
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.compare-table tfoot .price-free {
+  color: var(--green);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.compare-table tfoot .price-paid {
+  color: var(--text-muted);
+}
+
+/* ── Includes Grid ── */
+
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.includes-grid .item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+  font-weight: 500;
+}
+
+.includes-grid .item::before {
+  content: ">";
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* ── Use Cases Grid ── */
+
+.usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+}
+
+.usecase-card {
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  margin: -1px;
+  transition: none;
+}
+
+.usecase-card:hover {
+  background: var(--surface);
+}
+
+.usecase-card .uc-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.usecase-card .uc-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.usecase-card .uc-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── CTA Section ── */
+
+.cta-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  margin: 3rem 0;
+  position: relative;
+}
+
+.cta-section::before {
+  display: none;
+}
+
+.cta-savings {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.cta-their {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.cta-arrow {
+  color: var(--accent);
+}
+
+.cta-free {
+  color: var(--green);
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.cta-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cta-btn:hover {
+  background: var(--accent-light);
+}
+
+/* ── Footer ── */
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg);
+  border-top: 2px solid var(--border);
+  font-size: 0.75rem;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-nav a:hover {
+  color: var(--accent);
+}
+
+.footer-nav .sep {
+  color: var(--border);
+  user-select: none;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 640px) {
+  .top-nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .product-hero {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+  }
+
+  .page-content {
+    padding: 0 1rem;
+  }
+
+  .features-grid,
+  .usecases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-section {
+    margin: 2rem 0;
+    padding: 2rem 1rem;
+  }
+
+  .cta-price-row {
+    font-size: 0.95rem;
+  }
+
+  .cta-free {
+    font-size: 1.25rem;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

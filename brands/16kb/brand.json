@@ -1,0 +1,10 @@
+{
+  "name": "16kb",
+  "slug": "16kb",
+  "domain": "16kb.ai",
+  "baseUrl": "/16kb",
+  "tagline": "All the software. None of the bloat.",
+  "heroSubtitle": "Free business tools that load in milliseconds. No frameworks. No fat.",
+  "fonts": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap",
+  "fontFamily": "'JetBrains Mono',monospace,system-ui"
+}

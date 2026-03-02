@@ -1,0 +1,46 @@
+{
+  "slug": "crm",
+  "name": "PipeForce",
+  "category": "CRM",
+  "tagline": "Close more deals without the enterprise price tag",
+  "metaDescription": "PipeForce replaces HubSpot with a full-featured CRM built into your AppBuster stack. Manage contacts, pipelines, and deals — saving $9,600/year.",
+  "competitor": "HubSpot",
+  "competitorPrice": "$800/mo",
+  "annualSavings": "$9,600/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">📘</text></svg>",
+  "features": [
+    { "icon": "&#128202;", "title": "Visual Pipeline Management", "desc": "Drag-and-drop deal stages with real-time revenue forecasting. See your entire sales funnel at a glance and identify bottlenecks before they cost you." },
+    { "icon": "&#128100;", "title": "Contact Intelligence", "desc": "Automatically enrich contact profiles with company data, social profiles, and interaction history. Every touchpoint is tracked without manual entry." },
+    { "icon": "&#128231;", "title": "Email Sequences", "desc": "Build automated outreach campaigns with personalized follow-ups. Track opens, clicks, and replies to optimize your messaging over time." },
+    { "icon": "&#128200;", "title": "Revenue Analytics", "desc": "Detailed dashboards showing close rates, average deal size, and sales cycle length. Break down performance by rep, source, or time period." },
+    { "icon": "&#128197;", "title": "Activity Tracking", "desc": "Log calls, meetings, and tasks directly against deals and contacts. Automated reminders ensure no follow-up falls through the cracks." },
+    { "icon": "&#128279;", "title": "Third-Party Integrations", "desc": "Connect with your email provider, calendar, and marketing tools through native integrations. Sync data bi-directionally without middleware." }
+  ],
+  "includes": [
+    "Unlimited contacts and companies",
+    "Custom deal pipelines with weighted forecasting",
+    "Automated email sequences and templates",
+    "Built-in meeting scheduler",
+    "Call logging with notes and outcomes",
+    "Custom fields and properties",
+    "Lead scoring and qualification rules",
+    "Activity timeline per contact",
+    "CSV import/export with field mapping",
+    "Role-based access controls",
+    "Real-time sales dashboards",
+    "API access for custom integrations"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Contact Management", "them": "&#10003;", "themType": "check" },
+      { "feature": "Deal Pipelines", "them": "&#10003;", "themType": "check" },
+      { "feature": "Email Sequences", "them": "$500+/mo", "themType": "paid" },
+      { "feature": "Revenue Reporting", "them": "&#10003;", "themType": "check" },
+      { "feature": "Lead Scoring", "them": "$800+/mo", "themType": "paid" },
+      { "feature": "Custom Integrations", "them": "&#10003;", "themType": "check" },
+      { "feature": "Unlimited Users", "them": "&#10007;", "themType": "cross" },
+      { "feature": "White-Label Branding", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

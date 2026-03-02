@@ -1,0 +1,95 @@
+{
+  "slug": "bulkboard",
+  "name": "BulkBoard",
+  "category": "Project Management",
+  "tagline": "Project management. Boards, timelines, Gantt charts, workload view, automations. All free, forever.",
+  "competitor": "Monday.com",
+  "competitorPrice": "$79/mo",
+  "annualSavings": "$948/year",
+  "badges": ["HOT"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"cb-board\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f5f0e6\"/><stop offset=\"100%\" stop-color=\"#e0d8c8\"/></linearGradient><linearGradient id=\"cb-clip\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0%\" stop-color=\"#bbb\"/><stop offset=\"30%\" stop-color=\"#ddd\"/><stop offset=\"50%\" stop-color=\"#999\"/><stop offset=\"70%\" stop-color=\"#ccc\"/><stop offset=\"100%\" stop-color=\"#aaa\"/></linearGradient></defs><ellipse cx=\"50\" cy=\"93\" rx=\"30\" ry=\"4\" fill=\"rgba(0,0,0,.15)\"/><rect x=\"20\" y=\"18\" width=\"60\" height=\"75\" rx=\"4\" fill=\"url(#cb-board)\" stroke=\"#b0a898\" stroke-width=\"1\"/><rect x=\"78\" y=\"20\" width=\"3\" height=\"71\" fill=\"#c8c0b0\" opacity=\".4\"/><rect x=\"28\" y=\"30\" width=\"44\" height=\"56\" rx=\"1\" fill=\"#fff\" stroke=\"#ddd\" stroke-width=\".5\"/><line x1=\"32\" y1=\"40\" x2=\"64\" y2=\"40\" stroke=\"#ccc\" stroke-width=\"1\"/><line x1=\"32\" y1=\"48\" x2=\"58\" y2=\"48\" stroke=\"#ccc\" stroke-width=\"1\"/><line x1=\"32\" y1=\"56\" x2=\"62\" y2=\"56\" stroke=\"#ccc\" stroke-width=\"1\"/><line x1=\"32\" y1=\"64\" x2=\"52\" y2=\"64\" stroke=\"#ccc\" stroke-width=\"1\"/><path d=\"M29,38 L31,41 L35,36\" stroke=\"#50cc70\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M29,46 L31,49 L35,44\" stroke=\"#50cc70\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\"/><path d=\"M29,54 L31,57 L35,52\" stroke=\"#ffd700\" stroke-width=\"2\" fill=\"none\" stroke-linecap=\"round\"/><rect x=\"36\" y=\"10\" width=\"28\" height=\"18\" rx=\"3\" fill=\"url(#cb-clip)\" stroke=\"#888\" stroke-width=\"1\"/><rect x=\"40\" y=\"14\" width=\"20\" height=\"10\" rx=\"2\" fill=\"none\" stroke=\"#999\" stroke-width=\"1.5\"/><line x1=\"38\" y1=\"12\" x2=\"62\" y2=\"12\" stroke=\"#eee\" stroke-width=\"1\" opacity=\".6\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F4CB;",
+      "title": "Kanban Boards",
+      "desc": "Drag-and-drop task cards across customizable columns. Multiple boards per project, color-coded labels, and card dependencies."
+    },
+    {
+      "icon": "&#x1F4C5;",
+      "title": "Timeline &amp; Gantt",
+      "desc": "Visual project timelines with Gantt chart view. Set dependencies, milestones, and critical path. Drag to reschedule."
+    },
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Workload View",
+      "desc": "See team capacity at a glance. Balance work across members, identify overloaded teammates, and prevent burnout."
+    },
+    {
+      "icon": "&#x26A1;",
+      "title": "Automations",
+      "desc": "When status changes, notify someone. When due date arrives, move to column. If-then logic with zero code required."
+    },
+    {
+      "icon": "&#x1F4CE;",
+      "title": "File Attachments",
+      "desc": "Attach files directly to cards. Preview images, PDFs, and docs inline. Comment on attachments for contextual feedback."
+    },
+    {
+      "icon": "&#x23F1;",
+      "title": "Time Tracking",
+      "desc": "Built-in time tracker on every card. Log hours manually or use the timer. Generate time reports per project or team member."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkBoard", "Monday.com"],
+    "rows": [
+      { "feature": "Kanban Boards", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Gantt Charts", "us": "check", "them": "$12+/seat/mo", "themType": "paid" },
+      { "feature": "Time Tracking", "us": "check", "them": "$20+/seat/mo", "themType": "paid" },
+      { "feature": "Automations", "us": "check", "them": "Limited/plan", "themType": "paid" },
+      { "feature": "Workload View", "us": "check", "them": "$20+/seat/mo", "themType": "paid" },
+      { "feature": "Unlimited Boards", "us": "check", "them": "3 on free", "themType": "cross" },
+      { "feature": "Guest Access", "us": "check", "them": "$12+/seat/mo", "themType": "paid" },
+      { "feature": "No Per-Seat Pricing", "us": "check", "them": "$9-24/seat/mo", "themType": "cross" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$79/mo"
+    }
+  },
+  "includes": [
+    "Unlimited boards and projects",
+    "Kanban, timeline, and calendar views",
+    "Gantt chart with dependencies",
+    "Built-in time tracking",
+    "Workload management",
+    "Workflow automations",
+    "File attachments",
+    "Comments and mentions",
+    "Guest access for clients",
+    "Custom fields and labels",
+    "No credit card required",
+    "Free forever, unlimited users"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F3D7;",
+      "title": "Project Managers",
+      "desc": "Track every task, deadline, and dependency. Gantt charts for planning, kanban for execution, workload for balance."
+    },
+    {
+      "icon": "&#x1F46A;",
+      "title": "Remote Teams",
+      "desc": "Async collaboration with comments, mentions, and status updates. Everyone sees the same board regardless of timezone."
+    },
+    {
+      "icon": "&#x1F3E2;",
+      "title": "Agencies",
+      "desc": "Manage client projects with guest access. Track billable hours, share progress, and keep deliverables organized."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "bulkmail", "name": "BulkMail" },
+    "next": { "slug": "bulktrack", "name": "BulkTrack" }
+  }
+}

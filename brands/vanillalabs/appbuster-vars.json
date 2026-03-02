@@ -1,0 +1,21 @@
+{
+  "isDark": false,
+  "vars": {
+    "bg": "#f8fafc",
+    "surface": "#ffffff",
+    "surfaceHover": "#f1f5f9",
+    "border": "#e2e8f0",
+    "text": "#1e3a5f",
+    "muted": "#64748b",
+    "gold": "#FFA66B",
+    "goldDim": "rgba(255, 166, 107, 0.15)",
+    "goldGlow": "rgba(255, 166, 107, 0.06)",
+    "blue": "#FFA66B",
+    "blueDim": "rgba(255, 166, 107, 0.15)",
+    "sans": "'IBM Plex Sans', system-ui, -apple-system, sans-serif",
+    "mono": "'IBM Plex Mono', 'JetBrains Mono', monospace"
+  },
+  "brandNameHtml": "Vanilla <span>Labs</span>",
+  "accentOnBg": "#1e3a5f",
+  "extraCSS": ""
+}

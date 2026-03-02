@@ -1,0 +1,46 @@
+{
+  "slug": "chatbots",
+  "name": "BotForge",
+  "category": "Chatbots &amp; Automation",
+  "tagline": "Automate conversations without automating your budget away",
+  "metaDescription": "BotForge replaces ManyChat with a visual chatbot builder inside AppBuster. Build flows, capture leads, and automate support — saving $1,188/year.",
+  "competitor": "ManyChat",
+  "competitorPrice": "$99/mo",
+  "annualSavings": "$1,188/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">🤖</text></svg>",
+  "features": [
+    { "icon": "&#128172;", "title": "Visual Flow Builder", "desc": "Design conversation flows with a drag-and-drop canvas. Branch on user responses, set conditions, and create complex multi-step dialogues without writing any code." },
+    { "icon": "&#128241;", "title": "Multi-Platform Deploy", "desc": "Deploy bots to your website, Facebook Messenger, Instagram DMs, and SMS from a single flow. Manage all conversations in one unified inbox." },
+    { "icon": "&#128161;", "title": "Smart Triggers", "desc": "Launch bot conversations based on page visits, time on site, exit intent, or custom events. Target the right visitor at the right moment to maximize engagement." },
+    { "icon": "&#128100;", "title": "Lead Qualification", "desc": "Ask qualifying questions and score leads in real time during the conversation. Route hot prospects to your sales team and nurture the rest automatically." },
+    { "icon": "&#128259;", "title": "Workflow Automation", "desc": "Trigger actions beyond chat — create CRM records, send emails, update spreadsheets, or call webhooks when specific conversation milestones are reached." },
+    { "icon": "&#128200;", "title": "Conversation Analytics", "desc": "Track completion rates, drop-off points, and response patterns across all your bot flows. Identify where users get stuck and optimize for better outcomes." }
+  ],
+  "includes": [
+    "Unlimited chatbot flows",
+    "Visual drag-and-drop flow editor",
+    "Website live chat widget",
+    "Facebook Messenger integration",
+    "Instagram DM automation",
+    "SMS conversation support",
+    "Unified multi-channel inbox",
+    "Lead scoring and routing",
+    "Webhook and API triggers",
+    "Conversation analytics dashboard",
+    "Canned response library",
+    "Human handoff escalation rules"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Flow Builder", "them": "&#10003;", "themType": "check" },
+      { "feature": "Website Chat Widget", "them": "&#10003;", "themType": "check" },
+      { "feature": "Messenger &amp; Instagram", "them": "&#10003;", "themType": "check" },
+      { "feature": "SMS Automation", "them": "$99+/mo", "themType": "paid" },
+      { "feature": "Unlimited Contacts", "them": "$99+/mo", "themType": "paid" },
+      { "feature": "Advanced Conditions", "them": "&#10003;", "themType": "check" },
+      { "feature": "Webhook Integrations", "them": "$99+/mo", "themType": "paid" },
+      { "feature": "Remove Branding", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

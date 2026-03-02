@@ -1,0 +1,10 @@
+{
+  "name": "Vanilla Labs",
+  "slug": "vanillalabs",
+  "domain": "vanillalabs.ai",
+  "baseUrl": "/vanillalabs",
+  "tagline": "Methodically tested. Rigorously free.",
+  "heroSubtitle": "Enterprise-grade tools, peer-reviewed for quality. $0 per seat.",
+  "fonts": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
+  "fontFamily": "'IBM Plex Sans',system-ui,-apple-system,sans-serif"
+}

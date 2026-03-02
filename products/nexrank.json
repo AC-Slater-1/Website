@@ -1,0 +1,95 @@
+{
+  "slug": "nexrank",
+  "name": "NexRank",
+  "category": "SEO &amp; Marketing",
+  "tagline": "Full SEO suite. Rank tracking, keyword research, site audit, backlink analysis, competitor intel. All free, forever.",
+  "competitor": "Semrush",
+  "competitorPrice": "$249/mo",
+  "annualSavings": "$2,988/year",
+  "badges": ["FREE", "HOT"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><radialGradient id=\"mg-g\" cx=\"40%\" cy=\"35%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#f0f8ff\" stop-opacity=\".9\"/><stop offset=\"30%\" stop-color=\"#b8ddf0\" stop-opacity=\".6\"/><stop offset=\"60%\" stop-color=\"#6aaccc\" stop-opacity=\".4\"/><stop offset=\"100%\" stop-color=\"#3a7a9a\" stop-opacity=\".5\"/></radialGradient><linearGradient id=\"mg-rim\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f5f5f5\"/><stop offset=\"20%\" stop-color=\"#ccc\"/><stop offset=\"40%\" stop-color=\"#e8e8e8\"/><stop offset=\"55%\" stop-color=\"#aaa\"/><stop offset=\"70%\" stop-color=\"#ddd\"/><stop offset=\"85%\" stop-color=\"#999\"/><stop offset=\"100%\" stop-color=\"#bbb\"/></linearGradient><radialGradient id=\"mg-ref\" cx=\"33%\" cy=\"28%\" r=\"22%\"><stop offset=\"0%\" stop-color=\"#fff\" stop-opacity=\".95\"/><stop offset=\"100%\" stop-color=\"#fff\" stop-opacity=\"0\"/></radialGradient><linearGradient id=\"mg-wood\" x1=\"0\" y1=\"0\" x2=\".5\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#D4A056\"/><stop offset=\"15%\" stop-color=\"#B8863C\"/><stop offset=\"30%\" stop-color=\"#C89648\"/><stop offset=\"45%\" stop-color=\"#A07030\"/><stop offset=\"55%\" stop-color=\"#C49044\"/><stop offset=\"70%\" stop-color=\"#9A6828\"/><stop offset=\"85%\" stop-color=\"#BA8840\"/><stop offset=\"100%\" stop-color=\"#A87838\"/></linearGradient></defs><path d=\"M60,60 C62,58 66,58 68,60 L86,78 C88,80 88,84 86,86 C84,88 80,88 78,86 L60,68 C58,66 58,62 60,60Z\" fill=\"url(#mg-wood)\" stroke=\"#7A5820\" stroke-width=\"1\"/><path d=\"M63,62 L83,82\" stroke=\"#9A6828\" stroke-width=\".8\" opacity=\".5\"/><path d=\"M65,62 L85,82\" stroke=\"#C49044\" stroke-width=\".5\" opacity=\".3\"/><path d=\"M62,64 L82,84\" stroke=\"#8A5818\" stroke-width=\".6\" opacity=\".4\"/><path d=\"M62,61 L82,81\" stroke=\"#E0B870\" stroke-width=\"1.5\" stroke-linecap=\"round\" opacity=\".35\"/><line x1=\"53\" y1=\"53\" x2=\"63\" y2=\"63\" stroke=\"#a07800\" stroke-width=\"12\" stroke-linecap=\"round\"/><line x1=\"53\" y1=\"53\" x2=\"63\" y2=\"63\" stroke=\"#d4a800\" stroke-width=\"9\" stroke-linecap=\"round\"/><line x1=\"53\" y1=\"53\" x2=\"63\" y2=\"63\" stroke=\"#ffd700\" stroke-width=\"5\" stroke-linecap=\"round\"/><line x1=\"52.5\" y1=\"52\" x2=\"60\" y2=\"59.5\" stroke=\"#ffe44d\" stroke-width=\"1.5\" stroke-linecap=\"round\" opacity=\".6\"/><circle cx=\"38\" cy=\"38\" r=\"28\" fill=\"url(#mg-rim)\" stroke=\"#888\" stroke-width=\"1.2\"/><circle cx=\"38\" cy=\"38\" r=\"25\" fill=\"none\" stroke=\"#ddd\" stroke-width=\".8\"/><circle cx=\"38\" cy=\"38\" r=\"24\" fill=\"url(#mg-g)\"/><circle cx=\"38\" cy=\"38\" r=\"24\" fill=\"none\" stroke=\"rgba(0,30,60,.2)\" stroke-width=\"3\"/><ellipse cx=\"31\" cy=\"29\" rx=\"12\" ry=\"8\" fill=\"url(#mg-ref)\" transform=\"rotate(-20 31 29)\"/><circle cx=\"27\" cy=\"25\" r=\"3.5\" fill=\"#fff\" opacity=\".6\"/><circle cx=\"29\" cy=\"26\" r=\"1.2\" fill=\"#fff\" opacity=\".9\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Rank Tracking",
+      "desc": "Monitor your keyword positions daily across Google, Bing, and Yahoo. Track desktop and mobile rankings separately with historical trend data."
+    },
+    {
+      "icon": "&#x1F50D;",
+      "title": "Keyword Research",
+      "desc": "Discover high-value keywords with search volume, difficulty scores, CPC data, and SERP analysis. Find long-tail opportunities your competitors miss."
+    },
+    {
+      "icon": "&#x1F527;",
+      "title": "Site Audit",
+      "desc": "Crawl your entire site to find technical SEO issues: broken links, missing meta tags, slow pages, duplicate content, and crawl errors."
+    },
+    {
+      "icon": "&#x1F517;",
+      "title": "Backlink Analysis",
+      "desc": "See every link pointing to your site (or your competitors). Analyze referring domains, anchor text distribution, and link quality scores."
+    },
+    {
+      "icon": "&#x1F575;",
+      "title": "Competitor Intelligence",
+      "desc": "Spy on competitor traffic, top pages, keyword gaps, and ad strategies. See what's working for them and replicate it for free."
+    },
+    {
+      "icon": "&#x1F4DD;",
+      "title": "Content Optimization",
+      "desc": "On-page SEO scoring for every URL. Get actionable recommendations for title tags, meta descriptions, headings, and content structure."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "NexRank", "Semrush"],
+    "rows": [
+      { "feature": "Rank Tracking", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Keyword Research", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Site Audit", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Backlink Analysis", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Competitor Analysis", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Content Optimization", "us": "check", "them": "$249+/mo", "themType": "paid" },
+      { "feature": "API Access", "us": "check", "them": "$499+/mo", "themType": "paid" },
+      { "feature": "Unlimited Projects", "us": "check", "them": "5-40 projects", "themType": "cross" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$249/mo"
+    }
+  },
+  "includes": [
+    "Daily rank tracking for unlimited keywords",
+    "Full keyword research database",
+    "Unlimited site audits per month",
+    "Complete backlink index",
+    "Competitor traffic estimates",
+    "On-page SEO checker",
+    "SERP feature tracking",
+    "Custom reporting dashboards",
+    "CSV and PDF export",
+    "API access included",
+    "No credit card required",
+    "Free forever, no trial limits"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F4BB;",
+      "title": "Freelancers &amp; Consultants",
+      "desc": "Run SEO audits and keyword research for clients without eating into your margins. Deliver enterprise-grade reports at zero tool cost."
+    },
+    {
+      "icon": "&#x1F3E2;",
+      "title": "Agencies",
+      "desc": "Manage unlimited client projects without per-seat pricing. Scale your agency without scaling your software budget."
+    },
+    {
+      "icon": "&#x1F680;",
+      "title": "Startups &amp; Small Biz",
+      "desc": "Get the same SEO intelligence that enterprise companies pay thousands for. Level the playing field from day one."
+    }
+  ],
+  "nav": {
+    "prev": null,
+    "next": { "slug": "bulkpipe", "name": "BulkPipe" }
+  }
+}

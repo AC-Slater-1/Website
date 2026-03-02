@@ -1,0 +1,10 @@
+{
+  "name": "AppBuster",
+  "slug": "appbuster",
+  "domain": "appbuster.com",
+  "baseUrl": "",
+  "tagline": "Stop Paying For Business Software",
+  "heroSubtitle": "Free alternatives to expensive SaaS. Same features. $0/month.",
+  "fonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap",
+  "fontFamily": "'Inter',system-ui,-apple-system,sans-serif"
+}

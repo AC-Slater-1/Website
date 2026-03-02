@@ -1,0 +1,10 @@
+{
+  "name": "Model T",
+  "slug": "modelt",
+  "domain": "modelt.ai",
+  "baseUrl": "/modelt",
+  "tagline": "Software for everyone. Not just those who can afford it.",
+  "heroSubtitle": "Reliable. Affordable. Built to last. The Model T of business software.",
+  "fonts": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap",
+  "fontFamily": "'Source Sans 3',system-ui,-apple-system,sans-serif"
+}

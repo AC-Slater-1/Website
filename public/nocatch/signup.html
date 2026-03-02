@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started - No Catch</title>
+<meta name="description" content="Sign up for No Catch. Free SaaS alternatives with optional agentic tiers.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffe44d'/%3E%3Cstop offset='50%25' stop-color='%23ffd700'/%3E%3Cstop offset='100%25' stop-color='%23ccab00'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a3a8a'/%3E%3Cstop offset='100%25' stop-color='%230f2460'/%3E%3C/linearGradient%3E%3ClinearGradient id='s' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23c0c0c0'/%3E%3Cstop offset='50%25' stop-color='%23e8e8e8'/%3E%3Cstop offset='100%25' stop-color='%23a0a0a0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='4' fill='url(%23b)' stroke='%23b8960a' stroke-width='1.5'/%3E%3Crect x='28' y='5' width='44' height='28' rx='2' fill='url(%23s)' stroke='%23888' stroke-width='.8'/%3E%3Crect x='36' y='8' width='20' height='22' rx='1' fill='%23333'/%3E%3Crect x='12' y='36' width='76' height='46' rx='2' fill='url(%23l)' stroke='%230a1a4a' stroke-width='.8'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' fill='%23ffd700'%3EAB%3C/text%3E%3Crect x='9' y='86' width='8' height='6' rx='1.5' fill='%23b8960a' stroke='%23a07800' stroke-width='.5'/%3E%3Ccircle cx='50' cy='90' r='3' fill='none' stroke='%23b8960a' stroke-width='.8'/%3E%3Ccircle cx='50' cy='90' r='1' fill='%23b8960a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+
+:root {
+  --bg: #f8faf9;
+  --surface: #ffffff;
+  --surface-hover: #e2e8f0;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --gold: #10b981;
+  --gold-dim: rgba(16, 185, 129, 0.15);
+  --blue: #10b981;
+  --blue-dim: rgba(16, 185, 129, 0.15);
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+    /* ── Brand Override ── */
+    :root {
+      --bg: #f8faf9;
+      --surface: #ffffff;
+      --surface-hover: #f0fdf4;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --muted: #64748b;
+      --gold: #10b981;
+      --gold-dim: rgba(16, 185, 129, 0.1);
+      --gold-glow: rgba(16, 185, 129, 0.06);
+      --blue: #10b981;
+      --blue-dim: rgba(16, 185, 129, 0.1);
+      --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    /* ── Light Theme Structural Overrides ── */
+    nav { background: rgba(248, 250, 249, 0.92) !important; }
+    .btn-gold { color: #fff; }
+    .hero-grid { background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px) !important; }
+    .stats-row { background: #ffffff !important; border: 1px solid #e2e8f0 !important; }
+    .stat-number { color: #10b981 !important; }
+    .stat-label { color: #64748b !important; }
+    .pricing-card { background: #ffffff !important; border-color: #e2e8f0 !important; }
+    .pricing-card h3 { color: #1e293b !important; }
+    .price { color: #1e293b !important; }
+    .pricing-card .features li { color: #64748b !important; }
+    .pricing-card.featured { border-color: #10b981 !important; }
+    .cta-section, [class*="cta"] { }
+    .tool-card { background: #ffffff !important; border-color: #e2e8f0 !important; }
+    .tool-card:hover { border-color: #10b981 !important; }
+    .compare-table thead { background: #1e293b !important; }
+    .compare-table th { color: #f8faf9 !important; }
+    .compare-table tfoot { background: #1e293b !important; }
+    .compare-table tfoot td { color: #f8faf9 !important; }
+    .compare-table tfoot .price-free { color: #22c55e !important; }
+    .cta-section { background: linear-gradient(180deg, #f0fdf4 0%, #f8faf9 100%) !important; }
+    .cta-free { color: #1e293b !important; }
+    .cta-sub { color: #64748b !important; }
+    .footer-nav { background: #ffffff !important; }
+
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ── Logo ── */
+.logo {
+  margin-bottom: 32px;
+  text-align: center;
+}
+.logo a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-text {
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 22px;
+  color: var(--text);
+  letter-spacing: 1.5px;
+}
+.logo-text span { color: var(--gold); }
+
+/* ── Card container ── */
+.signup-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 36px;
+}
+
+/* ── Selected plan banner ── */
+.plan-banner {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.plan-banner .label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.plan-banner .plan-name {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.plan-banner .plan-name.gold { color: var(--gold); }
+.plan-banner .plan-name.blue { color: var(--blue); }
+.plan-banner .plan-price {
+  font-size: 15px;
+  color: var(--muted);
+}
+.plan-banner .plan-price strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ── Plan selector cards ── */
+.plan-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.plan-option {
+  position: relative;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.plan-option:hover {
+  border-color: #3f3f46;
+  background: var(--surface-hover);
+}
+.plan-option.disabled {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+.plan-option.active {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
+}
+.plan-option.active.is-blue {
+  border-color: var(--blue);
+  background: var(--blue-dim);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
+}
+.plan-option input { display: none; }
+.plan-option .tier {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.plan-option .price {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 600;
+}
+.plan-option .period {
+  font-size: 11px;
+  color: var(--muted);
+}
+.plan-option .badge {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #f8faf9;
+  white-space: nowrap;
+}
+.plan-option .badge.badge-blue {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* ── Form ── */
+.signup-form { margin-top: 4px; }
+.email-field {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 14px;
+}
+.email-field:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+.email-field.focus-blue:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+.email-field::placeholder { color: #52525b; }
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  letter-spacing: 0.3px;
+}
+.btn-submit:hover { opacity: 0.9; }
+.btn-submit:active { transform: scale(0.99); }
+.btn-submit.gold {
+  background: var(--gold);
+  color: #f8faf9;
+}
+.btn-submit.blue {
+  background: var(--blue);
+  color: #fff;
+}
+.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Error message ── */
+.error-msg {
+  color: #ef4444;
+  font-size: 13px;
+  margin-bottom: 12px;
+  display: none;
+}
+
+/* ── Terms ── */
+.terms {
+  text-align: center;
+  font-size: 12px;
+  color: #52525b;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+.terms a { color: var(--muted); text-decoration: none; }
+.terms a:hover { text-decoration: underline; }
+
+/* ── Success state ── */
+.success-state {
+  display: none;
+  text-align: center;
+  padding: 20px 0;
+}
+.success-icon {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 30px; color: #fff;
+  box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+}
+.success-state h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.success-state p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.btn-home {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 32px;
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--sans);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-home:hover { background: #3f3f46; }
+
+/* ── Back link ── */
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.back-link:hover { color: var(--text); }
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .signup-card { padding: 28px 20px; }
+  .plan-selector { gap: 6px; }
+  .plan-option { padding: 12px 8px; }
+  .plan-option .price { font-size: 16px; }
+  .plan-banner .plan-name { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Logo -->
+<div class="logo">
+  <a href="/">
+    <div class="logo-text">No<span>Catch</span></div>
+  </a>
+</div>
+
+<!-- Signup Card -->
+<div class="signup-card">
+
+  <!-- Plan banner (shows selected plan) -->
+  <div class="plan-banner" id="planBanner">
+    <div class="label" id="bannerLabel">Selected plan</div>
+    <div class="plan-name gold" id="bannerName">Free</div>
+    <div class="plan-price" id="bannerPrice"><strong>$0</strong> forever</div>
+  </div>
+
+  <!-- Form state -->
+  <div id="formState">
+
+    <!-- Plan selector -->
+    <div class="plan-selector">
+      <label class="plan-option active" data-plan="free" onclick="selectPlan('free')">
+        <input type="radio" name="plan" value="free" checked>
+        <div class="tier">Free</div>
+        <div class="price">$0</div>
+        <div class="period">forever</div>
+      </label>
+      <label class="plan-option disabled" data-plan="pro">
+        <input type="radio" name="plan" value="pro">
+        <span class="badge">Coming Soon</span>
+        <div class="tier">Pro</div>
+        <div class="price">$99</div>
+        <div class="period">/month</div>
+      </label>
+      <label class="plan-option disabled" data-plan="scale">
+        <input type="radio" name="plan" value="scale">
+        <span class="badge badge-blue">Coming Soon</span>
+        <div class="tier">Scale</div>
+        <div class="price">$299</div>
+        <div class="period">/month</div>
+      </label>
+    </div>
+
+    <!-- Email form -->
+    <form class="signup-form" id="signupForm" onsubmit="handleSignup(event)">
+      <input type="email" class="email-field" id="email" name="email"
+             placeholder="you@company.com" required autocomplete="email">
+      <div class="error-msg" id="errorMsg"></div>
+      <button type="submit" class="btn-submit gold" id="submitBtn">Get Started</button>
+    </form>
+
+    <p class="terms">
+      No credit card required.<br>
+      By signing up you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>.
+    </p>
+
+  </div>
+
+  <!-- Success state -->
+  <div class="success-state" id="successState">
+    <div class="success-icon">&#x2714;</div>
+    <h2>You're in!</h2>
+    <p>We'll be in touch shortly with your account details.</p>
+    <a href="/" class="btn-home">&larr; Back to No Catch</a>
+  </div>
+
+</div>
+
+<a href="/" class="back-link">&larr; Back to homepage</a>
+
+<script>
+var PLANS = {
+  free:  { name: 'Free',  price: '$0',   period: 'forever',  color: 'gold' },
+  pro:   { name: 'Pro',   price: '$99',  period: '/month',   color: 'gold' },
+  scale: { name: 'Scale', price: '$299', period: '/month',   color: 'blue' }
+};
+
+var currentPlan = 'free';
+
+function selectPlan(plan) {
+  if (!PLANS[plan]) plan = 'free';
+  currentPlan = plan;
+
+  // Update radio + active class
+  document.querySelectorAll('.plan-option').forEach(function(el) {
+    var p = el.getAttribute('data-plan');
+    el.classList.toggle('active', p === plan);
+    el.classList.toggle('is-blue', p === plan && plan === 'scale');
+    el.querySelector('input').checked = (p === plan);
+  });
+
+  // Update banner using textContent (safe DOM methods)
+  var info = PLANS[plan];
+  var bannerName = document.getElementById('bannerName');
+  bannerName.textContent = info.name;
+  bannerName.className = 'plan-name ' + info.color;
+
+  // Rebuild price element safely with DOM methods
+  var priceEl = document.getElementById('bannerPrice');
+  while (priceEl.firstChild) priceEl.removeChild(priceEl.firstChild);
+  var strong = document.createElement('strong');
+  strong.textContent = info.price;
+  priceEl.appendChild(strong);
+  priceEl.appendChild(document.createTextNode(' ' + info.period));
+
+  // Update button style
+  var btn = document.getElementById('submitBtn');
+  btn.className = 'btn-submit ' + info.color;
+
+  // Update email focus ring color
+  var emailField = document.querySelector('.email-field');
+  if (plan === 'scale') {
+    emailField.classList.add('focus-blue');
+  } else {
+    emailField.classList.remove('focus-blue');
+  }
+}
+
+function handleSignup(e) {
+  e.preventDefault();
+  var emailEl = document.getElementById('email');
+  var errorEl = document.getElementById('errorMsg');
+  var btnEl = document.getElementById('submitBtn');
+  var email = emailEl.value.trim();
+
+  errorEl.style.display = 'none';
+
+  if (!email) {
+    errorEl.textContent = 'Please enter your email address.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  // Determine source from referrer
+  var source = 'direct';
+  var ref = document.referrer || '';
+  if (ref.indexOf('/seo') !== -1 || ref.indexOf('/nexrank') !== -1) {
+    source = 'seo-page';
+  } else if (ref.indexOf(location.origin) !== -1) {
+    source = 'homepage';
+  }
+
+  btnEl.disabled = true;
+  btnEl.textContent = 'Signing up...';
+
+  fetch('/api/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, plan: currentPlan, source: source })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data.error) {
+      errorEl.textContent = data.error;
+      errorEl.style.display = 'block';
+      btnEl.disabled = false;
+      btnEl.textContent = 'Get Started';
+      return;
+    }
+    // Success — update UI
+    document.getElementById('formState').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
+    document.getElementById('bannerLabel').textContent = 'Welcome aboard';
+  })
+  .catch(function() {
+    errorEl.textContent = 'Something went wrong. Please try again.';
+    errorEl.style.display = 'block';
+    btnEl.disabled = false;
+    btnEl.textContent = 'Get Started';
+  });
+}
+
+// Read ?plan= from URL on load
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var plan = params.get('plan');
+  if (plan && PLANS[plan]) {
+    selectPlan(plan);
+  }
+})();
+</script>
+
+</body>
+</html>

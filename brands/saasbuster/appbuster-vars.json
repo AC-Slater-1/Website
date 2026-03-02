@@ -1,0 +1,21 @@
+{
+  "isDark": true,
+  "vars": {
+    "bg": "#0a0a0f",
+    "surface": "#12121a",
+    "surfaceHover": "#1e293b",
+    "border": "#1e293b",
+    "text": "#e2e8f0",
+    "muted": "#94a3b8",
+    "gold": "#3b82f6",
+    "goldDim": "rgba(59, 130, 246, 0.15)",
+    "goldGlow": "rgba(59, 130, 246, 0.08)",
+    "blue": "#3b82f6",
+    "blueDim": "rgba(59, 130, 246, 0.15)",
+    "sans": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "SaaS<span>Buster</span>",
+  "accentOnBg": "#fff",
+  "extraCSS": ""
+}

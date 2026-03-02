@@ -1,0 +1,70 @@
+{
+  "slug": "scheduling",
+  "name": "CalSync",
+  "category": "Scheduling",
+  "tagline": "Smart scheduling that eliminates the back-and-forth. Share your availability, book meetings, and sync calendars across platforms. Free for everyone.",
+  "metaDescription": "CalSync is a free scheduling tool that replaces Calendly. Share availability links, automate bookings, sync all your calendars, and send reminders. No per-seat pricing.",
+  "competitor": "Calendly",
+  "competitorPrice": "$16/mo",
+  "annualSavings": "$192/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\ud83d\udcc5</text></svg>",
+  "features": [
+    {
+      "icon": "&#128279;",
+      "title": "Booking Links",
+      "desc": "Create shareable scheduling links with custom availability windows. Invitees pick a time that works, and it's instantly confirmed with calendar invites sent to both parties."
+    },
+    {
+      "icon": "&#128197;",
+      "title": "Multi-Calendar Sync",
+      "desc": "Connect Google Calendar, Outlook, Apple Calendar, and more. CalSync checks availability across all your calendars to prevent double-bookings automatically."
+    },
+    {
+      "icon": "&#128101;",
+      "title": "Team Scheduling",
+      "desc": "Round-robin assignments, collective availability for group meetings, and pooled scheduling for sales teams. Route bookings to the right person automatically."
+    },
+    {
+      "icon": "&#128276;",
+      "title": "Automated Reminders",
+      "desc": "Reduce no-shows with customizable email and SMS reminders. Set multiple reminder intervals and include pre-meeting prep materials or questionnaires."
+    },
+    {
+      "icon": "&#127760;",
+      "title": "Time Zone Intelligence",
+      "desc": "Automatic time zone detection for every participant. Display availability in the invitee's local time and handle daylight saving transitions seamlessly."
+    },
+    {
+      "icon": "&#128296;",
+      "title": "Workflow Automations",
+      "desc": "Trigger actions when meetings are booked, rescheduled, or cancelled. Auto-send confirmation emails, create CRM records, or post to Slack channels."
+    }
+  ],
+  "includes": [
+    "Unlimited booking links and event types",
+    "Google, Outlook, and Apple Calendar sync",
+    "Round-robin and collective scheduling",
+    "Customizable booking pages with branding",
+    "Email and SMS reminders",
+    "Pre-meeting questionnaires",
+    "Buffer time between meetings",
+    "Minimum scheduling notice controls",
+    "Embed scheduling widget on your site",
+    "Zoom, Meet, and Teams auto-integration",
+    "Custom redirect after booking",
+    "No per-seat pricing"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Booking Links", "them": "&#10003;", "themType": "check" },
+      { "feature": "Calendar Sync", "them": "&#10003;", "themType": "check" },
+      { "feature": "Automated Reminders", "them": "&#10003;", "themType": "check" },
+      { "feature": "Time Zone Detection", "them": "&#10003;", "themType": "check" },
+      { "feature": "Team Scheduling", "them": "$16+/mo", "themType": "paid" },
+      { "feature": "Workflow Automations", "them": "$16+/mo", "themType": "paid" },
+      { "feature": "SMS Reminders", "them": "$16+/mo", "themType": "paid" },
+      { "feature": "Unlimited Event Types", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

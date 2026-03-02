@@ -1,0 +1,10 @@
+{
+  "name": "Compare To",
+  "slug": "compareto",
+  "domain": "compareto.ai",
+  "baseUrl": "/compareto",
+  "tagline": "The data says free wins.",
+  "heroSubtitle": "Side-by-side software comparisons backed by real features, real pricing, real numbers.",
+  "fonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+  "fontFamily": "'Inter',system-ui,-apple-system,sans-serif"
+}

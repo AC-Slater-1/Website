@@ -1,0 +1,10 @@
+{
+  "name": "iSeeQ",
+  "slug": "iseeq",
+  "domain": "iseeq.ai",
+  "baseUrl": "/iseeq",
+  "tagline": "Discover free software that works.",
+  "heroSubtitle": "Search, compare, and switch to free alternatives. No tricks, no trials.",
+  "fonts": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap",
+  "fontFamily": "'DM Sans',system-ui,-apple-system,sans-serif"
+}

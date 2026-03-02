@@ -1,0 +1,70 @@
+{
+  "slug": "seo",
+  "name": "NexRank",
+  "category": "SEO &amp; Web Intelligence",
+  "tagline": "Full SEO suite. Rank tracking, keyword research, site audit, backlink analysis, competitor intel. All free, forever.",
+  "metaDescription": "NexRank gives you enterprise-grade SEO tools for free. Track rankings, research keywords, audit your site, analyze backlinks, and spy on competitors. No credit card, no limits.",
+  "competitor": "Semrush",
+  "competitorPrice": "$249/mo",
+  "annualSavings": "$2,988/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\ud83d\udd0d</text></svg>",
+  "features": [
+    {
+      "icon": "&#128202;",
+      "title": "Rank Tracking",
+      "desc": "Monitor your keyword positions daily across Google, Bing, and Yahoo. Track desktop and mobile rankings separately with historical trend data."
+    },
+    {
+      "icon": "&#128269;",
+      "title": "Keyword Research",
+      "desc": "Discover high-value keywords with search volume, difficulty scores, CPC data, and SERP analysis. Find long-tail opportunities your competitors miss."
+    },
+    {
+      "icon": "&#128295;",
+      "title": "Site Audit",
+      "desc": "Crawl your entire site to find technical SEO issues: broken links, missing meta tags, slow pages, duplicate content, and crawl errors."
+    },
+    {
+      "icon": "&#128279;",
+      "title": "Backlink Analysis",
+      "desc": "See every link pointing to your site or your competitors. Analyze referring domains, anchor text distribution, and link quality scores."
+    },
+    {
+      "icon": "&#128373;",
+      "title": "Competitor Intelligence",
+      "desc": "Spy on competitor traffic, top pages, keyword gaps, and ad strategies. See what's working for them and replicate it for free."
+    },
+    {
+      "icon": "&#128221;",
+      "title": "Content Optimization",
+      "desc": "On-page SEO scoring for every URL. Get actionable recommendations for title tags, meta descriptions, headings, and content structure."
+    }
+  ],
+  "includes": [
+    "Daily rank tracking for unlimited keywords",
+    "Full keyword research database",
+    "Unlimited site audits per month",
+    "Complete backlink index",
+    "Competitor traffic estimates",
+    "On-page SEO checker",
+    "SERP feature tracking",
+    "Custom reporting dashboards",
+    "CSV and PDF export",
+    "API access included",
+    "No credit card required",
+    "Free forever, no trial limits"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Rank Tracking", "them": "&#10003;", "themType": "check" },
+      { "feature": "Keyword Research", "them": "&#10003;", "themType": "check" },
+      { "feature": "Site Audit", "them": "&#10003;", "themType": "check" },
+      { "feature": "Backlink Analysis", "them": "&#10003;", "themType": "check" },
+      { "feature": "Competitor Analysis", "them": "&#10003;", "themType": "check" },
+      { "feature": "Content Optimization", "them": "$249+/mo", "themType": "paid" },
+      { "feature": "API Access", "them": "$499+/mo", "themType": "paid" },
+      { "feature": "Unlimited Projects", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

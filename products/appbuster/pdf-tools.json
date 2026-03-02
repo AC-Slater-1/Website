@@ -1,0 +1,70 @@
+{
+  "slug": "pdf-tools",
+  "name": "DocForge",
+  "category": "PDF Tools",
+  "tagline": "Edit, merge, split, compress, sign, and convert PDFs without the bloated desktop app. Professional document tools, completely free.",
+  "metaDescription": "DocForge is a free PDF toolkit that replaces Adobe Acrobat. Edit, merge, split, compress, convert, and e-sign PDFs right in your browser. No subscription, no watermarks.",
+  "competitor": "Adobe Acrobat",
+  "competitorPrice": "$23/mo",
+  "annualSavings": "$276/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\ud83d\udcc4</text></svg>",
+  "features": [
+    {
+      "icon": "&#9998;",
+      "title": "PDF Editing",
+      "desc": "Edit text, images, and links directly inside any PDF. Add annotations, highlights, and comments without converting to another format first."
+    },
+    {
+      "icon": "&#128196;",
+      "title": "Merge &amp; Split",
+      "desc": "Combine multiple PDFs into a single file or extract specific pages into separate documents. Drag-and-drop page reordering makes it effortless."
+    },
+    {
+      "icon": "&#128477;",
+      "title": "Compress &amp; Optimize",
+      "desc": "Shrink PDF file sizes by up to 90% without visible quality loss. Optimized compression algorithms preserve text clarity and image fidelity."
+    },
+    {
+      "icon": "&#128221;",
+      "title": "E-Signatures",
+      "desc": "Draw, type, or upload your signature and apply it to any PDF. Send documents for counter-signatures with built-in tracking and audit trails."
+    },
+    {
+      "icon": "&#128260;",
+      "title": "Format Conversion",
+      "desc": "Convert PDFs to and from Word, Excel, PowerPoint, images, and HTML. Preserves formatting, tables, and embedded media during conversion."
+    },
+    {
+      "icon": "&#128274;",
+      "title": "Security &amp; Redaction",
+      "desc": "Password-protect PDFs, set permissions for printing and copying, and permanently redact sensitive information with certified removal."
+    }
+  ],
+  "includes": [
+    "Full PDF text and image editing",
+    "Merge unlimited documents",
+    "Page extraction and splitting",
+    "Lossy and lossless compression",
+    "Legally binding e-signatures",
+    "Word, Excel, and PowerPoint conversion",
+    "Image to PDF and PDF to image",
+    "Batch processing for multiple files",
+    "Permanent redaction tools",
+    "Password protection and permissions",
+    "OCR for scanned documents",
+    "No file size limits"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "PDF Editing", "them": "&#10003;", "themType": "check" },
+      { "feature": "Merge &amp; Split", "them": "&#10003;", "themType": "check" },
+      { "feature": "E-Signatures", "them": "&#10003;", "themType": "check" },
+      { "feature": "Format Conversion", "them": "&#10003;", "themType": "check" },
+      { "feature": "OCR Recognition", "them": "$23+/mo", "themType": "paid" },
+      { "feature": "Batch Processing", "them": "$23+/mo", "themType": "paid" },
+      { "feature": "Redaction Tools", "them": "$23+/mo", "themType": "paid" },
+      { "feature": "No File Size Limits", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

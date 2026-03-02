@@ -1,0 +1,95 @@
+{
+  "slug": "bulkdesign",
+  "name": "BulkDesign",
+  "category": "Design Tools",
+  "tagline": "Graphic design. Templates, brand kits, resize, background removal, team collab. All free, forever.",
+  "competitor": "Canva Pro",
+  "competitorPrice": "$120/mo",
+  "annualSavings": "$1,440/year",
+  "badges": ["FREE"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><radialGradient id=\"pal-bg\" cx=\"50%\" cy=\"45%\" r=\"50%\"><stop offset=\"0%\" stop-color=\"#f5efe5\"/><stop offset=\"100%\" stop-color=\"#ddd5c5\"/></radialGradient></defs><ellipse cx=\"50\" cy=\"92\" rx=\"35\" ry=\"4\" fill=\"rgba(0,0,0,.12)\"/><ellipse cx=\"50\" cy=\"48\" rx=\"40\" ry=\"35\" fill=\"url(#pal-bg)\" stroke=\"#b0a898\" stroke-width=\"1.2\"/><ellipse cx=\"60\" cy=\"62\" rx=\"8\" ry=\"7\" fill=\"#1a2a4a\" stroke=\"#8a8070\" stroke-width=\"1\"/><ellipse cx=\"28\" cy=\"30\" rx=\"7\" ry=\"6\" fill=\"#e63946\" stroke=\"#cc2233\" stroke-width=\".5\"/><ellipse cx=\"48\" cy=\"22\" rx=\"8\" ry=\"5.5\" fill=\"#457bb8\" stroke=\"#3366aa\" stroke-width=\".5\"/><ellipse cx=\"68\" cy=\"28\" rx=\"7\" ry=\"5.5\" fill=\"#ffd700\" stroke=\"#c8a200\" stroke-width=\".5\"/><ellipse cx=\"74\" cy=\"45\" rx=\"6\" ry=\"6.5\" fill=\"#50b860\" stroke=\"#3a9a48\" stroke-width=\".5\"/><ellipse cx=\"32\" cy=\"50\" rx=\"6.5\" ry=\"6\" fill=\"#9b59b6\" stroke=\"#7a3e96\" stroke-width=\".5\"/><ellipse cx=\"22\" cy=\"40\" rx=\"5\" ry=\"5.5\" fill=\"#f39c12\" stroke=\"#d48800\" stroke-width=\".5\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F4DC;",
+      "title": "Template Library",
+      "desc": "Thousands of templates for social media, presentations, flyers, logos, and more. Professional designs ready to customize in seconds."
+    },
+    {
+      "icon": "&#x1F3A8;",
+      "title": "Brand Kit",
+      "desc": "Save your brand colors, fonts, and logos. Apply them to any design with one click. Ensure consistency across all your materials."
+    },
+    {
+      "icon": "&#x1F504;",
+      "title": "Magic Resize",
+      "desc": "Design once, resize for any platform. Instagram post to Twitter header to LinkedIn banner with one click. Smart layout adjustment."
+    },
+    {
+      "icon": "&#x2702;",
+      "title": "Background Removal",
+      "desc": "AI-powered background removal in one click. Perfect cutouts for product photos, portraits, and composite images."
+    },
+    {
+      "icon": "&#x1F46A;",
+      "title": "Team Collaboration",
+      "desc": "Shared asset library, design comments, and approval workflows. Everyone on your team works from the same brand assets."
+    },
+    {
+      "icon": "&#x1F4E4;",
+      "title": "Multi-Format Export",
+      "desc": "Export as PNG, JPG, PDF, SVG, or GIF. Print-ready PDFs with bleed marks. Transparent PNG backgrounds for web."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkDesign", "Canva Pro"],
+    "rows": [
+      { "feature": "Template Library", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Brand Kit", "us": "check", "them": "$13+/mo", "themType": "paid" },
+      { "feature": "Magic Resize", "us": "check", "them": "$13+/mo", "themType": "paid" },
+      { "feature": "Background Removal", "us": "check", "them": "$13+/mo", "themType": "paid" },
+      { "feature": "Premium Stock Photos", "us": "check", "them": "$13+/mo", "themType": "paid" },
+      { "feature": "SVG Export", "us": "check", "them": "$13+/mo", "themType": "paid" },
+      { "feature": "Cloud Storage", "us": "check", "them": "5GB on free", "themType": "cross" },
+      { "feature": "No Per-Person Pricing", "us": "check", "them": "$13/person/mo", "themType": "cross" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$120/mo"
+    }
+  },
+  "includes": [
+    "Thousands of templates",
+    "Brand kit with custom colors/fonts",
+    "One-click magic resize",
+    "AI background removal",
+    "Premium stock photo library",
+    "Team asset library",
+    "SVG, PNG, JPG, PDF export",
+    "Print-ready PDF with bleed",
+    "Design approval workflows",
+    "Unlimited cloud storage",
+    "No credit card required",
+    "Free forever, unlimited designs"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F4F1;",
+      "title": "Social Media Managers",
+      "desc": "Create scroll-stopping posts in minutes. Templates for every platform, magic resize for cross-posting, and a content calendar view."
+    },
+    {
+      "icon": "&#x1F3E2;",
+      "title": "Small Businesses",
+      "desc": "Professional marketing materials without a designer. Flyers, menus, business cards, and social graphics all from one tool."
+    },
+    {
+      "icon": "&#x1F3A4;",
+      "title": "Content Creators",
+      "desc": "YouTube thumbnails, podcast covers, and blog graphics. Brand kit keeps your visual identity consistent across all platforms."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "bulkdocs", "name": "BulkDocs" },
+    "next": { "slug": "bulkschedule", "name": "BulkSchedule" }
+  }
+}

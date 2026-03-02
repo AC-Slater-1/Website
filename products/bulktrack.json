@@ -1,0 +1,95 @@
+{
+  "slug": "bulktrack",
+  "name": "BulkTrack",
+  "category": "Analytics",
+  "tagline": "Product analytics. Funnels, cohorts, retention, user paths, real-time dashboards. All free, forever.",
+  "competitor": "Mixpanel",
+  "competitorPrice": "$89/mo",
+  "annualSavings": "$1,068/year",
+  "badges": ["FREE", "HOT"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"tc-bg\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1a2a4a\"/><stop offset=\"100%\" stop-color=\"#0e1830\"/></linearGradient><linearGradient id=\"tc-fill\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#50cc70\" stop-opacity=\".4\"/><stop offset=\"100%\" stop-color=\"#50cc70\" stop-opacity=\".02\"/></linearGradient><linearGradient id=\"tc-frame\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ddd\"/><stop offset=\"50%\" stop-color=\"#aaa\"/><stop offset=\"100%\" stop-color=\"#888\"/></linearGradient></defs><rect x=\"10\" y=\"10\" width=\"80\" height=\"62\" rx=\"5\" fill=\"url(#tc-frame)\" stroke=\"#666\" stroke-width=\"1\"/><rect x=\"14\" y=\"14\" width=\"72\" height=\"54\" rx=\"2\" fill=\"url(#tc-bg)\"/><line x1=\"14\" y1=\"30\" x2=\"86\" y2=\"30\" stroke=\"#2a3a5a\" stroke-width=\".5\"/><line x1=\"14\" y1=\"45\" x2=\"86\" y2=\"45\" stroke=\"#2a3a5a\" stroke-width=\".5\"/><line x1=\"14\" y1=\"55\" x2=\"86\" y2=\"55\" stroke=\"#2a3a5a\" stroke-width=\".5\"/><polygon points=\"18,60 30,52 45,55 58,38 72,28 82,20 82,64 18,64\" fill=\"url(#tc-fill)\"/><polyline points=\"18,60 30,52 45,55 58,38 72,28 82,20\" fill=\"none\" stroke=\"#50cc70\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><polyline points=\"18,60 30,52 45,55 58,38 72,28 82,20\" fill=\"none\" stroke=\"#80ff90\" stroke-width=\"1\" opacity=\".5\"/><circle cx=\"82\" cy=\"20\" r=\"3\" fill=\"#80ff90\" stroke=\"#fff\" stroke-width=\"1\"/><polygon points=\"84,16 82,22 78,18\" fill=\"#80ff90\"/><rect x=\"40\" y=\"72\" width=\"20\" height=\"6\" rx=\"1\" fill=\"#aaa\" stroke=\"#888\" stroke-width=\".5\"/><rect x=\"30\" y=\"78\" width=\"40\" height=\"4\" rx=\"2\" fill=\"#bbb\" stroke=\"#888\" stroke-width=\".5\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Funnel Analysis",
+      "desc": "Track conversion at every step. See where users drop off, compare segments, and identify optimization opportunities."
+    },
+    {
+      "icon": "&#x1F465;",
+      "title": "Cohort Retention",
+      "desc": "Measure user stickiness over time. Weekly and monthly retention curves by signup date, feature usage, or any custom event."
+    },
+    {
+      "icon": "&#x1F6E4;",
+      "title": "User Path Analysis",
+      "desc": "Visualize how users navigate your product. See the most common flows, unexpected detours, and dead ends."
+    },
+    {
+      "icon": "&#x26A1;",
+      "title": "Real-time Dashboards",
+      "desc": "Live event streams and metric counters. See user activity as it happens. Custom dashboard layouts with drag-and-drop widgets."
+    },
+    {
+      "icon": "&#x1F3AF;",
+      "title": "Event Tracking",
+      "desc": "Track any custom event with properties. Autocapture clicks, page views, and form submissions. No code changes needed."
+    },
+    {
+      "icon": "&#x1F50D;",
+      "title": "Segmentation",
+      "desc": "Slice data by user properties, behaviors, geography, device, or any custom attribute. Save segments for reuse across reports."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkTrack", "Mixpanel"],
+    "rows": [
+      { "feature": "Funnel Analysis", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Retention Cohorts", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "User Paths", "us": "check", "them": "$89+/mo", "themType": "paid" },
+      { "feature": "Real-time Dashboards", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Unlimited Events", "us": "check", "them": "20M/mo free", "themType": "cross" },
+      { "feature": "Data Export", "us": "check", "them": "$89+/mo", "themType": "paid" },
+      { "feature": "Group Analytics", "us": "check", "them": "$89+/mo", "themType": "paid" },
+      { "feature": "No Data Sampling", "us": "check", "them": "Sampled on free", "themType": "cross" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$89/mo"
+    }
+  },
+  "includes": [
+    "Unlimited tracked events",
+    "Funnel and conversion analysis",
+    "Cohort retention curves",
+    "User flow visualization",
+    "Real-time event streams",
+    "Custom dashboards",
+    "Behavioral segmentation",
+    "CSV and API data export",
+    "Autocapture (no code)",
+    "Session recordings",
+    "No credit card required",
+    "Free forever, no event caps"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F4F1;",
+      "title": "Product Teams",
+      "desc": "Understand how users actually use your product. Find friction points, validate features, and drive data-informed decisions."
+    },
+    {
+      "icon": "&#x1F4C8;",
+      "title": "Growth Teams",
+      "desc": "Track activation funnels, measure experiments, and identify your best retention levers. Scale what works."
+    },
+    {
+      "icon": "&#x1F680;",
+      "title": "Startups",
+      "desc": "Get Mixpanel-grade analytics from day one without the Mixpanel price tag. Focus your budget on building, not measuring."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "bulkboard", "name": "BulkBoard" },
+    "next": { "slug": "bulkdesk", "name": "BulkDesk" }
+  }
+}

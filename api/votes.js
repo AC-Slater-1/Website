@@ -1,10 +1,10 @@
-const { createClient } = require('@supabase/supabase-js');
+const supabase = require('../lib/supabase');
 
-function getSupabase() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY;
-  if (!url || !key) return null;
-  return createClient(url, key);
+// Validate software_name: alphanumeric, spaces, dots, common punctuation. Max 100 chars.
+function isValidName(name) {
+  if (!name || typeof name !== 'string') return false;
+  if (name.length > 100) return false;
+  return /^[a-zA-Z0-9\s.\-()&+\/]+$/.test(name);
 }
 
 async function handler(req, res) {
@@ -13,7 +13,6 @@ async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  const supabase = getSupabase();
 
   if (req.method === 'GET') {
     if (!supabase) return res.json({ votes: [], total: 0 });
@@ -29,11 +28,14 @@ async function handler(req, res) {
   }
 
   if (req.method === 'POST') {
-    const { software_name, bonus } = req.body || {};
-    if (!software_name) return res.status(400).json({ error: 'software_name required' });
+    const { software_name } = req.body || {};
+    if (!isValidName(software_name)) {
+      return res.status(400).json({ error: 'Invalid software_name' });
+    }
     if (!supabase) return res.json({ ok: true, fallback: true });
 
-    const increment = bonus ? 2 : 1;
+    // Always increment by 1 — bonus vote is cosmetic client-side only
+    const increment = 1;
 
     const { data: existing } = await supabase
       .from('votes')

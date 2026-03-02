@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AppBuster — The $24.4 Billion Tax on Small Business</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #09090b;
+  --surface: #18181b;
+  --surface-hover: #27272a;
+  --border: #27272a;
+  --text: #fafafa;
+  --muted: #a1a1aa;
+  --gold: #ffd700;
+  --gold-dim: rgba(255, 215, 0, 0.15);
+  --gold-glow: rgba(255, 215, 0, 0.06);
+  --blue: #3b82f6;
+  --blue-dim: rgba(59, 130, 246, 0.15);
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ── Scroll-reveal animation ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Section base ── */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-inner--wide {
+  max-width: 1200px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 1: HERO — Opening Statement
+   ══════════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Slow gradient pulse background */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255, 215, 0, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 30% 60%, rgba(59, 130, 246, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 70% 30%, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes heroGlow {
+  0%   { opacity: 0.4; transform: scale(1); }
+  50%  { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.6; transform: scale(0.98); }
+}
+
+/* Noise texture overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 0 24px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+  color: var(--text);
+}
+
+.hero h1 .gold {
+  color: var(--gold);
+  text-shadow: 0 0 60px rgba(255, 215, 0, 0.15);
+}
+
+.hero p {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  animation: scrollPulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.scroll-hint svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--muted);
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50%      { opacity: 0.7; transform: translateX(-50%) translateY(6px); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 2: THE THESIS
+   ══════════════════════════════════════════════════════════ */
+.thesis {
+  background: var(--bg);
+}
+
+.thesis-label {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+  opacity: 0.8;
+}
+
+.thesis-block {
+  border-left: 3px solid var(--border);
+  padding: 32px 0 32px 32px;
+  margin-bottom: 48px;
+  transition: border-color 0.4s ease;
+}
+
+.thesis-block:hover {
+  border-left-color: var(--gold);
+}
+
+.thesis-block:last-child {
+  margin-bottom: 0;
+}
+
+.thesis-block h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.thesis-block p {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 720px;
+}
+
+.thesis-block .stat-inline {
+  color: var(--gold);
+  font-family: var(--mono);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 3: THE VULNERABILITY MAP
+   ══════════════════════════════════════════════════════════ */
+.battlefield {
+  background: var(--bg);
+}
+
+.battlefield .section-inner--wide {
+  max-width: 1100px;
+}
+
+.battlefield-label {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.battlefield-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 56px;
+  line-height: 1.1;
+}
+
+.grid-map {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 56px;
+}
+
+.grid-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.grid-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.grid-tile--high {
+  border-left: 3px solid var(--gold);
+}
+.grid-tile--high:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.08);
+}
+
+.grid-tile--medium {
+  border-left: 3px solid var(--blue);
+}
+.grid-tile--medium:hover {
+  border-color: var(--blue);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.08);
+}
+
+.grid-tile--low {
+  border-left: 3px solid #52525b;
+}
+.grid-tile--low:hover {
+  border-color: #71717a;
+}
+
+.grid-tile h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.grid-tile-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.grid-tile-stat {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.grid-tile-badge {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.grid-tile--high .grid-tile-badge {
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.grid-tile--medium .grid-tile-badge {
+  color: var(--blue);
+  background: var(--blue-dim);
+}
+
+.grid-tile--low .grid-tile-badge {
+  color: #71717a;
+  background: rgba(113, 113, 122, 0.15);
+}
+
+.battlefield-summary {
+  text-align: center;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.battlefield-summary p {
+  font-family: var(--mono);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.battlefield-summary .gold {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 4: THE VISION
+   ══════════════════════════════════════════════════════════ */
+.vision {
+  background: var(--bg);
+}
+
+.vision-label {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.vision-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 56px;
+  line-height: 1.1;
+}
+
+.vision-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.vision-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 40px 32px;
+  transition: border-color 0.3s ease;
+}
+
+.vision-card:first-child {
+  border-top: 3px solid var(--gold);
+}
+
+.vision-card:last-child {
+  border-top: 3px solid var(--blue);
+}
+
+.vision-card:first-child:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.vision-card:last-child:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.vision-phase {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.vision-card:first-child .vision-phase {
+  color: var(--gold);
+}
+
+.vision-card:last-child .vision-phase {
+  color: var(--blue);
+}
+
+.vision-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.vision-card p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.vision-bottom {
+  text-align: center;
+  padding: 40px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  border-left: 3px solid var(--gold);
+}
+
+.vision-bottom p {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.vision-bottom .em {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 5: THE NUMBERS
+   ══════════════════════════════════════════════════════════ */
+.numbers {
+  background: var(--bg);
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.number-block {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.number-block:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.number-value {
+  font-family: var(--mono);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 12px;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.number-label {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.numbers-tagline {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  color: var(--muted);
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 6: CALL TO ACTION
+   ══════════════════════════════════════════════════════════ */
+.cta {
+  min-height: 60vh;
+}
+
+.cta-inner {
+  text-align: center;
+}
+
+.cta-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 16px 32px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  transition: all 0.3s ease;
+  min-width: 320px;
+  justify-content: center;
+}
+
+.cta-link:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(255, 215, 0, 0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.06);
+}
+
+.cta-link span {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.cta-link:hover span {
+  opacity: 1;
+  color: var(--gold);
+}
+
+/* ══════════════════════════════════════════════════════════
+   SECTION 7: FOOTER
+   ══════════════════════════════════════════════════════════ */
+footer {
+  padding: 48px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--blue);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .thesis-block {
+    padding-left: 20px;
+  }
+
+  .grid-map {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .numbers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-link {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .thesis-block h3 {
+    font-size: 1.15rem;
+  }
+
+  .battlefield-title,
+  .vision-title {
+    font-size: 1.6rem;
+  }
+
+  .vision-card {
+    padding: 28px 20px;
+  }
+
+  .number-block {
+    padding: 32px 20px;
+  }
+}
+
+/* ── Separator line between sections ── */
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--border);
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 1: HERO
+     ═══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="reveal">The <span class="gold">$24.4 Billion</span> Tax<br>on Small Business</h1>
+    <p class="reveal reveal-delay-1">Every month, millions of businesses pay for software that should be free. We're here to end that.</p>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 2: THE THESIS
+     ═══════════════════════════════════════════════════════ -->
+<section class="thesis">
+  <div class="section-inner">
+    <div class="thesis-label reveal">How We Got Here</div>
+
+    <div class="thesis-block reveal reveal-delay-1">
+      <h3>SaaS promised freedom. You got lock-in.</h3>
+      <p>The cloud was supposed to liberate businesses from expensive, on-premise software. Instead, it created a new kind of rent. Monthly subscriptions that compound year after year, locking your data inside walled gardens, making switching costs so high that canceling feels impossible. The average small business now spends thousands per year on tools that do what a spreadsheet did in 2010 &mdash; just with a nicer interface and a recurring charge.</p>
+    </div>
+
+    <div class="thesis-block reveal reveal-delay-2">
+      <h3>The moat was data. AI dissolved it.</h3>
+      <p>For a decade, these companies survived because they owned proprietary datasets and algorithms. Semrush built <span class="stat-inline">$376M in revenue</span> by repackaging Google's own data. Grammarly reached <span class="stat-inline">$700M ARR</span> for grammar checking &mdash; something GPT now does for free. The moats were never that deep. They just seemed deep before large language models showed up and commoditized the entire intelligence layer overnight.</p>
+    </div>
+
+    <div class="thesis-block reveal reveal-delay-3">
+      <h3>93 competitors. Every weakness mapped.</h3>
+      <p>We didn't guess. We studied every SaaS product in every category we plan to enter. Documented their features, analyzed their pricing, mapped their technical architectures, and identified exactly where they're vulnerable. The result: a competitive intelligence database covering 22 product categories and 93 individual tools &mdash; and a blueprint to replace every one of them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3: THE VULNERABILITY MAP
+     ═══════════════════════════════════════════════════════ -->
+<section class="battlefield">
+  <div class="section-inner section-inner--wide">
+    <div class="battlefield-label reveal">Intelligence Report</div>
+    <h2 class="battlefield-title reveal reveal-delay-1">We've Mapped the Battlefield</h2>
+
+    <div class="grid-map">
+      <!-- High vulnerability (gold) -->
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>SEO &amp; SEM Tools</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">8 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Grammar &amp; Writing</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">5 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Social Media Scheduling</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">6 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Email Marketing</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">5 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Landing Pages</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Content Generation</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">6 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Keyword Research</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Form &amp; Survey Builders</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--high reveal">
+        <h4>Link Management</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">3 analyzed</span>
+          <span class="grid-tile-badge">High</span>
+        </div>
+      </div>
+
+      <!-- Medium vulnerability (blue) -->
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>CRM &amp; Sales</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">5 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Project Management</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Analytics &amp; Tracking</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">5 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Chatbots &amp; Live Chat</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Invoicing &amp; Billing</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">3 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Appointment Scheduling</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Help Desk &amp; Ticketing</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">3 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Graphic Design</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">3 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--medium reveal">
+        <h4>Video Editing</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">3 analyzed</span>
+          <span class="grid-tile-badge">Medium</span>
+        </div>
+      </div>
+
+      <!-- Low vulnerability (zinc) -->
+      <div class="grid-tile grid-tile--low reveal">
+        <h4>Cloud Storage</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">Low</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--low reveal">
+        <h4>Accounting</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">3 analyzed</span>
+          <span class="grid-tile-badge">Low</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--low reveal">
+        <h4>Payroll &amp; HR</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">3 analyzed</span>
+          <span class="grid-tile-badge">Low</span>
+        </div>
+      </div>
+      <div class="grid-tile grid-tile--low reveal">
+        <h4>E-commerce Platforms</h4>
+        <div class="grid-tile-meta">
+          <span class="grid-tile-stat">4 analyzed</span>
+          <span class="grid-tile-badge">Low</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="battlefield-summary reveal">
+      <p><span class="gold">22 categories</span> &middot; <span class="gold">93 competitors</span> &middot; <span class="gold">$12.3B</span> attackable today.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 4: THE VISION
+     ═══════════════════════════════════════════════════════ -->
+<section class="vision">
+  <div class="section-inner">
+    <div class="vision-label reveal">What Comes Next</div>
+    <h2 class="vision-title reveal reveal-delay-1">Free Tools Are Just the Beginning</h2>
+
+    <div class="vision-columns">
+      <div class="vision-card reveal reveal-delay-1">
+        <div class="vision-phase">Phase 1: Replace</div>
+        <h3>Eliminate the subscription tax</h3>
+        <p>Free tools that match or exceed every paid competitor. Every category, every feature, zero friction. No trials, no freemium traps, no credit card required. Just tools that work &mdash; the way software was supposed to be.</p>
+      </div>
+      <div class="vision-card reveal reveal-delay-2">
+        <div class="vision-phase">Phase 2: Automate</div>
+        <h3>AI agents that chain tools together</h3>
+        <p>Research, write, schedule, analyze &mdash; autonomously. Agents that understand your business context, connect across every tool in the suite, and execute multi-step workflows without human intervention. Not automation. Autonomy.</p>
+      </div>
+    </div>
+
+    <div class="vision-bottom reveal reveal-delay-3">
+      <p>We're not building another SaaS company. We're building <span class="em">the thing that makes SaaS companies obsolete</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 5: THE NUMBERS
+     ═══════════════════════════════════════════════════════ -->
+<section class="numbers">
+  <div class="section-inner">
+    <div class="numbers-grid">
+      <div class="number-block reveal">
+        <div class="number-value">$24.4B</div>
+        <div class="number-label">Total addressable revenue</div>
+      </div>
+      <div class="number-block reveal reveal-delay-1">
+        <div class="number-value">$12.3B</div>
+        <div class="number-label">Attackable today</div>
+      </div>
+      <div class="number-block reveal reveal-delay-2">
+        <div class="number-value">22</div>
+        <div class="number-label">Product categories ready</div>
+      </div>
+    </div>
+    <p class="numbers-tagline reveal reveal-delay-3">Every competitor analyzed. Every vulnerability documented. Every tool replicated.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 6: CALL TO ACTION
+     ═══════════════════════════════════════════════════════ -->
+<section class="cta">
+  <div class="section-inner cta-inner">
+    <div class="cta-links">
+      <a href="roadmap.html" class="cta-link reveal">
+        Want to see the roadmap?
+        <span>&rarr;</span>
+      </a>
+      <a href="admin.html" class="cta-link reveal reveal-delay-1">
+        Want to see the tools?
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">AppBuster &copy; 2026</div>
+    <div class="footer-links">
+      <a href="admin.html">Admin</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="vanillalabs/">Vanilla Labs</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     Scroll-reveal observer (CSS-driven, minimal JS)
+     ═══════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  reveals.forEach(function(el) {
+    observer.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>

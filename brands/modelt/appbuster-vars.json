@@ -1,0 +1,22 @@
+{
+  "isDark": true,
+  "vars": {
+    "bg": "#1c1917",
+    "surface": "#292524",
+    "surfaceHover": "#44403c",
+    "border": "#44403c",
+    "text": "#fef3c7",
+    "muted": "#d6d3d1",
+    "gold": "#d97706",
+    "goldDim": "rgba(217, 119, 6, 0.15)",
+    "goldGlow": "rgba(217, 119, 6, 0.08)",
+    "blue": "#f59e0b",
+    "blueDim": "rgba(245, 158, 11, 0.15)",
+    "sans": "'Source Sans 3', system-ui, -apple-system, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "Model <span>T</span>",
+  "accentOnBg": "#fff",
+  "headingFont": "'Playfair Display', Georgia, serif",
+  "extraCSS": ""
+}

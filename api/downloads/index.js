@@ -1,11 +1,4 @@
-const { createClient } = require('@supabase/supabase-js');
-
-function getSupabase() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY;
-  if (!url || !key) return null;
-  return createClient(url, key);
-}
+const supabase = require('../../lib/supabase');
 
 async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -14,7 +7,6 @@ async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
 
   if (req.method === 'GET') {
-    const supabase = getSupabase();
     if (!supabase) return res.json({ downloads: [] });
 
     const { data, error } = await supabase

@@ -1,0 +1,95 @@
+{
+  "slug": "bulkdocs",
+  "name": "BulkDocs",
+  "category": "Productivity",
+  "tagline": "Document collaboration. Real-time editing, comments, version history, templates. All free, forever.",
+  "competitor": "Notion",
+  "competitorPrice": "$96/mo",
+  "annualSavings": "$1,152/year",
+  "badges": ["FREE"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"doc-page\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#fff\"/><stop offset=\"100%\" stop-color=\"#f0ece0\"/></linearGradient><linearGradient id=\"doc-fold\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ddd\"/><stop offset=\"100%\" stop-color=\"#bbb\"/></linearGradient></defs><ellipse cx=\"50\" cy=\"92\" rx=\"28\" ry=\"4\" fill=\"rgba(0,0,0,.15)\"/><rect x=\"22\" y=\"10\" width=\"56\" height=\"76\" rx=\"2\" fill=\"#e8e4d8\" stroke=\"#bbb\" stroke-width=\".5\" transform=\"rotate(2 50 48)\"/><rect x=\"20\" y=\"8\" width=\"56\" height=\"76\" rx=\"2\" fill=\"url(#doc-page)\" stroke=\"#ccc\" stroke-width=\".8\"/><polygon points=\"76,8 76,22 62,8\" fill=\"url(#doc-fold)\" stroke=\"#bbb\" stroke-width=\".5\"/><rect x=\"28\" y=\"20\" width=\"36\" height=\"2.5\" rx=\"1\" fill=\"#333\" opacity=\".7\"/><rect x=\"28\" y=\"28\" width=\"40\" height=\"2\" rx=\"1\" fill=\"#888\" opacity=\".4\"/><rect x=\"28\" y=\"34\" width=\"38\" height=\"2\" rx=\"1\" fill=\"#888\" opacity=\".4\"/><rect x=\"28\" y=\"40\" width=\"32\" height=\"2\" rx=\"1\" fill=\"#888\" opacity=\".4\"/><rect x=\"28\" y=\"48\" width=\"40\" height=\"2\" rx=\"1\" fill=\"#888\" opacity=\".4\"/><rect x=\"28\" y=\"54\" width=\"36\" height=\"2\" rx=\"1\" fill=\"#888\" opacity=\".4\"/><rect x=\"28\" y=\"60\" width=\"28\" height=\"2\" rx=\"1\" fill=\"#888\" opacity=\".4\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F4DD;",
+      "title": "Real-time Collaboration",
+      "desc": "Multiple people editing the same document simultaneously. See cursors, selections, and changes in real time. No conflicts."
+    },
+    {
+      "icon": "&#x1F4DC;",
+      "title": "Version History",
+      "desc": "Every change is saved automatically. Browse previous versions, compare changes, and restore any point in time with one click."
+    },
+    {
+      "icon": "&#x1F4AC;",
+      "title": "Comments &amp; Mentions",
+      "desc": "Leave comments on any text. @mention teammates for review. Resolve threads when feedback is addressed. Comment history preserved."
+    },
+    {
+      "icon": "&#x1F4C4;",
+      "title": "Templates",
+      "desc": "Pre-built templates for meeting notes, project briefs, SOPs, wikis, and more. Create custom templates for your team's workflows."
+    },
+    {
+      "icon": "&#x1F4C1;",
+      "title": "Nested Pages",
+      "desc": "Wiki-style page hierarchy. Nest pages inside pages for organized knowledge bases. Drag and drop to reorganize anytime."
+    },
+    {
+      "icon": "&#x1F4E4;",
+      "title": "Export Anywhere",
+      "desc": "Export to PDF, Markdown, HTML, or plain text. Import from Notion, Google Docs, or Markdown files. Your data is never locked in."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkDocs", "Notion"],
+    "rows": [
+      { "feature": "Real-time Editing", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Version History", "us": "check", "them": "$10+/mo", "themType": "paid" },
+      { "feature": "Unlimited Blocks", "us": "check", "them": "1000 on free", "themType": "cross" },
+      { "feature": "File Uploads", "us": "check", "them": "5MB on free", "themType": "cross" },
+      { "feature": "Guest Access", "us": "check", "them": "Limited on free", "themType": "cross" },
+      { "feature": "API Access", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Custom Templates", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Offline Access", "us": "check", "them": "Limited", "themType": "cross" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$96/mo"
+    }
+  },
+  "includes": [
+    "Unlimited pages and blocks",
+    "Real-time collaborative editing",
+    "Full version history",
+    "Comments and @mentions",
+    "Nested page hierarchy",
+    "50+ templates",
+    "Markdown support",
+    "Export to PDF, MD, HTML",
+    "Import from Notion/Google",
+    "Offline editing",
+    "No credit card required",
+    "Free forever, unlimited members"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F4DA;",
+      "title": "Knowledge Teams",
+      "desc": "Build internal wikis, SOPs, and documentation. Nested pages keep everything organized. Search finds anything instantly."
+    },
+    {
+      "icon": "&#x1F46A;",
+      "title": "Remote Teams",
+      "desc": "Collaborative documents that replace scattered Google Docs. Meeting notes, project specs, and decisions all in one place."
+    },
+    {
+      "icon": "&#x270D;",
+      "title": "Content Creators",
+      "desc": "Draft, review, and publish content with version history. Templates speed up recurring content types. Export to any format."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "bulkdesk", "name": "BulkDesk" },
+    "next": { "slug": "bulkdesign", "name": "BulkDesign" }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "live-chat",
+  "name": "ChatDesk",
+  "category": "Live Chat &amp; Support",
+  "tagline": "Real-time customer support without the enterprise price tag",
+  "metaDescription": "ChatDesk replaces Intercom with live chat, automated routing, canned responses, and visitor tracking — all included in your AppBuster subscription.",
+  "competitor": "Intercom",
+  "competitorPrice": "$115/mo",
+  "annualSavings": "$1,380/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">💬</text></svg>",
+  "features": [
+    {
+      "icon": "&#128172;",
+      "title": "Live Chat Widget",
+      "desc": "Embed a fully customizable chat widget on any website. Match your brand colors, position, and greeting message to create a seamless visitor experience."
+    },
+    {
+      "icon": "&#9889;",
+      "title": "Automated Routing",
+      "desc": "Route conversations to the right team member based on page URL, visitor segment, or topic keywords. Reduce first-response time by getting inquiries to the right person instantly."
+    },
+    {
+      "icon": "&#128203;",
+      "title": "Canned Responses",
+      "desc": "Build a shared library of pre-written replies for common questions. Agents can insert responses with a single keystroke, keeping answers consistent across your team."
+    },
+    {
+      "icon": "&#128065;",
+      "title": "Visitor Tracking",
+      "desc": "See which pages a visitor browsed before starting a chat, their location, device, and referral source. Context-rich conversations lead to faster resolutions."
+    },
+    {
+      "icon": "&#128231;",
+      "title": "Offline Messaging",
+      "desc": "Capture messages when your team is away with a branded contact form. Conversations queue up and appear in the shared inbox the moment an agent comes online."
+    },
+    {
+      "icon": "&#128202;",
+      "title": "Performance Analytics",
+      "desc": "Track response times, resolution rates, and customer satisfaction scores in real time. Identify bottlenecks and coach agents with data-driven insights."
+    }
+  ],
+  "includes": [
+    "Unlimited chat conversations",
+    "Customizable chat widget",
+    "Team inbox with assignment",
+    "Canned response library",
+    "Visitor activity timeline",
+    "Offline message capture",
+    "File sharing in chat",
+    "Chat transcripts and history",
+    "Typing indicators and read receipts",
+    "Agent availability scheduling",
+    "Pre-chat survey forms",
+    "Response time analytics dashboard"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Live Chat Widget", "them": "&#10003;", "themType": "check" },
+      { "feature": "Canned Responses", "them": "&#10003;", "themType": "check" },
+      { "feature": "Visitor Tracking", "them": "&#10003;", "themType": "check" },
+      { "feature": "Team Inbox", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Chatbots", "them": "$200+/mo", "themType": "paid" },
+      { "feature": "Product Tours", "them": "$199+/mo", "themType": "paid" },
+      { "feature": "Unlimited Conversations", "them": "$115+/mo", "themType": "paid" },
+      { "feature": "White-Label Branding", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

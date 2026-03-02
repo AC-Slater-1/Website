@@ -1,0 +1,21 @@
+{
+  "isDark": false,
+  "vars": {
+    "bg": "#fefce8",
+    "surface": "#fffef5",
+    "surfaceHover": "#fef9c3",
+    "border": "#d6d3d1",
+    "text": "#1c1917",
+    "muted": "#57534e",
+    "gold": "#84cc16",
+    "goldDim": "rgba(132, 204, 22, 0.15)",
+    "goldGlow": "rgba(132, 204, 22, 0.06)",
+    "blue": "#84cc16",
+    "blueDim": "rgba(132, 204, 22, 0.15)",
+    "sans": "'Outfit', system-ui, -apple-system, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "Lime<span>Ware</span>",
+  "accentOnBg": "#1c1917",
+  "extraCSS": ""
+}

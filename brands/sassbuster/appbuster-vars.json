@@ -1,0 +1,21 @@
+{
+  "isDark": true,
+  "vars": {
+    "bg": "#18181b",
+    "surface": "#1e1e2a",
+    "surfaceHover": "#2e2e3a",
+    "border": "#2e2e3a",
+    "text": "#f1f5f9",
+    "muted": "#94a3b8",
+    "gold": "#ec4899",
+    "goldDim": "rgba(236, 72, 153, 0.15)",
+    "goldGlow": "rgba(236, 72, 153, 0.08)",
+    "blue": "#ec4899",
+    "blueDim": "rgba(236, 72, 153, 0.15)",
+    "sans": "'Space Grotesk', -apple-system, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "Sass<span>Buster</span>",
+  "accentOnBg": "#fff",
+  "extraCSS": ""
+}

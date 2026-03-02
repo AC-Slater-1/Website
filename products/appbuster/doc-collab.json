@@ -1,0 +1,46 @@
+{
+  "slug": "doc-collab",
+  "name": "TeamDocs",
+  "category": "Document Collaboration",
+  "tagline": "Your team's knowledge base without the per-seat pricing",
+  "metaDescription": "TeamDocs replaces Notion with a collaborative workspace built into AppBuster. Write docs, build wikis, and organize knowledge — saving $1,152/year.",
+  "competitor": "Notion",
+  "competitorPrice": "$96/mo",
+  "annualSavings": "$1,152/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">📝</text></svg>",
+  "features": [
+    { "icon": "&#128221;", "title": "Rich Document Editor", "desc": "Write with a block-based editor that supports headings, tables, code blocks, embeds, and callouts. Slash commands let your team create structured content without touching a toolbar." },
+    { "icon": "&#128101;", "title": "Real-Time Collaboration", "desc": "Multiple team members can edit the same document simultaneously with live cursors and presence indicators. Inline comments and @mentions keep discussions in context." },
+    { "icon": "&#128218;", "title": "Team Wiki", "desc": "Organize knowledge into nested pages with sidebar navigation. Pin critical docs, archive outdated ones, and let your team find answers through full-text search." },
+    { "icon": "&#128274;", "title": "Permission Controls", "desc": "Set view, comment, or edit access at the workspace, folder, or individual page level. Share specific pages externally with password-protected public links." },
+    { "icon": "&#128197;", "title": "Version History", "desc": "Every edit is automatically saved with full revision history. Compare versions side-by-side and restore any previous state with one click." },
+    { "icon": "&#128196;", "title": "Templates &amp; Databases", "desc": "Create reusable page templates for meeting notes, project briefs, and SOPs. Build structured databases with custom properties, filters, and views." }
+  ],
+  "includes": [
+    "Unlimited pages and workspaces",
+    "Block-based rich text editor",
+    "Real-time collaborative editing",
+    "Inline comments and @mentions",
+    "Nested page organization",
+    "Full-text search across all docs",
+    "Version history with restore",
+    "Page-level permission controls",
+    "Public sharing with password protection",
+    "Reusable page templates",
+    "Structured databases with views",
+    "Markdown import and export"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Document Editor", "them": "&#10003;", "themType": "check" },
+      { "feature": "Real-Time Collaboration", "them": "&#10003;", "themType": "check" },
+      { "feature": "Team Wiki", "them": "&#10003;", "themType": "check" },
+      { "feature": "Databases &amp; Views", "them": "&#10003;", "themType": "check" },
+      { "feature": "Unlimited Guests", "them": "$96+/mo", "themType": "paid" },
+      { "feature": "Version History (30+ days)", "them": "$96+/mo", "themType": "paid" },
+      { "feature": "Bulk Export", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Branding", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

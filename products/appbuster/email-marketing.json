@@ -1,0 +1,70 @@
+{
+  "slug": "email-marketing",
+  "name": "MailBlast",
+  "category": "Email Marketing",
+  "tagline": "Send campaigns, build automations, and grow your list. Drag-and-drop email builder, segmentation, and deliverability tools. Free, with no subscriber limits.",
+  "metaDescription": "MailBlast is a free email marketing platform that replaces Mailchimp. Build campaigns, automate sequences, segment audiences, and track performance. No subscriber caps.",
+  "competitor": "Mailchimp",
+  "competitorPrice": "$350/mo",
+  "annualSavings": "$4,200/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\ud83d\udce7</text></svg>",
+  "features": [
+    {
+      "icon": "&#127912;",
+      "title": "Drag-and-Drop Editor",
+      "desc": "Build beautiful, responsive emails with a visual editor. Choose from 100+ templates or start from scratch. Every email renders perfectly across Gmail, Outlook, and mobile clients."
+    },
+    {
+      "icon": "&#9881;",
+      "title": "Automation Workflows",
+      "desc": "Create multi-step email sequences triggered by signups, purchases, clicks, or custom events. Visual workflow builder makes complex drip campaigns intuitive to design."
+    },
+    {
+      "icon": "&#128101;",
+      "title": "Audience Segmentation",
+      "desc": "Segment your list by behavior, demographics, purchase history, or engagement level. Send the right message to the right people at the right time with dynamic segments."
+    },
+    {
+      "icon": "&#128200;",
+      "title": "Campaign Analytics",
+      "desc": "Track opens, clicks, bounces, and unsubscribes in real time. Revenue attribution shows exactly how much money each email earns. Compare campaigns side by side."
+    },
+    {
+      "icon": "&#128236;",
+      "title": "Deliverability Tools",
+      "desc": "Built-in SPF, DKIM, and DMARC configuration. Spam score checker previews inbox placement before you send. Dedicated IP options keep your sender reputation clean."
+    },
+    {
+      "icon": "&#128203;",
+      "title": "Landing Pages &amp; Forms",
+      "desc": "Build high-converting signup forms, pop-ups, and landing pages to grow your list. A/B test variations and track conversion rates without a separate tool."
+    }
+  ],
+  "includes": [
+    "Unlimited subscribers",
+    "Unlimited monthly email sends",
+    "100+ responsive email templates",
+    "Visual automation workflow builder",
+    "Advanced audience segmentation",
+    "A/B testing for subject lines and content",
+    "Real-time campaign analytics",
+    "Revenue attribution tracking",
+    "Signup forms and landing pages",
+    "SPF, DKIM, and DMARC tools",
+    "List cleaning and bounce handling",
+    "No branding on sent emails"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Email Campaign Builder", "them": "&#10003;", "themType": "check" },
+      { "feature": "Automation Workflows", "them": "&#10003;", "themType": "check" },
+      { "feature": "Audience Segmentation", "them": "&#10003;", "themType": "check" },
+      { "feature": "Campaign Analytics", "them": "&#10003;", "themType": "check" },
+      { "feature": "A/B Testing", "them": "$350+/mo", "themType": "paid" },
+      { "feature": "Landing Pages", "them": "$350+/mo", "themType": "paid" },
+      { "feature": "Unlimited Subscribers", "them": "&#10007;", "themType": "cross" },
+      { "feature": "No Branding on Emails", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

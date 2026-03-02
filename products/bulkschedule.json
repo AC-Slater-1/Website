@@ -1,0 +1,95 @@
+{
+  "slug": "bulkschedule",
+  "name": "BulkSchedule",
+  "category": "Social Media",
+  "tagline": "Social media scheduler. Multi-platform posting, analytics, content calendar. All free, forever.",
+  "competitor": "Buffer",
+  "competitorPrice": "$120/mo",
+  "annualSavings": "$1,440/year",
+  "badges": ["FREE"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"ph-body\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0%\" stop-color=\"#3a3a3a\"/><stop offset=\"15%\" stop-color=\"#222\"/><stop offset=\"50%\" stop-color=\"#333\"/><stop offset=\"85%\" stop-color=\"#222\"/><stop offset=\"100%\" stop-color=\"#2a2a2a\"/></linearGradient><linearGradient id=\"ph-screen\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#1a2a4a\"/><stop offset=\"100%\" stop-color=\"#0e1830\"/></linearGradient></defs><ellipse cx=\"50\" cy=\"94\" rx=\"22\" ry=\"3\" fill=\"rgba(0,0,0,.2)\"/><rect x=\"28\" y=\"6\" width=\"44\" height=\"85\" rx=\"8\" fill=\"url(#ph-body)\" stroke=\"#111\" stroke-width=\"1\"/><rect x=\"32\" y=\"14\" width=\"36\" height=\"64\" rx=\"3\" fill=\"url(#ph-screen)\"/><rect x=\"36\" y=\"20\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#ff6b6b\"/><rect x=\"48\" y=\"20\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#4a9fff\"/><rect x=\"36\" y=\"32\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#50cc70\"/><rect x=\"48\" y=\"32\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#ffd700\"/><rect x=\"36\" y=\"44\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#9b59b6\"/><rect x=\"48\" y=\"44\" width=\"8\" height=\"8\" rx=\"2\" fill=\"#f39c12\"/><rect x=\"42\" y=\"9\" width=\"16\" height=\"3\" rx=\"1.5\" fill=\"#111\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F4F1;",
+      "title": "Multi-Platform Posting",
+      "desc": "Post to Twitter/X, Instagram, LinkedIn, Facebook, TikTok, and Pinterest from one dashboard. Customize per platform."
+    },
+    {
+      "icon": "&#x1F4C5;",
+      "title": "Content Calendar",
+      "desc": "Visual drag-and-drop calendar. See all scheduled posts across platforms. Spot gaps in your content plan at a glance."
+    },
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Analytics Dashboard",
+      "desc": "Track engagement, reach, impressions, and follower growth across all platforms. Compare performance week over week."
+    },
+    {
+      "icon": "&#x1F552;",
+      "title": "Best Time to Post",
+      "desc": "AI analyzes your audience's activity patterns and recommends optimal posting times per platform for maximum engagement."
+    },
+    {
+      "icon": "&#x1F4E5;",
+      "title": "Queue Management",
+      "desc": "Set up recurring time slots and drop content into the queue. Auto-scheduling fills your calendar without manual scheduling."
+    },
+    {
+      "icon": "&#x1F46A;",
+      "title": "Team Collaboration",
+      "desc": "Approval workflows for team posts. Draft, review, and approve before anything goes live. Role-based access controls."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkSchedule", "Buffer"],
+    "rows": [
+      { "feature": "Multi-Platform Posting", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Content Calendar", "us": "check", "them": "$6+/mo", "themType": "paid" },
+      { "feature": "Analytics", "us": "check", "them": "$6+/mo", "themType": "paid" },
+      { "feature": "Team Collaboration", "us": "check", "them": "$12+/mo", "themType": "paid" },
+      { "feature": "Unlimited Channels", "us": "check", "them": "3 on free", "themType": "cross" },
+      { "feature": "Unlimited Scheduled Posts", "us": "check", "them": "10 on free", "themType": "cross" },
+      { "feature": "Best Time Suggestions", "us": "check", "them": "$6+/mo", "themType": "paid" },
+      { "feature": "Approval Workflows", "us": "check", "them": "$120+/mo", "themType": "paid" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$120/mo"
+    }
+  },
+  "includes": [
+    "Unlimited social channels",
+    "Unlimited scheduled posts",
+    "Visual content calendar",
+    "Cross-platform analytics",
+    "AI best-time recommendations",
+    "Queue auto-scheduling",
+    "Team approval workflows",
+    "Hashtag suggestions",
+    "Link shortening and tracking",
+    "Bulk upload and scheduling",
+    "No credit card required",
+    "Free forever, no post limits"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F4F1;",
+      "title": "Social Media Managers",
+      "desc": "Manage all your clients' accounts from one dashboard. Queue content, track performance, and get approval before posting."
+    },
+    {
+      "icon": "&#x1F3E2;",
+      "title": "Small Businesses",
+      "desc": "Stay consistent on social media without spending hours. Schedule a week's worth of content in one sitting."
+    },
+    {
+      "icon": "&#x1F3A4;",
+      "title": "Creators &amp; Influencers",
+      "desc": "Cross-post to every platform with one click. Analytics show what content resonates so you can make more of it."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "bulkdesign", "name": "BulkDesign" },
+    "next": null
+  }
+}

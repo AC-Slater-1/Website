@@ -1,0 +1,70 @@
+{
+  "slug": "social-media",
+  "name": "SocialPulse",
+  "category": "Social Media Management",
+  "tagline": "Schedule, publish, and analyze across every social platform from one dashboard",
+  "metaDescription": "SocialPulse replaces Hootsuite with multi-platform scheduling, analytics, inbox management, and content calendars — all included in your AppBuster subscription.",
+  "competitor": "Hootsuite",
+  "competitorPrice": "$120/mo",
+  "annualSavings": "$1,440/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">📱</text></svg>",
+  "features": [
+    {
+      "icon": "&#128197;",
+      "title": "Content Calendar",
+      "desc": "Plan your entire social strategy on a visual calendar. Drag posts between dates, color-code by platform, and see your publishing cadence at a glance."
+    },
+    {
+      "icon": "&#128336;",
+      "title": "Smart Scheduling",
+      "desc": "Queue posts for optimal engagement times based on your audience's historical activity patterns. Set it once and let the scheduler handle the rest."
+    },
+    {
+      "icon": "&#128233;",
+      "title": "Unified Inbox",
+      "desc": "Reply to comments, DMs, and mentions from Instagram, Facebook, X, and LinkedIn in a single feed. Never miss an interaction or let a customer wait."
+    },
+    {
+      "icon": "&#128200;",
+      "title": "Cross-Platform Analytics",
+      "desc": "Compare engagement, reach, and follower growth across all connected accounts in one report. Export branded PDFs for client or stakeholder presentations."
+    },
+    {
+      "icon": "&#128101;",
+      "title": "Team Approval Workflow",
+      "desc": "Route drafted posts through a review chain before they go live. Approvers can edit, comment, or reject with a single click to maintain brand consistency."
+    },
+    {
+      "icon": "&#127912;",
+      "title": "Media Library",
+      "desc": "Upload and organize images, videos, and brand assets in a shared library. Tag files for quick search and drag them directly into post drafts."
+    }
+  ],
+  "includes": [
+    "Unlimited scheduled posts",
+    "Visual content calendar",
+    "Multi-platform publishing",
+    "Optimal time scheduling",
+    "Unified social inbox",
+    "Cross-platform analytics",
+    "Branded PDF report exports",
+    "Team roles and approval chains",
+    "Shared media asset library",
+    "Hashtag performance tracking",
+    "Bulk post scheduling via CSV",
+    "RSS feed auto-posting"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Multi-Platform Scheduling", "them": "&#10003;", "themType": "check" },
+      { "feature": "Content Calendar", "them": "&#10003;", "themType": "check" },
+      { "feature": "Social Inbox", "them": "&#10003;", "themType": "check" },
+      { "feature": "Basic Analytics", "them": "&#10003;", "themType": "check" },
+      { "feature": "Team Members", "them": "$120+/mo", "themType": "paid" },
+      { "feature": "Custom Report Builder", "them": "$599+/mo", "themType": "paid" },
+      { "feature": "Bulk Scheduling", "them": "$120+/mo", "themType": "paid" },
+      { "feature": "Unlimited Social Accounts", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

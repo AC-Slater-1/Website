@@ -1,0 +1,70 @@
+{
+  "slug": "website-builder",
+  "name": "SiteForge",
+  "category": "Website Builder",
+  "tagline": "Launch professional websites without writing a single line of code",
+  "metaDescription": "SiteForge replaces Wix with a drag-and-drop website builder, responsive templates, custom domains, and built-in SEO tools — all included in your AppBuster subscription.",
+  "competitor": "Wix",
+  "competitorPrice": "$33/mo",
+  "annualSavings": "$396/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">💻</text></svg>",
+  "features": [
+    {
+      "icon": "&#128421;",
+      "title": "Visual Page Builder",
+      "desc": "Build pages by dragging sections, images, and text blocks onto a live canvas. What you see is exactly what visitors get — no preview mode needed."
+    },
+    {
+      "icon": "&#127760;",
+      "title": "Custom Domain Connection",
+      "desc": "Connect your own domain name or register a new one directly from the dashboard. SSL certificates are provisioned automatically at no extra cost."
+    },
+    {
+      "icon": "&#128241;",
+      "title": "Responsive Design",
+      "desc": "Every template adapts to mobile, tablet, and desktop screen sizes automatically. Fine-tune breakpoints with per-device layout controls when you need precision."
+    },
+    {
+      "icon": "&#128269;",
+      "title": "Built-In SEO Tools",
+      "desc": "Edit meta titles, descriptions, and Open Graph tags for every page. The SEO audit tool flags missing alt text, broken links, and slow-loading images before you publish."
+    },
+    {
+      "icon": "&#128218;",
+      "title": "Blog Engine",
+      "desc": "Publish blog posts with categories, tags, and scheduled publishing. The built-in RSS feed and sitemap keep search engines and subscribers up to date."
+    },
+    {
+      "icon": "&#9889;",
+      "title": "One-Click Publishing",
+      "desc": "Push changes live instantly or schedule updates for a future date. Rollback to any previous version with a single click if something goes wrong."
+    }
+  ],
+  "includes": [
+    "Unlimited pages per site",
+    "100+ responsive templates",
+    "Custom domain with free SSL",
+    "Visual drag-and-drop editor",
+    "Mobile layout editor",
+    "Blog with categories and tags",
+    "Contact form builder",
+    "Image gallery widgets",
+    "SEO meta tag editor",
+    "Sitemap and robots.txt generation",
+    "Google Analytics integration",
+    "Version history and rollback"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Drag-and-Drop Builder", "them": "&#10003;", "themType": "check" },
+      { "feature": "Responsive Templates", "them": "&#10003;", "themType": "check" },
+      { "feature": "Blog Engine", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Domain + SSL", "them": "&#10003;", "themType": "check" },
+      { "feature": "Remove Branding", "them": "$33+/mo", "themType": "paid" },
+      { "feature": "E-Commerce Store", "them": "$36+/mo", "themType": "paid" },
+      { "feature": "Visitor Analytics", "them": "$33+/mo", "themType": "paid" },
+      { "feature": "Unlimited Bandwidth", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

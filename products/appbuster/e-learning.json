@@ -1,0 +1,46 @@
+{
+  "slug": "e-learning",
+  "name": "LearnStack",
+  "category": "E-Learning &amp; Courses",
+  "tagline": "Launch your online academy without the monthly tax",
+  "metaDescription": "LearnStack replaces Teachable with a complete course platform built into AppBuster. Host courses, manage students, and sell knowledge — saving $1,788/year.",
+  "competitor": "Teachable",
+  "competitorPrice": "$149/mo",
+  "annualSavings": "$1,788/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">🎓</text></svg>",
+  "features": [
+    { "icon": "&#127891;", "title": "Course Builder", "desc": "Drag-and-drop curriculum editor with support for video, text, quizzes, and downloadable resources. Organize content into modules and lessons with flexible drip scheduling." },
+    { "icon": "&#127916;", "title": "Video Hosting", "desc": "Upload and stream course videos with adaptive bitrate playback. No third-party hosting fees — videos are stored and delivered directly from your AppBuster instance." },
+    { "icon": "&#128203;", "title": "Quizzes &amp; Certificates", "desc": "Create graded assessments with multiple question types. Automatically issue branded completion certificates when students pass your requirements." },
+    { "icon": "&#128176;", "title": "Payment Processing", "desc": "Sell courses with one-time payments, subscriptions, or payment plans. Built-in checkout with coupon codes and affiliate tracking out of the box." },
+    { "icon": "&#128101;", "title": "Student Management", "desc": "Track enrollment, progress, and completion rates across your entire student body. Segment students by course, cohort, or engagement level for targeted communication." },
+    { "icon": "&#128172;", "title": "Community Forums", "desc": "Built-in discussion boards per course so students can ask questions, share progress, and support each other. Moderate conversations without leaving the platform." }
+  ],
+  "includes": [
+    "Unlimited courses and students",
+    "Drag-and-drop course builder",
+    "Native video hosting and streaming",
+    "Graded quizzes with auto-scoring",
+    "Branded completion certificates",
+    "Drip content scheduling",
+    "Coupon codes and promotions",
+    "Student progress tracking dashboard",
+    "Discussion forums per course",
+    "Email notifications for milestones",
+    "Embeddable course widgets",
+    "Bulk student import and management"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Course Creation", "them": "&#10003;", "themType": "check" },
+      { "feature": "Video Hosting", "them": "&#10003;", "themType": "check" },
+      { "feature": "Quizzes &amp; Assessments", "them": "&#10003;", "themType": "check" },
+      { "feature": "Completion Certificates", "them": "$149+/mo", "themType": "paid" },
+      { "feature": "Zero Transaction Fees", "them": "$149+/mo", "themType": "paid" },
+      { "feature": "Custom Domain", "them": "&#10003;", "themType": "check" },
+      { "feature": "Affiliate Program", "them": "$149+/mo", "themType": "paid" },
+      { "feature": "White-Label Branding", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

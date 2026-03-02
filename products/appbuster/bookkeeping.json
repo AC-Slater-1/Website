@@ -1,0 +1,46 @@
+{
+  "slug": "bookkeeping",
+  "name": "LedgerPro",
+  "category": "Bookkeeping",
+  "tagline": "Keep your books clean without the monthly subscription",
+  "metaDescription": "LedgerPro replaces FreshBooks with professional invoicing and bookkeeping built into AppBuster. Track expenses, send invoices, and run reports — saving $660/year.",
+  "competitor": "FreshBooks",
+  "competitorPrice": "$55/mo",
+  "annualSavings": "$660/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">💰</text></svg>",
+  "features": [
+    { "icon": "&#128451;", "title": "Professional Invoicing", "desc": "Create and send branded invoices in seconds with customizable templates. Automate recurring invoices and payment reminders so you spend less time chasing payments." },
+    { "icon": "&#128179;", "title": "Expense Tracking", "desc": "Categorize and track every business expense with receipt capture. Connect bank feeds to automatically import transactions and match them to categories." },
+    { "icon": "&#128200;", "title": "Financial Reports", "desc": "Generate profit and loss statements, balance sheets, and cash flow reports on demand. Filter by date range, client, or project to get the insights you need." },
+    { "icon": "&#128176;", "title": "Online Payments", "desc": "Accept credit card and ACH payments directly through your invoices. Clients pay with one click and funds settle to your account within days." },
+    { "icon": "&#128338;", "title": "Time Tracking", "desc": "Track billable hours per client or project with a built-in timer. Convert tracked time into invoices with a single click for accurate billing." },
+    { "icon": "&#128202;", "title": "Tax Preparation", "desc": "Organize income and expenses by tax category throughout the year. Export tax-ready reports to share with your accountant at filing time." }
+  ],
+  "includes": [
+    "Unlimited invoices and estimates",
+    "Automatic payment reminders",
+    "Recurring invoice scheduling",
+    "Bank feed integration",
+    "Receipt capture and storage",
+    "Profit and loss reports",
+    "Balance sheet generation",
+    "Built-in time tracker",
+    "Multi-currency support",
+    "Client portal for payments",
+    "Tax category organization",
+    "Expense approval workflows"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Invoicing", "them": "&#10003;", "themType": "check" },
+      { "feature": "Expense Tracking", "them": "&#10003;", "themType": "check" },
+      { "feature": "Bank Feeds", "them": "&#10003;", "themType": "check" },
+      { "feature": "Financial Reports", "them": "&#10003;", "themType": "check" },
+      { "feature": "Time Tracking", "them": "$33+/mo", "themType": "paid" },
+      { "feature": "Unlimited Clients", "them": "$55+/mo", "themType": "paid" },
+      { "feature": "Multi-Currency", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Branding", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

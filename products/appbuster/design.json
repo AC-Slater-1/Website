@@ -1,0 +1,70 @@
+{
+  "slug": "design",
+  "name": "PixelForge",
+  "category": "Design &amp; Graphics",
+  "tagline": "Professional design tools for teams that move fast",
+  "metaDescription": "PixelForge replaces Canva Pro with templates, brand kits, background removal, and team collaboration — all included in your AppBuster subscription.",
+  "competitor": "Canva Pro",
+  "competitorPrice": "$120/mo",
+  "annualSavings": "$1,440/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">🎨</text></svg>",
+  "features": [
+    {
+      "icon": "&#127912;",
+      "title": "Drag-and-Drop Editor",
+      "desc": "Build social posts, presentations, and marketing materials with an intuitive canvas editor. No design skills required — just drag elements into place and publish."
+    },
+    {
+      "icon": "&#128396;",
+      "title": "Brand Kit",
+      "desc": "Store your logos, color palettes, and brand fonts in one central kit. Every new design automatically pulls from your brand guidelines to keep visuals consistent."
+    },
+    {
+      "icon": "&#128444;",
+      "title": "Background Removal",
+      "desc": "Remove backgrounds from product photos and headshots with one click. The AI-powered tool handles complex edges like hair and transparent objects cleanly."
+    },
+    {
+      "icon": "&#128195;",
+      "title": "Template Library",
+      "desc": "Access thousands of professionally designed templates for Instagram stories, YouTube thumbnails, email headers, flyers, and more. Customize any template in minutes."
+    },
+    {
+      "icon": "&#128101;",
+      "title": "Team Collaboration",
+      "desc": "Share designs with teammates for feedback and co-editing in real time. Leave comments directly on the canvas and track version history for every asset."
+    },
+    {
+      "icon": "&#128230;",
+      "title": "Multi-Format Export",
+      "desc": "Export designs as PNG, JPG, SVG, PDF, or MP4 video. Choose resolution presets optimized for print, web, or social media platforms."
+    }
+  ],
+  "includes": [
+    "Unlimited design projects",
+    "5,000+ customizable templates",
+    "Brand kit with logo and fonts",
+    "One-click background remover",
+    "Stock photo library access",
+    "Custom dimension presets",
+    "Team sharing and comments",
+    "Version history per design",
+    "SVG and PDF vector export",
+    "Social media resize tool",
+    "Animation and GIF export",
+    "Folder organization and tagging"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Drag-and-Drop Editor", "them": "&#10003;", "themType": "check" },
+      { "feature": "Template Library", "them": "&#10003;", "themType": "check" },
+      { "feature": "Background Removal", "them": "&#10003;", "themType": "check" },
+      { "feature": "Brand Kit", "them": "&#10003;", "themType": "check" },
+      { "feature": "Premium Stock Photos", "them": "$120+/mo", "themType": "paid" },
+      { "feature": "Team Workspaces", "them": "$100+/mo", "themType": "paid" },
+      { "feature": "SVG Export", "them": "$120+/mo", "themType": "paid" },
+      { "feature": "Unlimited Storage", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

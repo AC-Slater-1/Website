@@ -1,0 +1,10 @@
+{
+  "name": "SassBuster",
+  "slug": "sassbuster",
+  "domain": "sassbuster.ai",
+  "baseUrl": "/sassbuster",
+  "tagline": "Free software with an attitude.",
+  "heroSubtitle": "Bold tools for creative teams who refuse to overpay.",
+  "fonts": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap",
+  "fontFamily": "'Inter',system-ui,-apple-system,sans-serif"
+}

@@ -1,0 +1,46 @@
+{
+  "slug": "landing-pages",
+  "name": "PageLaunch",
+  "category": "Landing Pages",
+  "tagline": "Build high-converting pages without the high-converting price",
+  "metaDescription": "PageLaunch replaces Unbounce with a drag-and-drop landing page builder inside AppBuster. A/B test, publish, and convert — saving $1,188/year.",
+  "competitor": "Unbounce",
+  "competitorPrice": "$99/mo",
+  "annualSavings": "$1,188/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">🚀</text></svg>",
+  "features": [
+    { "icon": "&#128396;", "title": "Drag-and-Drop Builder", "desc": "Visually design landing pages with a block-based editor. Choose from pre-built sections for heroes, testimonials, pricing tables, and CTAs — no code required." },
+    { "icon": "&#128202;", "title": "A/B Testing", "desc": "Split traffic between page variants and let the data pick the winner. Test headlines, layouts, CTAs, and images to continuously improve conversion rates." },
+    { "icon": "&#128241;", "title": "Mobile-First Design", "desc": "Every page is fully responsive out of the box with independent mobile and desktop editing. Preview and fine-tune the experience on any screen size." },
+    { "icon": "&#9889;", "title": "Instant Publishing", "desc": "Publish pages to your custom domain with one click and near-zero load times. Built-in CDN delivery ensures fast page loads from anywhere in the world." },
+    { "icon": "&#128209;", "title": "Lead Capture Forms", "desc": "Embed customizable forms with conditional fields and multi-step flows. Captured leads sync directly to your CRM or email list in real time." },
+    { "icon": "&#128736;", "title": "Popup &amp; Sticky Bar Builder", "desc": "Create exit-intent popups, scroll-triggered overlays, and sticky announcement bars. Target visitors by page, referrer, or visit count for precise messaging." }
+  ],
+  "includes": [
+    "Unlimited landing pages",
+    "Drag-and-drop visual editor",
+    "50+ conversion-optimized templates",
+    "A/B split testing engine",
+    "Custom domain publishing",
+    "SSL certificates included",
+    "Lead capture forms with webhooks",
+    "Popup and sticky bar builder",
+    "Real-time analytics dashboard",
+    "Dynamic text replacement",
+    "Custom CSS and JavaScript injection",
+    "SEO meta tag management"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Page Builder", "them": "&#10003;", "themType": "check" },
+      { "feature": "A/B Testing", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Domains", "them": "&#10003;", "themType": "check" },
+      { "feature": "Popups &amp; Sticky Bars", "them": "$99+/mo", "themType": "paid" },
+      { "feature": "Dynamic Text Replacement", "them": "$99+/mo", "themType": "paid" },
+      { "feature": "Unlimited Pages", "them": "&#10007;", "themType": "cross" },
+      { "feature": "Unlimited Conversions", "them": "&#10003;", "themType": "check" },
+      { "feature": "Built-in Analytics", "them": "$99+/mo", "themType": "paid" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

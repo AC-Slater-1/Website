@@ -1,0 +1,10 @@
+{
+  "name": "Plain Label",
+  "slug": "plainlabel",
+  "domain": "plainlabel.ai",
+  "baseUrl": "/plainlabel",
+  "tagline": "Same software. No brand tax.",
+  "heroSubtitle": "Why pay for the label? Plain Label software does the same thing for $0.",
+  "fonts": "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700;800&display=swap",
+  "fontFamily": "'Roboto Condensed',system-ui,-apple-system,sans-serif"
+}

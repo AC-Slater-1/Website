@@ -1,0 +1,95 @@
+{
+  "slug": "bulkpipe",
+  "name": "BulkPipe",
+  "category": "CRM &amp; Sales",
+  "tagline": "Complete CRM. Contacts, deals, pipeline, email sequences, reporting, automations. All free, forever.",
+  "competitor": "HubSpot",
+  "competitorPrice": "$800/mo",
+  "annualSavings": "$9,600/year",
+  "badges": ["FREE", "HOT"],
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><linearGradient id=\"bc-b1\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#4a9fff\"/><stop offset=\"100%\" stop-color=\"#2060cc\"/></linearGradient><linearGradient id=\"bc-b2\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ffd700\"/><stop offset=\"100%\" stop-color=\"#c8a200\"/></linearGradient><linearGradient id=\"bc-b3\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#50cc70\"/><stop offset=\"100%\" stop-color=\"#2a9a48\"/></linearGradient><linearGradient id=\"bc-b4\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ff6b6b\"/><stop offset=\"100%\" stop-color=\"#cc3a3a\"/></linearGradient><linearGradient id=\"bc-base\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ddd\"/><stop offset=\"50%\" stop-color=\"#bbb\"/><stop offset=\"100%\" stop-color=\"#999\"/></linearGradient></defs><rect x=\"10\" y=\"82\" width=\"80\" height=\"6\" rx=\"2\" fill=\"url(#bc-base)\" stroke=\"#888\" stroke-width=\".5\"/><rect x=\"12\" y=\"86\" width=\"76\" height=\"3\" rx=\"1\" fill=\"rgba(0,0,0,.15)\"/><rect x=\"14\" y=\"55\" width=\"14\" height=\"27\" rx=\"1\" fill=\"url(#bc-b1)\"/><rect x=\"28\" y=\"55\" width=\"3\" height=\"27\" fill=\"#1850aa\" opacity=\".6\"/><rect x=\"33\" y=\"35\" width=\"14\" height=\"47\" rx=\"1\" fill=\"url(#bc-b2)\"/><rect x=\"47\" y=\"35\" width=\"3\" height=\"47\" fill=\"#a08000\" opacity=\".6\"/><rect x=\"52\" y=\"22\" width=\"14\" height=\"60\" rx=\"1\" fill=\"url(#bc-b3)\"/><rect x=\"66\" y=\"22\" width=\"3\" height=\"60\" fill=\"#1a7a30\" opacity=\".6\"/><rect x=\"71\" y=\"45\" width=\"14\" height=\"37\" rx=\"1\" fill=\"url(#bc-b4)\"/><rect x=\"85\" y=\"45\" width=\"3\" height=\"37\" fill=\"#aa2828\" opacity=\".6\"/><rect x=\"16\" y=\"56\" width=\"10\" height=\"2\" rx=\"1\" fill=\"#fff\" opacity=\".3\"/><rect x=\"35\" y=\"36\" width=\"10\" height=\"2\" rx=\"1\" fill=\"#fff\" opacity=\".3\"/><rect x=\"54\" y=\"23\" width=\"10\" height=\"2\" rx=\"1\" fill=\"#fff\" opacity=\".3\"/><rect x=\"73\" y=\"46\" width=\"10\" height=\"2\" rx=\"1\" fill=\"#fff\" opacity=\".3\"/></svg>",
+  "features": [
+    {
+      "icon": "&#x1F4C7;",
+      "title": "Contact Management",
+      "desc": "Unlimited contacts with custom fields, tags, and activity timelines. Import from CSV, sync with email, and never lose a lead."
+    },
+    {
+      "icon": "&#x1F3AF;",
+      "title": "Deal Pipeline",
+      "desc": "Visual kanban boards with drag-and-drop deals. Multiple pipelines, weighted forecasting, and customizable deal stages."
+    },
+    {
+      "icon": "&#x1F4E8;",
+      "title": "Email Sequences",
+      "desc": "Automated multi-step email sequences with personalization. Track opens, clicks, and replies. A/B test subject lines."
+    },
+    {
+      "icon": "&#x1F4CA;",
+      "title": "Reporting Dashboard",
+      "desc": "Revenue forecasts, activity metrics, pipeline velocity, and win/loss analysis. Real-time dashboards with custom widgets."
+    },
+    {
+      "icon": "&#x2705;",
+      "title": "Task Management",
+      "desc": "Assign tasks, set reminders, and track follow-ups. Automatic task creation from deal stage changes and email events."
+    },
+    {
+      "icon": "&#x26A1;",
+      "title": "Automations",
+      "desc": "Workflow triggers for lead scoring, deal routing, email sending, and task creation. If-then logic with no code required."
+    }
+  ],
+  "comparison": {
+    "headers": ["Feature", "BulkPipe", "HubSpot"],
+    "rows": [
+      { "feature": "Unlimited Contacts", "us": "check", "them": "$800+/mo", "themType": "paid" },
+      { "feature": "Deal Pipeline", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "Email Sequences", "us": "check", "them": "$450+/mo", "themType": "paid" },
+      { "feature": "Custom Reporting", "us": "check", "them": "$800+/mo", "themType": "paid" },
+      { "feature": "Workflow Automations", "us": "check", "them": "$800+/mo", "themType": "paid" },
+      { "feature": "Lead Scoring", "us": "check", "them": "$800+/mo", "themType": "paid" },
+      { "feature": "API Access", "us": "check", "them": "\u2714", "themType": "check" },
+      { "feature": "No Per-Seat Pricing", "us": "check", "them": "$45-120/seat", "themType": "cross" }
+    ],
+    "footer": {
+      "ourPrice": "FREE",
+      "theirPrice": "$800/mo"
+    }
+  },
+  "includes": [
+    "Unlimited contacts and companies",
+    "Visual deal pipeline with kanban",
+    "Automated email sequences",
+    "Custom fields and tags",
+    "Revenue forecasting",
+    "Activity logging and timeline",
+    "Lead scoring with custom rules",
+    "Workflow automations",
+    "CSV import/export",
+    "Team collaboration",
+    "No credit card required",
+    "Free forever, no seat limits"
+  ],
+  "useCases": [
+    {
+      "icon": "&#x1F4BC;",
+      "title": "Sales Teams",
+      "desc": "Track every deal from first contact to close. Pipeline visibility for managers, task management for reps. No per-seat fees."
+    },
+    {
+      "icon": "&#x1F3E2;",
+      "title": "Small Businesses",
+      "desc": "Stop losing leads in spreadsheets. Get enterprise CRM features without the enterprise price tag. Grow your business, not your software bill."
+    },
+    {
+      "icon": "&#x1F680;",
+      "title": "Startups",
+      "desc": "Move fast with automated workflows. Score leads, route deals, and send follow-ups on autopilot. Focus on selling, not admin."
+    }
+  ],
+  "nav": {
+    "prev": { "slug": "nexrank", "name": "NexRank" },
+    "next": { "slug": "bulkmail", "name": "BulkMail" }
+  }
+}

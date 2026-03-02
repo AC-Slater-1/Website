@@ -1,0 +1,70 @@
+{
+  "slug": "forms",
+  "name": "FormStack",
+  "category": "Forms &amp; Surveys",
+  "tagline": "Beautiful, logic-driven forms and surveys that boost completion rates. Collect data, generate leads, and gather feedback. Free, with no response limits.",
+  "metaDescription": "FormStack is a free form builder that replaces Typeform. Create beautiful surveys, lead gen forms, and quizzes with conditional logic, file uploads, and unlimited responses.",
+  "competitor": "Typeform",
+  "competitorPrice": "$59/mo",
+  "annualSavings": "$708/year",
+  "heroSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><text x=\"50\" y=\"70\" text-anchor=\"middle\" font-size=\"60\">\ud83d\udccb</text></svg>",
+  "features": [
+    {
+      "icon": "&#127912;",
+      "title": "Visual Form Builder",
+      "desc": "Drag-and-drop editor with 30+ field types including ratings, file uploads, signatures, and payment fields. Design forms that match your brand without touching code."
+    },
+    {
+      "icon": "&#128256;",
+      "title": "Conditional Logic",
+      "desc": "Show or hide fields based on previous answers. Create branching paths that adapt to each respondent, reducing form fatigue and boosting completion rates."
+    },
+    {
+      "icon": "&#128200;",
+      "title": "Real-Time Analytics",
+      "desc": "Track submissions, completion rates, drop-off points, and average response times. Identify which questions cause abandonment and optimize your forms accordingly."
+    },
+    {
+      "icon": "&#128176;",
+      "title": "Payment Collection",
+      "desc": "Accept payments directly through your forms with Stripe, PayPal, and Square integrations. Build order forms, donation pages, and checkout flows without a separate tool."
+    },
+    {
+      "icon": "&#128230;",
+      "title": "File Uploads &amp; Storage",
+      "desc": "Let respondents upload documents, images, and files up to 100MB each. All uploads are stored securely and organized by submission for easy retrieval."
+    },
+    {
+      "icon": "&#128295;",
+      "title": "Integrations &amp; Webhooks",
+      "desc": "Connect form submissions to 100+ apps including Google Sheets, Slack, HubSpot, and Mailchimp. Trigger webhooks for custom workflows on every submission."
+    }
+  ],
+  "includes": [
+    "Unlimited forms and surveys",
+    "Unlimited responses per month",
+    "30+ field types including file upload",
+    "Conditional logic and branching",
+    "Custom themes and branding",
+    "Payment collection via Stripe/PayPal",
+    "Real-time submission analytics",
+    "Email notifications on submission",
+    "Embed forms on any website",
+    "Pre-fill fields via URL parameters",
+    "GDPR compliance tools",
+    "Spam protection with CAPTCHA"
+  ],
+  "comparison": {
+    "rows": [
+      { "feature": "Drag-and-Drop Builder", "them": "&#10003;", "themType": "check" },
+      { "feature": "Conditional Logic", "them": "&#10003;", "themType": "check" },
+      { "feature": "Custom Branding", "them": "&#10003;", "themType": "check" },
+      { "feature": "Embed on Website", "them": "&#10003;", "themType": "check" },
+      { "feature": "Payment Collection", "them": "$59+/mo", "themType": "paid" },
+      { "feature": "File Uploads", "them": "$59+/mo", "themType": "paid" },
+      { "feature": "Webhooks", "them": "$59+/mo", "themType": "paid" },
+      { "feature": "Unlimited Responses", "them": "&#10007;", "themType": "cross" },
+      { "feature": "AI Agents", "them": "&#10007;", "themType": "cross", "usType": "cross" }
+    ]
+  }
+}

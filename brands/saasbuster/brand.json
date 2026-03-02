@@ -1,0 +1,10 @@
+{
+  "name": "SaaS Buster",
+  "slug": "saasbuster",
+  "domain": "saasbuster.ai",
+  "baseUrl": "/saasbuster",
+  "tagline": "Enterprise Software. Zero Cost.",
+  "heroSubtitle": "The same tools your competitors pay thousands for. Yours for free.",
+  "fonts": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap",
+  "fontFamily": "'Inter',system-ui,-apple-system,sans-serif"
+}

@@ -1,0 +1,21 @@
+{
+  "isDark": false,
+  "vars": {
+    "bg": "#f8faf9",
+    "surface": "#ffffff",
+    "surfaceHover": "#f0fdf4",
+    "border": "#e2e8f0",
+    "text": "#1e293b",
+    "muted": "#64748b",
+    "gold": "#10b981",
+    "goldDim": "rgba(16, 185, 129, 0.1)",
+    "goldGlow": "rgba(16, 185, 129, 0.06)",
+    "blue": "#10b981",
+    "blueDim": "rgba(16, 185, 129, 0.1)",
+    "sans": "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif",
+    "mono": "'JetBrains Mono', 'Courier New', monospace"
+  },
+  "brandNameHtml": "No<span>Catch</span>",
+  "accentOnBg": "#fff",
+  "extraCSS": ""
+}
