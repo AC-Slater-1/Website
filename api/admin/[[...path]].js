@@ -76,16 +76,35 @@ async function handleLogin(req, res) {
   }
   const { username, password } = req.body || {};
   if (!username || !password) return res.status(400).json({ error: 'Username and password required' });
-  const expectedUser = process.env.ADMIN_USERNAME;
-  const expectedPass = process.env.ADMIN_PASSWORD;
-  if (!expectedUser || !expectedPass) return res.status(500).json({ error: 'Admin not configured' });
-  const userBuf = Buffer.from(username);
-  const passBuf = Buffer.from(password);
-  const expectedUserBuf = Buffer.from(expectedUser);
-  const expectedPassBuf = Buffer.from(expectedPass);
-  const userMatch = userBuf.length === expectedUserBuf.length && crypto.timingSafeEqual(userBuf, expectedUserBuf);
-  const passMatch = passBuf.length === expectedPassBuf.length && crypto.timingSafeEqual(passBuf, expectedPassBuf);
-  if (!userMatch || !passMatch) { recordAttempt(clientKey); return res.status(401).json({ error: 'Invalid username or password' }); }
+
+  // Build list of valid credentials: ADMIN_USERS (user:pass|user:pass) + legacy single-user env vars
+  var validUsers = [];
+  var usersStr = process.env.ADMIN_USERS;
+  if (usersStr) {
+    usersStr.split('|').forEach(function(entry) {
+      var sep = entry.indexOf(':');
+      if (sep > 0) validUsers.push({ username: entry.slice(0, sep), password: entry.slice(sep + 1) });
+    });
+  }
+  var legacyUser = process.env.ADMIN_USERNAME;
+  var legacyPass = process.env.ADMIN_PASSWORD;
+  if (legacyUser && legacyPass) {
+    validUsers.push({ username: legacyUser, password: legacyPass });
+  }
+  if (validUsers.length === 0) return res.status(500).json({ error: 'Admin not configured' });
+
+  // Timing-safe check against all users
+  var matched = false;
+  var userBuf = Buffer.from(username.toLowerCase());
+  var passBuf = Buffer.from(password);
+  for (var i = 0; i < validUsers.length; i++) {
+    var eu = Buffer.from(validUsers[i].username.toLowerCase());
+    var ep = Buffer.from(validUsers[i].password);
+    var uOk = userBuf.length === eu.length && crypto.timingSafeEqual(userBuf, eu);
+    var pOk = passBuf.length === ep.length && crypto.timingSafeEqual(passBuf, ep);
+    if (uOk && pOk) { matched = true; break; }
+  }
+  if (!matched) { recordAttempt(clientKey); return res.status(401).json({ error: 'Invalid username or password' }); }
   const token = generateToken();
   if (!token) return res.status(500).json({ error: 'Token generation failed' });
   res.json({ ok: true, token });
@@ -174,7 +193,9 @@ async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
 
   // Extract the sub-route from the catch-all path
-  const pathSegments = req.query.path || [];
+  // Vercel sets query key as "[...path]" for [[...path]].js; Express uses "path"
+  const rawPath = req.query.path || req.query['[...path]'];
+  const pathSegments = Array.isArray(rawPath) ? rawPath : rawPath ? [rawPath] : [];
   const route = pathSegments[0] || '';
 
   // Login doesn't require auth token

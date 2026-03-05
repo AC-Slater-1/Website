@@ -81,7 +81,7 @@ function build() {
     // Build title
     const title = `${product.name} — Free ${product.category} | AppBuster`;
 
-    // Replace all tokens
+    // Replace all product tokens
     let html = template
       .replace(/\{\{TITLE\}\}/g, title)
       .replace(/\{\{META_DESCRIPTION\}\}/g, product.metaDescription)
@@ -96,6 +96,14 @@ function build() {
       .replace(/\{\{COMPETITOR_NAME\}\}/g, product.competitor)
       .replace(/\{\{COMPARISON_ROWS\}\}/g, comparisonRowsHTML)
       .replace(/\{\{SLUG\}\}/g, product.slug);
+
+    // Replace brand tokens with AppBuster defaults (root pages)
+    html = html
+      .replace(/\{\{FONT_LINKS\}\}/g, '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">')
+      .replace(/\{\{BRAND_NAME_HTML\}\}/g, 'APPBUSTER')
+      .replace(/\{\{BRAND_NAME\}\}/g, 'AppBuster')
+      .replace(/\{\{BRAND_OVERRIDES\}\}/g, '')
+      .replace(/\{\{BASE_URL\}\}/g, '');
 
     const outFile = path.join(PUBLIC_DIR, `${product.slug}.html`);
     fs.writeFileSync(outFile, html, 'utf8');

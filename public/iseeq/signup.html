@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get Started - iSeeQ</title>
 <meta name="description" content="Sign up for iSeeQ. Free SaaS alternatives with optional agentic tiers.">
+<meta property="og:title" content="Get Started - iSeeQ">
+<meta property="og:description" content="Sign up for iSeeQ. Free SaaS alternatives with optional agentic tiers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="/iseeq/signup.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get Started - iSeeQ">
+<meta name="twitter:description" content="Sign up for iSeeQ. Free SaaS alternatives with optional agentic tiers.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffe44d'/%3E%3Cstop offset='50%25' stop-color='%23ffd700'/%3E%3Cstop offset='100%25' stop-color='%23ccab00'/%3E%3C/linearGradient%3E%3ClinearGradient id='l' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%231a3a8a'/%3E%3Cstop offset='100%25' stop-color='%230f2460'/%3E%3C/linearGradient%3E%3ClinearGradient id='s' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23c0c0c0'/%3E%3Cstop offset='50%25' stop-color='%23e8e8e8'/%3E%3Cstop offset='100%25' stop-color='%23a0a0a0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='5' y='5' width='90' height='90' rx='4' fill='url(%23b)' stroke='%23b8960a' stroke-width='1.5'/%3E%3Crect x='28' y='5' width='44' height='28' rx='2' fill='url(%23s)' stroke='%23888' stroke-width='.8'/%3E%3Crect x='36' y='8' width='20' height='22' rx='1' fill='%23333'/%3E%3Crect x='12' y='36' width='76' height='46' rx='2' fill='url(%23l)' stroke='%230a1a4a' stroke-width='.8'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial Black,Impact,sans-serif' font-size='16' font-weight='900' fill='%23ffd700'%3EAB%3C/text%3E%3Crect x='9' y='86' width='8' height='6' rx='1.5' fill='%23b8960a' stroke='%23a07800' stroke-width='.5'/%3E%3Ccircle cx='50' cy='90' r='3' fill='none' stroke='%23b8960a' stroke-width='.8'/%3E%3Ccircle cx='50' cy='90' r='1' fill='%23b8960a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -200,6 +207,20 @@ body {
   font-size: 11px;
   color: var(--muted);
 }
+.plan-option .period-inline {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.plan-option .agents {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 .plan-option .badge {
   position: absolute;
   top: -9px;
@@ -345,11 +366,16 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 560px) {
-  .signup-card { padding: 28px 20px; }
+  .signup-card { padding: 28px 16px; }
   .plan-selector { gap: 6px; }
-  .plan-option { padding: 12px 8px; }
-  .plan-option .price { font-size: 16px; }
+  .plan-option { padding: 10px 6px; }
+  .plan-option .tier { font-size: 12px; }
+  .plan-option .price { font-size: 14px; }
+  .plan-option .period-inline { font-size: 10px; }
+  .plan-option .agents { font-size: 9px; }
+  .plan-option .badge { font-size: 7px; padding: 2px 6px; }
   .plan-banner .plan-name { font-size: 24px; }
+  .logo-text { font-size: 18px; }
 }
 </style>
 </head>
@@ -387,15 +413,15 @@ body {
         <input type="radio" name="plan" value="pro">
         <span class="badge">Coming Soon</span>
         <div class="tier">Pro</div>
-        <div class="price">$99</div>
-        <div class="period">/month</div>
+        <div class="price">$99<span class="period-inline">/mo</span></div>
+        <div class="agents">5 Agents</div>
       </label>
       <label class="plan-option disabled" data-plan="scale">
         <input type="radio" name="plan" value="scale">
         <span class="badge badge-blue">Coming Soon</span>
         <div class="tier">Scale</div>
-        <div class="price">$299</div>
-        <div class="period">/month</div>
+        <div class="price">$299<span class="period-inline">/mo</span></div>
+        <div class="agents">Unlimited Agents</div>
       </label>
     </div>
 
@@ -409,7 +435,7 @@ body {
 
     <p class="terms">
       No credit card required.<br>
-      By signing up you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>.
+      By signing up you agree to our <a href="terms.html">Terms</a> &amp; <a href="privacy.html">Privacy Policy</a>.
     </p>
 
   </div>
@@ -429,8 +455,8 @@ body {
 <script>
 var PLANS = {
   free:  { name: 'Free',  price: '$0',   period: 'forever',  color: 'gold' },
-  pro:   { name: 'Pro',   price: '$99',  period: '/month',   color: 'gold' },
-  scale: { name: 'Scale', price: '$299', period: '/month',   color: 'blue' }
+  pro:   { name: 'Pro',   price: '$99',  period: '/mo',   color: 'gold' },
+  scale: { name: 'Scale', price: '$299', period: '/mo',   color: 'blue' }
 };
 
 var currentPlan = 'free';
@@ -515,10 +541,12 @@ function handleSignup(e) {
       btnEl.textContent = 'Get Started';
       return;
     }
-    // Success — update UI
-    document.getElementById('formState').style.display = 'none';
-    document.getElementById('successState').style.display = 'block';
-    document.getElementById('bannerLabel').textContent = 'Welcome aboard';
+    // Track signup conversion
+    if (window.ABTrack) ABTrack.event('signup', { plan: currentPlan });
+    // Redirect to thank-you page
+    var baseUrl = '/iseeq';
+    var thankYouUrl = baseUrl + '/thank-you.html?plan=' + encodeURIComponent(currentPlan) + '&email=' + encodeURIComponent(email);
+    window.location.href = thankYouUrl;
   })
   .catch(function() {
     errorEl.textContent = 'Something went wrong. Please try again.';
@@ -528,15 +556,14 @@ function handleSignup(e) {
   });
 }
 
-// Read ?plan= from URL on load
+// Always default to Free for now
 (function() {
-  var params = new URLSearchParams(window.location.search);
-  var plan = params.get('plan');
-  if (plan && PLANS[plan]) {
-    selectPlan(plan);
-  }
+  selectPlan('free');
 })();
 </script>
 
+<script src="/ab-tracker.js"></script>
+<script src="/ab-pixels.js" defer></script>
+<script src="/kevin-widget.js"></script>
 </body>
 </html>

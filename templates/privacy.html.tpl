@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - {{BRAND_NAME}}</title>
+<meta name="description" content="Privacy Policy for {{BRAND_NAME}}.">
+<meta property="og:title" content="Privacy Policy - {{BRAND_NAME}}">
+<meta property="og:type" content="website">
+{{FONT_LINKS}}
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+:root {
+  --bg: #09090b;
+  --surface: #18181b;
+  --border: #27272a;
+  --text: #fafafa;
+  --muted: #a1a1aa;
+  --gold: #ffd700;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+{{BRAND_OVERRIDES}}
+html { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); min-height: 100vh; padding: 40px 20px; }
+.container { max-width: 720px; margin: 0 auto; }
+.back-link { display: inline-block; color: var(--muted); text-decoration: none; font-size: 14px; margin-bottom: 32px; }
+.back-link:hover { color: var(--text); }
+h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+.updated { font-size: 13px; color: var(--muted); margin-bottom: 40px; }
+h2 { font-size: 20px; font-weight: 700; margin-top: 36px; margin-bottom: 12px; color: var(--gold); }
+p, ul { margin-bottom: 16px; color: var(--muted); font-size: 15px; }
+ul { padding-left: 24px; }
+li { margin-bottom: 6px; }
+a { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="container">
+<a href="/" class="back-link">&larr; Back to {{BRAND_NAME}}</a>
+<h1>Privacy Policy</h1>
+<p class="updated">Last updated: March 2026</p>
+
+<h2>What We Collect</h2>
+<p>When you sign up, we collect your email address and selected plan. We also collect anonymous usage analytics (page views, clicks) through our tracking system.</p>
+
+<h2>How We Use Your Data</h2>
+<ul>
+<li>To provide and improve our services</li>
+<li>To send you product updates and relevant communications</li>
+<li>To analyze usage patterns and improve user experience</li>
+</ul>
+
+<h2>Third-Party Services</h2>
+<p>We use the following services that may collect data:</p>
+<ul>
+<li><strong>Supabase</strong> — Database and authentication</li>
+<li><strong>Vercel</strong> — Hosting and analytics</li>
+<li><strong>Google Ads</strong> — Conversion tracking (if enabled)</li>
+<li><strong>Meta (Facebook)</strong> — Pixel tracking (if enabled)</li>
+</ul>
+
+<h2>Cookies</h2>
+<p>We use essential cookies for site functionality. Third-party ad pixels may set tracking cookies. You can disable cookies in your browser settings.</p>
+
+<h2>Your Rights</h2>
+<p>You can request deletion of your data at any time by contacting us. We will remove your information from our systems within 30 days.</p>
+
+<h2>Data Security</h2>
+<p>We use industry-standard security measures including encrypted connections (HTTPS), secure database access controls, and regular security audits.</p>
+
+<h2>Contact</h2>
+<p>For privacy inquiries, email us at <a href="mailto:privacy@appbuster.ai">privacy@appbuster.ai</a>.</p>
+</div>
+</body>
+</html>

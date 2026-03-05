@@ -154,6 +154,20 @@ body {
   font-size: 11px;
   color: var(--muted);
 }
+.plan-option .period-inline {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.plan-option .agents {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 .plan-option .badge {
   position: absolute;
   top: -9px;
@@ -299,11 +313,16 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 560px) {
-  .signup-card { padding: 28px 20px; }
+  .signup-card { padding: 28px 16px; }
   .plan-selector { gap: 6px; }
-  .plan-option { padding: 12px 8px; }
-  .plan-option .price { font-size: 16px; }
+  .plan-option { padding: 10px 6px; }
+  .plan-option .tier { font-size: 12px; }
+  .plan-option .price { font-size: 14px; }
+  .plan-option .period-inline { font-size: 10px; }
+  .plan-option .agents { font-size: 9px; }
+  .plan-option .badge { font-size: 7px; padding: 2px 6px; }
   .plan-banner .plan-name { font-size: 24px; }
+  .logo-text { font-size: 18px; }
 }
 </style>
 </head>
@@ -341,15 +360,15 @@ body {
         <input type="radio" name="plan" value="pro">
         <span class="badge">Coming Soon</span>
         <div class="tier">Pro</div>
-        <div class="price">$99</div>
-        <div class="period">/month</div>
+        <div class="price">$99<span class="period-inline">/mo</span></div>
+        <div class="agents">5 Agents</div>
       </label>
       <label class="plan-option disabled" data-plan="scale">
         <input type="radio" name="plan" value="scale">
         <span class="badge badge-blue">Coming Soon</span>
         <div class="tier">Scale</div>
-        <div class="price">$299</div>
-        <div class="period">/month</div>
+        <div class="price">$299<span class="period-inline">/mo</span></div>
+        <div class="agents">Unlimited Agents</div>
       </label>
     </div>
 
@@ -363,7 +382,7 @@ body {
 
     <p class="terms">
       No credit card required.<br>
-      By signing up you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>.
+      By signing up you agree to our <a href="terms.html">Terms</a> &amp; <a href="privacy.html">Privacy Policy</a>.
     </p>
 
   </div>
@@ -383,8 +402,8 @@ body {
 <script>
 var PLANS = {
   free:  { name: 'Free',  price: '$0',   period: 'forever',  color: 'gold' },
-  pro:   { name: 'Pro',   price: '$99',  period: '/month',   color: 'gold' },
-  scale: { name: 'Scale', price: '$299', period: '/month',   color: 'blue' }
+  pro:   { name: 'Pro',   price: '$99',  period: '/mo',   color: 'gold' },
+  scale: { name: 'Scale', price: '$299', period: '/mo',   color: 'blue' }
 };
 
 var currentPlan = 'free';
@@ -469,10 +488,11 @@ function handleSignup(e) {
       btnEl.textContent = 'Get Started';
       return;
     }
-    // Success — update UI
-    document.getElementById('formState').style.display = 'none';
-    document.getElementById('successState').style.display = 'block';
-    document.getElementById('bannerLabel').textContent = 'Welcome aboard';
+    // Track signup conversion
+    if (window.ABTrack) ABTrack.event('signup', { plan: currentPlan });
+    // Redirect to thank-you page
+    var thankYouUrl = '/thank-you.html?plan=' + encodeURIComponent(currentPlan) + '&email=' + encodeURIComponent(email);
+    window.location.href = thankYouUrl;
   })
   .catch(function() {
     errorEl.textContent = 'Something went wrong. Please try again.';
@@ -482,15 +502,12 @@ function handleSignup(e) {
   });
 }
 
-// Read ?plan= from URL on load
+// Always default to Free for now
 (function() {
-  var params = new URLSearchParams(window.location.search);
-  var plan = params.get('plan');
-  if (plan && PLANS[plan]) {
-    selectPlan(plan);
-  }
+  selectPlan('free');
 })();
 </script>
 
+<script src="/ab-tracker.js"></script>
 </body>
 </html>

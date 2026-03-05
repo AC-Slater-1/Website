@@ -107,5 +107,17 @@
   {{nav.nextHTML}}
 </div>
 
+<script src="/ab-tracker.js"></script>
+<script src="/ab-pixels.js" defer></script>
+<script>
+// Track CTA button clicks
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a.btn, a.cta-btn');
+  if (!link || !window.ABTrack) return;
+  var label = link.textContent.trim();
+  if (label) ABTrack.event('cta_click', { cta_label: label, href: link.getAttribute('href') });
+});
+</script>
+<script src="/kevin-widget.js"></script>
 </body>
 </html>

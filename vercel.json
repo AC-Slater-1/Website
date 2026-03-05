@@ -1,15 +1,145 @@
 {
   "version": 2,
   "rewrites": [
-    { "source": "/api/admin/:path*", "destination": "/api/admin/:path*" },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "saasbuster.ai" }],
+      "destination": "/saasbuster/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.saasbuster.ai" }],
+      "destination": "/saasbuster/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "16kb.ai" }],
+      "destination": "/16kb/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.16kb.ai" }],
+      "destination": "/16kb/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "iseeq.ai" }],
+      "destination": "/iseeq/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.iseeq.ai" }],
+      "destination": "/iseeq/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "limeware.ai" }],
+      "destination": "/limeware/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.limeware.ai" }],
+      "destination": "/limeware/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "modelt.ai" }],
+      "destination": "/modelt/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.modelt.ai" }],
+      "destination": "/modelt/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "nocatch.ai" }],
+      "destination": "/nocatch/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.nocatch.ai" }],
+      "destination": "/nocatch/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "plainlabel.ai" }],
+      "destination": "/plainlabel/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.plainlabel.ai" }],
+      "destination": "/plainlabel/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "samebutfree.ai" }],
+      "destination": "/samebutfree/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.samebutfree.ai" }],
+      "destination": "/samebutfree/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "compareto.ai" }],
+      "destination": "/compareto/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.compareto.ai" }],
+      "destination": "/compareto/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "vanillalabs.ai" }],
+      "destination": "/vanillalabs/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.vanillalabs.ai" }],
+      "destination": "/vanillalabs/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "sassbuster.ai" }],
+      "destination": "/sassbuster/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.sassbuster.ai" }],
+      "destination": "/sassbuster/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "appbusters.ai" }],
+      "destination": "/appbusters/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.appbusters.ai" }],
+      "destination": "/appbusters/:path*"
+    },
     { "source": "/api/votes", "destination": "/api/votes" },
     { "source": "/api/guestbook", "destination": "/api/guestbook" },
     { "source": "/api/downloads", "destination": "/api/downloads/index" },
     { "source": "/api/downloads/:appName", "destination": "/api/downloads/[appName]" },
     { "source": "/api/signup", "destination": "/api/signup" },
+    { "source": "/api/events", "destination": "/api/events" },
+    { "source": "/api/pixel-config", "destination": "/api/pixel-config" },
+    { "source": "/api/conversions", "destination": "/api/conversions" },
     { "source": "/api/feedback", "destination": "/api/feedback" }
   ],
   "headers": [
+    {
+      "source": "/api/admin/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, PUT, DELETE, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    },
     {
       "source": "/api/votes",
       "headers": [
@@ -31,6 +161,31 @@
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    },
+    {
+      "source": "/api/events",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+      ]
+    },
+    {
+      "source": "/api/pixel-config",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/api/conversions",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
       ]
     },

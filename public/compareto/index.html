@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Compare To — Free Software. Infinite Scale.</title>
+  <meta name="description" content="Compare To — Free SaaS alternatives with optional agentic tiers. Stop overpaying for software.">
+  <meta property="og:title" content="Compare To — Free Software. Infinite Scale.">
+  <meta property="og:description" content="Free SaaS alternatives with optional agentic tiers. Stop overpaying for software.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/compareto">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Compare To — Free Software. Infinite Scale.">
+  <meta name="twitter:description" content="Free SaaS alternatives with optional agentic tiers. Stop overpaying for software.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -82,6 +90,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     body {
@@ -1330,6 +1339,10 @@
         grid-template-columns: 1fr;
       }
 
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-metric {
         gap: 1.5rem;
       }
@@ -1382,20 +1395,6 @@
       <div class="hero-ctas">
         <a href="#tools" class="btn btn-outline">Browse Free Tools</a>
         <a href="#pricing" class="btn btn-gold">See Agentic Plans</a>
-      </div>
-      <div class="hero-metric">
-        <div class="hero-metric-item">
-          <div class="num">22</div>
-          <div class="label">Tool Categories</div>
-        </div>
-        <div class="hero-metric-item">
-          <div class="num">93</div>
-          <div class="label">Competitors Mapped</div>
-        </div>
-        <div class="hero-metric-item">
-          <div class="num">$0</div>
-          <div class="label">Forever</div>
-        </div>
       </div>
     </div>
   </section>
@@ -1793,7 +1792,7 @@
       <div class="agentic-card fade-in">
         <div class="agentic-card-header">
           <div class="agentic-card-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none"><circle cx="12" cy="4" r="2.5" stroke="#818cf8" stroke-width="1.5"/><circle cx="12" cy="20" r="2.5" stroke="#818cf8" stroke-width="1.5"/><circle cx="6" cy="12" r="2.5" stroke="#60a5fa" stroke-width="1.5"/><circle cx="18" cy="12" r="2.5" stroke="#60a5fa" stroke-width="1.5"/><path d="M12 6.5v2M12 15.5v2M9.5 10.5L8 11M14 13l1.5.5" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round"/><path d="M14.5 5.5L16 7M7.5 17l1.5 1.5M9.5 5.5L8 7M16.5 17L15 18.5" stroke="#60a5fa" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/></svg></div>
-          <h3>Workflow Builder</h3>
+          <h3>AI Workflow Builder</h3>
         </div>
         <p>Chain any tool into automated pipelines. Visual builder or code-first, your choice. Templates for common workflows.</p>
         <div class="flow-chart">
@@ -2008,5 +2007,17 @@
     });
   </script>
 
+<script src="/ab-tracker.js"></script>
+<script src="/ab-pixels.js" defer></script>
+<script>
+// Track CTA button clicks
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a.btn, a.cta-btn');
+  if (!link || !window.ABTrack) return;
+  var label = link.textContent.trim();
+  if (label) ABTrack.event('cta_click', { cta_label: label, href: link.getAttribute('href') });
+});
+</script>
+<script src="/kevin-widget.js"></script>
 </body>
 </html>

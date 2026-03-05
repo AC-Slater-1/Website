@@ -16,22 +16,25 @@ const downloadsListHandler = require('./api/downloads/index');
 const downloadsIncrHandler = require('./api/downloads/[appName]');
 const adminHandler = require('./api/admin/[[...path]]');
 const signupHandler = require('./api/signup');
+const eventsHandler = require('./api/events');
 const feedbackHandler = require('./api/feedback');
 
 // Admin catch-all — extract sub-route into req.query.path for the handler
+// Express 5 makes req.query read-only (getter), so use defineProperty to override
 app.all('/api/admin/:route', (req, res) => {
-  req.query.path = [req.params.route];
+  Object.defineProperty(req, 'query', { value: { path: [req.params.route] }, writable: true });
   adminHandler(req, res);
 });
 
 app.all('/api/votes', votesHandler);
 app.all('/api/guestbook', guestbookHandler);
 app.all('/api/signup', signupHandler);
+app.all('/api/events', express.text({ type: '*/*' }), eventsHandler);
 app.all('/api/feedback', feedbackHandler);
 app.get('/api/downloads', downloadsListHandler);
 app.post('/api/downloads/:appName', (req, res) => {
-  // Vercel uses req.query for dynamic params, Express uses req.params
-  req.query.appName = req.params.appName;
+  // Vercel uses req.query for dynamic params, Express 5 makes req.query read-only
+  Object.defineProperty(req, 'query', { value: { appName: req.params.appName }, writable: true });
   downloadsIncrHandler(req, res);
 });
 

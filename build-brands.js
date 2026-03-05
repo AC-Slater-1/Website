@@ -299,6 +299,9 @@ function build() {
   const homepageTpl = fs.readFileSync(path.join(TEMPLATES_DIR, 'homepage.html.tpl'), 'utf8');
   const productTpl = fs.readFileSync(path.join(TEMPLATES_DIR, 'product-page.html.tpl'), 'utf8');
   const signupTpl = fs.readFileSync(path.join(TEMPLATES_DIR, 'signup.html.tpl'), 'utf8');
+  const thankYouTpl = fs.readFileSync(path.join(TEMPLATES_DIR, 'thank-you.html.tpl'), 'utf8');
+  const privacyTpl = fs.readFileSync(path.join(TEMPLATES_DIR, 'privacy.html.tpl'), 'utf8');
+  const termsTpl = fs.readFileSync(path.join(TEMPLATES_DIR, 'terms.html.tpl'), 'utf8');
 
   // Read product JSONs
   const productFiles = fs.readdirSync(PRODUCTS_DIR).filter(f => f.endsWith('.json'));
@@ -317,7 +320,7 @@ function build() {
     })
     .sort();
 
-  console.log(`Templates: 3 (homepage, product-page, signup)`);
+  console.log(`Templates: 6 (homepage, product-page, signup, thank-you, privacy, terms)`);
   console.log(`Products:  ${products.length}`);
   console.log(`Brands:    ${brandSlugs.length} → ${brandSlugs.join(', ')}\n`);
 
@@ -406,7 +409,40 @@ function build() {
       fs.writeFileSync(path.join(outDir, 'signup.html'), signup, 'utf8');
       totalFiles++;
 
-      console.log(`   ✓ index.html + ${products.length} products + signup.html`);
+      // 4. Thank-you page
+      let thankYou = thankYouTpl
+        .replace(/\{\{FONT_LINKS\}\}/g, fontLinks)
+        .replace(/\{\{BRAND_OVERRIDES\}\}/g, brandOverrides)
+        .replace(/\{\{BRAND_NAME\}\}/g, brandName)
+        .replace(/\{\{BRAND_NAME_HTML\}\}/g, brandNameHtml)
+        .replace(/\{\{BASE_URL\}\}/g, baseUrl);
+      thankYou = replaceHardcodedColors(thankYou, config);
+      fs.writeFileSync(path.join(outDir, 'thank-you.html'), thankYou, 'utf8');
+      totalFiles++;
+
+      // 5. Privacy page
+      let privacy = privacyTpl
+        .replace(/\{\{FONT_LINKS\}\}/g, fontLinks)
+        .replace(/\{\{BRAND_OVERRIDES\}\}/g, brandOverrides)
+        .replace(/\{\{BRAND_NAME\}\}/g, brandName)
+        .replace(/\{\{BRAND_NAME_HTML\}\}/g, brandNameHtml)
+        .replace(/\{\{BASE_URL\}\}/g, baseUrl);
+      privacy = replaceHardcodedColors(privacy, config);
+      fs.writeFileSync(path.join(outDir, 'privacy.html'), privacy, 'utf8');
+      totalFiles++;
+
+      // 6. Terms page
+      let terms = termsTpl
+        .replace(/\{\{FONT_LINKS\}\}/g, fontLinks)
+        .replace(/\{\{BRAND_OVERRIDES\}\}/g, brandOverrides)
+        .replace(/\{\{BRAND_NAME\}\}/g, brandName)
+        .replace(/\{\{BRAND_NAME_HTML\}\}/g, brandNameHtml)
+        .replace(/\{\{BASE_URL\}\}/g, baseUrl);
+      terms = replaceHardcodedColors(terms, config);
+      fs.writeFileSync(path.join(outDir, 'terms.html'), terms, 'utf8');
+      totalFiles++;
+
+      console.log(`   ✓ index.html + ${products.length} products + signup + thank-you + privacy + terms`);
 
     } catch (err) {
       console.error(`   ✗ ERROR: ${err.message}`);

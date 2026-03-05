@@ -130,6 +130,10 @@ body::before{
   margin-bottom:16px;transition:border-color var(--transition)
 }
 .login-body input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-muted)}
+.pw-wrap{position:relative}
+.pw-wrap input{padding-right:40px}
+.pw-toggle{position:absolute;right:10px;top:50%;transform:translateY(-60%);background:none;border:none;cursor:pointer;color:var(--text-tertiary);padding:4px;font-size:16px;line-height:1}
+.pw-toggle:hover{color:var(--text)}
 .login-body input::placeholder{color:var(--text-tertiary)}
 .login-submit{
   width:100%;padding:10px 0;margin-top:8px;
@@ -406,7 +410,10 @@ a:has(.brand-preview){text-decoration:none}
       <label for="loginUser">Username</label>
       <input type="text" id="loginUser" placeholder="Enter username" autofocus>
       <label for="loginPass">Password</label>
-      <input type="password" id="loginPass" placeholder="Enter password">
+      <div class="pw-wrap">
+        <input type="password" id="loginPass" placeholder="Enter password">
+        <button type="button" class="pw-toggle" id="pwToggle" tabindex="-1" aria-label="Show password">&#128065;</button>
+      </div>
       <button class="login-submit" id="loginBtn">Sign In</button>
     </div>
   </div>
@@ -781,6 +788,14 @@ a:has(.brand-preview){text-decoration:none}
       return r.json();
     });
   }
+
+  document.getElementById('pwToggle').addEventListener('click', function() {
+    var inp = document.getElementById('loginPass');
+    var show = inp.type === 'password';
+    inp.type = show ? 'text' : 'password';
+    this.textContent = show ? '\u25CF\u25CF\u25CF' : '\uD83D\uDC41';
+    this.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+  });
 
   function doLogin() {
     var user = document.getElementById('loginUser').value;
