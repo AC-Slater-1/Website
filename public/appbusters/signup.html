@@ -137,6 +137,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-bottom: 24px;
+  position: relative;
 }
 .plan-option {
   position: relative;
@@ -215,6 +216,26 @@ body {
   background: var(--blue);
   color: #fff;
 }
+.waitlist-cta {
+  position: absolute;
+  bottom: -9px;
+  left: 42%;
+  right: 10%;
+  text-align: center;
+  font-size: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 0;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #09090b;
+  white-space: nowrap;
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.waitlist-cta:empty { display: none; }
 
 /* ── Form ── */
 .signup-form { margin-top: 4px; }
@@ -386,18 +407,19 @@ body {
       </label>
       <label class="plan-option disabled" data-plan="pro">
         <input type="radio" name="plan" value="pro">
-        <span class="badge">Coming Soon</span>
+        <span class="badge" data-ab-experiment="badge_text_v1">Coming Soon</span>
         <div class="tier">Pro</div>
         <div class="price">$99<span class="period-inline">/mo</span></div>
         <div class="agents">5 Agents</div>
       </label>
       <label class="plan-option disabled" data-plan="scale">
         <input type="radio" name="plan" value="scale">
-        <span class="badge badge-blue">Coming Soon</span>
+        <span class="badge badge-blue" data-ab-experiment="badge_text_v1">Coming Soon</span>
         <div class="tier">Scale</div>
         <div class="price">$299<span class="period-inline">/mo</span></div>
         <div class="agents">Unlimited Agents</div>
       </label>
+      <div class="waitlist-cta" data-ab-sub="badge_text_v1"></div>
     </div>
 
     <!-- Email form -->
@@ -537,6 +559,7 @@ function handleSignup(e) {
 })();
 </script>
 
+<script src="/ab-split.js"></script>
 <script src="/ab-tracker.js"></script>
 <script src="/ab-pixels.js" defer></script>
 <script src="/kevin-widget.js"></script>
