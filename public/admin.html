@@ -393,7 +393,34 @@ a:has(.brand-preview){text-decoration:none}
   .panel-header{padding:12px 16px}
   .toolbar{padding:10px 16px}
   .login-body{padding:28px 20px}
+  .su-stats{grid-template-columns:1fr 1fr}
+  .su-charts{grid-template-columns:1fr}
 }
+
+/* ── SIGNUPS TAB ─────────────────────────────────────────── */
+.su-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.su-stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center}
+.su-stat .num{font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1}
+.su-stat .num.accent{color:var(--accent)}
+.su-stat .num.green{color:var(--success)}
+.su-stat .num.warn{color:var(--warning)}
+.su-stat .lbl{font-size:11px;color:var(--text-tertiary);margin-top:6px;text-transform:uppercase;letter-spacing:.05em}
+.su-charts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.su-chart{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.su-chart h3{font-size:12px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+.su-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.su-bar-label{width:80px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0}
+.su-bar-track{flex:1;height:22px;background:var(--surface-raised);border-radius:4px;overflow:hidden}
+.su-bar-fill{height:100%;border-radius:4px;min-width:2px;transition:width .3s ease}
+.su-bar-fill.gold{background:linear-gradient(90deg,#ffd700,#f59e0b)}
+.su-bar-fill.blue{background:linear-gradient(90deg,#3b82f6,#6366f1)}
+.su-bar-fill.green{background:linear-gradient(90deg,#22c55e,#10b981)}
+.su-bar-fill.brand{background:linear-gradient(90deg,var(--accent),#6366f1)}
+.su-bar-count{width:40px;font-size:12px;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
+.su-plan-pill{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;text-transform:uppercase}
+.su-plan-pill.free{background:rgba(255,215,0,.12);color:#ffd700}
+.su-plan-pill.pro{background:var(--accent-muted);color:var(--accent)}
+.su-plan-pill.scale{background:var(--success-muted);color:var(--success)}
 </style>
 </head>
 <body>
@@ -435,10 +462,35 @@ a:has(.brand-preview){text-decoration:none}
 
   <div class="admin-nav" id="adminNav">
     <button class="active" data-tab="brands">Brands</button>
+    <button data-tab="signups">Sign Ups</button>
     <button data-tab="votes">Votes</button>
     <button data-tab="roadmap">Roadmap</button>
     <button data-tab="pitch">Pitch</button>
     <button data-tab="feedback">Kevin 📸</button>
+  </div>
+
+  <!-- SIGN UPS -->
+  <div class="tab-panel" style="display:none" id="panel-signups">
+    <div class="tab-content">
+      <div class="su-stats" id="suStats"></div>
+      <div class="su-charts">
+        <div class="su-chart"><h3>Plan Breakdown</h3><div id="suPlanChart"></div></div>
+        <div class="su-chart"><h3>Source Breakdown</h3><div id="suSourceChart"></div></div>
+      </div>
+      <div class="panel">
+        <div class="toolbar">
+          <span style="font-size:13px;font-weight:600;color:var(--text-secondary)">All Signups</span>
+          <span class="spacer"></span>
+          <button class="btn btn-sm btn-ghost" id="suRefresh">Refresh</button>
+        </div>
+        <div class="panel-body">
+          <table>
+            <thead><tr><th style="width:36px">#</th><th>Email</th><th style="width:64px">Plan</th><th>Source</th><th style="width:80px">Date</th></tr></thead>
+            <tbody id="suBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- VOTES -->
@@ -839,8 +891,90 @@ a:has(.brand-preview){text-decoration:none}
     document.querySelectorAll('.admin-nav button').forEach(function(b) { b.classList.remove('active'); });
     document.getElementById('panel-' + id).style.display = 'block';
     btn.classList.add('active');
+    if (id === 'signups') loadSignups();
     if (id === 'votes') loadVotes();
     if (id === 'feedback') loadFeedback();
+  }
+
+  // ===== SIGN UPS =====
+  function loadSignups() {
+    authFetch(API + '/signups').then(function(d) {
+      var stats = d.stats || {};
+      var signups = d.signups || [];
+
+      // Stat cards
+      var sc = clearEl('suStats');
+      var cards = [
+        { num: stats.total || 0, lbl: 'Total Sign Ups', cls: 'accent' },
+        { num: stats.today || 0, lbl: 'Today', cls: 'green' },
+        { num: stats.this_week || 0, lbl: 'This Week', cls: 'warn' },
+        { num: stats.avg_per_day || '0', lbl: 'Avg / Day', cls: '' }
+      ];
+      cards.forEach(function(c) {
+        sc.appendChild(el('div', {cls: 'su-stat'}, [
+          el('div', {cls: 'num' + (c.cls ? ' ' + c.cls : ''), text: String(c.num)}),
+          el('div', {cls: 'lbl', text: c.lbl})
+        ]));
+      });
+
+      // Plan breakdown bars
+      var pc = clearEl('suPlanChart');
+      var byPlan = stats.by_plan || {};
+      var planMax = Math.max(byPlan.free || 0, byPlan.pro || 0, byPlan.scale || 0, 1);
+      var planData = [
+        { label: 'Free', count: byPlan.free || 0, cls: 'gold' },
+        { label: 'Pro', count: byPlan.pro || 0, cls: 'blue' },
+        { label: 'Scale', count: byPlan.scale || 0, cls: 'green' }
+      ];
+      planData.forEach(function(p) {
+        var pct = Math.round((p.count / planMax) * 100);
+        var fill = el('div', {cls: 'su-bar-fill ' + p.cls, style: 'width:' + pct + '%'});
+        pc.appendChild(el('div', {cls: 'su-bar-row'}, [
+          el('span', {cls: 'su-bar-label', text: p.label}),
+          el('div', {cls: 'su-bar-track'}, [fill]),
+          el('span', {cls: 'su-bar-count', text: String(p.count)})
+        ]));
+      });
+
+      // Source breakdown bars
+      var src = clearEl('suSourceChart');
+      var bySource = stats.by_source || {};
+      var sourceEntries = Object.keys(bySource).map(function(k) { return { label: k, count: bySource[k] }; });
+      sourceEntries.sort(function(a, b) { return b.count - a.count; });
+      var srcMax = sourceEntries.length > 0 ? sourceEntries[0].count : 1;
+      if (sourceEntries.length === 0) {
+        src.appendChild(el('div', {text: 'No data yet', style: 'color:var(--text-tertiary);font-size:12px'}));
+      } else {
+        sourceEntries.slice(0, 8).forEach(function(s) {
+          var pct = Math.round((s.count / srcMax) * 100);
+          var fill = el('div', {cls: 'su-bar-fill brand', style: 'width:' + pct + '%'});
+          src.appendChild(el('div', {cls: 'su-bar-row'}, [
+            el('span', {cls: 'su-bar-label', text: s.label}),
+            el('div', {cls: 'su-bar-track'}, [fill]),
+            el('span', {cls: 'su-bar-count', text: String(s.count)})
+          ]));
+        });
+      }
+
+      // Table
+      var tbody = clearEl('suBody');
+      if (signups.length === 0) {
+        tbody.appendChild(el('tr', null, [el('td', {colspan: '5', text: 'No signups yet', style: 'color:var(--text-tertiary);padding:20px 16px'})]));
+        return;
+      }
+      signups.forEach(function(s, i) {
+        var plan = s.plan || 'free';
+        var pill = el('span', {cls: 'su-plan-pill ' + plan, text: plan});
+        var dateStr = s.created_at ? new Date(s.created_at).toLocaleDateString('en-US', {month: 'short', day: 'numeric'}) : '';
+        tbody.appendChild(el('tr', null, [
+          el('td', {text: String(i + 1), style: 'color:var(--text-tertiary)'}),
+          el('td', {text: s.email || '', style: 'font-family:var(--monospace-font,monospace);font-size:12px'}),
+          el('td', null, [pill]),
+          el('td', {text: s.source || 'direct', style: 'color:var(--text-secondary);font-size:12px'}),
+          el('td', {text: dateStr, style: 'font-size:12px;color:var(--text-tertiary)'})
+        ]));
+      });
+    });
   }
 
   // ===== VOTES =====

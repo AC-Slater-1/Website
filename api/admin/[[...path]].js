@@ -187,6 +187,48 @@ async function handleVotes(req, res) {
   res.status(405).json({ error: 'Method not allowed' });
 }
 
+async function handleSignups(req, res) {
+  if (!supabase) return res.status(500).json({ error: 'Database not configured' });
+  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
+
+  var now = new Date();
+  var todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+  var weekStart = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 7).toISOString();
+
+  var [allRows, todayCount, weekCount] = await Promise.all([
+    supabase.from('signups').select('id, email, plan, source, created_at').order('created_at', { ascending: false }).limit(500),
+    supabase.from('signups').select('id', { count: 'exact', head: true }).gte('created_at', todayStart),
+    supabase.from('signups').select('id', { count: 'exact', head: true }).gte('created_at', weekStart)
+  ]);
+
+  if (allRows.error) return res.status(500).json({ error: allRows.error.message });
+
+  var signups = allRows.data || [];
+  var total = signups.length;
+  var today = todayCount.count || 0;
+  var week = weekCount.count || 0;
+
+  // Compute breakdowns
+  var byPlan = { free: 0, pro: 0, scale: 0 };
+  var bySource = {};
+  for (var i = 0; i < signups.length; i++) {
+    var s = signups[i];
+    if (byPlan[s.plan] !== undefined) byPlan[s.plan]++;
+    var src = s.source || 'direct';
+    bySource[src] = (bySource[src] || 0) + 1;
+  }
+
+  // Days since first signup for avg/day calc
+  var firstDate = signups.length > 0 ? new Date(signups[signups.length - 1].created_at) : now;
+  var daySpan = Math.max(1, Math.ceil((now - firstDate) / 86400000));
+  var avgPerDay = total > 0 ? (total / daySpan).toFixed(1) : '0';
+
+  res.json({
+    signups: signups,
+    stats: { total: total, today: today, this_week: week, avg_per_day: avgPerDay, by_plan: byPlan, by_source: bySource }
+  });
+}
+
 // ── Main router ───────────────────────────────────────────
 async function handler(req, res) {
   setCorsHeaders(res, req);
@@ -209,6 +251,7 @@ async function handler(req, res) {
     case 'guestbook': return handleGuestbook(req, res);
     case 'downloads': return handleDownloads(req, res);
     case 'votes': return handleVotes(req, res);
+    case 'signups': return handleSignups(req, res);
     default: return res.status(404).json({ error: 'Not found' });
   }
 }
