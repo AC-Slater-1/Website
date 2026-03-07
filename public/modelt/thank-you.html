@@ -262,6 +262,70 @@ body {
 }
 .btn-secondary:hover { background: #3f3f46; }
 
+/* ── Referral Section ── */
+.referral-section {
+  margin-top: 28px;
+  padding: 28px 24px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+}
+.referral-section h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--gold);
+}
+.referral-section .referral-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.refer-form {
+  display: flex;
+  gap: 8px;
+}
+.refer-input {
+  flex: 1;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.refer-input:focus {
+  border-color: var(--gold);
+}
+.refer-input::placeholder { color: #52525b; }
+.refer-btn {
+  padding: 12px 20px;
+  background: var(--gold);
+  color: #1c1917;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.1s;
+}
+.refer-btn:hover { opacity: 0.9; }
+.refer-btn:active { transform: scale(0.98); }
+.refer-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.refer-status {
+  margin-top: 12px;
+  font-size: 13px;
+  min-height: 20px;
+}
+.refer-status.success { color: #22c55e; }
+.refer-status.error { color: #ef4444; }
+
 /* ── Footer ── */
 .footer-text {
   margin-top: 32px;
@@ -311,22 +375,22 @@ body {
     <div class="step-item">
       <div class="step-icon">&#9993;</div>
       <div class="step-content">
-        <div class="step-title">Confirmation email on its way</div>
-        <div class="step-desc">Check your inbox (and spam folder, just in case).</div>
-      </div>
-    </div>
-    <div class="step-item">
-      <div class="step-icon">&#128273;</div>
-      <div class="step-content">
-        <div class="step-title">Account setup instructions</div>
-        <div class="step-desc">We'll walk you through getting started step by step.</div>
+        <div class="step-title">Check your inbox</div>
+        <div class="step-desc">We just sent you a welcome email. Check spam too, just in case.</div>
       </div>
     </div>
     <div class="step-item">
       <div class="step-icon">&#128640;</div>
       <div class="step-content">
-        <div class="step-title">You'll be up and running in minutes</div>
-        <div class="step-desc">No complex onboarding. Just real tools, ready to use.</div>
+        <div class="step-title">Early access invite coming soon</div>
+        <div class="step-desc">We'll email you as soon as your spot opens up.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-icon">&#128176;</div>
+      <div class="step-content">
+        <div class="step-title">Save from day one</div>
+        <div class="step-desc">Premium tools at a fraction of the cost. No commitments.</div>
       </div>
     </div>
   </div>
@@ -334,6 +398,18 @@ body {
   <!-- Social proof -->
   <div class="social-proof">
     Join <strong>10,000+</strong> teams already saving with Model T
+  </div>
+
+  <!-- Referral -->
+  <div class="referral-section">
+    <h2>Move up the waitlist</h2>
+    <p class="referral-sub">Invite a friend and get early access sooner.</p>
+    <form id="referForm" class="refer-form">
+      <input type="email" class="refer-input" id="friendEmail"
+             placeholder="friend@email.com" required autocomplete="off">
+      <button type="submit" class="refer-btn" id="referBtn">Send Invite</button>
+    </form>
+    <div id="referStatus" class="refer-status"></div>
   </div>
 
   <!-- CTA buttons -->
@@ -394,6 +470,57 @@ body {
 })();
 </script>
 
+<script>
+(function() {
+  var form = document.getElementById('referForm');
+  var input = document.getElementById('friendEmail');
+  var btn = document.getElementById('referBtn');
+  var status = document.getElementById('referStatus');
+  var params = new URLSearchParams(window.location.search);
+  var referrerEmail = params.get('email') || '';
+  var sent = 0;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var friendEmail = input.value.trim();
+    if (!friendEmail) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.textContent = '';
+    status.className = 'refer-status';
+
+    fetch('/api/refer', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        friend_email: friendEmail,
+        referrer_email: referrerEmail.replace(/[^a-zA-Z0-9@._+\-]/g, '')
+      })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      if (data.ok) {
+        sent++;
+        status.textContent = 'Invite sent! ' + (sent === 1 ? 'Send another to move up even more.' : sent + ' invites sent.');
+        status.className = 'refer-status success';
+        input.value = '';
+      } else {
+        status.textContent = data.error || 'Something went wrong. Try again.';
+        status.className = 'refer-status error';
+      }
+    })
+    .catch(function() {
+      status.textContent = 'Something went wrong. Try again.';
+      status.className = 'refer-status error';
+    })
+    .finally(function() {
+      btn.disabled = false;
+      btn.textContent = 'Send Invite';
+    });
+  });
+})();
+</script>
 <script src="/ab-tracker.js"></script>
 <script src="/ab-pixels.js" defer></script>
 <script src="/kevin-widget.js"></script>

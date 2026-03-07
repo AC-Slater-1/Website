@@ -37,22 +37,44 @@
     xhr.send();
   }
 
-  // ── Google Ads (gtag.js) ────────────────────
-  function loadGtag(conversionId) {
-    if (!conversionId) return;
+  // ── Google gtag.js (shared by GA4 + Google Ads) ──
+  var gtagScriptLoaded = false;
 
-    // Load gtag.js script
+  function ensureGtagScript(primaryId) {
+    if (gtagScriptLoaded) return;
+    gtagScriptLoaded = true;
+
+    // Load gtag.js once — keyed to whichever ID is available first
     var script = document.createElement('script');
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + conversionId;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + primaryId;
     document.head.appendChild(script);
 
-    // Initialize gtag
+    // Initialize dataLayer + gtag function
     window.dataLayer = window.dataLayer || [];
     window.gtag = function() { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
-    window.gtag('config', conversionId, {
+  }
+
+  // ── GA4 Analytics ─────────────────────────────
+  function loadGA4(measurementId) {
+    if (!measurementId) return;
+
+    ensureGtagScript(measurementId);
+    window.gtag('config', measurementId, {
       send_page_view: false // We fire pageview manually via ABTrack
+    });
+
+    gtagReady = true;
+  }
+
+  // ── Google Ads (conversion tracking) ──────────
+  function loadGoogleAds(conversionId) {
+    if (!conversionId) return;
+
+    ensureGtagScript(conversionId);
+    window.gtag('config', conversionId, {
+      send_page_view: false
     });
 
     gtagReady = true;
@@ -211,8 +233,13 @@
   // ── Initialize ──────────────────────────────
   // Load config, then load pixels, then hook into ABTrack
   loadConfig(function(cfg) {
+    // GA4 analytics (always load if configured)
+    if (cfg.ga4_measurement_id) {
+      loadGA4(cfg.ga4_measurement_id);
+    }
+    // Google Ads conversion tracking
     if (cfg.google_conversion_id) {
-      loadGtag(cfg.google_conversion_id);
+      loadGoogleAds(cfg.google_conversion_id);
     }
     if (cfg.meta_pixel_id) {
       loadMetaPixel(cfg.meta_pixel_id);

@@ -37,8 +37,8 @@ var META_EVENT_MAP = {
 };
 
 function sendToMetaCAPI(event, callback) {
-  var pixelId = process.env.META_PIXEL_ID;
-  var token = process.env.META_CAPI_TOKEN;
+  var pixelId = (process.env.META_PIXEL_ID || '').trim();
+  var token = (process.env.META_CAPI_TOKEN || '').trim();
   if (!pixelId || !token) return callback(null, 'meta_skipped');
 
   var metaEvent = META_EVENT_MAP[event.event_name];

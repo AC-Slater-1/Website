@@ -5,6 +5,12 @@
  * Server-side tokens (CAPI) are NOT exposed here.
  */
 
+// Safely read + trim env var (guards against trailing newlines from CLI piping)
+function env(key) {
+  var val = process.env[key];
+  return val ? val.trim() : '';
+}
+
 async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -24,17 +30,18 @@ async function handler(req, res) {
   var config = {};
 
   // Google Ads
-  if (process.env.GOOGLE_ADS_CONVERSION_ID) {
-    config.google_conversion_id = process.env.GOOGLE_ADS_CONVERSION_ID;
-  }
-  if (process.env.GOOGLE_ADS_CONVERSION_LABEL) {
-    config.google_conversion_label = process.env.GOOGLE_ADS_CONVERSION_LABEL;
-  }
+  var gadsId = env('GOOGLE_ADS_CONVERSION_ID');
+  var gadsLabel = env('GOOGLE_ADS_CONVERSION_LABEL');
+  if (gadsId) config.google_conversion_id = gadsId;
+  if (gadsLabel) config.google_conversion_label = gadsLabel;
+
+  // GA4
+  var ga4 = env('GA4_MEASUREMENT_ID');
+  if (ga4) config.ga4_measurement_id = ga4;
 
   // Meta Pixel
-  if (process.env.META_PIXEL_ID) {
-    config.meta_pixel_id = process.env.META_PIXEL_ID;
-  }
+  var metaPx = env('META_PIXEL_ID');
+  if (metaPx) config.meta_pixel_id = metaPx;
 
   // If no pixels configured, return empty (ab-pixels.js handles gracefully)
   return res.status(200).json(config);
